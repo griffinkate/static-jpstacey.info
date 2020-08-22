@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2017-02-03/drupal-8-api-render-api.html" />
+<link rel="shortlink" href="681.html" />
+  <title>Drupal 8 API: render API | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"fA2Nmfp2uPn-VwQjVGQOQHsvZ3iWJ9PLLaJjtHKtHcA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-681 node-type-blog" >
+  <div id="skip-link">
+    <a href="681.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: render API        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Friday, February 3, 2017 - 12:02</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers">Routing API and page controllers</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-12-08/drupal-8-api-events">Events</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-09-16/drupal-8-api-blocks">Blocks</a></li>
+</ul><h2>Rendering pages in Drupal with a layered pipeline</h2>
+<p>Rendering is the act of turning data structures into content, usually HTML. Before we go into the details of what data structures Drupal's rendering engine demands, let's consider an overview of how requests, responses and rendering all work together in Drupal.</p>
+<p>Drupal and Symfony communicate between themselves to determine how an incoming HTTP request should be dealt with, to generate the response, and to deliver the response back to the browser. This is often referred to as the <a href="https://www.drupal.org/docs/8/api/render-api/the-drupal-8-render-pipeline">Drupal 8 render pipeline</a>; in practice, it's a set of embedded pipeline layers.</p>
+<p>Very broadly, the following details a typical request/response cycle in Drupal, with each level of indentation representing another layer in the pipeline:</p>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">/index.php</code></span> creates a HTTP <span class="geshifilter"><code class="text geshifilter-text">$request</code></span> from globals then calls <span class="geshifilter"><code class="text geshifilter-text">DrupalKernel::handle($request)</code></span>:
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">DrupalKernel</code></span> retrieves the Symfony <span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> (wrapped up with middleware using <span class="geshifilter"><code class="text geshifilter-text">StackedHttpKernel</code></span>) and calls <span class="geshifilter"><code class="text geshifilter-text">HttpKernel::handle($request)</code></span>.
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> determines the route matched by <span class="geshifilter"><code class="text geshifilter-text">$request</code></span> and the controller handling the route, using a <span class="geshifilter"><code class="text geshifilter-text">KernelEvents::REQUEST</code></span> event.
+</li><li><span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> checks to see if the controller has returned a <span class="geshifilter"><code class="text geshifilter-text">Response $response</code></span> object, or something else.
+</li><li><span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> passes any something-else that looks like a render(able) data structure on to the <span class="geshifilter"><code class="text geshifilter-text">MainContentRendererInterface::renderResponse()</code></span> method that matches the desired response content type e.g. <span class="geshifilter"><code class="text geshifilter-text">HtmlRenderer::renderResponse()</code></span>, using a <span class="geshifilter"><code class="text geshifilter-text">KernelEvents::VIEW</code></span> event.
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">HtmlRenderer</code></span> calls <span class="geshifilter"><code class="text geshifilter-text">RendererInterface::render()</code></span>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">Renderer</code></span> turns render(able) arrays recursively into markup.
+</li><li><em>This might be considered Drupal's "rendering engine", and we'll describe it separately below.</em>
+        </li></ul></li><li><span class="geshifilter"><code class="text geshifilter-text">HtmlRenderer</code></span> turns the markup into a HTTP 200 <span class="geshifilter"><code class="text geshifilter-text">Response $response</code></span>.
+</li><li><em>(event handling finishes)</em></li>
+</ul></li><li><span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> permits just-in-time replacement of any placeholders (see below) using a <span class="geshifilter"><code class="text geshifilter-text">KernelEvents::RESPONSE</code></span> event.
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">ChainedPlaceholderStrategy</code></span> does one last sweep of placeholders, permitting modifictations; called from <span class="geshifilter"><code class="text geshifilter-text">HtmlResponsePlaceholderStrategySubscriber::onRespond()</code></span>.
+</li><li><span class="geshifilter"><code class="text geshifilter-text">HtmlResponseAttachmentsProcessor</code></span> processes both attached placeholders and any other attached data like Javascript and CSS libraries; called from <span class="geshifilter"><code class="text geshifilter-text">HtmlResponseSubscriber::onRespond()</code></span>.
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">Renderer::renderRoot()</code></span> make one more render pass over the content; unlike <span class="geshifilter"><code class="text geshifilter-text">::render()</code></span> above, it injects placeholders.
+        </li></ul></li><li><em>(event handling finishes)</em></li>
+</ul></li><li><em>(Symfony kernel hands back to Drupal)</em></li>
+</ul></li><li><em>(Drupal kernel hands back to the executable)</em></li>
+</ul></li><li><span class="geshifilter"><code class="text geshifilter-text">/index.php</code></span> sends <span class="geshifilter"><code class="text geshifilter-text">$response</code></span> and terminates the <span class="geshifilter"><code class="text geshifilter-text">DrupalKernel</code></span>.
+</li></ul><p>Symfony's key contribution to the above is the <span class="geshifilter"><code class="text geshifilter-text">HttpKernel</code></span> and the concept of event subscription, which we've discussed in a previous tutorial.</p>
+<p>There are obviously other potential logical routes, to handle such circumstances as an uninstalled site, or a HTTP error condition (40x errors, 30x redirects etc.) but this captures the broad idea of a set of pipeline layers, each one handing off code execution to the layer below it (often using event subscription) and then dealing with the returned values.</p>
+<h2>A closer look at the rendering engine: the lowest pipeline layer</h2>
+<p>The deepest layer of pipeline above—the <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/class/Renderer/8.2.x">Renderer class</a>—is available as the <span class="geshifilter"><code class="text geshifilter-text">renderer</code></span> service for the purposes of dependency injection (at the command line, <span class="geshifilter"><code class="text geshifilter-text">\Drupal::service('renderer')</code></span>.</p>
+<p>Within this <span class="geshifilter"><code class="text geshifilter-text">Renderer</code></span> layer, we can identify three or four separate sub-layers:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">public function renderRoot()</code></span></dt>
+<dd>The "safest" method to use, from outside the rendering process; indeed, this is how you might render markup at the command line (see below). This performs a full rendering sweep, and then replaces any placeholders: these are markers in the HTML, like "@link_to_current_user", that might sometimes be the only markup that changes from page to page: hence, Drupal can hold off replacing them until the very end, to take advantage of caching earlier on. Internally, this method calls:</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">public function render()</code></span></dt>
+<dd>This can be invoked from outside the rendering process, but the calling object must do some other heavy lifting: providing the method with a persisting "render context" for storing information that might be needed between render calls; dealing with placeholder replacement somehow (<span class="geshifilter"><code class="text geshifilter-text">render()</code></span> does not by default do it, although <span class="geshifilter"><code class="text geshifilter-text">renderRoot()</code></span> can prompt it to do so.) The method is actually a "safer" wrapper for:</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">protected function doRender()</code></span></dt>
+<dd>An internal method, which calls itself recursively, to travel first down into the lowermost "children" of the renderable array, and then gradually travel back up, processing each layer of children in turn. It's <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AdoRender/8.2.x">a long and complex method</a>, which performs lots of different checks before (usually) handing off the job of creating each fragment of markup to:</dd>
+<dt>the theme API</dt>
+<dd>which we don't discuss here; handing-off points are usually identified by the presence of a <span class="geshifilter"><code class="text geshifilter-text">#theme</code></span> property in a renderable array. This layer handles the autodiscovery, parsing and caching of Twig templates, and the turning of provided further properties (node objects, user accounts etc.) into human-readable markup.</dd>
+</dl><p>Normally, though, your own code won't need to call any of these layers directly, as rendering is controlled entirely by renderable arrays: as we'll see next.</p>
+<h2>Demonstrating different renderable arrays with a new block</h2>
+<p>Let's create another block in our custom module, and use that to demonstrate a number of possible options in renderable arrays.</p>
+<p>Save the following class as <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Block/RenderBlock.php</code></span> within the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Block<span class="sy0">;</span>
+ 
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+use Drupal\Core\Block\BlockBase<span class="sy0">;</span>
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface<span class="sy0">;</span>
+use Drupal\Core\Session\AccountProxy<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Block for the tutorial.
+ *
+ * @Block(
+ *   id = "tutorial_render_block",
+ *   admin_label = @Translation("Render block")
+ * )
+ */</span>
+<span class="kw2">class</span> RenderBlock <span class="kw2">extends</span> BlockBase implements ContainerFactoryPluginInterface <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var AccountProxy
+   */</span>
+  protected <span class="re0">$currentUser</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Standard block constructor, but with addition of the current user service.
+   *
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+    AccountProxy <span class="re0">$currentUser</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span> <span class="sy0">=</span> <span class="re0">$currentUser</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>
+    ContainerInterface <span class="re0">$container</span><span class="sy0">,</span>
+    <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span>
+      <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+      <span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'current_user'</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From BlockPluginInterface via BlockBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> build<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#theme'</span> <span class="sy0">=&gt;</span> <span class="st_h">'item_list'</span><span class="sy0">,</span>
+      <span class="st_h">'#items'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="st_h">'has_custom_tag'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+          <span class="st_h">'#allowed_tags'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'script'</span><span class="br0">]</span><span class="sy0">,</span>
+          <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="st_h">'&lt;script type="text/javascript"&gt;document.write("Script has run");&lt;/script&gt;'</span><span class="sy0">,</span>
+        <span class="br0">]</span><span class="sy0">,</span>
+        <span class="st_h">'has_placeholder'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+          <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="st_h">'@replaced'</span><span class="sy0">,</span>
+          <span class="st_h">'#attached'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+            <span class="st_h">'placeholders'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+              <span class="st_h">'@replaced'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Placeholder replaced'</span><span class="br0">]</span>
+            <span class="br0">]</span>
+          <span class="br0">]</span>
+        <span class="br0">]</span><span class="sy0">,</span>
+        <span class="st_h">'themed_no_account'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+          <span class="st_h">'#theme'</span> <span class="sy0">=&gt;</span> <span class="st_h">'username'</span><span class="sy0">,</span>
+        <span class="br0">]</span><span class="sy0">,</span>
+        <span class="st_h">'themed_with_account'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+          <span class="st_h">'#theme'</span> <span class="sy0">=&gt;</span> <span class="st_h">'username'</span><span class="sy0">,</span>
+          <span class="st_h">'#account'</span><span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">getAccount</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+        <span class="br0">]</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>We've discussed blocks previously, including dependency injection, so we won't reiterate on that; except to note that we're injecting the <span class="geshifilter"><code class="text geshifilter-text">current_user</code></span> service into our block, so we have access to the currently logged-in user's account.</p>
+<p>The block contains four renderable sub-arrays, demonstrating four different permutations of attributes:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">has_custom_tag</code></span></dt>
+<dd>Includes tags not normally permitted for security reasons; requires a <span class="geshifilter"><code class="text geshifilter-text">#allowed_tags</code></span> array listing which are permitted.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">has_placeholder</code></span></dt>
+<dd>Includes a placeholder; placeholders are each themselves represented as render arrays, so they could be rendered at the last possible moment.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">themed_no_account</code></span></dt>
+<dd>Uses the <span class="geshifilter"><code class="text geshifilter-text">username</code></span> theme function, corresponding to the <span class="geshifilter"><code class="text geshifilter-text">username.html.twig</code></span> template.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">themed_with_account</code></span></dt>
+<dd>Uses the <span class="geshifilter"><code class="text geshifilter-text">username</code></span> theme function; this time, includes the current user's account as a <span class="geshifilter"><code class="text geshifilter-text">#account</code></span> attribute.</dd>
+</dl><p>These four are wrapped up in a containing renderable array, which uses the theme function <span class="geshifilter"><code class="text geshifilter-text">item_list</code></span> and references these children as the <span class="geshifilter"><code class="text geshifilter-text">#items</code></span> property.</p>
+<p>If you're tweaking this code to see how it works, be warned that, for logged-in users, blocks are strongly cached, and you'll need to clear the cache to see any changes. You can play with the <span class="geshifilter"><code class="text geshifilter-text">#cache</code></span> settings on any given renderable array, although that's out of the scope of this tutorial. Nicely, though, for the sake of this example: blocks are cached on a per-user basis; this means that the <span class="geshifilter"><code class="text geshifilter-text">current_user</code></span> won't accidentally show a link to user A in the block for user B.</p>
+<h2>What you should see</h2>
+<p>Firstly, as is usually the case, you should install Drush, then rebuild caches so that Drupal finds the new block. As this has been discussed in previous tutorials, we don't discuss it here.</p>
+<p>Before we look at the block, we'll just call the renderer service directly at the command line:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'$renderable = ["#markup" =&gt; "Test"]; print \Drupal::service("renderer")-&gt;renderRoot($renderable);'</span></pre></div>
+<p>This should output the following, with no terminating newline:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Test</pre></div>
+<p>For reference, then, you can use this service directly in future to trial all sorts of renderable arrays, and see how they turn out in isolation from the rest of the page's rendering.</p>
+<p>To enable the block created above, (as previously) you should log in and navigate to Structure &gt; Block layout and click "Place block" by the "Sidebar first" region. In the modal popup you should see "Render block": click this and go through the process of adding it to the region as before.</p>
+<p>When you navigate back to the front page of the website, you should see this block in place:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-172" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/tutorial-render-blockpng.html">tutorial-render-block.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/tutorial-render-block.png"><img class="media-element file-inline-image" alt="Homepage, showing the Render block with rendered content." src="../sites/files/jps/styles/large/public/tutorial-render-block.png%3Fitok=G-aK2aOB" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>From top to bottom, you can see in the block:</p>
+<ol><li>The results of the <span class="geshifilter"><code class="text geshifilter-text">&lt;script&gt;</code></span> tag, allowed to pass unfiltered to the browser and there executed.</li>
+<li>The placeholder text replaced during the final <span class="geshifilter"><code class="text geshifilter-text">renderRoot()</code></span> pass by <span class="geshifilter"><code class="text geshifilter-text">HtmlResponseAttachmentsProcessor</code></span>.</li>
+<li>The <span class="geshifilter"><code class="text geshifilter-text">username</code></span> theme hook, called with no account and defaulting to an unverified anonymous (and thus unlinked) username.</li>
+<li>The <span class="geshifilter"><code class="text geshifilter-text">username</code></span> theme hook, called with the current user's account and hence generating a link to that user's profile.</li>
+</ol><p>If you can see all this, then congratulations! you have successfully returned renderable arrays from a block and demonstrated some of the potential of renderable arrays.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/group/theme_render/8.2.x">Drupal 8 API: render API</a></li>
+<li><a href="https://www.drupal.org/docs/8/api/render-api/the-drupal-8-render-pipeline">The Drupal 8 render pipeline</a></li>
+<li><a href="https://www.drupal.org/node/2848336">Render API overview should reference RenderInterface</a></li>
+<li><a href="https://www.drupal.org/node/2848367">Render API overview example of placeholders either incorrect or misleading</a></li>
+<li><a href="https://www.drupal.org/node/2849246">HtmlResponseAttachmentsProcessor::processAttachments makes no mention of permitted #attached placeholders</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiother.html">d8api:other</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-e1f972bbf0949734fa9dd5c3091083dd">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

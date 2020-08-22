@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-08-17/drush-make-composer-one-module-time.html" />
+<link rel="shortlink" href="../node/543.html" />
+  <title>From Drush make to Composer, one module at a time | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"hS6d08g-gej1THM3VQHjmbdlpr9UOMOOCvwhSOTKKkA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-543 node-type-blog" >
+  <div id="skip-link">
+    <a href="187.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          From Drush make to Composer, one module at a time        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Sunday, August 17, 2014 - 11:08</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><a href="http://www.jpstacey.info/blog/2013-09-18/why-you-should-be-using-drush-make">Drush make is great code</a>, and provides a really innovative way to build your codebases. Its many advantages and wide adoption are among the reasons why I use it to power <a href="https://www.drupal.org/project/drush_instance">Drush instance</a>. However, the file format and way of working isn't particularly standard outside the Drupal community, making it something of a "Drupalism". Such Drupal-specific standards can tend to alienate non-Drupal developers, who land in the Drupal project(s) and think to themselves: "what the hell is <em>this</em>? and <em>this</em>?"</p>
+<p>If possible, we should always root out Drupalisms: though they bind our community together with our shared vocabulary, they can exclude as much as they include, if not more. This spirit is behind the plan to <a href="http://symfony.com/blog/symfony2-meets-drupal-8">replace core D8 functionality with Symfony where appropriate</a>: Symfony is itself a project built on as many public standards or conventions as possible. Drupalisms made pragmatic sense, when no other PHP-wide or development-wide standard existed, but now we have so many more public resources to choose from, that reinventing things ourselves seems perverse or naive.</p>
+<p>With that in mind, we need to be thinking sooner rather than later about the feasibility of replacing Drush make with <a href="https://getcomposer.org/">Composer</a>.</p>
+<h2>What Drush make gives us</h2>
+<p>One of the big advantages of Drush make - permit me some nostalgia for a moment - is that, being a Drupalism, it's very Drupal-savvy. That means that it understands what's meant by a Drupal project, and can contact drupal.org to find out more information about that project. So much of what makes your site can become <em>implicit</em>, and you can specify as little as you want. For example, say you want to build a codebase with just <a href="https://www.drupal.org/project/views">Views</a> and <a href="https://www.drupal.org/project/ctools">Ctools</a> - but you don't care what versions you use - then you can write a <span class="geshifilter"><code class="text geshifilter-text">mysite.make</code></span> makefile as follows:</p>
+<div class="geshifilter">
+<pre class="ini geshifilter-ini" style="font-family:monospace;"><span class="re1">api</span> <span class="sy0">=</span><span class="re2"> 2</span>
+<span class="re1">core</span> <span class="sy0">=</span><span class="re2"> 7.x</span>
+project<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> views
+project<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> ctools</pre></div>
+<p>Extending this pattern to include other projects would as you can see be very simple. Only if your requirements are more complex - you want to pin a module to a specific version, or use a git repository as a source - does the makefile itself get more complex.</p>
+<h2>How might Composer give us the same</h2>
+<p>The equivalent in Composer is remarkably less terse. The first point is that we need to tell Composer about the difference between modules, themes etc. so they get installed in the right subfolder. We therefore immediately need the excellent <a href="https://github.com/composer/installers">composer/installers</a> project as one of our <span class="geshifilter"><code class="text geshifilter-text">composer.json</code></span> requirements, and each package entry needs a "type" field: "drupal-module", "drupal-theme" etc.</p>
+<p>The second is that, while Composer has some autodiscovery too, and will check in the first instance for a <a href="https://packagist.org/">Packagist</a> repository: drupal.org is not Packagist, and does not currently provide an official <span class="geshifilter"><code class="text geshifilter-text">packages.json</code></span> endpoint, although there are <a href="https://www.drupal.org/node/1886820">a couple of unofficial alternatives that are works in progress</a>.</p>
+<p>This situation is understandable, because so few people use Composer for Drupal yet; but it yields a bootstrapping problem meaning that, for now, our equivalent <span class="geshifilter"><code class="text geshifilter-text">composer.json</code></span> has to be so much more verbose, if it's going to be robust and not rely on beta services:</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">{</span>
+  <span class="st0">"repositories"</span><span class="sy0">:</span> <span class="br0">{</span>
+    <span class="st0">"views"</span><span class="sy0">:</span> <span class="br0">{</span>
+      <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"package"</span><span class="sy0">,</span>
+      <span class="st0">"package"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"name"</span><span class="sy0">:</span> <span class="st0">"drupal/views"</span><span class="sy0">,</span>
+        <span class="st0">"version"</span><span class="sy0">:</span> <span class="st0">"7.3.8"</span><span class="sy0">,</span>
+        <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"drupal-module"</span><span class="sy0">,</span>
+        <span class="st0">"dist"</span><span class="sy0">:</span> <span class="br0">{</span>
+          <span class="st0">"url"</span><span class="sy0">:</span> <span class="st0">"http://ftp.drupal.org/files/projects/views-7.x-3.8.zip"</span><span class="sy0">,</span>
+          <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"zip"</span>
+        <span class="br0">}</span>
+      <span class="br0">}</span>
+    <span class="br0">}</span><span class="sy0">,</span>
+    <span class="st0">"ctools"</span><span class="sy0">:</span> <span class="br0">{</span>
+      <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"package"</span><span class="sy0">,</span>
+      <span class="st0">"package"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"name"</span><span class="sy0">:</span> <span class="st0">"drupal/ctools"</span><span class="sy0">,</span>
+        <span class="st0">"version"</span><span class="sy0">:</span> <span class="st0">"7.1.4"</span><span class="sy0">,</span>
+        <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"drupal-module"</span><span class="sy0">,</span>
+        <span class="st0">"dist"</span><span class="sy0">:</span> <span class="br0">{</span>
+          <span class="st0">"url"</span><span class="sy0">:</span> <span class="st0">"http://ftp.drupal.org/files/projects/views-7.x-1.4.zip"</span><span class="sy0">,</span>
+          <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"zip"</span>
+        <span class="br0">}</span>
+      <span class="br0">}</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span><span class="sy0">,</span>
+  <span class="st0">"require"</span><span class="sy0">:</span> <span class="br0">{</span>
+    <span class="st0">"composer/installers"</span><span class="sy0">:</span> <span class="st0">"~1.0"</span><span class="sy0">,</span>
+    <span class="st0">"drupal/views"</span><span class="sy0">:</span> <span class="st0">"7.3.8"</span><span class="sy0">,</span>
+    <span class="st0">"drupal/ctools"</span><span class="sy0">:</span> <span class="st0">"7.1.4"</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>But! if we were able to reliably use one of the unofficial services, then here's what the above reduces to:</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">{</span>
+  <span class="st0">"repositories"</span><span class="sy0">:</span> <span class="br0">{</span>
+    <span class="st0">"drupal"</span><span class="sy0">:</span> <span class="br0">{</span>
+      <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"composer"</span><span class="sy0">,</span>
+      <span class="st0">"url"</span><span class="sy0">:</span> <span class="st0">"http://static.drupal-packagist.org/v0.1.0/"</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span><span class="sy0">,</span>
+  <span class="st0">"require"</span><span class="sy0">:</span> <span class="br0">{</span>
+    <span class="st0">"composer/installers"</span><span class="sy0">:</span> <span class="st0">"~1.0"</span><span class="sy0">,</span>
+    <span class="st0">"drupal/views"</span><span class="sy0">:</span> <span class="st0">"7.3.8"</span><span class="sy0">,</span>
+    <span class="st0">"drupal/ctools"</span><span class="sy0">:</span> <span class="st0">"7.1.4"</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>We still need <span class="geshifilter"><code class="text geshifilter-text">installers</code></span>, to ensure the right subdirectories: but the result is much more terse, and as you can see extending the "require" JSON for new projects should be trivial.</p>
+<p>Sounds good? Well, yes, but at the time of writing, at least one third-party service has a few issues: the major one is that it can be quite slow to resolve, even before download noticeably begins. This is possibly because these services are also handling (non-essential) dependencies: I was given a download of advanced_help and panels along with the above. The second issue is that if I include the mothership theme, it installs it in the <span class="geshifilter"><code class="text geshifilter-text">vendor/drush/</code></span> subfolder, not the <span class="geshifilter"><code class="text geshifilter-text">vendor/themes/</code></span> folder. And these bugs can be filed on <a href="https://github.com/winmillwill/drupal-parse-composer">the github repository</a> (indeed I've recently done so!) but obviously this is less favourable than a community-supported service, where maintenance and downtime could be given more priority (and carried out by a wider team.)</p>
+<h2>Where do we go from here?</h2>
+<p>Composer is ultimately the future of automated dependency building within PHP environments, and it makes sense, if possible, for Drupal to move to using it. Right now, makefile technology is at the heart of any automated Drupal site building, for reasons which are compelling enough: these reasons would need to be trivially satisfied by Composer, for any (Drupal) developer coming to it with very limited knowledge of how to wrangle complex Composer configuration.</p>
+<p>Drupal relies on makefiles and there's a lot of "technical debt" arising from them: converting every d.o project's makefile to use Composer is no trivial task. There needs to be automated conversion and a simple upgrade path, made available to every module maintainer and anyone who's committed themselves to using makefiles in their own environment.</p>
+<p>Drupal.org needs its own packagist service, maintained by the community, or to automatically add d.o packages to packagist.org somehow. It needs at any rate to be a trivial process to add new Drupal projects to a JSON file: as simple as adding new lines to a makefile.</p>
+<p>By adopting Composer - at least as a parallel technology to Drush make in the first instance - Drupal.org will give the right message to the wider Drupal community: it's OK; it's safe; you can use Composer; the more active community members will watch your back if you do. And then, with that encouragement - probably - they will.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-187"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Andrew (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 10/09/2014 - 07:42      </p>
+      <p class="comment-permalink">
+        <a href="187.html#comment-187" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="187.html#comment-187" class="permalink" rel="bookmark">Hi JP,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Great right up. Having bumped up against issues using drush make I'm more than ready to switch. So far I can replicate in Composer most of what drush does with the exception of downloading  specific commit versions or anything from the repo itself (as apposed to the tar ball)</p>
+<p>Have you been able to get this working for D7?</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/543/187.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-188"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 10/09/2014 - 09:16      </p>
+      <p class="comment-permalink">
+        <a href="188.html#comment-188" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="188.html#comment-188" class="permalink" rel="bookmark">Hi Andrew,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Hi Andrew,</p>
+<p>Thanks for the comment. Accessing a git repository a straightforward extension to the "<a href="https://getcomposer.org/doc/05-repositories.md#package-2">package repository</a>" functionality in composer.json, and that's nothing specific to Drupal. You swap out the <strong>dist </strong>contents and use <strong>source</strong> instead: I think you can specify <strong>type</strong>:<strong>vcs </strong>and it will work it out.</p>
+<p>You can see some <a href="https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository#package-2">examples here (same link as above)</a>: just omit the <strong>dist</strong> entirely and it should work. <strong>reference </strong>is anything commit-ish: so branch, tag, commit hash. And the git URL you use is provided on the Drupal project's "Version control" tab e.g. <a href="https://www.drupal.org/project/views/git-instructions">here it is for Views</a>.</p>
+<p>This is how <a href="https://github.com/jpstacey/drush-m2c">drush m2c</a> represents anything git-ish in the makefile, so I'm pretty sure it works fine.</p>
+<p>J-P</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/543/188.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-189"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Andrew (not verified)</span>      </p>
+      <p class="comment-time">
+        Thu, 11/09/2014 - 22:05      </p>
+      <p class="comment-permalink">
+        <a href="189.html#comment-189" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="189.html#comment-189" class="permalink" rel="bookmark">This was my suspicion. As I</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>This was my suspicion. As I am also using composer/installers, I was hoping to piggy-back the useful feature to change the destination of the packages and write the modules into a more Drupal-like destination, such as sites/all/modules/contrib/ - instead I will just copy these "rogue" modules into the appropriate directory using post-update-cmd.</p>
+<p>Is this the approach you have been taking as well or is there a better way?</p>
+<p>I have converted an existing drush make project into Composer and will be testing it out in an upcoming project, using some of your very useful Composer plugins. Thank you for your work in this area, I really see it as being a more linear way to develop and build Drupal projects.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/543/189.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-190"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Fri, 12/09/2014 - 08:43      </p>
+      <p class="comment-permalink">
+        <a href="190.html#comment-190" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="190.html#comment-190" class="permalink" rel="bookmark">As far as I&#039;m aware, the fact</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>As far as I'm aware, the fact that a composer package is from a git repository doesn't preclude adding a composer/installers type, so you should still be able to do that. As I say, I'm pretty certain I wrote drush m2c to support this, so if you try running your makefile through that then it should do all that for you. If it doesn't then do raise an issue on its github project.</p>
+<p>Also, if you use Drush Instance to run all this for you, it builds sites/all/modules and sites/default for you post-make/composer, so you don't need to embed further post-update-cmd in composer.json. It will also rebuild your codebase (its equivalent of an update is a full rebuild, but mostly from caches), preserving your uploads directory, sites/default and any other custom file locations.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/543/190.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div></div></div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/culture.html">culture</a>, <a href="../category/wordpress-category/software.html">software</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/drushmake-0.html">drushmake</a>, <a href="../category/tags/composer.html">composer</a>, <a href="../category/tags/drupalism.html">drupalism</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-07aa76987c01b1a1dfe782dcd874fe1c">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

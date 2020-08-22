@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="extending-drupal-6-8-upgrade-create-media-entities.html" />
+<link rel="shortlink" href="../../node/675.html" />
+  <title>Extending Drupal 6-to-8 upgrade to create media entities | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"rUW-BHi4BYBJJSg2xvbBcP5b4pGrb0Y7WD3Mez7TQh0","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-675 node-type-blog" >
+  <div id="skip-link">
+    <a href="extending-drupal-6-8-upgrade-create-media-entities.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Extending Drupal 6-to-8 upgrade to create media entities        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, December 13, 2016 - 13:18</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>How can one extend <a href="https://www.drupal.org/docs/8/upgrade/upgrade-using-the-migration-user-interface">the Drupal 6-to-8 core upgrade functionality</a>? Recently, <a href="http://www.jpstacey.info/blog/2016-11-15/quick-rundown-what-using-drupal-6-8s-migration-ui-feels">I've been working with Drupal upgrades using the UI</a> and found the process to be fairly smooth, but missing some key functionality, like media; at the same time, I've been writing <a href="http://www.jpstacey.info/d8api">a series of blogposts on the Drupal 8 APIs</a>: it turns out that, to extend the process of upgrades to Drupal 8, we can bring these two threads together.</p>
+<h2>Existing limitations of Drupal 8 core upgrades</h2>
+<p>Drupal 8's core upgrade from 6 (and, experimentally, 7) can migrate files, but has no concept of "media": managed files, with substantial extra metadata that could be differently structured for images, spreadsheets, other files etc. In Drupal 7 this was provided by <a href="https://www.drupal.org/project/media">the media project</a>, but in Drupal 8 a more lightweight <a href="https://www.drupal.org/project/media_entity">media_entity project</a> can be extended in the handful of ways you might require: for example, by <a href="https://www.drupal.org/project/media_entity_image">media_entity_image for capturing image metadata</a>.</p>
+<p>However, even if you were to run your Drupal 8 upgrade, with media_entity installed, that third-party, contributed module has limited capacity to extend the core upgrades with its own. At the time of writing, <a href="https://api.drupal.org/api/drupal/core%21modules%21migrate_drupal_ui%21src%21Form%21MigrateUpgradeForm.php/8.2.x">8.2.x hardcodes the "module upgrade paths" in the upgrade UI's form</a> (click on "view source" to see this), making it impossible for contributed modules to extend the upgrade with entirely independent migrations of their own. There is <a href="https://www.drupal.org/node/2569805">an open issue to autodiscover this list of module upgrade paths</a>, which might unlock the upgrade to contributed modules: but it's not clear if this is the case; and beside, it's planned for the next minor feature release, 8.3.0.</p>
+<h2>Working around these limitations with the Events, Entity and Field APIs</h2>
+<p>The specific use case, of creating media entities during the upgrade process, is simple enough that we can accomplish it by a different route. The trick is that the new media entities will have a one-to-one correspondence with the file entities; we require that:</p>
+<ol><li>For each file entity upgraded to Drupal 8</li>
+<li>Create one corresponding media entity</li>
+<li>(With bundle to be determined by the file's MIME type.)</li>
+</ol><p>This means that we can use Drupal 8's APIs, in a new custom module, to connect to the existing file entity migration process and create a media entity for each file entity. Respectively, the custom code will:</p>
+<ol><li>Subscribe to the migration of each file entity using <a href="http://www.jpstacey.info/blog/2016-12-08/drupal-8-api-events">the events API</a>.</li>
+<li>Create a new media entity using <a href="http://www.jpstacey.info/blog/2016-10-26/drupal-8-api-entities">the entity API</a>.</li>
+<li>Provide default bundles using exported configuration from <a href="http://www.jpstacey.info/blog/2016-11-08/drupal-8-api-fields">the fields API</a>.</li>
+</ol><p>A fully-functioning module, <span class="geshifilter"><code class="text geshifilter-text">media_entity_upgrade</code></span> is also available as <a href="https://www.drupal.org/project/2834863/git-instructions">this drupal.org sandbox project</a>. We'll refer to some of the code in that repository below, for reasons of convenience.</p>
+<h2>Breakdown of the contents of the module</h2>
+<h3>Module metadata: <span class="geshifilter"><code class="text geshifilter-text">.info.yml</code></span></h3>
+<p>The file <a href="https://cgit.drupalcode.org/sandbox-jpstacey-2834863/tree/media_entity_upgrade.info.yml?h=8.x-1.x">media_entity_upgrade.info.yml</a> is as described in the tutorial on <a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and Altering Drupal</a>, so we don't dwell on it here. Note the large number of dependencies: for simplicity, this could be trimmed down; but all of these other projects are useful when running migrations or upgrades.</p>
+<h3>Event subscriber class: <span class="geshifilter"><code class="text geshifilter-text">src/FileMigrateEventSubscriber.php</code></span></h3>
+<p>This is the only PHP class file in the module, and we quote it below:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\media_entity_upgrade<span class="sy0">;</span>
+ 
+use Drupal\migrate\Event\MigrateEvents<span class="sy0">;</span>
+use Drupal\migrate\Event\MigratePostRowSaveEvent<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityManagerInterface<span class="sy0">;</span>
+use Symfony\Component\EventDispatcher\EventSubscriberInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Create a media entity whenever a file is migrated.
+ */</span>
+<span class="kw2">class</span> FileMigrateEventSubscriber implements EventSubscriberInterface <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var X
+   *   X provided by the factory injected below in the constructor.
+   */</span>
+  protected <span class="re0">$entityManager</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * Dependency injection defined in .services.yml.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>EntityManagerInterface <span class="re0">$entityManager</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span> <span class="sy0">=</span> <span class="re0">$entityManager</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> getSubscribedEvents<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>MigrateEvents<span class="sy0">::</span><span class="me2">POST_ROW_SAVE</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="br0">[</span><span class="st_h">'onPostRowSave'</span><span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Subscribed event callback: MigrateEvents::POST_ROW_SAVE.
+   *
+   * If the saved entity is a file, create a media entity to wrap around it.
+   *
+   * @param MigratePostRowSaveEvent $event
+   *   The event triggered.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> onPostRowSave<span class="br0">(</span>MigratePostRowSaveEvent <span class="re0">$event</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">getMigration</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">getPluginId</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">!=</span> <span class="st_h">'d6_file'</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">return</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Create 'document' media for all files of unknown type.</span>
+    <span class="re0">$bundle</span> <span class="sy0">=</span> <span class="st_h">'document'</span><span class="sy0">;</span>
+    <span class="co1">// Check if MIME type is known, and change media bundle accordingly.</span>
+    <span class="re0">$destinationIds</span> <span class="sy0">=</span> <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">getDestinationIdValues</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$file</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'file'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">(</span><span class="re0">$destinationIds</span><span class="br0">[</span>0<span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">(</span><span class="re0">$file</span><span class="sy0">-&gt;</span><span class="me1">getMimeType</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span> <span class="st_h">'image/'</span><span class="br0">)</span> <span class="sy0">===</span> 0<span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$bundle</span> <span class="sy0">=</span> <span class="st_h">'image'</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Create media entity and save.</span>
+    <span class="re0">$media</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'media'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">create</span><span class="br0">(</span><span class="br0">[</span>
+      <span class="st_h">'bundle'</span> <span class="sy0">=&gt;</span> <span class="re0">$bundle</span><span class="sy0">,</span>
+      <span class="st_h">'uid'</span> <span class="sy0">=&gt;</span> <span class="re0">$file</span><span class="sy0">-&gt;</span><span class="me1">uid</span><span class="sy0">,</span>
+      <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="re0">$file</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">,</span>
+      <span class="st_h">'field_media_file'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="st_h">'target_id'</span> <span class="sy0">=&gt;</span> <span class="re0">$destinationIds</span><span class="br0">[</span>0<span class="br0">]</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$media</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This class contains methods as follows:</p>
+<dl><dt>Constructor and protected variables</dt>
+<dd>This permits <a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">dependency injection</a> of the entity manager, the primary interface to all later entity operations</dd>
+<dt>Detailing event subscriptions: <span class="geshifilter"><code class="text geshifilter-text">getSubscribedEvents()</code></span></dt>
+<dd>This implements the events API, notifying Symfony's event dispatcher of subscription to <a href="https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Event%21MigrateEvents.php/constant/MigrateEvents%3A%3APOST_ROW_SAVE/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">MigrateEvents::POST_ROW_SAVE</code></span> events</a>.</dd>
+<dt>Event handler: <span class="geshifilter"><code class="text geshifilter-text">onPostRowSave</code></span></dt>
+<dd>This responds to any events of the required type by: determining the correct migration (name) is being run (<span class="geshifilter"><code class="text geshifilter-text">d6_file</code></span> is the file/upload component of a Drupal upgrade); switching the media bundle based on the MIME type of the file entity that has been created; then creating the media entity with the minimum of information required.</dd>
+</dl><p>Without the services file below, this class is dormant.</p>
+<h3>Registering the event subscriber: <span class="geshifilter"><code class="text geshifilter-text">media_entity_upgrade.services.yml</code></span></h3>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  media_entity_upgrade.event_subscriber:
+    class: 'Drupal\media_entity_upgrade\FileMigrateEventSubscriber'
+    arguments: ['@entity.manager']
+    tags:
+      - {name: event_subscriber}</pre></div>
+<h3>Media bundles with configured fields: <span class="geshifilter"><code class="text geshifilter-text">config/install/*.yml</code></span></h3>
+<p>There are <a href="https://cgit.drupalcode.org/sandbox-jpstacey-2834863/tree/config/install?h=8.x-1.x">a large number of configuration files for the entity bundles</a>, as you can see. We therefore don't review them in any depth here. Apart from anything else, you might want to create your own bundles!</p>
+<p>When the module is installed, the YAML files in the sandbox module create:</p>
+<ul><li>A <strong>document</strong> media bundle: with form and view displays; and fields including <strong>related file</strong> and storage for the automatically generated <strong>file size</strong> in bytes.</li>
+<li>A <strong>image</strong> media bundle: with form and view displays; and fields including <strong>related file</strong> and storage for the automatically generated <strong>image width and height</strong>.</li>
+</ul><p>All media entities also contain base fields like the owner's user ID and a name (which we simply populate with the file entity's filename): these do not have to be configured with YAML files.</p>
+<p>If you <em>do</em> decide to create your own media entity bundles, rather than the ones provided in the sandbox module, the UI takes you through the procedure in a fairly self-explanatory way. Just remember to update any bundle names or field names (especially <span class="geshifilter"><code class="text geshifilter-text">field_media_file</code></span>) in the event subscriber class.</p>
+<h2>How to take advantage of media "migration" during upgrade<br />
+Once you've enabled the new module, you should be able to run a Drupal upgrade e.g. via the URL <span class="geshifilter"><code class="text geshifilter-text">/upgrade</code></span> with no differences. You won't see a new upgrade path in the list or anything: strictly speaking, you've not so much created a new upgrade path as extended the existing <span class="geshifilter"><code class="text geshifilter-text">d6_file</code></span> upgrade path to create two entities per file, rather than one.
+</h2><p>That's all there is to it: enable your module, and run upgrades as before. After the upgrade is finished, you should be able to navigate your new media entities, complete with thumbnails, MIME types etc.</p>
+<h2>Summary</h2>
+<p>The core Drupal 8 upgrade is not currently extensible to provide extra migrations within it. However, using the events API, custom code can subscribe to row-by-row events in the existing migrations provided by core, and extend them to create new entities or modify what's already being migrated. Because media entities have a one-to-one correspondence with file entities, such event subscription is sufficient for creating them during an upgrade.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-279"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Mike Ryan (not verified)</span>      </p>
+      <p class="comment-time">
+        Tue, 13/12/2016 - 17:45      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/279.html#comment-279" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/279.html#comment-279" class="permalink" rel="bookmark">It&#039;s important to note that</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>It's important to note that the upgrade process actually is extensible - if you define a migration .yml with migration_tags of 'Drupal 6' and/or 'Drupal 7', the migration will be executed as part of the upgrade. The issue with the hardcoded list of migrations (and their related source and destination modules) only affects reporting - the list of available and "missing" migrations on the confirmation page in the upgrade UI. Your migration may not be listed there, but it will actually be executed.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/675/279.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-280"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 14/12/2016 - 09:13      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/280.html#comment-280" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/280.html#comment-280" class="permalink" rel="bookmark">Thanks, Mike. I did try this</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks, Mike. I did try this originally, in imitation of the core d6_file etc: but it didn't ostensibly work, which is why I went down this route.</p>
+<p>It's possible as you say that I was just confounded by the UI not listing it, and so reasonably assumed that meant it wasn't going to run: if I've got time, I'll try again.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/675/280.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a>, <a href="../../category/wordpress-category/import/export.html">import/export</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/migrate.html">migrate</a>, <a href="../../category/wordpress-tag/drupal.html">drupal</a>, <a href="../../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-b2ae9ef3935150e35d549b879bffc348">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

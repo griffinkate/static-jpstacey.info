@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-02-03/decoupling-your-javascript-files.html" />
+<link rel="shortlink" href="510.html" />
+  <title>Decoupling your Javascript files | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"f5-XzkiF9f5_gT4Qfg_DQy_RguMHRJjYL68LHZSAN9A","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-510 node-type-blog" >
+  <div id="skip-link">
+    <a href="510.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Decoupling your Javascript files        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, February 3, 2014 - 19:26</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Here's a design pattern I've used a few times now, to help decouple large Javascript applications into multiple separate files. Let's say you already write your Javascript in separate files, depending on what functionality it provides. Let's also say you use the following function wrappers, to avoid cluttering the default <span class="geshifilter"><code class="text geshifilter-text">window</code></span> namespace:</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="co1">// Basic form</span>
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw2">var</span> <span class="co2">/*...*/</span> <span class="sy0">;</span>
+  <span class="kw2">var</span> <span class="co2">/*...*/</span> <span class="sy0">;</span>
+<span class="br0">}</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="co1">// Extension to use a short form of jQuery, only in your own code</span>
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw2">var</span> <span class="co2">/*...*/</span> <span class="sy0">;</span>
+  <span class="kw2">var</span> <span class="co2">/*...*/</span> <span class="sy0">;</span>
+<span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>Well done if so. You're writing very tidy Javascript. But do you ever find that it's <em>too tidy</em>?</p>
+<p>For example, say you've written two pieces of functionality to work on a webpage, and they need to communicate between them. Maybe you've got <a href="http://jqueryui.com/accordion/">accordion navigation</a> that you want to be disabled, or behave differently, when you switch <a href="http://jqueryui.com/draggable/">drag and drop</a> on. But how do you:</p>
+<ol type="lower-alpha"><li>have the two files communicate this</li>
+<li>in a decoupled way - i.e. responding behaviours in the right files</li>
+<li>so that if one or other file isn't present, nothing breaks</li>
+</ol><p>You can quickly (if messily) solve a. by breaking your encapsulation: have a <span class="geshifilter"><code class="text geshifilter-text">window.foo()</code></span> function defined in the first module, that the second module can access. Or you can solve a. and b. by breaking your modularity: have code in the second module that knows about the internals of the first module and does the right thing. You can then go on to solve a, b. and c. by checking in the second module that the first module's behaviours have been applied. But every time you solve it like this, you'll do so slightly differently, so that along with breaking modularity and writing lots of ad-hock checking code, your application will become hard to maintain.</p>
+<h3>Enabling and enforcing modular decoupling</h3>
+<p>What we need instead is a way of communicating using events and registered handlers, that isn't dependent on particular elements being both present and also known to all modules. We could sub-type the event with a textual "key" that indicates what kind of communication we're passing between modules. And if a module doesn't exist, or isn't listening, then the worst-case scenario is that nothing happens: <em>silently</em>, with the minimum of brittleness.</p>
+<p>With all that in mind, then before you load your two modular files, load a third file containing just this piece of Javascript (I'm using <span class="geshifilter"><code class="text geshifilter-text">.bind()</code></span>, in order to be compatible with Drupal 7's jQuery 1.4.x):</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="coMULTI">/**
+ * Decoupled communication between Javascript files
+ */</span>
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span>
+ 
+<span class="kw2">var</span> comms <span class="sy0">=</span> <span class="br0">{</span><span class="br0">}</span><span class="sy0">;</span>
+<span class="co1">// Listener on the comms event</span>
+$<span class="br0">(</span>document<span class="br0">)</span>.<span class="me1">bind</span><span class="br0">(</span><span class="st0">"comms"</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span>ev<span class="sy0">,</span> message<span class="sy0">,</span> data<span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw2">var</span> data <span class="sy0">=</span> data <span class="sy0">||</span> <span class="br0">{</span><span class="br0">}</span><span class="sy0">;</span>
+  <span class="kw1">if</span> <span class="br0">(</span>message <span class="kw1">in</span> comms<span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw2">var</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i <span class="sy0">&lt;</span> comms<span class="br0">[</span>message<span class="br0">]</span>.<span class="me1">length</span><span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span>
+      comms<span class="br0">[</span>message<span class="br0">]</span><span class="br0">[</span>i<span class="br0">]</span><span class="br0">(</span>data<span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co1">// Listener to permit Javascript files to register their callbacks</span>
+$<span class="br0">(</span>document<span class="br0">)</span>.<span class="me1">bind</span><span class="br0">(</span><span class="st0">"commsregister"</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span>ev<span class="sy0">,</span> message<span class="sy0">,</span> callback<span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="br0">(</span>message <span class="kw1">in</span> comms<span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    comms<span class="br0">[</span>message<span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span><span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+  comms<span class="br0">[</span>message<span class="br0">]</span>.<span class="me1">push</span><span class="br0">(</span>callback<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>What does this do that's special? Well, it binds handlers to two event types, on the <span class="geshifilter"><code class="text geshifilter-text">document</code></span> special DOM element, which all in-browser Javascript can reasonably assume exists. Calling the first handler paves the way for the second one:</p>
+<ol><li>When a JS module fires the <span class="geshifilter"><code class="text geshifilter-text">commsregister</code></span> event, passing in a textual "key" and a function, the function is registered as a handler for <span class="geshifilter"><code class="text geshifilter-text">comms</code></span> events carrying that key.</li>
+<li>When a JS module fires the <span class="geshifilter"><code class="text geshifilter-text">comms</code></span> event, passing in a key and some optional data, then this event and data is passed on to all registered callbacks for that key.</li>
+</ol><p>The comms handlers are stored by the decoupler in a private <span class="geshifilter"><code class="text geshifilter-text">comms</code></span> variable that nobody else can fool around with, and this becomes the key to safe, lightly-coupled communication between your modular Javascript files.</p>
+<h3>Example</h3>
+<p>Here's an example HTML file that brings two modules together with the decoupler, to illustrate this:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      &gt;&lt;/script&gt;
+    &lt;script src="js/decoupler.js"&gt;&lt;/script&gt;
+    &lt;script src="js/one.js"&gt;&lt;/script&gt;
+    &lt;script src="js/two.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;This is a HTML page&lt;/h1&gt;
+    &lt;p&gt;Here is a paragraph with &lt;a href="#"&gt;a link that goes nowhere&lt;/a&gt;. Try clicking it, though!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre></div>
+<p>And here are the two communicating Javascript files:</p>
+<h4>one.js</h4>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span>
+ 
+<span class="co1">// This registers a comms listener but then just waits for incoming comms</span>
+$<span class="br0">(</span>document<span class="br0">)</span>.<span class="me1">trigger</span><span class="br0">(</span><span class="st0">"commsregister"</span><span class="sy0">,</span> <span class="br0">[</span><span class="st0">"bang"</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> 
+  console.<span class="me1">log</span><span class="br0">(</span><span class="st0">"one.js received incoming comms for 'bang' event"</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="kw3">alert</span><span class="br0">(</span><span class="st0">"Bang!"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<h4>two.js</h4>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span>
+ 
+<span class="co1">// Once the document is fully loaded and we can see DOM elements...</span>
+$<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// ... then we bind an event handler to the onclick event of the HTML link,</span>
+  <span class="co1">// preventing onclick default, transmitting a "bang" comms event instead</span>
+  $<span class="br0">(</span><span class="st0">"a"</span><span class="br0">)</span>.<span class="me1">click</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>ev<span class="br0">)</span> <span class="br0">{</span>
+    ev.<span class="me1">preventDefault</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    console.<span class="me1">log</span><span class="br0">(</span><span class="st0">"two.js sending outgoing comms for 'bang' event"</span><span class="br0">)</span><span class="sy0">;</span>
+    $<span class="br0">(</span>document<span class="br0">)</span>.<span class="me1">trigger</span><span class="br0">(</span><span class="st0">"comms"</span><span class="sy0">,</span> <span class="st0">"bang"</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>What does this example do? Well, what it <em>does</em> is almost as important as its failure modes - what it <em>doesn't do</em>, and <em>how it doesn't do it!</em></p>
+<ol><li>On DOM parsing, one.js registers itself as a handler for comms events of sub-type "bang". <em>If two.js hasn't loaded, page load continues silently.</em></li>
+<li>On document ready, two.js hijacks the link's onclick event with its own handler. <em>If two.js hasn't loaded, execution ends silently.</em></li>
+<li>When the user clicks the link, two.js turns the onclick event into a "bang" comms event, passing it up to the document for any handling. <em>If the decoupler hasn't loaded, execution ends silently.</em></li>
+<li>When the decoupler receives the comms "bang" event, it looks to see if any functions have been registered as callbacks for that sub-type of comms event. <em>If one.js hasn't loaded, execution ends silently.</em></li>
+<li>Finally, the "bang" comms event is handled by the callback in one.js, and an alert box is displayed.</li>
+</ol><p>There are also <span class="geshifilter"><code class="text geshifilter-text">console.log()</code></span> calls in there for debugging purposes: run in a browser that supports them to see when different bits of code are fired.</p>
+<h3>Silent decoupling achieved</h3>
+<p>As you can see above, at every phase of the execution process, then if there's any syntax errors in other files, or even network outages, then the remaining modules just quietly decouple.</p>
+<p>Obviously a more complex application will need to deal with absent modules one way or another, but already you have an application where separate resources can be loaded, and not be rigidly interdependent solely through a shared global namespace.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/layers.html">layers</a>, <a href="../category/wordpress-category/paradigms.html">paradigms</a>, <a href="../category/wordpress-category/subtleties.html">subtleties</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/javascript.html">javascript</a>, <a href="../category/tags/dependency.html">dependency</a>, <a href="../category/tags/decoupled.html">decoupled</a>, <a href="../category/wordpress-tag/module.html">module</a>, <a href="../category/wordpress-tag/jquery.html">jquery</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d55e24786db85c2ffa597d3f74698aba">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

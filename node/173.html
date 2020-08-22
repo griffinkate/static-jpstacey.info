@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2008/09/11/the-timetoleadeu-technical-stack-django-and-flex.html" />
+<link rel="shortlink" href="173.html" />
+  <title>The TimeToLead.eu technical stack: Django and Flex | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"L0s9H7mNXrNsHVTAX2IIvRa6GqNdEfMJ1rp4ub9SgpA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-173 node-type-blog" >
+  <div id="skip-link">
+    <a href="173.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          The TimeToLead.eu technical stack: Django and Flex        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, September 11, 2008 - 18:57</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><a href="http://www.jpstacey.info/blog/2008/09/05/they-work-for-eu/">As discussed previously</a>, at <a href="http://torchbox.com/">Torchbox</a> we recently built <a href="http://timetolead.eu/">TimeToLead.eu</a>, an advocacy site set up by the four major environmental NGOs to prompt MEPs into passing the sort of legislation the world's climate desperately needs. The project itself needed a fast turnaround time, and its pan-European audience demanded strong <abbr title="internationalization">i18n</abbr> and <abbr title="localization">l10n</abbr>. This had to be in place at all layers, including an embedded Flex application.</p>
+<p>In a parallel with the acronym LAMP, the overall stack is probably best described as "LAPD":</p>
+<ul><li><strong>L</strong>inux</li>
+<li><strong>A</strong>pache</li>
+<li><strong>P</strong>ostgreSQL</li>
+<li><strong>D</strong>jango</li>
+</ul><p>although there are refinements at almost every level, which I'll go into below.</p>
+<p>I18n with <strong>Django</strong> was a joy to implement. We had to have the site translated in six languages, but this was practically a doddle with <a href="http://www.djangoproject.com/documentation/i18n/">Django's core internationalization behaviour</a>. Before we'd put the translations in, I clicked on "POLSKI" and was sure the l10n wasn't working, until I spotted that the "ENGLISH" link had magically changed to "ANGIELSKI".</p>
+<p>The only issue we've had---which we're hoping to work around---was deciding on an initial translation when the visitor arrived for the first time. Some parts of the system seemed to need l10n---the plumping for a specific version of the site---before Django's <code>LocaleMiddleware</code> had done that for us, so we've had to force English until the user states otherwise. I'm hoping that a version 2 rewrite will fix that.</p>
+<p><strong>PostgreSQL</strong> might seem an odd choice of database to the LAMP community, who are used to MySQL's minuscule overhead and often actively work around its deficiencies to keep that low overhead. But PostgreSQL's stability and maturity outweigh the performance issues which---with a little care and attention---it's possible to at least partly mitigate.</p>
+<p>Compared to MySQL or Oracle, PostgreSQL also has the accolade of <a href="http://docs.djangoproject.com/en/dev/ref/databases/">being supported by Django but having no outstanding database issues</a>. Whether that's because nobody else uses it, or because the integration is tight and relatively bug-free, I daren't comment, but we've had nothing but seamless, transparent behaviour thus far.</p>
+<p>Our Django-oriented hosting is with <a href="http://www.webfaction.com/hosting/django-hosting">Webfaction</a>, who are geared up for one-click <strong>mod_python</strong> Django deployments. The Django app sits in its own <strong>Apache</strong> process, while static files are served by the <strong>Linux</strong> server's main Apache process: differential serving of content lets us take advantage of differential hosting fees. The hosting is a pretty good package, although TimeToLead.eu (despite being a pretty small application) is already finding the maximum memory package a bit restrictive, so we'll need to keep an eye on that.</p>
+<p>On top of this, Django has to a greater or lesser extent enabled us to use a whole host of other neat little technologies to integrate the site and improve both the user and the developer's experience:</p>
+<ul><li>The main Flash widget is written in <a href="http://www.adobe.com/products/flex/">Flex</a>: I'm no particular fan of Flash myself, but it fulfills the remit admirably here. Because of text flow issues, there are actually six versions of the Flash file, one for each language, but the majority of the explanatory text is then picked up from an XML feed provided by Django, so can be retranslated by the client without recompiling Flex.</li>
+<li><a href="http://code.google.com/p/swfobject/">Swfobject</a> serves up our main widget and the YouTube file. It degrades well, but bear in mind that the API to it has changed considerably in the most recent major version.</li>
+<li>Unit tests in Django cover a number of stress points in the code (although not all, owing to the timescale). Towards the end, we were testing any major functionality changes by writing the tests first, which I was really pleased with.</li>
+<li>BeautifulSoup, which <a href="../blog/2008/09/07/spliticket-running-again-with-beautifulsoup/index.html">I mentioned a few days ago</a>, is employed in the unit tests to check that certain content is coming through on the front end. It also managed to help us proof against a browser-dependent <a href="http://www.bluerobot.com/web/css/fouc.asp/">FOUC</a> we encountered during development.</li>
+<li>Translations are managed by the Django application <a href="http://code.google.com/p/django-rosetta/">Rosetta</a>: the most recent stable version is for Django 0.96 but the bleeding-edge repository copy seems to work OK on 1.0b1</li>
+</ul><p>Django has been the saviour here, living up to its promise as a framework for rapid application development. No framework is ever perfect, and there'll always be arguments over the right way to proceed, reconciling what the framework developers want you to do with what the end developer wants to do, but this particular brief sojourn alongside <a href="http://docs.djangoproject.com/en/dev/internals/committers/">Holovaty, Kaplan-Moss, Willison <i>et al</i></a> has been tremendous fun.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-89"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">lowdown (not verified)</span>      </p>
+      <p class="comment-time">
+        Fri, 12/09/2008 - 15:37      </p>
+      <p class="comment-permalink">
+        <a href="../comment/89.html#comment-89" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../comment/89.html#comment-89" class="permalink" rel="bookmark">&gt;&gt;I’m no particular fan of</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>&gt;&gt;I’m no particular fan of Flash myself, but it fulfills the remit admirably here.</p>
+<p>What's with the qualification? Is that to maintain some sort of nerd cred? Why are you not a 'fan of flash'? Hate video that runs nicely? Hate a 96% install base with no cross browser problems? I mean seriously, hating Flash is totally '02.</p>
+<p>Have you noticed the Adblock (non-Plus version) extension for firefox completely blocks any and all SWFObject loaded SWFs?</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+<a id="comment-90"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <a href="http://www.jpstacey.info/" rel="nofollow" class="username">jps (not verified)</a>      </p>
+      <p class="comment-time">
+        Fri, 12/09/2008 - 16:21      </p>
+      <p class="comment-permalink">
+        <a href="../comment/90.html#comment-90" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../comment/90.html#comment-90" class="permalink" rel="bookmark">I&#039;m sorry if me expressing an</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>I'm sorry if me expressing an opinion about Flash galls you so much that you have to write impolite rhetorical questions about it on a post that almost entirely talks about other technologies. I had no idea it would touch a nerve.</p>
+<p>I appreciate that you're probably a busy person, and you therefore expect me to provide citations and user studies to back up every single opinion I express, that you might possibly like to quibble with, every time I write something and publish it on the web. But I'm a busy person too, and I'm writing blog posts here, not an encyclopaedia. I have mentioned my opinions on Flash in previous blog posts, but only tangentially, because I don't care about it as much as you seem to do.</p>
+<p>In my limited experience there <em>do</em> exist cross-browser problems, and along with proprietary lockin and binary transmission they're something that I might discuss at a later date when someone asks me more nicely than you have. In addition, its ubiquity if anything makes software like Adblock harder to implement in a targeted manner.</p>
+<p>Oddly, I didn't actually <em>mind</em> Flash in 2002; I'm starting to dislike it again now. I console myself with the fact that some people are destined to be entirely out of touch with current fashions. You should see my wardrobe.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/configuration.html">configuration</a>, <a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/layers.html">layers</a>, <a href="../category/wordpress-category/projects.html">projects</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/django.html">django</a>, <a href="../category/wordpress-tag/hosting.html">hosting</a>, <a href="../category/wordpress-tag/i18n.html">i18n</a>, <a href="../category/wordpress-tag/l10n.html">l10n</a>, <a href="../category/wordpress-tag/beautifulsoup.html">beautifulsoup</a>, <a href="../category/wordpress-tag/flex.html">flex</a>, <a href="../category/wordpress-tag/fouc.html">fouc</a>, <a href="../category/wordpress-tag/lapd.html">lapd</a>, <a href="../category/wordpress-tag/multilingual.html">multilingual</a>, <a href="../category/wordpress-tag/swfobject.html">swfobject</a>, <a href="../category/wordpress-tag/technical.html">technical</a>, <a href="../category/wordpress-tag/timetoleadeu.html">timetolead.eu</a>, <a href="../category/wordpress-tag/unit-test.html">unit test</a>, <a href="../category/wordpress-tag/webfactional.html">webfactional</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-fbdecef697dcf3a644d91e238d4e584c">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

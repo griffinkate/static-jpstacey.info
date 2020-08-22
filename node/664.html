@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-10-17/drupal-8-api-annotations.html" />
+<link rel="shortlink" href="664.html" />
+  <title>Drupal 8 API: annotations | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"4B2ox5wO6Si4OQAEM-kqvYgx0fkrA08c7XUJBw_rJY0","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-664 node-type-blog" >
+  <div id="skip-link">
+    <a href="664.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: annotations        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, October 17, 2016 - 12:11</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-16/drupal-8-api-blocks">Blocks</a></li>
+</ul><h2>Using annotations to store data in comments</h2>
+<p>The <a href="https://www.drupal.org/docs/develop/coding-standards">Drupal coding standards</a> have long recommended that some structure is applied to comments e.g: <a href="https://www.drupal.org/docs/develop/coding-standards/api-documentation-and-comment-standards#callback-def">specifying parameters using @param</a>; <a href="https://www.drupal.org/docs/develop/coding-standards/api-documentation-and-comment-standards#themeable">or using @ingroup to group e.g. theming-related functionality together</a>.</p>
+<p>However, annotations are fundamentally different: <a href="http://doctrine-common.readthedocs.io/en/latest/reference/annotations.html">a standard syntax proposed by the Doctrine project</a>, to embed structured data packets in comments. These data packets are intended not merely a useful note for future maintainers of the code, but to be parsed by Drupal: this effectively turns your comments into something where the syntax matters a lot more.</p>
+<p>We encountered annotations previously, when writing a custom block; but here's a more illustrative example:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * This class has some data in an annotation.
+ *
+ * @CustomAnnotation(
+ *   simple_string = "Some text in double quotes",
+ *   an_array = {
+ *     array_key = "Array value",
+ *     another_key = "Another value",
+ *   },
+ *   nested_annotation = @AnotherAnnotation("Something else")
+ * )
+ */</span>
+<span class="kw2">class</span> ThisClassIsAnnotated <span class="br0">{</span>
+<span class="br0">}</span></pre></div>
+<p>The above can be understood as a <span class="geshifilter"><code class="text geshifilter-text">CustomAnnotation</code></span> with three keyed properties: a simple string; an array of key/values; and a nested <span class="geshifilter"><code class="text geshifilter-text">AnotherAnnotation</code></span> with a single simple property.</p>
+<p>Because annotations make comments sensitive to syntax errors—they're no longer just passive information for the human reader—they were <a href="https://www.drupal.org/node/1683644">quite controversial</a> when they were first proposed for Drupal. Ultimately, though, there are no perfect solutions in PHP to the problem of providing metadata for classes or methods. Because annotations were an existing, externally supported solution, then they were adopted in most situations in Drupal where classes need metadata; for your own code, you could always provide metadata in some other way (if you were willing to do the custom development!)</p>
+<h2>How Doctrine parses annotations into separate annotation objects</h2>
+<p>One key advantage of using annotations is that the Doctrine project provides us with all the tools necessary to parse annotations. It does this by creating instances of a completely separate object, one for each annotation type. An annotation object can inherit all its behaviours from the <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Annotation%21Plugin.php/class/Plugin/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">Plugin</code></span> annotation object</a>. All that remains for a developer is to create public properties, one for each key in the annotation.</p>
+<p>An annotation object compatible with the comment in the example above might be:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+use Drupal\Component\Annotation\Plugin<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Custom annotation object.
+ */</span>
+<span class="kw2">class</span> CustomAnnotation <span class="kw2">extends</span> Plugin <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var string
+   */</span>
+  <span class="kw2">public</span> <span class="re0">$simpleString</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var array
+   */</span>
+  <span class="kw2">public</span> <span class="re0">$anArray</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var AnotherAnnotation
+   */</span>
+  <span class="kw2">public</span> <span class="re0">$nestedAnnotation</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>Any properties defined are discovered by <span class="geshifilter"><code class="text geshifilter-text">Plugin</code></span>'s behaviours, using reflection, so no further code is required.</p>
+<p>To convert textual annotations in comments, into annotation objects, Doctrine must be able to discover any relevant annotation object classes, during its parsing of the comment text. In our example above, Doctrine would need to be able to find classes for <em>both</em> the annotations: <span class="geshifilter"><code class="text geshifilter-text">CustomAnnotation</code></span> and the nested <span class="geshifilter"><code class="text geshifilter-text">AnotherAnnotation</code></span>. Nested annotations let us specify e.g. translatable strings, and other potential nested quasi-objects that have behaviours and aren't just plain text. The namespaces on which Doctrine searches for annotation classes are stored in a registry.</p>
+<p>When Doctrine's <span class="geshifilter"><code class="text geshifilter-text">SimpleAnnotationReader</code></span> is called upon to parse a class, the following must be provided:</p>
+<ol><li>Set up a "file finder" to look for annotations. Because Drupal's naming conventions (discussed previously) dictate where a class file is to be found, we can provide a <span class="geshifilter"><code class="text geshifilter-text">MockFileFinder</code></span>, just to satisfy Doctrine.</li>
+<li>Set up a <span class="geshifilter"><code class="text geshifilter-text">StaticReflectionParser</code></span> to reflect upon the class file and parse its comments, giving it: the name of the class upon which there is an annotation comment; and the file finder.</li>
+<li>Register all of the namespaces where annotation classes might be found</li>
+<li>Ask the reader to return the class annotation as an annotation object, giving it: information from the parser; and the namespaced class of the "top-level" annotation (in the example above, <span class="geshifilter"><code class="text geshifilter-text">Drupal\modulename\CustomAnnotation</code></span>.)</li>
+</ol><p>The annotation object returned can then be interrogated to get all the structured data from the original comment.</p>
+<h2>Parsing a block annotation and extracting the untranslated admin label</h2>
+<p>We've previously written a simple block class <span class="geshifilter"><code class="text geshifilter-text">TutorialBlock</code></span>, which has an annotation in its class-level comment. Here's a reminder of what that looks like:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co4">/**
+ * Block for the tutorial.
+ *
+ * @Block(
+ *   id = "tutorial_tutorial_block",
+ *   admin_label = @Translation("Tutorial block")
+ * )
+ */</span></pre></div>
+<p>To parse this, we'll need to help Doctrine find its annotation classes. In normal block processing, Drupal sorts all this out for you within <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Plugin%21Discovery%21AnnotatedClassDiscovery.php/class/AnnotatedClassDiscovery/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">AnnotatedClassDiscovery::getAnnotationReader()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">::getDefinitions()</code></span></a>. But we're going to build all this from scratch, which means we need to point Doctrine at the classes:</p>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Block\Annotation\Block</code></span>, for the top-level annotation object.</li>
+<li><span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Annotation\Translation</code></span>, for the embedded translatable string.</li>
+</ul><p>We actually just point Doctrine at the namespaces, so we drop the last component from the namespaced class names above and then register those.</p>
+<p>Here's a class with a single method, which registers annotation class namespaces, clears the registry, sets up a parser and mock file finder, then parses the annotation on <span class="geshifilter"><code class="text geshifilter-text">TutorialBlock</code></span> and returns the untranslated string of the admin label:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Doctrine\Common\Annotations\AnnotationRegistry<span class="sy0">;</span>
+use Doctrine\Common\Annotations\SimpleAnnotationReader<span class="sy0">;</span>
+use Doctrine\Common\Reflection\StaticReflectionParser<span class="sy0">;</span>
+use Drupal\Component\Annotation\Reflection\MockFileFinder<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Read an annotation on a hardwired class.
+ */</span>
+<span class="kw2">class</span> AnnotationReader <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * Read annotation and return admin_label.
+   *
+   * @return string
+   *   Untranslated admin_label.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> retrieveAdminLabel<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Tell Doctrine what namespace to find Block and Translation on.</span>
+    <span class="re0">$reader</span> <span class="sy0">=</span> <span class="kw2">new</span> SimpleAnnotationReader<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$namespace</span> <span class="sy0">=</span> <span class="st_h">'Drupal\Core\Block\Annotation'</span><span class="sy0">;</span>
+    <span class="re0">$reader</span><span class="sy0">-&gt;</span><span class="me1">addNamespace</span><span class="br0">(</span><span class="re0">$namespace</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$reader</span><span class="sy0">-&gt;</span><span class="me1">addNamespace</span><span class="br0">(</span><span class="st_h">'Drupal\Core\Annotation'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Reset the registry and load annotation classes from new namespaces.</span>
+    AnnotationRegistry<span class="sy0">::</span><a href="http://www.php.net/reset"><span class="kw3">reset</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    AnnotationRegistry<span class="sy0">::</span><span class="me2">registerLoader</span><span class="br0">(</span><span class="st_h">'class_exists'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// File location, and class name, of the class we're going to parse.</span>
+    <span class="re0">$dir</span> <span class="sy0">=</span> <span class="st_h">'sites/all/modules/d8api/src/Plugin/Block'</span><span class="sy0">;</span>
+    <span class="re0">$file</span> <span class="sy0">=</span> <span class="st0">"<span class="es4">$dir</span>/TutorialBlock.php"</span><span class="sy0">;</span>
+    <span class="re0">$class</span> <span class="sy0">=</span> <span class="st_h">'Drupal\d8api\Plugin\Block\TutorialBlock'</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Set up a parser for the reader.</span>
+    <span class="re0">$finder</span> <span class="sy0">=</span> MockFileFinder<span class="sy0">::</span><span class="me2">create</span><span class="br0">(</span><span class="re0">$file</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$parser</span> <span class="sy0">=</span> <span class="kw2">new</span> StaticReflectionParser<span class="br0">(</span><span class="re0">$class</span><span class="sy0">,</span> <span class="re0">$finder</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Run the reader, with the parser and the top-level annotation class.</span>
+    <span class="re0">$annotation</span> <span class="sy0">=</span> <span class="re0">$reader</span><span class="sy0">-&gt;</span><span class="me1">getClassAnnotation</span><span class="br0">(</span>
+      <span class="re0">$parser</span><span class="sy0">-&gt;</span><span class="me1">getReflectionClass</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span> <span class="re0">$namespace</span> <span class="sy0">.</span> <span class="st_h">'\Block'</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Dig into the annotation definition, and extract the admin label.</span>
+    <span class="re0">$annotationDefinition</span> <span class="sy0">=</span> <span class="re0">$annotation</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="re0">$annotationDefinition</span><span class="br0">[</span><span class="st_h">'admin_label'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">getUntranslatedString</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>You can save this in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module at <span class="geshifilter"><code class="text geshifilter-text">src/AnnotationReader.php</code></span>.</p>
+<h2>What you should see</h2>
+<p>In order to test this code, you should also <a href="http://docs.drush.org/en/master/install/">install Drush</a>. We don't cover that process here.</p>
+<p>Run the following Drush command, to invoke the method on our new object:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'print (new Drupal\d8api\AnnotationReader)-&gt;retrieveAdminLabel();'</span></pre></div>
+<p>(Note that, if you encounter any <span class="geshifilter"><code class="text geshifilter-text">DocLexer</code></span> parsing errors, and your annotation looks fine, it might be that you're using a nested annotation that Doctrine doesn't recognize. For example, without access to the <span class="geshifilter"><code class="text geshifilter-text">Translation</code></span> class, Doctrine fails with a pretty horrible exception: "Expected DocLexer::T_CLOSE_PARENTHESIS"!)</p>
+<p>Otherwise, you should see the following output:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">Tutorial block</pre></div>
+<p>If so, then congratulations! you have written code to parse an annotation on a class, into nested annotation objects.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/annotation/8.2.x">Drupal 8 API: annotations</a></li>
+<li><a href="http://doctrine-common.readthedocs.io/en/latest/reference/annotations.html">Doctrine reference: annotations</a></li>
+
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiextra.html">d8api:extra</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-c4adcf3fa9d65bd2dcbaaf720402f634">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

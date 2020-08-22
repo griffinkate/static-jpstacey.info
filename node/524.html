@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-04-23/starting-programming-symfony.html" />
+<link rel="shortlink" href="524.html" />
+  <title>Starting programming with Symfony | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"iBXLW8wR0SI9iHFu7e4bjxzFGYVgnOaXZ5LcQ5G9Kwk","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-524 node-type-blog" >
+  <div id="skip-link">
+    <a href="524.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Starting programming with Symfony        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, April 23, 2014 - 20:21</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>At <a href="http://2014.drupalcamplondon.co.uk/">Drupalcamp London</a> I watched a great talk from <a href="http://richardmiller.co.uk/">Richard Miller</a> of <a href="http://www.sensiolabs.co.uk/">Sensio Labs</a>, about treating <a href="http://symfony.com/">Symfony</a> as a framework in its own right rather than as a mere substrate to <a href="http://drupal.org">Drupal 8</a>. Which it is, of course; but it's easy for Drupalers to forget that, and I think it would be a shame, after all the efforts of the D8 core team, if it meant we all missed out through complacency on the advantages of a good underlying framework.</p>
+<p>You can pretty much <a href="https://speakerdeck.com/richardmiller/introduction-to-symfony2-drupalcamp-london-2014">go through Richard Miller's slides</a> and use them as instructions to create your own CRUD(i) task list application as you go along. In fact, I suggest you try doing that now. Because I'm about to extend his example below, to include a new menu callback to mark a task as completed.</p>
+<h3>URL handler in TaskController.php</h3>
+<p>Add the following URL handling method for marking a task as complete:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;">    <span class="co4">/**
+     * Sets a Task entity as completed, or unsets it back as "in progress"
+     *
+     * @Route("/{id}/complete", name="task_complete")
+     * @Method("POST")
+     * @ParamConverter()
+     * @Template("AcmeListBundle:Task:show.html.twig")
+     */</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> completeAction<span class="br0">(</span>Task <span class="re0">$task</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="co1">// Our task will be to either mark as complete (if not yet complete)</span>
+        <span class="co1">// or to remove that timestamp (reopening, if already complete).</span>
+        <span class="re0">$marked_as_complete</span> <span class="sy0">=</span> <span class="br0">(</span><span class="re0">$task</span><span class="sy0">-&gt;</span><span class="me1">getCompleted</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">===</span> <span class="kw4">NULL</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$task</span><span class="sy0">-&gt;</span><span class="me1">setCompleted</span><span class="br0">(</span><span class="re0">$marked_as_complete</span> ? <span class="kw2">new</span> \DateTime<span class="br0">(</span><span class="br0">)</span> <span class="sy0">:</span> <span class="kw4">NULL</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Use the entity manager to merge this task into the database.</span>
+        <span class="re0">$em</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getDoctrine</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">getManager</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$em</span><span class="sy0">-&gt;</span><span class="me1">merge</span><span class="br0">(</span><span class="re0">$task</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$em</span><span class="sy0">-&gt;</span><span class="me1">flush</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Hand over to ::showAction(), adding an extra parameter</span>
+        <span class="co1">// for the template to interrogate.</span>
+        <span class="kw1">return</span> <a href="http://www.php.net/array_merge"><span class="kw3">array_merge</span></a><span class="br0">(</span>
+	    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">showAction</span><span class="br0">(</span><span class="re0">$task</span><span class="br0">)</span><span class="sy0">,</span>
+            <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'marked_as_complete'</span> <span class="sy0">=&gt;</span> <span class="re0">$marked_as_complete</span><span class="br0">)</span>
+        <span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span></pre></div>
+<p>This will take POST requests to the URL <span class="geshifilter"><code class="text geshifilter-text">(/task)/[TASK_ID]/complete</code></span> and use them as a signal to toggle the "completed" date between unset (NULL) and a timestamp of <em>now</em>.</p>
+<p>You should spot that:</p>
+<ul><li>The HTTP method is set to POST using annotations: this is a non-idempotent action - it changes persistent data - and therefore shouldn't use GET.
+</li><li>The entity manager must set the task to be merged after the change; but then also needs to be flushed to actually make the writes.
+</li><li>The parameter array being returned is a combination of <span class="geshifilter"><code class="text geshifilter-text">::showAction()</code></span> and an extra parameter.
+</li><li>The <span class="geshifilter"><code class="text geshifilter-text">@Template()</code></span> has to be hardwired, to use <span class="geshifilter"><code class="text geshifilter-text">::showAction()</code></span>'s template rather than look for a complete.html.twig.
+</li></ul><p>All of this gives us the absolute bare minimum callback we need, while reusing as much as possible from elsewhere.</p>
+<h3>Form submit button to make a POST to this URL</h3>
+<p>Much like the <span class="geshifilter"><code class="text geshifilter-text">::createDeleteForm()</code></span> form, this callback also needs a form submit button to make the HTTP POST request on being clicked: a normal link to <span class="geshifilter"><code class="text geshifilter-text">/task/{id}/complete</code></span> would be rejected by Symfony as having an invalid HTTP method (GET).</p>
+<p>We want this form button to be sensitive to the current task's complete/incomplete status, and display a label accordingly; hence it gets a second parameter:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">    <span class="sy0">/**</span>
+     <span class="sy0">*</span> Creates a form to mark a Task entity <span class="kw2">as</span> <span class="kw3">complete</span>, by id.
+     <span class="sy0">*</span>
+     <span class="sy0">*</span> <span class="sy0">@</span>param mixed <span class="re1">$id</span> The entity <span class="kw2">id</span>
+     <span class="sy0">*</span> <span class="sy0">@</span>param boolean <span class="re1">$is_complete</span> Whether the task entity is already <span class="kw3">complete</span>
+     <span class="sy0">*</span>
+     <span class="sy0">*</span> <span class="sy0">@</span><span class="kw3">return</span> \Symfony\Component\Form\Form The form
+     <span class="sy0">*/</span>
+    private <span class="kw1">function</span> createCompleteForm<span class="br0">(</span><span class="re1">$id</span>, <span class="re1">$is_complete</span> = NULL<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw3">return</span> <span class="re1">$this</span>-<span class="sy0">&gt;</span>createFormBuilder<span class="br0">(</span><span class="br0">)</span>
+            -<span class="sy0">&gt;</span>setAction<span class="br0">(</span><span class="re1">$this</span>-<span class="sy0">&gt;</span>generateUrl<span class="br0">(</span><span class="st_h">'task_complete'</span>, array<span class="br0">(</span><span class="st_h">'id'</span> =<span class="sy0">&gt;</span> <span class="re1">$id</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+            -<span class="sy0">&gt;</span>add<span class="br0">(</span><span class="st_h">'submit'</span>, <span class="st_h">'submit'</span>, array<span class="br0">(</span><span class="st_h">'label'</span> =<span class="sy0">&gt;</span>
+                <span class="re1">$is_complete</span> ? <span class="st_h">'Re-open as in progress'</span> : <span class="st_h">'Mark as complete'</span><span class="br0">)</span><span class="br0">)</span>
+            -<span class="sy0">&gt;</span>getForm<span class="br0">(</span><span class="br0">)</span>
+        ;
+    <span class="br0">}</span></pre></div>
+<h3>Injecting this button into the UI</h3>
+<p>You should then add a call to this method, to any template arrays where <span class="geshifilter"><code class="text geshifilter-text">delete_form</code></span> is already set, as per <span class="geshifilter"><code class="text geshifilter-text">::createDeleteForm()</code></span>; and also add the variable in the same way as <span class="geshifilter"><code class="text geshifilter-text">{{ delete_form }}</code></span> in the relevant <span class="geshifilter"><code class="text geshifilter-text">.twig</code></span> templates. This should display a button, which when clicked toggles the presence of the current datetime as the task's completion timestamp.</p>
+<h3>Notifying the user of marked-as-complete, as part of the templates</h3>
+<p>When the template <span class="geshifilter"><code class="text geshifilter-text">show.html.twig</code></span> is now called, the parameter <span class="geshifilter"><code class="text geshifilter-text">marked_as_complete</code></span> can have three values: </p>
+<ol><li><span class="geshifilter"><code class="text geshifilter-text">TRUE</code></span> (task just marked as complete)
+</li><li><span class="geshifilter"><code class="text geshifilter-text">FALSE</code></span> (task just marked as <em>in</em>complete)
+</li><li><em>Undefined</em> (task just being displayed on a HTTP GET by other existing handlers, nothing to do with our new one)
+</li></ol><p>We need to provide suitable notifications for the first two options, but also cope with the third option. For that reason, we embed the following logic in the template, just below the h1 title:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;">    <span class="br0">{</span><span class="sy0">%</span> <span class="kw1">if</span> marked_as_complete is <a href="http://www.php.net/defined"><span class="kw3">defined</span></a> <span class="sy0">%</span><span class="br0">}</span>
+        <span class="br0">{</span><span class="sy0">%</span> <span class="kw1">if</span> marked_as_complete <span class="sy0">%</span><span class="br0">}</span>
+            <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span>The task was marked <span class="kw1">as</span> complete<span class="sy0">.&lt;/</span>p<span class="sy0">&gt;</span>
+        <span class="br0">{</span><span class="sy0">%</span> <span class="kw1">else</span> <span class="sy0">%</span><span class="br0">}</span>
+            <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span>The task was re<span class="sy0">-</span>opened<span class="sy0">.&lt;/</span>p<span class="sy0">&gt;</span>
+        <span class="br0">{</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">}</span>
+    <span class="br0">{</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">}</span></pre></div>
+<p>This quietly, happily does nothing in the third case. Without the check for is-defined first, Symfony/Twig will raise an error.</p>
+<h3>And that's it</h3>
+<p>That should be enough to add a new non-CRUD callback to the example from Drupalcamp London. You can add plenty more if you like, obviously; but I'm doing this as a way of learning Symfony; certainly I've liked what I've seen of it thus far.</p>
+<p>Between Symfony, <a href="http://laravel.com/">Laravel</a> and other new frameworks - many of which seem to reference each other through Composer anyway! - then PHP is really starting to grow up; in one or other of these frameworks it even arguably has its <a href="https://www.djangoproject.com/">Django</a>, or its <a href="http://rubyonrails.org/">Rails</a>...!</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/drupal8.html">drupal8</a>, <a href="../category/tags/symfony.html">symfony</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-97252d0d725d338564732e5b289c78c0">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

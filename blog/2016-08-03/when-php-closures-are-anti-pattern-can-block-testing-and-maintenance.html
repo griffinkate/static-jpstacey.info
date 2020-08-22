@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="when-php-closures-are-anti-pattern-can-block-testing-and-maintenance.html" />
+<link rel="shortlink" href="../../node/640.html" />
+  <title>When PHP closures are an anti-pattern that can block testing and maintenance | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"oOksXE1WJJAE7E-eoSC5hkdJM9is9-u8fqhrqVavdBo","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-640 node-type-blog" >
+  <div id="skip-link">
+    <a href="when-php-closures-are-anti-pattern-can-block-testing-and-maintenance.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          When PHP closures are an anti-pattern that can block testing and maintenance        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, August 3, 2016 - 13:47</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>While I was still moving my skills in the direction of PHP, its object orientation always felt a bit spindly and scaffold-y compared to the fluid malleability of Python, the language I'd used for a long time before then. So it was with some pleasure that I saw <a href="http://php.net/releases/5_3_0.php">PHP start to support closures in 5.3.0</a>. Defining closures on the fly, then assigning closures as object properties.... Why, it would only be a short step from here to ducktyping, monkeypatching and all that other crazy partying that just seemed so exciting from the wrong side of the fence!</p>
+<p>Seven years on, and while I still love the expressive power and just-in-time flexiblity of closures, I think they often end up a substitute for much better patterns in code. Closures are quick to cobble together, compared to object classes, interfaces, inheritance, traits, autoloading: you just start typing right where you are. And while that can be powerful, it can often result on code that can't be tested in isolation, or even becomes too powerful to control.</p>
+<p>Here are two anti-patterns I've seen recently, which you would do well to avoid in your own code: however much you might (quite understandably) want to use closures elsewhere.</p>
+<h2>The closure where an interface would promise more</h2>
+<p>The biggest anti-pattern—the one that caused the most headaches—was in passing closures in to an object at several different points, in order to handle several different species of other-objects.</p>
+<p>For example, let's imagine a single iterator over an incoming data stream (e.g. rows of a CSV file). For a particular type of input (e.g. address imports) this iterator needs to cede control to some functions to do the heavy lifting of processing the data; for a different type (e.g. product imports), something else has to do the lifting.</p>
+<p>Here's roughly how this was implemented:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">class</span> Task
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> <span class="kw1">do</span><span class="br0">(</span><span class="re0">$csvFilename</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$that</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">;</span>
+        <span class="re0">$preparationClosure</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$csvTable</span><span class="br0">)</span> use <span class="br0">(</span><span class="re0">$that</span><span class="br0">)</span> <span class="br0">{</span>
+            <span class="re0">$that</span><span class="sy0">-&gt;</span><span class="me1">storage</span> <span class="sy0">=</span> <span class="br0">[</span><span class="br0">]</span><span class="sy0">;</span>
+        <span class="br0">}</span><span class="sy0">;</span>
+ 
+        <span class="re0">$perRowClosure</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$csvRow</span><span class="br0">)</span> use <span class="br0">(</span><span class="re0">$that</span><span class="br0">)</span> <span class="br0">{</span>
+            <span class="re0">$that</span><span class="sy0">-&gt;</span><span class="me1">storage</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$csvRow</span><span class="sy0">;</span>
+        <span class="br0">}</span><span class="sy0">;</span>
+ 
+        <span class="re0">$finalizationClosure</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$csvTable</span><span class="br0">)</span> use <span class="br0">(</span><span class="re0">$that</span><span class="br0">)</span> <span class="br0">{</span>
+            <span class="re0">$that</span><span class="sy0">-&gt;</span><span class="me1">applicationContainer</span><span class="sy0">-&gt;</span><span class="me1">database</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">storage</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+ 
+        <span class="co1">// Now iterate!</span>
+        <span class="re0">$csvIterator</span> <span class="sy0">=</span> <span class="kw2">new</span> CsvIteratorClass<span class="br0">(</span><span class="re0">$csvFilename</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$csvIterator</span><span class="sy0">-&gt;</span><span class="me1">iterate</span><span class="br0">(</span>
+            <span class="re0">$preparationClosure</span><span class="sy0">,</span> <span class="re0">$perRowClosure</span><span class="sy0">,</span> <span class="re0">$finalizationClosure</span>
+        <span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Some people will look at this and howl, and some will look at it and think it's fine. There's a lot to discuss about it, and I'm sure there are several people out there who can't imagine code like this ever ending up in <em>their</em> projects. But you have to bear in mind that this was a distributed team of different levels of experience—much like my varied, if modest, readership—and there were deadlines, and complex requirements, and no clear conventions to point to.... A junior developer began the work, and the rest of what they did was so valuable that it was never refactored.</p>
+<p>From the perspective of this blogpost—that closures have a habit of bringing in antipatterns—what's the real problem with this code? Well, the closures (the antipattern) are in effect acting as a precise opposite of dependency injection (the pattern): they're making the business logic implicit in the closures maximally untestable in isolation outside of the container class or method. This rules out unit tests and sometimes even integration tests in favour of system tests, which are generally more involved, slower and harder to cover all the code-level cases. Also, the write-many-times aspect of closures means they can rapidly diverge drastically on different code paths, even if the real-world situations are very similar. They don't help with consistent application of domain knowledge or modelling.</p>
+<p>This situation is crying out for the code to be turned inside-out, and the three closures added to an object implementing some kind of interface (probably itself inheriting from <a href="http://php.net/manual/en/class.iterator.php"><span class="geshifilter"><code class="text geshifilter-text">\Iterator</code></span></a>. Here's a simple first pass:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">interface</span> CsvIteratorInterface <span class="kw2">extends</span> \Iterator
+<span class="br0">{</span>
+    protected <span class="re0">$storage</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Every closure becomes a method.</span>
+    protected <span class="kw2">function</span> preparation<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    protected <span class="kw2">function</span> perRow<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    protected <span class="kw2">function</span> finalization<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>This interface could then be implemented to iterate over a particular CSV file that needed to be saved to the database:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">class</span> AddressCsvIterator implements CsvIteratorInterface
+<span class="br0">{</span>
+    <span class="co1">// Dependency injection: set database either</span>
+    <span class="co1">// explicitly or using services.</span>
+    protected <span class="re0">$database</span><span class="sy0">;</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> setDatabase<span class="br0">(</span>Database <span class="re0">$database</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">database</span> <span class="sy0">=</span> <span class="re0">$database</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Interface methods now defined below.</span>
+    <span class="coMULTI">/* ... */</span>
+<span class="br0">}</span></pre></div>
+<p>Now, everywhere that you call this code, you can demand the interface and your code will know what it's getting. The original <span class="geshifilter"><code class="text geshifilter-text">Task#do()</code></span> method becomes:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">class</span> Task
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> <span class="kw1">do</span><span class="br0">(</span>CsvIteratorInterface <span class="re0">$csvIterator</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$csvIterator</span> <span class="kw1">as</span> <span class="re0">$row</span><span class="br0">)</span> <span class="br0">{</span>
+            <span class="co1">// Do nothing.</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Lots more refinements immediately spring to mind, in part because of the empty <span class="geshifilter"><code class="text geshifilter-text">foreach()</code></span>—maybe the <span class="geshifilter"><code class="text geshifilter-text">Task</code></span> should handle saving to the database, or maybe the iterator should have its own method to iterate over itself—but none of these were possible until the closures were turned into a class, and the class used to inspire an interface.</p>
+<p>When we went down this route, the code rapidly became decoupled from everything else, making it DI-able and testable in isolation: and therefore much more maintainable. Maintenance problems arising from this part of the code—always very hard to debug—largely went away.</p>
+<h2>The closure passed down to an infrastructure component</h2>
+<p>Let's say you're calling an existing method on an object, and you want to do something if the method fails somehow. The classic example I've seen is caching using <a href="http://php.net/manual/en/memcached.get.php">the PECL Memcached library</a>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="re0">$cachedItem</span> <span class="sy0">=</span> <span class="re0">$cache</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span>
+    <span class="re0">$key</span><span class="sy0">,</span> 
+    <span class="kw2">function</span> <span class="br0">(</span><span class="re0">$memc</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$value</span><span class="br0">)</span> use <span class="br0">(</span><span class="re0">$localObject</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="coMULTI">/* ... */</span>
+    <span class="br0">}</span>
+<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>Within the comments would be (potentially a lot of) logic, involving business/domain elements and interactions, in order to fill the cache in the first place. Either that, or that same logic would be obfuscated behind a single domain-level call.</p>
+<p>This feels wrong: as a caching solution, Memcache(d) sits at the lower level of infrastructure: it's rarely something involved in business logic and it certainly shouldn't have an effect on that logic. Passing a closure down into this layer is like dropping a deep-sea exploration vehicle into murky depths, to perform some complex technological magic among the silt and eerie, valve-bristling creatures that live down there. It's an exciting thing to do when you really need to, but it's not necessarily a procedure boring enough to use as a permanent foundation of something else.</p>
+<p>All of that is gut feeling, that the natural order of things are somehow inverted here (which as I say often seems exciting, but wanton excitement isn't necessarily our goal.) We can make this gut feeling more concrete if we think in terms of injection again: what are we injecting into what? Ideally, when a service X (e.g. a database) is injected into a service Y (e.g. a business component) then X should be from our business perspective dumber and more reliable than Y. X is the helper and Y is the doer. That's not what we've got here.</p>
+<p>When we write tests for a business/domain component, to test it in isolation, we have to mock out the infrastructure. This decision—what to mock, what to test—is irretrievably bound up with assumptions about what, for the purposes of our testing, will likely behave in certain ways. But in this situation, a business component—the logic required to populate the cache in the first place—is being passed into a mocked infrastructure component. As soon as you mock out your infrastructure, the two business components no longer talk to each other directly, which fragments the domain.</p>
+<p>This all sounds a bit theoretical, but: how easy is it to test this code, involving all the non-infrastructure objects? Quite hard:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">class</span> BusinessComponentTest
+<span class="br0">{</span>
+    <span class="kw2">class</span> testFoo
+    <span class="br0">{</span>
+        <span class="re0">$testable</span> <span class="sy0">=</span> <span class="kw2">new</span> BusinessComponent<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$other</span> <span class="sy0">=</span> <span class="kw2">new</span> OtherBusinessComponent<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$cache</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getMock</span><span class="br0">(</span><span class="st_h">'Memcached'</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$cache</span><span class="sy0">-&gt;</span><span class="me1">expects</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">once</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">method</span><span class="br0">(</span><span class="st_h">'get'</span><span class="br0">)</span>
+            <span class="sy0">-&gt;</span><span class="me1">willReturn</span><span class="br0">(</span><span class="br0">[</span><span class="st_h">'data'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">setCache</span><span class="br0">(</span><span class="re0">$cache</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">setHelper</span><span class="br0">(</span><span class="re0">$other</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Never touches $other.</span>
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">foo</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">$other</code></span> business object is never touched, whether we mock it or not. Do the two business objects integrate correctly? We can't know for sure, unless we write a system test, or start embedding logic in your mock's methods; something like:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="kw2">class</span> BusinessComponentTest
+<span class="br0">{</span>
+    <span class="kw2">class</span> testFoo
+    <span class="br0">{</span>
+        <span class="re0">$testable</span> <span class="sy0">=</span> <span class="kw2">new</span> BusinessComponent<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$other</span> <span class="sy0">=</span> <span class="kw2">new</span> OtherBusinessComponent<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$cache</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getMock</span><span class="br0">(</span><span class="st_h">'Memcached'</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$cache</span><span class="sy0">-&gt;</span><span class="me1">expects</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">once</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">method</span><span class="br0">(</span><span class="st_h">'get'</span><span class="br0">)</span>
+            <span class="sy0">-&gt;</span><span class="me1">will</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnCallback</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$closure</span><span class="br0">)</span> <span class="br0">{</span>
+                <span class="re0">$closure</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+            <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">setCache</span><span class="br0">(</span><span class="re0">$cache</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">setHelper</span><span class="br0">(</span><span class="re0">$other</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Never touches $other.</span>
+        <span class="re0">$testable</span><span class="sy0">-&gt;</span><span class="me1">foo</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Rapidly you'll find yourself adopting different mocking patterns  in different tests: maybe you'll even create an unmocked <span class="geshifilter"><code class="text geshifilter-text">DummyMemcached</code></span> class, and start peppering your tests with that instead; <a href="http://regex.info/blog/2006-09-15/247">now you have two problems</a>. Far more testable intead, if not as neat to look at (as a submersible diving vessel exploring uncharted territories) is to make the cache call, check the response, <em>then</em> call whatever would populate the cache:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="re0">$cachedItem</span> <span class="sy0">=</span> <span class="re0">$cache</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="re0">$key</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$cachedItem</span> <span class="sy0">===</span> <span class="kw4">null</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$data</span> <span class="sy0">=</span> <span class="re0">$localObject</span><span class="sy0">-&gt;</span><span class="me1">doSomething</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$cache</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$data</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>It's not as neat, but it tests. It separates. It injects.</p>
+<h2>Summary</h2>
+<p>Closures are a great shorthand for logic, especially when you want to e.g. use <span class="geshifilter"><code class="text geshifilter-text">array_map</code></span> to perform some calculation on every member of an array. But when overused they can spoil injectability, testability and maintainability. As an application's use of closures grows, it's worth always looking out for opportunities to turn them into more "old-fashioned" objects, interfaces and even control flow. After some ten years or so of programming in PHP full time, I'm finally reconciled to the fact that it isn't Python, or Javascript; as such, it has its own, specific patterns.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/subtleties.html">subtleties</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/php.html">php</a>, <a href="../../category/tags/closure.html">closure</a>, <a href="../../category/tags/antipattern.html">antipattern</a>, <a href="../../category/wordpress-tag/pattern.html">pattern</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-67ec2b6ee361c74229683169e2d25012">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="how-to-not-cache-a-particular-drupal-page.html" />
+<link rel="shortlink" href="../../../../node/212.html" />
+  <title>How to not cache a particular Drupal page | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"JIEOUGr7Xx2m0zNR4j9l63pS_S2cjf4D5LLx4Mwj7-M","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-212 node-type-blog" >
+  <div id="skip-link">
+    <a href="how-to-not-cache-a-particular-drupal-page.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          How to not cache a particular Drupal page        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, March 3, 2009 - 20:28</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><em>Edit: if you know reasonably in advance e.g. at the start of a given page request that the page is never going to be cached, <a href="http://stackoverflow.com/questions/4205981/drupal-page-fragment-caching">there is a better way (thanks to Stack Overflow!)</a></em></p>
+<p>In a recent Drupal project we turned on standard caching to help site performance. With this in place, however, we found that certain visitor-sensitive details might be revealed. For example, if a submission via the <a href="http://drupal.org/project/webform/">webform module</a> contains an email address, and this is included somehow in the acknowledgement page (through custom code), then this custom page can be guessed for other users.  The reason for this is a complication of webform and fairly understandable custom-modular code. Webform's confirmation page is a GET URL of the form:</p>
+<blockquote><p><a href="http://example.com/form_page/done?sid=1418">http://example.com/form_page/done?sid=1418</a></p></blockquote>
+<p>where <code>sid</code> is the <strong>s</strong>ubmission <strong>ID</strong>: the unique identifier of the data. This is fine with out-of-the-box webform, which just gives all of your site visitors the same confirmation message. But if the message is <em>personalized</em> based on the submission, e.g. to say "Thanks, Bob! We've sent an acknowledgement of your gift of a cheese pastie to your email address, which is..." then we're in trouble. The cache is set to slurp up the response to any HTTP GET request, which while it doesn't affect forms <em>does</em> include confirmation pages, however personalized.  As a matter of course, we firstly made the confirmation page customization contingent on a <code>$_SESSION</code> variable, which was set when the form was processed, and unset when the confirmation page was viewed: without the variable, the page would not be customized. In the uncached situation, this solved the problem of discovery; however, the cache would just serve up the cached version regardless, as it just grabs the raw HTML from the database, never touching the code which checks  <code>$_SESSION</code> One option would have been to change the webform's confirmation URL to have a random second parameter e.g:</p>
+<blockquote><p><a href="http://example.com/form_page/done?sid=1418&amp;random=0d1803d0-fdf7-11dd-87af-0800200c9a66">http://example.com/form_page/done?sid=1418&amp;random=0d1803d0-fdf7-11dd-87a...</a></p></blockquote>
+<p>This <em>would</em> still put an entry in the cache, but it becomes hard to stumble across by trial and error! However, while OK in practice, this felt like a bit of a hack: fundamentally, it's safest not to have any cache entry.  With this in mind, we took a different route.  In Drupal 6, <a href="http://api.drupal.org/api/function/hook_exit/6"><code>hook_exit()</code></a> is called across all modules, immediately before the end of a page request. This happens both in the absence of caching and the presence of standard caching, in <a href="http://api.drupal.org/api/function/drupal_page_footer/6"><code>drupal_page_footer()</code></a> and <a href="http://api.drupal.org/api/function/_drupal_bootstrap/6"><code>_drupal_bootstrap()</code></a> respectively. The order of execution is, with some omissions:</p>
+<ul><li><code>drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL)</code>
+<ul><li>Cached version?
+<ul><li>Set headers and send cache contents to browser</li>
+<li><code>module_invoke_all('exit')</code>: execute the exit hooks</li>
+<li><strong>quit!</strong></li>
+</ul></li>
+<li>Otherwise, carry on with page execution</li>
+</ul></li>
+<li>... page execution...</li>
+<li><code>drupal_page_footer()</code>
+<ul><li>Cacheing on?
+<ul><li><code>page_set_cache()</code>: cache this page</li>
+</ul></li>
+<li>Regardless, <code>module_invoke_all('exit')</code>: execute the exit hooks</li>
+</ul></li>
+</ul><p>So either the page is served from the cache, or it's created by code execution and then cached. That means that we can build a module which uses <code>hook_exit</code> to <em>clear the page that's just been cached</em> every time the code is executed. The page content is therefore never cached i.e. always dynamic, and the <code>$_SESSION</code> trick ensures security of submissions.  We use <a href="http://api.drupal.org/api/function/cache_clear_all/6"><code>cache_clear_all</code></a> to clear the page out. If we inspect <a href="http://api.drupal.org/api/function/page_set_cache/6"><code>page_set_cache</code></a>, we can see the page-specific key that it stores the cached content using <a href="http://api.drupal.org/api/function/cache_set/6">cache_set</a>. We can therefore clear out just the entry under this key, for this page, leaving the rest of the cache intact. Here's some sample code that accomplishes this.</p>
+<blockquote class="code"><p>/**  * Implementation of hook_nodeapi  */ function mymodule_nodeapi(&amp;$node, $op) {   if ($node-&gt;type == "webform" &amp;&amp; ($op == "load") &amp;&amp; (arg(2) == "done")) {     // If sid doesn't match session, then quit unless the current user has admin access     if ( ($_GET['sid'] != $_SESSION['submission']['sid']) &amp;&amp; !user_access("access webform results")) {       $node-&gt;webform["confirmation"] = "Thank you for your submission.";       return;     } <br />     // Flag the submission for deletion in hook_exit     $_SESSION['submission']['#delete'] = TRUE; <br />     /* . . . thankyou customization code . . .*/   } } <br /> /**  * Implementation of hook_exit  */ function mymodule_exit() {   global $base_root; <br />   // Have we just processed a submission?   if ($_SESSION['submission']['#delete']) {     // Firstly remove the submission entirely from the session, just in case     unset($_SESSION['submission']);     // Then clear the cache for this page     cache_clear_all($base_root . request_uri(), 'cache_page');   } }</p></blockquote>
+<h3>Note on aggressive caching</h3>
+<p>Later on, owing to performance issues, you might want to increase caching from standard to aggressive on your site. At that point, the site will warn you that your new module is "incompatible with aggressive mode caching and might not function properly." I think <a href="http://drupal.org/node/283935">this happens purely because of the presence of <code>hook_exit()</code></a>: it's a warning because, in <code>drupal_bootstrap()</code>, aggressive cacheing exits <em>before</em> the <code>_exit</code> hooks are actioned.  But <em>this only happens if Drupal finds a cached version</em>. It isn't omitted on the first visit to a given URL. So when webform creates a particular visitor's thankyou page, aggressive cacheing can't find a cache item for that <code>sid</code>: so it still executes the page, puts it in the cache, and executes <code>hook_exit()</code> to clear the page out of the cache! Result: <code>hook_exit()</code> is <em>still</em> called on pages which need it, even with aggressive caching switched on.  Note: <a href="http://www.cs.uky.edu/~keen/115/quotes">unlike Knuth</a>, not only have I not tested this yet, but I've barely proven it works, in an aggressively cached Drupal install. Use it in that environment at your peril.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-category/framework.html">framework</a>, <a href="../../../../category/wordpress-category/hacking.html">hacking</a>, <a href="../../../../category/wordpress-category/layers.html">layers</a>, <a href="../../../../category/wordpress-category/projects.html">projects</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-tag/cache.html">cache</a>, <a href="../../../../category/wordpress-tag/drupal.html">drupal</a>, <a href="../../../../category/wordpress-tag/request.html">request</a>, <a href="../../../../category/wordpress-tag/submission.html">submission</a>, <a href="../../../../category/wordpress-tag/aggressive.html">aggressive</a>, <a href="../../../../category/wordpress-tag/caching.html">caching</a>, <a href="../../../../category/wordpress-tag/clear.html">clear</a>, <a href="../../../../category/wordpress-tag/disable.html">disable</a>, <a href="../../../../category/wordpress-tag/dynamic.html">dynamic</a>, <a href="../../../../category/wordpress-tag/page.html">page</a>, <a href="../../../../category/wordpress-tag/prevent.html">prevent</a>, <a href="../../../../category/wordpress-tag/webform.html">webform</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d7c6e3baf01e1b27ad3ac85fa3d8a472">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

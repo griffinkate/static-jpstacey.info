@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="example-drupal-migration-base-class-help-keep-good-metrics.html" />
+<link rel="shortlink" href="../../node/577.html" />
+  <title>Example Drupal migration base class to help keep good metrics | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"3YgnqV_V_F1NZLMPHBBxExjsjDdd1BTZcuZwf0AEqnE","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-577 node-type-blog" >
+  <div id="skip-link">
+    <a href="example-drupal-migration-base-class-help-keep-good-metrics.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Example Drupal migration base class to help keep good metrics         </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, February 16, 2015 - 13:41</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Drupal's <a href="http://drupal.org/project/migrate">Migrate framework</a> is powerful, useful and subtle. I've used it on a number of projects and it's always worked well, but one thing I've tried to adopt recently is proper and conscientious use of the metrics pages.</p>
+<h3>Migration metrics and why they're useful (and underused)</h3>
+<p>Here's the page of metrics you get if you click on the migration name in the dashboard:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-110" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migratemetricspng.html">migrate_metrics.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migrate_metrics.png"><img class="media-element file-inline-image" alt="Migrate metrics page: index tab" src="../../sites/files/jps/styles/large/public/migrate_metrics.png%3Fitok=u8ebXHD4" width="480" height="277" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Remember this? Even if you've found it in the past when wandering around, chances are that you—like me, frankly—have always thought of it as a "nice-to-have": in the sense of thinking "oh, that's nice," and then moving on.</p>
+<p>On the screenshot above you see a number of tabs, each keeping track of what you've yet to consider: even if "considering" basically means marking as belonging to the group "D(o )N(ot )M(igrate)." This provides breakdowns for each migration of what source and destination fields have and haven't been dealt with one way or another. Here's an example of such an unhandled field:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-111" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migratemetricsincompletepng.html">migrate_metrics_incomplete.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migrate_metrics_incomplete.png"><img class="media-element file-inline-image" alt="Migrate metrics page: index tab" src="../../sites/files/jps/styles/large/public/migrate_metrics_incomplete.png%3Fitok=Y-I6ODt6" width="480" height="281" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>To create this example, I've deleted the mapping from a source field, into the destination "created" field: you can see "created" is red; but there's also now a red source field too. Migrate is letting me know that my migration plan doesn't include these fields.</p>
+<p>The goal offered to you by this page is to ensure that no tabs have red lights on them, much as with a unit test suite. Which makes it suddenly sound a lot more useful: a test harness for your migration specification, if not for your migration itself.</p>
+<p>But the framework also has a steep learning curve which these days I forget was ever the case. This means that keeping the metrics up to date is a task that tends to go to the wall early on, as you're trying just to get the migration working. Bad habits set in, and before you know it, you're just writing the minimum code that gets the data across. Also, when a deadline is approaching, any "good bookkeeping" you've indulged in so far will tend to suffers.</p>
+<p>... Which is OK, until there's some kind of a problem: at which point, those metrics would have come in useful!</p>
+<h3>How do we make maintaining metrics easier?</h3>
+<p>In order to keep our metrics in good order, there's a number of decisions we need to tell Migrate about:</p>
+<ol><li>We plan to migrate from the source field <i>S<sub>m</sub></i> to the destination field <i>D<sub>m</sub></i>.</li>
+<li>We don't plan to migrate from the source field <i>S<sub>dnm</sub></i>, discarding it.</li>
+<li>We don't plan to migrate to the destination field <i>D<sub>dnm</sub></i>, leaving it empty.</li>
+<li>We plan to create an on-the-fly source field <i>S<sub>otf</sub></i>, not explicitly present in the source, to migrate into the destination field <i>D<sub>m</sub></i>.</li>
+<li>We have some custom storage for an "on-the-fly" destination field <i>D<sub>otf</sub></i> that doesn't yet "talk Migrate" but we want to put data there.</li>
+</ol><p>Here's how we can take care of these cases:</p>
+<ul><li>The first case is straightforwardly handled declaratively: <span class="geshifilter"><code class="text geshifilter-text">$this-&gt;addFieldMapping()</code></span> updates any relevant metrics. No extra work is required.</li>
+<li>The second and third cases can be handled using <span class="geshifilter"><code class="text geshifilter-text">$this-&gt;addUnmigratedSources()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">...Destinations()</code></span>, but you do need to tell them about each one.</li>
+<li>The fourth case can be handled when setting up <span class="geshifilter"><code class="text geshifilter-text">$this-&gt;source</code></span>: for example, <span class="geshifilter"><code class="text geshifilter-text">MigrateSourceSQL::__construct()</code></span> takes an array second argument which can include these.</li>
+<li>The fifth case is a bit tricky, and needs you to provide a custom destination to e.g. <span class="geshifilter"><code class="text geshifilter-text">MigrateSourceSQL::__construct()</code></span>: we don't cover it here. Try using <a href="https://www.drupal.org/project/migrate_extras">Migrate Extras</a> to provide it for e.g. <a href="https://www.drupal.org/project/pathauto">pathauto</a>, <a href="https://www.drupal.org/project/media">media</a> etc. before you reach for customization.</li>
+</ul><p>All of this metric-keeping is possible, then: but remembering you need to do it, and then having to keep writing extra PHP each time, is a bit of a pain. How do we automate as much of this as possible?</p>
+<h3>A base class facilitating good metrics</h3>
+<p>Because Migrate is object-oriented, we can extend the core <span class="geshifilter"><code class="text geshifilter-text">Migration</code></span> class to provide an "abstract" base, and then base all of our own "real" migrations on that base.</p>
+<p>Below is an abstract class that handles our cases 1–4, and an example extended real class showing how you'd use it. The base class also does the following:</p>
+<ul><li>Sets up simple metadata e.g. the team members with contact details.</li>
+<li>Provides a <span class="geshifilter"><code class="text geshifilter-text">parent::__construct()</code></span> that you can pass your source/destination objects to and it will "just work" for most cases.</li>
+<li>Sets up <span class="geshifilter"><code class="text geshifilter-text">-&gt;defaultValue</code></span> properties on field mappings (and could do the same with callbacks.)</li>
+</ul><p>Here's the code for the abstract base class:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * @file
+ * Migrate class: abstract base.
+ */</span>
+ 
+<span class="co4">/**
+ * @class
+ * MigrateMyBase.
+ */</span>
+abstract <span class="kw2">class</span> MigrateMyBase <span class="kw2">extends</span> Migration <span class="br0">{</span>
+  <span class="co1">// Simple field mappings.</span>
+  <span class="kw2">public</span> <span class="re0">$simpleFieldMappings</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="co1">// Unmigrated source fields.</span>
+  <span class="kw2">public</span> <span class="re0">$unmigratedSourceFields</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="co1">// Unmigrated target fields.</span>
+  <span class="kw2">public</span> <span class="re0">$unmigratedTargetFields</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="co1">// Extra source fields, added in say ::prepareRow().</span>
+  <span class="kw2">public</span> <span class="re0">$extraSourceFields</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="co1">// Adding simple defaults.</span>
+  <span class="kw2">public</span> <span class="re0">$defaultValues</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements ::__construct().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$arguments</span><span class="sy0">,</span> <span class="re0">$from_to</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="re0">$arguments</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">team</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+      <span class="kw2">new</span> MigrateTeamMember<span class="br0">(</span>
+        <span class="st_h">'J-P Stacey'</span><span class="sy0">,</span>
+        <span class="st_h">'jp@example.com'</span><span class="sy0">,</span>
+        t<span class="br0">(</span><span class="st_h">'Freelance Drupal Architect'</span><span class="br0">)</span>
+      <span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// If we've got a from/to configuration (</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$from_to</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">setUpMigration</span><span class="br0">(</span><span class="re0">$arguments</span><span class="sy0">,</span> <span class="re0">$from_to</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Private: set up source, destination, SQL map and basic field mappings.
+   *
+   * @param $arguments array
+   *   Standard constructor arguments array, from hook_migrate().
+   * @param $from_to array
+   *   to_object =&gt; a MigrateDestination* object.
+   *   from_id =&gt; array describing the source ID field for migrate mapping.
+   *   to_schema =&gt; a schema for the destination ID: see example later.
+   */</span>
+  <span class="kw2">private</span> <span class="kw2">function</span> setUpMigration<span class="br0">(</span><span class="re0">$arguments</span><span class="sy0">,</span> <span class="re0">$from_to</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="co1">// Source, destination and map between the two.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">source</span> <span class="sy0">=</span> <span class="kw2">new</span> MigrateSourceSQL<span class="br0">(</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="co1">// Extra fields, not provided by the query.</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">extraSourceFields</span><span class="sy0">,</span>
+      <span class="kw4">NULL</span><span class="sy0">,</span>
+      <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'map_joinable'</span> <span class="sy0">=&gt;</span> <span class="kw4">FALSE</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">destination</span> <span class="sy0">=</span> <span class="re0">$from_to</span><span class="br0">[</span><span class="st_h">'to_object'</span><span class="br0">]</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">map</span> <span class="sy0">=</span> <span class="kw2">new</span> MigrateSQLMap<span class="br0">(</span>
+      <span class="re0">$arguments</span><span class="br0">[</span><span class="st_h">'machine_name'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="re0">$from_to</span><span class="br0">[</span><span class="st_h">'from_id'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="re0">$from_to</span><span class="br0">[</span><span class="st_h">'to_schema'</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Standard field mappings.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">mungeFieldMappings</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Protected: helper function to add simple field mappings.
+   *
+   * Eventually move this into __construct().
+   */</span>
+  protected <span class="kw2">function</span> mungeFieldMappings<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Add simple field mappings.</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">simpleFieldMappings</span> <span class="kw1">as</span> <span class="re0">$drupal_field</span> <span class="sy0">=&gt;</span> <span class="re0">$legacy_field</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">addFieldMapping</span><span class="br0">(</span><span class="re0">$drupal_field</span><span class="sy0">,</span> <span class="re0">$legacy_field</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Add any defaults to these.</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">defaultValues</span> <span class="kw1">as</span> <span class="re0">$target_name</span> <span class="sy0">=&gt;</span> <span class="re0">$default_value</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">codedFieldMappings</span><span class="br0">[</span><span class="re0">$target_name</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">defaultValue</span><span class="br0">(</span><span class="re0">$default_value</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Track intentionally unmigrated source/targets.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">addUnmigratedSources</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">unmigratedSourceFields</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">addUnmigratedDestinations</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">unmigratedTargetFields</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>And here's an example class which extends it:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * @file
+ * Migrate class: blogposts.
+ */</span>
+ 
+<span class="co4">/**
+ * @class
+ * MigrateMyBlogpost.
+ */</span>
+<span class="kw2">class</span> MigrateMyBlogpost <span class="kw2">extends</span> MigrateMyBase <span class="br0">{</span>
+  <span class="co1">// Description.</span>
+  <span class="kw2">public</span> <span class="re0">$description</span> <span class="sy0">=</span> <span class="st0">"From blogpost table"</span><span class="sy0">;</span>
+  <span class="co1">// Dependencies.</span>
+  <span class="kw2">public</span> <span class="re0">$dependencies</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'MyUser'</span><span class="sy0">,</span> <span class="st_h">'MyTerm'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Simple field mappings.</span>
+  <span class="kw2">public</span> <span class="re0">$simpleFieldMappings</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'title'</span> <span class="sy0">=&gt;</span> <span class="st_h">'name'</span><span class="sy0">,</span>
+    <span class="st_h">'field_tags'</span> <span class="sy0">=&gt;</span> <span class="st_h">'tags'</span><span class="sy0">,</span>
+    <span class="coMULTI">/* ... */</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Unmigrated destination fields.</span>
+  <span class="kw2">public</span> <span class="re0">$unmigratedTargetFields</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'revision'</span><span class="sy0">,</span>
+    <span class="coMULTI">/* ... */</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Extra source fields, added in say ::prepareRow().</span>
+  <span class="kw2">public</span> <span class="re0">$extraSourceFields</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'tags'</span> <span class="sy0">=&gt;</span> <span class="st0">"Added in ::prepareRow() by a subquery"</span><span class="sy0">,</span>
+    <span class="coMULTI">/* ... */</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Adding simple defaults.</span>
+  <span class="kw2">public</span> <span class="re0">$defaultValues</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'status'</span> <span class="sy0">=&gt;</span> <span class="nu0">1</span><span class="sy0">,</span>
+    <span class="coMULTI">/* ... */</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements ::__construct().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$arguments</span><span class="br0">)</span> <span class="br0">{</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span>
+      <span class="re0">$arguments</span><span class="sy0">,</span>
+      <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+        <span class="st_h">'to_object'</span> <span class="sy0">=&gt;</span> <span class="kw2">new</span> MigrateDestinationNode<span class="br0">(</span><span class="st_h">'blog'</span><span class="br0">)</span><span class="sy0">,</span>
+        <span class="st_h">'from_id'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+          <span class="st_h">'blogpost_id'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+            <span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'int'</span><span class="sy0">,</span>
+            <span class="st_h">'not null'</span> <span class="sy0">=&gt;</span> <span class="kw4">TRUE</span><span class="sy0">,</span>
+            <span class="st_h">'description'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Source blogpost ID'</span><span class="sy0">,</span>
+            <span class="st_h">'alias'</span> <span class="sy0">=&gt;</span> <span class="st_h">'p'</span><span class="sy0">,</span>
+          <span class="br0">)</span>
+        <span class="br0">)</span><span class="sy0">,</span>
+        <span class="st_h">'to_schema'</span> <span class="sy0">=&gt;</span> MigrateDestinationNode<span class="sy0">::</span><span class="me2">getKeySchema</span><span class="br0">(</span><span class="br0">)</span>
+      <span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Any complex mappings we can't define with arrays?</span>
+    <span class="coMULTI">/* ... */</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Protected: helper function to assemble iterable query.
+   *
+   * Base class -&gt;setUpMigration iterates over this query: one row per source item.
+   * Only add fields which won't cause duplicate rows for a given source ID.
+   */</span>
+  protected <span class="kw2">function</span> query<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$q</span> <span class="sy0">=</span> Database<span class="sy0">::</span><span class="me2">getConnection</span><span class="br0">(</span><span class="st_h">'default'</span><span class="sy0">,</span> <span class="st_h">'legacy'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">select</span><span class="br0">(</span><span class="st_h">'blogpost'</span><span class="sy0">,</span> <span class="st_h">'b'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">(</span><span class="st_h">'blogpost_id'</span><span class="sy0">,</span> <span class="st_h">'name'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">orderBy</span><span class="br0">(</span><span class="st_h">'b.id'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$q</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Implements ::prepareRow().
+   *
+   * Add fields which would otherwise lead to duplicates in iterable query above.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> prepareRow<span class="br0">(</span><span class="re0">$row</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Add potentially many tags using a subquery.</span>
+    <span class="re0">$q</span> <span class="sy0">=</span> Database<span class="sy0">::</span><span class="me2">getConnection</span><span class="br0">(</span><span class="st_h">'default'</span><span class="sy0">,</span> <span class="st_h">'legacy'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">select</span><span class="br0">(</span><span class="st_h">'tags'</span><span class="sy0">,</span> <span class="st_h">'t'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">(</span><span class="st_h">'label'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'t.blogpost_id'</span><span class="sy0">,</span> <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">blogpost_id</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="re0">$tag</span> <span class="sy0">=</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fetchAssoc</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">tags</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$tag</span><span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>As you can see, most of the example class is now just PHP arrays, and it's really simple to find the right place to add new metrics to. In theory, you might be able to abstract a lot of those PHP arrays into the <span class="geshifilter"><code class="text geshifilter-text">hook_migrate()</code></span> hook which registers your migrations, leaving you with a generic class to cover several migrations; in practice, I've found that practically every migration needs its own PHP class anyway, so it's best to add them sooner rather than later.</p>
+<h3>Summary</h3>
+<p>Migrate works really well, but to get the most out of it you should consider keeping the metrics page(s) up to date. Doing so can be fiddly, but a simple abstract base class can be used to cover the most important ways of registering such metrics. With this example base class, and an example extension of it, you're now set to go <em>full metric</em> when writing your next migration.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/import/export.html">import/export</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/example.html">example</a>, <a href="../../category/tags/migrate.html">migrate</a>, <a href="../../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-c2caf89b5346ba740029c4ee18837b37">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="running-drupal-code-reviews-within-vim-and-other-editors.html" />
+<link rel="shortlink" href="../../node/527.html" />
+  <title>Running Drupal code reviews within Vim and other editors | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"P4RVVqtr84KhCTsrpXpqMNEkuoAhRz0U5n5y0q9KI9w","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-527 node-type-blog" >
+  <div id="skip-link">
+    <a href="running-drupal-code-reviews-within-vim-and-other-editors.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Running Drupal code reviews within Vim and other editors        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Sunday, June 15, 2014 - 10:06</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>If you're developing at all in Drupal, you should adhere to <a href="https://drupal.org/coding-standards">Drupal coding standards</a>, because coding standards make your code more readable and hence easier for you to maintain and others to debug:</p>
+<ol><li>All code hosted on drupal.org should follow the coding standards, and it's rightly considered a bug to be fixed when it doesn't.</li>
+<li>Even if you don't have projects on drupal.org, you might have to hand over code to other developers, or even ask help about your own code on Drupal forums: following the drupal.org standards makes all of that much easier.</li>
+<li>And even if you never show your code to anyone else, you should pick a set of standards, if only for your own sanity: using Drupal's own means your entire codebase will follow it, not just what you've written.</li>
+</ol><p>But: coding standards are hard to follow. I completely appreciate that: my personal blind spot is that I never put spaces after <span class="geshifilter"><code class="text geshifilter-text">foreach</code></span> or <span class="geshifilter"><code class="text geshifilter-text">if</code></span>. Worse than that, enforcing coding standards is also hard: they often include quite subtle requirements, many of them specific to Drupal's codebase and community. Enforcing can often go far beyond mere syntax highlighting, and they're difficult to re-encode afresh, every time a new editor becomes the flavour of the month. So what can you do instead? I certainly didn't want to work out how to get Vim to highlight and/or review my Drupal code itself, so instead I looked at integrating with some existing solution, to do the heavy lifting.</p>
+<p>The <a href="https://drupal.org/project/coder">coder module</a> is a boon to developers, in that it provides a <a href="https://drupal.org/project/drush">Drush command</a> to review your code for you: at the command prompt, on a build that has coder installed, you can run <span class="geshifilter"><code class="text geshifilter-text">drush coder-review</code></span> and it will report back on some or all of the improvements you need to make, depending on the precise options you give it.</p>
+<p>I realised that, in coder, I had the perfect tool to integrate with our editor. So here's how I configured my editor to run <span class="geshifilter"><code class="text geshifilter-text">drush coder-review</code></span> with suitable arguments, every time I saved a Drupal-looking file.</p>
+<h2>Code examples below available at Github</h2>
+<p>Here I detail exactly how my local environment works. That means I do have a running copy of this code! You can find it on my Github account: <a href="https://github.com/jpstacey/vimconfig">github:jpstacey/vimconfig</a>. Please feel free to download it, clone it or even fork it and make your own changes.</p>
+<h2>Running coder-review with all the whistles and bells</h2>
+<p>Let's first look at how we might run coder-review at the command line, with as many checks switched on as possible. Here's a reasonable candidate for doing this in Bash shell scripting:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;"><span class="co0">#!/bin/bash</span>
+ 
+<span class="co0"># Run coder-review with standard arguments</span>
+drush coder-review $1 \
+  <span class="re5">--comment</span> <span class="re5">--minor</span> <span class="re5">--sql</span> <span class="re5">--style</span> $2 \
+  2<span class="sy0">&gt;&amp;</span>1 <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> <span class="st0">"No Problems Found"</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> <span class="st_h">'^$'</span></pre></div>
+<p>This takes the coder-review command, runs it on a filename (first argument), passes optional extra parameters (second argument) and then filters the output to remove anything you don't need to see.</p>
+<p>This solves two frequent problems with running coder-review:</p>
+<ol><li>It's not always clear how to make validation cover as many as possible of the standards.</li>
+<li>Its output is very verbose, even when there's no actual errors.</li>
+</ol><p>As you can see in the Github repository, I've saved this shell script as <span class="geshifilter"><code class="text geshifilter-text">~/.vimrc.d/personal/coder_review_command.sh</code></span>, for integration with Vim below.</p>
+<p>You can run this straight away once you save it:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;"><span class="kw3">cd</span> path<span class="sy0">/</span>to<span class="sy0">/</span>drupal-root<span class="sy0">/</span>
+path<span class="sy0">/</span>to<span class="sy0">/</span>coder_review_command.sh sites<span class="sy0">/</span>default<span class="sy0">/</span>modules<span class="sy0">/</span>mymodule<span class="sy0">/</span>mymodule.module</pre></div>
+<p>It will provide slightly terser, but comprehensive, review output for your code.</p>
+<h2>The only Vim-specific bit</h2>
+<p>Here's how you get Vim to: detect common Drupal file extensions, turn on PHP syntax highlighting on read, and call our custom Vim function on save.</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">augroup drupal_files
+  autocmd!
+  au BufNewFile,BufRead *.module,*.install,*.test,*.inc set filetype=php
+  au BufWritePost,FileWritePost *.module,*.install,*.test,*.inc call CoderVerify()
+augroup END </pre></div>
+<p>It uses an <span class="geshifilter"><code class="text geshifilter-text">augroup</code></span> to avoid the issue whereby <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/14.html">an autocmd can end up registered more than once</a>, and hence running more than once on an event. Our custom function <span class="geshifilter"><code class="text geshifilter-text">CoderVerify</code></span> looks like this:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">function! CoderVerify()
+  let current_file = shellescape(expand('%:p'))
+  let command = "!~/.vimrc.d/personal/coder_review.sh " . current_file
+  execute command
+endfunction</pre></div>
+<p>As you can see, it references a command, and passes it the full filename of the current buffer.</p>
+<h2>Setting the same thing up in other editors</h2>
+<p>I'd love to hear how this is set up in other editors. It really does boil down to just running an external executable, which I'll show you below, on the saving of a file. Most decent editors should support this!</p>
+<p>Here's the specific line in the Vim configuration above that you need to replicate:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">~/.vimrc.d/personal/coder_review.sh CURRENT_FILENAME</pre></div>
+<p>Please let me know in the comments if you get this working with your own editor of choice. If you're happy for me to do so, I'll edit this section and add your suggestion (crediting you, obviously) so it's clear to other readers.</p>
+<h2>Encapsulating coder-review to be run safely from an editor</h2>
+<p>Using the shell script above, and having integrated its execution into Vim (or your own editor) then you're ready to go, right?</p>
+<p>Well, personally, I prefer to introduce another layer between editor and coder-review. This is because there are lots of situations in which you might not want coder-review to always run: Drush might be uninstalled (or broken); Coder might not be installed for your current Drupal build; your file might not even <em>be</em> in a Drupal build. And also, because sometimes I inherit code that would take too much time to make fully compliant with the coding standards, sometimes I just want to blacklist certain files or folders, so they're never run through coder-review.</p>
+<p>That means that, in between Vim's <span class="geshifilter"><code class="text geshifilter-text">BufWritePost/FileWritePost</code></span> event, and <span class="geshifilter"><code class="text geshifilter-text">coder_review_command.sh</code></span>, I insert the following shell script. I've commented it as heavily as possible, so it should hopefully be self-explanatory. Save it as <span class="geshifilter"><code class="text geshifilter-text">coder_review.sh</code></span> or clone the Github repository, to start using it.</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;"><span class="co0">#!/bin/bash</span>
+ 
+<span class="co0"># Work out the directory containing this (and any other) script.</span>
+<span class="kw2">dir</span>=<span class="sy0">`</span> <span class="kw3">cd</span> <span class="st0">"<span class="es4">$( dirname "${BASH_SOURCE[0]}" )</span>"</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">pwd</span> <span class="br0">)</span><span class="sy0">`</span>
+ 
+<span class="co0"># Whatever happens, we really need drush.</span>
+<span class="co0"># Quit with an error code if we can't find it.</span>
+<span class="kw2">which</span> drush <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null 2<span class="sy0">&gt;&amp;</span>1
+<span class="kw1">if</span> <span class="br0">[</span> <span class="st0">"$?"</span> == <span class="st0">"1"</span> <span class="br0">]</span>; <span class="kw1">then</span>
+  <span class="kw3">echo</span> <span class="st0">"Drush not installed."</span>
+  <span class="kw3">exit</span> 1
+<span class="kw1">fi</span>
+ 
+<span class="co0"># Blacklist of files to ignore: check this first (on complex, slow Drupal sites,</span>
+<span class="co0"># this can be much quicker than firing up Drush.)</span>
+<span class="co0">#</span>
+<span class="co0"># To run this, you'll need the executable "blacklist_with_regexes.sh" from the</span>
+<span class="co0"># same Github repository as everything else. You'll also need a file in your</span>
+<span class="co0"># home directory called .coder.review.blacklist containing a list of filenames</span>
+<span class="co0"># or regular expressions that you want NOT to run coder-review on.</span>
+<span class="re2">match</span>=$<span class="br0">(</span><span class="st0">"<span class="es2">$dir</span>/blacklist_with_regexes.sh"</span> ~<span class="sy0">/</span>.coder.review.blacklist <span class="st0">"$1"</span><span class="br0">)</span>
+<span class="kw1">if</span> <span class="br0">[</span> <span class="st0">"$?"</span> == <span class="st0">"1"</span> <span class="br0">]</span>; <span class="kw1">then</span>
+  <span class="kw3">echo</span> <span class="st0">"Coder review skipped: filename matches a blacklist regex"</span>
+  <span class="kw3">echo</span> <span class="st0">"Regex details: <span class="es2">$match</span>"</span>
+  <span class="kw3">exit</span> 2
+<span class="kw1">fi</span>
+ 
+<span class="co0"># OK, so we do want to run coder-review on this filename</span>
+<span class="co0"># To use coder, it's best to be in the directory containing the filename.</span>
+<span class="kw3">cd</span> <span class="sy0">`</span><span class="kw2">dirname</span> $<span class="nu0">1</span><span class="sy0">`</span>
+ 
+<span class="co0"># Now we're ostensibly in a Drupal build, we can run Drush and see if</span>
+<span class="co0"># coder-review is an available command. If not, then either it's not</span>
+<span class="co0"># installed, or we're not actually in a full Drupal codebase!</span>
+<span class="re2">has_coder</span>=$<span class="br0">(</span>drush <span class="sy0">|</span> <span class="kw2">grep</span> coder-review <span class="sy0">|</span> <span class="kw2">wc</span> -l<span class="br0">)</span>
+<span class="kw1">if</span> <span class="br0">[</span> <span class="st0">"<span class="es2">$has_coder</span>"</span> == <span class="st0">"0"</span> <span class="br0">]</span>; <span class="kw1">then</span>
+  <span class="kw3">echo</span> <span class="st0">"Coder not installed or not enabled on this build."</span>
+  <span class="kw3">exit</span> 3
+<span class="kw1">fi</span>
+ 
+<span class="co0"># Determine the root of the Drupal build, and the relative path from that</span>
+<span class="co0"># root to the actual location of the file.</span>
+<span class="re2">root</span>=$<span class="br0">(</span>drush <span class="kw2">dd</span> root<span class="br0">)</span>
+<span class="kw2">file</span>=$<span class="br0">(</span><span class="kw3">echo</span> $1 <span class="sy0">|</span> <span class="kw2">sed</span> <span class="re5">-e</span> <span class="st0">"s^<span class="es2">$root</span>/^^"</span><span class="br0">)</span>
+ 
+<span class="co0"># If the computer has PHP Code Sniffer installed on it, coder-review will</span>
+<span class="co0"># try to check even more compliance rules. But we should check for that</span>
+<span class="co0"># and if not, don't pass the flag to coder-review (it would throw errors.)</span>
+<span class="re2">sniffer_flag</span>=<span class="st0">""</span>
+<span class="kw2">which</span> phpcs <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null 2<span class="sy0">&gt;&amp;</span>1
+<span class="kw1">if</span> <span class="br0">[</span> <span class="st0">"$?"</span> == <span class="st0">"0"</span> <span class="br0">]</span>; <span class="kw1">then</span>
+  <span class="re2">sniffer_flag</span>=--sniffer
+<span class="kw1">fi</span>
+ 
+<span class="co0"># OK. All checks done now! run coder-review on the file!</span>
+<span class="st0">"<span class="es2">$dir</span>/coder_review_command.sh"</span> <span class="st0">"<span class="es2">$file</span>"</span> <span class="st0">"<span class="es2">$sniffer_flag</span>"</span></pre></div>
+<p>Phew. Not strictly necessary, but all of that should really improve the integration between coder-review and your editor. Use it or don't, as you prefer!</p>
+<h2>Summary</h2>
+<p>Running a simple coder-review on a Drupal file is straightforward. Running coder-review with a full set of options, to make it stricter, is also fairly straightforward, but can be abstracted into a shell script.</p>
+<p>Once you've got that shell script, you can very quickly use the <span class="geshifilter"><code class="text geshifilter-text">autocmd</code></span>/<span class="geshifilter"><code class="text geshifilter-text">augroup</code></span> command to tie that into a file/buffer save event in Vim. It should also be straightforward to integrate it with any other editor and I'd love to hear how you do that.</p>
+<p>Between the editor, and the simple shell script, it's also potentially worth inserting another, longer shell script. This is able to tackle lots of edge cases - builds without Coder installed, builds that you just don't want to critique for whatever reason - so that everything hangs together with fewer visible seams. But that's OK too, because an example of such an intermediate script is given above.</p>
+<p>Now, go review your code. I promise you: it'll be an eye-opening experience!</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-204"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <a href="https://twitter.com/dtkinzer" rel="nofollow" class="username">David Kinzer (not verified)</a>      </p>
+      <p class="comment-time">
+        Fri, 16/01/2015 - 20:26      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/204.html#comment-204" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/204.html#comment-204" class="permalink" rel="bookmark">Great article! Just the thing</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Great article! Just the thing I was looking for to help me get through a bunch of code upgrade changes.  Thanks!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/527/204.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/quickies.html">quickies</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/standard.html">standard</a>, <a href="../../category/tags/coding.html">coding</a>, <a href="../../category/tags/editors.html">editors</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-8d6e76eb4e6ed4f7d59bc7de7dc1e578">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

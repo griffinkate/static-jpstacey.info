@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="phpunit-tests-using-mock-objects-callbacks.html" />
+<link rel="shortlink" href="../../node/600.html" />
+  <title>PHPUnit tests using mock objects with callbacks | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"3akUwcNlUe5nMJ5kYmHdBJRWZU2qDElko9q1F4_RYIA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-600 node-type-blog" >
+  <div id="skip-link">
+    <a href="phpunit-tests-using-mock-objects-callbacks.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          PHPUnit tests using mock objects with callbacks        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Saturday, July 4, 2015 - 17:52</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>When you're writing <a href="https://phpunit.de/">PHPUnit</a> tests, sometimes you want the thing you're testing to be able to work on a provided ancillary object—basically a <a href="http://www.jpstacey.info/category/tags/dependencyinjection">dependency injection</a>—without having to set up the whole of that ancillary object. For example, in my case I wanted to test a model layer that, as part of creating entities, received a <a href="http://api.symfony.com/2.7/Symfony/Component/HttpFoundation/File/UploadedFile.html">Symfony <span class="geshifilter"><code class="text geshifilter-text">UploadedFile</code></span> object</a> usually populated by a browser form submission. Faking the entire process of form submission, merely in order to satisfy <span class="geshifilter"><code class="text geshifilter-text">UploadedFile</code></span>, is a lot of overhead: but there's a better way!</p>
+<p>Situations like this are usually tackled using <a href="http://code.tutsplus.com/tutorials/all-about-mocking-with-phpunit--net-27252">mock objects</a>—which are mostly empty shells that duplicate all the real object's callbacks, each of which either do nothing or defer to the object's original callback—so in my test I summoned a mock based on <span class="geshifilter"><code class="text geshifilter-text">UploadedFile</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="re0">$mockBuilder</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getMockBuilder</span><span class="br0">(</span>
+    <span class="co1">// Class name, using namespaces.</span>
+    <span class="st_h">'Symfony\Component\HttpFoundation\File\UploadedFile'</span>
+<span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">disableOriginalConstructor</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>You <em>can</em> call <span class="geshifilter"><code class="text geshifilter-text">::getMock()</code></span> directly instead, but I also needed to disable the original <span class="geshifilter"><code class="text geshifilter-text">UploadedFile::__construct()</code></span>, and <a href="http://www.programmersparadox.com/2011/06/16/phpunit-getmock-method-signature/">doing that through getMock can be a bit arcane</a>. As I will one day have to hand this code over to someone else, it's much clearer to do that this way.</p>
+<p>We now have our mock builder, but what about when the mock is passed into the object under test, which tries to use it; what needs to happen then? The tested object will want to call <span class="geshifilter"><code class="text geshifilter-text">UploadedFile::move($targetDir, $targetFilename)</code></span>, to move the submitted data to a known file location. But our mock object will literally do notthing when its equivalent callback is made.</p>
+<p>There are a lot of examples out there for trivial mocking-up of callback responses: these usually focus on the return values; maybe the mock callback needs to return a number 2, then a number zero, then a NULL; maybe the callback should object if it's called more than three times. This assumes the callback rightfully should have no side effects: unfortunately, almost the whole point of <span class="geshifilter"><code class="text geshifilter-text">::move()</code></span> in our example is that it has a side effect of creating a new file!</p>
+<p>In theory, I could take a (big) step backwards at this point and <a href="https://phpunit.de/manual/current/en/test-doubles.html#test-doubles.mocking-the-filesystem">mock up an entire filesystem</a>, never really writing files to disk; in practice, I was already set up to redirect my model layer's behaviour and write files in a temporary location.</p>
+<p>All I wanted to do was replace the mock callback with an actual callback, that created an empty file on disk. Here's how I next modified the mock to do that:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co1">// Tell the mock builder we'll be overriding ::move().</span>
+<span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">setMethods</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"move"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="co1">// Generate a mock object.</span>
+<span class="re0">$mockUploadedFile</span> <span class="sy0">=</span> <span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">getMock</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co1">// Add a method for a single call to -&gt;move($targetDir, $targetFilename).</span>
+<span class="re0">$mockUploadedFile</span><span class="sy0">-&gt;</span><span class="me1">expects</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">once</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">method</span><span class="br0">(</span><span class="st0">"move"</span><span class="br0">)</span>
+    <span class="sy0">-&gt;</span><span class="me1">will</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnCallback</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="re0">$this</span><span class="sy0">,</span> <span class="st_h">'mockMove'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>The final line is how to pass in as a callback, not a simple function, but an actual method of my test: that way, I could keep everything encapsulated within it. As you can see I've also told the mock how often it should expect this method to be called—<span class="geshifilter"><code class="text geshifilter-text">::once()</code></span>—which might not be strictly necessary but is good practice. I can now define a public method <span class="geshifilter"><code class="text geshifilter-text">MyTest::mockMove($targetDir, $targetFilename)</code></span> that does what I want!</p>
+<p>Here's the resulting, full PHPUnit test:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * @class
+ * Test: MyApp\Models\Dataset.
+ */</span>
+<span class="kw2">class</span> MyTest <span class="kw2">extends</span> \PHPUnit_Framework_TestCase
+<span class="br0">{</span>
+    <span class="co1">// To be replaced with new Dataset() during setUpBeforeClass.</span>
+    <span class="kw2">public</span> static <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw4">NULL</span><span class="sy0">;</span>
+    <span class="co1">// Directory for datasets: we keep track of that too.</span>
+    <span class="kw2">private</span> static <span class="re0">$dir</span> <span class="sy0">=</span> <span class="kw4">NULL</span><span class="sy0">;</span>
+ 
+    <span class="co4">/**
+     * Set up before all tests: create dataset folder and Dataset() handler class.
+     */</span>
+    <span class="kw2">public</span> static <span class="kw2">function</span> setUpBeforeClass<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$dir</span> <span class="sy0">=</span> <a href="http://www.php.net/getenv"><span class="kw3">getenv</span></a><span class="br0">(</span><span class="st_h">'DIR_DATASETS'</span><span class="br0">)</span><span class="sy0">;</span>
+        <a href="http://www.php.net/mkdir"><span class="kw3">mkdir</span></a><span class="br0">(</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$dir</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> Dataset<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co4">/**
+     * Test: MyApp\Models\Dataset::create().
+     */</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> testCreate<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// Mock up an UploadedFile, disabling its constructor.</span>
+        <span class="re0">$mockBuilder</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getMockBuilder</span><span class="br0">(</span>
+            <span class="st_h">'Symfony\Component\HttpFoundation\File\UploadedFile'</span>
+        <span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">disableOriginalConstructor</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Tell the mock builder we'll be overriding ::move().</span>
+        <span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">setMethods</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"move"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Generate a mock object.</span>
+        <span class="re0">$mockUploadedFile</span> <span class="sy0">=</span> <span class="re0">$mockBuilder</span><span class="sy0">-&gt;</span><span class="me1">getMock</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Add a method for a single call to -&gt;move($targetDir, $targetFilename).</span>
+        <span class="re0">$mockUploadedFile</span><span class="sy0">-&gt;</span><span class="me1">expects</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">once</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">method</span><span class="br0">(</span><span class="st0">"move"</span><span class="br0">)</span>
+            <span class="sy0">-&gt;</span><span class="me1">will</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnCallback</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="re0">$this</span><span class="sy0">,</span> <span class="st_h">'mockMove'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Now create our dataset object to test and make test assertions.</span>
+        <span class="re0">$dataset</span> <span class="sy0">=</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">create</span><span class="br0">(</span><span class="re0">$mockUploadedFile</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="coMULTI">/* Test assertions here. */</span>
+    <span class="br0">}</span>
+ 
+    <span class="co4">/**
+     * Helper: provide the UploadedFile mock with a ::move() method.
+     *
+     * This needs to touch a temporary file during the dataset creation.
+     */</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> mockMove<span class="br0">(</span><span class="re0">$dir</span><span class="sy0">,</span> <span class="re0">$file</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="http://www.php.net/touch"><span class="kw3">touch</span></a><span class="br0">(</span><span class="st0">"<span class="es4">$dir</span>/<span class="es4">$file</span>"</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>I've included a class function to create the temporary folder and initialize the object (model layer) I want to test; and at the end you see my mock callback, <span class="geshifilter"><code class="text geshifilter-text">MyTest::mockMove()</code></span>, which gets called in place of <span class="geshifilter"><code class="text geshifilter-text">UploadedFile::move()</code></span> and just creates an empty file using <span class="geshifilter"><code class="text geshifilter-text">touch()</code></span>. </p>
+<p>Mocking up not just objects but their callbacks is straightforward once you know how, but also slightly subtle and very powerful!</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a>, <a href="../../category/wordpress-category/layers.html">layers</a>, <a href="../../category/wordpress-category/quickies.html">quickies</a>, <a href="../../category/wordpress-category/subtleties.html">subtleties</a>, <a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/unit-test.html">unit test</a>, <a href="../../category/tags/symfony.html">symfony</a>, <a href="../../category/tags/silex.html">silex</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-2c5f68d325c7076351baa7477ebe4c22">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

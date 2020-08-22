@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2013-07-07/neither-developers-nor-language-are-whats-wrong-php.html" />
+<link rel="shortlink" href="../node/467.html" />
+  <title>Neither developers nor the language are what's wrong with PHP | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"GhE2F8C1yp39MLDeffVz9Nl1wKl4GkM-d1ZG5SBHOc8","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-467 node-type-blog" >
+  <div id="skip-link">
+    <a href="169.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Neither developers nor the language are what&#039;s wrong with PHP        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Sunday, July 7, 2013 - 16:12</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>I recently wrote about <a href="http://www.jpstacey.info/blog/2013-06-30/ranters-gonna-rant-time-and-time-again">how pointless and repetitive anti-PHP rants are</a>, and I'd like to expand on that theme. When you strip away all the hyperbole that PHP detractors layer onto their discussion of the language, I'd say you're left with one reasonably uncontested fact and one popular claim:</p>
+<ol><li><strong>Success (fact): </strong><a href="http://trends.builtwith.com/framework">PHP powers more websites than any other language</a>, or at any rate has a much greater share than Python, Ruby, Clojure etc.</li>
+<li><strong>Failure (claim): </strong>PHP applications are on average less secure, or less robust, or less well architected, or less <em>something</em> than anything written in those languages.</li>
+</ol><p>Anti-PHP rants often focus on attacking the <strong>success</strong>, using the <strong>failure</strong> as a weapon. But to frame the discussion in this way is to reveal more about the frustration of the ranter - "how <em>dare </em>PHP be so successful?" - than about PHP itself: there's little scope, or desire, for pragmatic explanations of what I've previously called:</p>
+<blockquote><p>... the genuinely interesting phenomena: why is PHP (still) so popular? what adaptations for survival have arisen from, say, its pragmatism, its sloppiness or its decade-plus iterative design? why are the aspects of a language that opinion-formers focus on not the ones that contribute to its longevity?</p></blockquote>
+<p>On the other hand, pro-PHP ripostes try to dismiss the <strong>failure</strong>, by showing it to be a necessary consequence of the <strong>success</strong>. But this can end up as a metric war: who has the best numerical measures of something fuzzy like "insecurity", so that PHP can go head to head with... and so on. It's almost boring as the original anti-PHP rants. It gets us nowhere, but merely justifies our preconceptions.</p>
+<p>Let's instead take both the <strong>success</strong> and <strong>failure </strong>as a given; I want to address them unflinchingly and without excuse, and see how we can move beyond them. What can we do to make any web application - whatever its technology, averaged across the internet - more likely to be secure, robust and well architected.</p>
+<p><em>(Speaking of charm or lack thereof, at some points in the discussion below, especially if you're a PHP programmer like me, you might think that I'm insulting you, or your co-workers. I can only apologise in advance, not least because, well: sometimes I am, sort of; but really only hypothetically, if that makes you any less likely to hit me. I don't want you to think that, like an anti-PHP ranter, I'm disclaiming these insults purely so that I can make them! Rather, I set out with the fixed intent of not flattering PHP, in order to see where the discussion ends up.)</em></p>
+<h2>The long downward tail of charmless web applications</h2>
+<p>If instinct suggests there's a reasonable if fuzzy measure of a web applications fitness for purpose, encompassing all the ideas in the <strong>failure</strong> statement above, and if we're happy that the measure can be explained, if not always quantified so much as qualified, then as a shorthand we can refer to this as an application's <strong>charm</strong>. If you prefer quantization, think of it as some kind of weighted average of all the qualities desirable in an application; if you prefer gut feeling and discursive justification, then think of it an intuitive and noncontinuous measure: I'm happy not to argue the specifics.</p>
+<p>On average, our <strong>failure </strong>statement claims that PHP web applications have on average less charm than what I'll refer to concisely as their <strong>Py/Ru/jure</strong> equivalents. But if we also accept that there's some great work going on in the higher tiers of PHP charm - in frameworks like CodeIgniter, Laravel and CakePHP, and larger hybrid framework-apps like Drupal and Wordpress - then this suggests that a long tail of charmlessness is dragging down the average. You don't have to accept that yourself, but you might want to talk to, say, some of the <a href="http://buytaert.net/tag/branch-maintainer">co-maintainers of Drupal core</a> first, and at least get some idea of their combined expertise before dismissing it as not being of as high a standard as the the talent in the Py/Ru/jure communities.</p>
+<p>So how come so many PHP applications lack charm? Is it really easier to, say, code a MySQL injection in PHP than in Py/Ru/jure? I'm not convinced that's the case: if you get as far as finding cgi.FieldStorage(), you can easily do as much damage as if you find out about $_GET. Is it easier to write maintainably in any given language? Well, there are structures inherent to all of these languages, that very much promote maintainability when used properly within a given language's idiom.</p>
+<p>Perhaps PHP's idioms and influences of style can account for an application's charmlessness? Well, such idiomatic arguments are dangerously close to aesthetic ones; besides, I have little truck with even weak versions of <a href="https://en.wikipedia.org/wiki/Linguistic_relativity">Whorfianism</a>, especially when it comes to a deliberate intellectual exercise like programming. When you're programming, your thought processes and ideas are being generated and moulded in a lexical level far above the programming language and its idioms; what you do and don't decide to program are only tangentially dictated by the language, and then mostly at the level of syntax. Besides, all of these languages - PHP included - have their frameworks, which help to redefine those idioms into something more robust and standardized like MVC; conversely, all of those frameworks are similarly as easy to avoid, if you're a poor enough developer...</p>
+<p>In fact, let's take that last point, and run with it. Let's accept the worst - or at any rate least complimentary working hypothesis, yet again, and say outright that: along with attracting a similar share of charming programmers as Py/Ru/jure attracts, <strong>PHP also attracts more than its fair share of the talentless</strong>. There's my biggest insult, right there, and I ask you once again to refrain from hitting me for it....</p>
+<p>Because: I'm definitely not saying that you're an idiot if you work in PHP - if I were, then I'd be an idiot with you - but that, compared to other languages, when talented PHP programmers look downwards into the vast community beneath them, compared to when other programmers look down, there's a much longer downward tail of the less talented beneath them, mirroring that same downward tail of charmless apps.</p>
+<h2>Community evolution and negative pressures</h2>
+<p>What does it mean, for a programming language to preferentially attract undertalented developers into its concomitant community? Edsger Dijkstra suggested that <a href="http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD898.html">the teaching of BASIC "mutilates the mind beyond recovery"</a>, but I see no obvious equivalent effect in PHP. It has a C-like syntax, very similar to other languages; and whatever uncomplimentary things one might like to say about Java or Perl programmers, they're qualitatively different insults from those aimed at PHP, its apparently charmless applications and its allegedly undertalented practitioners.</p>
+<p>Besides, any hypothesis that a language causes active damage to a programmer's prowess needs to be backed with proof: <a href="http://www.codinghorror.com/blog/2008/04/everything-i-needed-to-know-about-programming-i-learned-from-basic.html">Jeff Atwood makes the important point</a> that an entire generation grew up learning BASIC; where is the evidence of widespread retardation among these programmers, compared to the select few who avoided it? The point is that, unless anyone can turn their subjective dislike of curly brackets into reputable, objective studies, I'm happy to propose and (it's my blog, after all) accept that <strong>PHP's syntax is neither obviously preferential to a lack of talent</strong>, nor does it have a quality which makes its users somehow mentally degenerate.</p>
+<p>Instead, I think there's a sense in which PHP's <strong>success</strong> - widespread and inclusive - is <em>at the very same time </em>its <strong>failure</strong> - quickly learned and nonselecting. Communities like PHP's can evolve in the same way as any other population evolves: individuals exhibit random traits; a particular environment translates those traits into a likelihood of longevity; over time, individuals or their descendants exhibit different traits, adapted to suit the environment. But if the environment is not particularly harsh, then very little selection occurs. Only a negative evolutionary pressure, a harsh environment, can if you like weed out a lack of developer talent.</p>
+<p>In PHP, its community and its applications, therefore, we see demonstrated the results of having low barriers to entry. PHP is easy to pick up. It's easy to use. It's easy to find a web hosting company that will support it. It's easy, in fact, for a web hosting company to do so: it's an eminently hostable environment<strong>.</strong> Py/Ru/jure, on the other hand, must somehow deter a greater fraction of untalented developers. You could spend days arguing about why that's the case.</p>
+<p>Is that good or bad, for PHP or for Py/Ru/jure? As with the other questions mentioned above, that can so easily turn into a solicitation of opinion and prejudice, I don't answer that here. But what's clear is that there is no straightforward mechanism for increasing the average developer talent in a language, because you would have to bolt a <em>post-hoc </em>barrier to entry onto an existing language; what would one even look like; how would it work; most ominously, what might its unintended consequences be? <span style="line-height: 1.538em;">And you certainly can't improve the average standard of developer talent by trying to attract them to your preferred language: as a positive evolutionary pressure, that can only help to stir the population up a bit.</span></p>
+<p>There's no escape. We must live with the likelihood that<strong> untalented developers can end up building charmless applications, </strong>and a (unfairly large) proportion of those will be PHP applications.</p>
+<h2>If you can't beat 'em, manage 'em</h2>
+<p>So what's the solution? If the PHP community really does contain more than its fair share of untalented developers (and I accept that only provisionally); if there's no obvious way of improving that, given PHP's low barriers to entry; if PHP developers are unlikely to be prevented from developing in PHP if they want to, if that's the first tool to hand, if that's the framework they know; then <strong>how do we improve the charm of the applications that do get released?</strong></p>
+<p>A simple question with a simple answer: after all, how do we ever do that? <strong>Management</strong>. Or, if you're worried that I'm talking about pointy-haired bosses, you can call it <strong>direction</strong> instead.</p>
+<p>When we discuss the pro's and con's of a language, we so often focus on the language itself, and the manner in which its building blocks get turned into code by developers. If we discuss any kind of abstraction at all, then it tends to be a computer-science abstraction, like a hashing algorithm, functional programming, or MVC. But there's a sense in which <em>code is just code</em>; the mental effort of a programmer - like other, more prosaic powers - isn't particularly distinguished, except by the ways in which we contain it, channel it and direct its use; <strong>software management gives software development a purpose.</strong></p>
+<p>What are the ways in which a language, especially <em>but not exclusively </em>PHP, can benefit from managerial direction?</p>
+<ul><li><strong>People</strong> If PHP does have its fair share of bad programmers, we need to stop assuming PHP developers are roughly equivalent based on simplistic CV metrics. Companies and organizations need to have upskilling and training programmes. They should cultivate <a href="http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read">a love of programming for its own sake</a>, an understanding of what constitutes well-written PHP, and - yes - an interest in other programming languages and their advantages.</li>
+<li><strong>Process</strong> Any project should be run in ways which mitigate risk, which prize good development and the urge to deliver well-written software in a timely manner. Code should be reviewed regularly, and <a href="http://www.acquia.com/resources/podcasts/acquia-podcast-69-php-security-anthony-ferrara">security</a> and architecting made top priorities. By all means use <a href="http://www.scrum.org/">Scrum</a>, <a href="http://www.kanbanblog.com/explained/">Kanban</a> or <a href="http://en.wikipedia.org/wiki/Waterfall_model">Waterfall</a> if you like; but if you do, then treat them with sufficient respect to make them robust, but not so much respect as to make them restricting: the processes must serve the project, not the other way around. Have processes which <a href="http://www.codinghorror.com/blog/2009/12/version-1-sucks-but-ship-it-anyway.html">ship early and often</a>, and which promote the successful completion of features and projects over egos and prejudices.</li>
+<li><strong>Standards</strong> General, basic standards like <a href="http://www.html5rocks.com/en/">HTML5</a>, <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">HTTP/REST</a> and <a href="http://www.unicode.org/">Unicode</a> should not just be adopted but <em>embraced</em>. They should be scouted out when they're still in their infancy; and the act of discovering them and bringing them to the attention of others should be rewarded. The PHP community's leaders are already providing exciting, even heartwarming levels of direction through structures like the <a href="http://www.php-fig.org/">PHP Framework Interop Group</a>, providing PHP with standards like the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PHP Standard Recommendations</a>. PHP developers should consider directing this process from within the community, at whatever level they find themselves; and this should be praised as much as (if not more) than good code. Code is silver, but docs are gold.</li>
+</ul><p>Of course, there are many more ways in which good management of software projects can help take advantage of the good aspects of the underlying technology and its practitioners, while mitigating the worse effects of the bad aspects.</p>
+<p>Wait, you might complain, this has all become very fuzzy indeed by this point. And, yes, I'd agree that, we've now reached a level of abstraction high enough that it would be easy to lose track of our original complaints: specifically about PHP; specifically about the relative charmlessness of applications built in it.</p>
+<p>To which I would reply: <strong>good</strong>. That's the whole point of what I am trying to say. Because, once you stop worrying about this problem at the level of syntax holy wars, what gradually becomes clearer is that the charmlessness of PHP applications is not an unavoidable consequence of the level of talent of PHP programmers. We only permit it to be so when we don't properly manage PHP software projects. <strong>When a PHP project is well managed, it can exhibit just as much developer charm as a project in any other language.</strong></p>
+<h2>Summary, or tl;dr</h2>
+<p>If the source of bad web applications is bad programming practices, then whether or not PHP attracts more than its fair share of developers who indulge in those practices is not something we can straightforwardly control. In addition, talented developers should be encouraged to program in languages they're comfortable with. With all that in mind, the way that we improve programming in any language is by <strong>treating programming as an exercise which is given purpose, structure and charm by sound managerial direction</strong>, not by complaining about the specific technology used.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-147"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">pcunite (not verified)</span>      </p>
+      <p class="comment-time">
+        Thu, 08/08/2013 - 15:18      </p>
+      <p class="comment-permalink">
+        <a href="147.html#comment-147" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="147.html#comment-147" class="permalink" rel="bookmark">PHP and JavaScript are</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>PHP and JavaScript are everywhere. It's not what I would have chosen but I didn't create the landscape. I encourage syntax haters to change the default landscapes, not make me feel stupid because I use what is available. Their attitudes are having an opposing effect.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+<a id="comment-148"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">foljs (not verified)</span>      </p>
+      <p class="comment-time">
+        Thu, 08/08/2013 - 17:08      </p>
+      <p class="comment-permalink">
+        <a href="148.html#comment-148" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="148.html#comment-148" class="permalink" rel="bookmark">When you&#039;re programming, your</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>"""When you're programming, your thought processes and ideas are being generated and moulded in a lexical level far above the programming language and its idioms; what you do and don't decide to program are only tangentially dictated by the language, and then mostly at the level of syntax."""</p>
+<p>Citation needed. If anything it's the exact opposite.</p>
+<p>And it's trivial to prove. Ask a C programmer, a Python programmer a Lisp programmer, a PHP programmer, a Java programmer etc to solve the same problem and see how they go about it. </p>
+<p>Any actual example I've seen, the style of the solution varies widely according to the programming language idioms and not according to some "level far above the programming language and it's idioms".</p>
+<p>For example, the Lisp programmer will go about in a functional style, the C programmer will go at it imperative(ly) and from a lower level, usually avoiding any third party libs, the Python programmer will use the built-in data structures and higher level constructs, and the Java programmer will opt for an OO solution with interfaces for modularity etc etc.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+<a id="comment-149"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Fractal (not verified)</span>      </p>
+      <p class="comment-time">
+        Fri, 09/08/2013 - 08:15      </p>
+      <p class="comment-permalink">
+        <a href="149.html#comment-149" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="149.html#comment-149" class="permalink" rel="bookmark">http://me.veekun.com/blog</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/</a></p>
+<p>'nuf said</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+<a id="comment-150"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Max (not verified)</span>      </p>
+      <p class="comment-time">
+        Sat, 10/08/2013 - 08:44      </p>
+      <p class="comment-permalink">
+        <a href="150.html#comment-150" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="150.html#comment-150" class="permalink" rel="bookmark">I remember well what we had</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>I remember well what we had to deal before PHP &amp; MySQL/PostgreSQL. </p>
+<p>It was either unstable "Perl", or MS hyper-expensive "architect, gold, platinum, developer edition, etc." server stuff.</p>
+<p>I even had to work with the "Access" database on-line, believe it or not.</p>
+<p>They keep badmouthing this incredibly successful and versatile technology to start selling their junk software again on the market, not only via kickbacks to ITs.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+<a id="comment-169"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">kylie wilson (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 26/02/2014 - 11:37      </p>
+      <p class="comment-permalink">
+        <a href="169.html#comment-169" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="169.html#comment-169" class="permalink" rel="bookmark">&quot;I would suggest attending a</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>From JPS: this comment is probably spam, and was submitted from the IP address 180.87.201.61, apparently located in India, at about the same time as <a href="http://www.jpstacey.info/comment/170#comment-170">http://www.jpstacey.info/comment/170#comment-170</a>.</p>
+<p>As I had no response to this tweet:</p>
+<p><a href="https://twitter.com/jpstacey/status/438655804280156160">https://twitter.com/jpstacey/status/438655804280156160</a></p>
+<p>I&#039;m posting the comment verbatim, but edited to prevent any link traffic (although the original poster had duplicated the quote marks around the links anyway, so they were broken in rich-text editors.) Incidentally, the commenter&#039;s homepage was also set to be http:// www .scrumstudy .com/ </p>
+<p>&lt;p&gt;&quot;I would suggest attending a &lt;a href=&quot;&quot;www .scrumstudy .com/&quot;&quot;&gt;agile scrum certification&lt;/a&gt; and &lt;a href=&quot;&quot;http:// www .scrumstudy .com/scrum-master-certification.asp&quot;&quot;&gt;Scrum Master Certification&lt;/a&gt; course to learn best practises in project management. Would be worth the money spent, I vouch.  &quot;&lt;/p&gt;</p>
+</div></div></div>          </div> <!-- /.content -->
+
+      </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/blog-category/community.html">community</a>, <a href="../category/wordpress-category/culture.html">culture</a>, <a href="../category/wordpress-category/discussion.html">discussion</a>, <a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/hacking.html">hacking</a>, <a href="../category/wordpress-category/meta.html">meta</a>, <a href="../category/wordpress-category/subtleties.html">subtleties</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/sociology.html">sociology</a>, <a href="../category/wordpress-tag/theory.html">theory</a>, <a href="../category/tags/programming.html">programming</a>, <a href="../category/wordpress-tag/management.html">management</a>, <a href="../category/tags/projectmanagement.html">projectmanagement</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-6f8c0dd7e1284659bb531533b1edd040">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

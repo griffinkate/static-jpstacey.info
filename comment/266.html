@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2015-06-22/architecting-drupal-7-module-multiple-files.html" />
+<link rel="shortlink" href="../node/597.html" />
+  <title>Architecting a Drupal 7 module into multiple files | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"EjqX2qi3j8bq3UCqhm1tLYcISd4gpsirJpQXJduLdEs","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-597 node-type-blog" >
+  <div id="skip-link">
+    <a href="266.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Architecting a Drupal 7 module into multiple files        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, June 22, 2015 - 15:42</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>In the Drupal modules that I inherit or review, I see a lot of different ways of factoring out into separate files, of what might have begun in the main module file. This can be useful for performance (to a limited extent) and legibility, but depending on how you do it, you might end up ironically spoiling both.</p>
+<p>How should you break down your Drupal module files? Well, I'm not here to tell you the perfect file breakdown. Matching the architecture is good, although what "the architecture" means in Drupal 7 isn't clear. Outside of a Drupal 8/Symfony-style architectural model, there's a limit to how much the file breakdown really needs to match the architecture, and a limit to how useful doing so would be.</p>
+<p>Unless you're quite experienced, and have good reasons for doing so, you should avoid making up your own scheme if you can: by default, just have your module in one file. But if you're determined, then even Drupal 7 provides you with a number of core and contributed mechanisms for factoring code over multiple files.</p>
+<p>For beginners in Drupal module development, therefore, below is a summary of some of the standardized ways in which Drupal lets you break your module code into different files.</p>
+<h2>What to consider before you start</h2>
+<h3>Avoid PHP's own include or require functions</h3>
+<p>Before we start talking about how to break down files, we should briefly discuss how you bring them back together again at runtime in Drupal. To do so, you should avoid using PHP's <span class="geshifilter"><code class="text geshifilter-text">include*</code></span> or <span class="geshifilter"><code class="text geshifilter-text">require*</code></span> statements in your code, unless you really know why you're using them.</p>
+<p>In their place, you can almost always use <a href="https://api.drupal.org/api/drupal/includes!module.inc/function/module_load_include/7">Drupal's <span class="geshifilter"><code class="text geshifilter-text">module_load_include()</code></span></a>. This encourages you to follow standard naming conventions etc, and so, as you use it more and more, your code should become clearer and more compact.</p>
+<h3>Avoid always including files you've factored out</h3>
+<p>You should also avoid automatically including any files at the top of <span class="geshifilter"><code class="text geshifilter-text">.module</code></span>, outside of all functions. From Drupal's perspective (and a performance perspective) this is equivalent to just having them inline; also, Drupal expects file including to have no side effects, which means all code should be in classes and/or functions only.</p>
+<p>If you've ended up in this situation because you're splitting <span class="geshifilter"><code class="text geshifilter-text">.module</code></span> for legibility reasons, then see the suggestions below instead.</p>
+<h3>Avoid multiplying files solely for legibility, before you've considered other options</h3>
+<p>Finally, if you're considering breaking things down because you want to make <span class="geshifilter"><code class="text geshifilter-text">.module</code></span> more legible, you should do two things instead:</p>
+<ol><li>Follow all <a href="https://drupal.org/coding-standards">Drupal coding standards</a> (and <a href="http://www.jpstacey.info/blog/2014-06-15/running-drupal-code-reviews-within-vim-and-other-editors">automate checking of those standards</a>). This will improve your module's legibility no end.</li>
+<li>Read the rest of this blogpost.</li>
+</ol><p>Once you've done these two things, you're unlikely to ever need to begin <span class="geshifilter"><code class="text geshifilter-text">.module</code></span> with lots of include statements, but can instead focus on breaking down your files in standard ways, as discussed below.</p>
+<h2>Code that should only go in certain files</h2>
+<h3>All (core) hooks in the .module file</h3>
+<p>All core hooks must go in <span class="geshifilter"><code class="text geshifilter-text">.module</code></span>, because that's how core knows they exist. Most third-party modules which define their own hooks also expect them to be there.</p>
+<p>(If your core hook code ends up long and messy, and you really want to factor it out, see towards the end where I talk about stubbing out.)</p>
+<h3>Other hooks in separate files, depending on if third parties have done the right thing</h3>
+<p>You can always leave all your hooks in <span class="geshifilter"><code class="text geshifilter-text">.module</code></span>, of course (because you can leave <em>all</em> your code there), but some contributed modules (e.g. media, pathauto, features) implement <a href="https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_hook_info/7"><span class="geshifilter"><code class="text geshifilter-text">hook_hook_info()</code></span></a>. This hook assigns their custom, declared hooks to groups: you can then put your module's definition of those hooks into e.g. <span class="geshifilter"><code class="text geshifilter-text">.groupname.inc</code></span>, and they'll get automatically loaded.</p>
+<p>Views does something similar, permitting hooks to go into a .views.inc, but it doesn't seem to implement <span class="geshifilter"><code class="text geshifilter-text">hook_hook_info()</code></span> to do it. Also, for some reason, no modules in Drupal core implement this hook; which is a bit of a shame, but there you go.</p>
+<h3>Classes in locations declared in your .info file</h3>
+<p>In <span class="geshifilter"><code class="text geshifilter-text">.info</code></span> you can add entries beginning <span class="geshifilter"><code class="text geshifilter-text">files[] = relative/to/moduledir</code></span>, which can reference files where classes are stored. Drupal interrogates these files and builds a registry of class locations, enabling class autoloading so you don't need to always worry that your class is in scope before using it.</p>
+<p>When you add an entry to your .info file, you should clear caches. Avoid having more than one class per file (and name your file after your class, in camelcase); but if you do add another class to an existing file, you should clear caches or ideally <a href="https://www.drupal.org/project/registry_rebuild">rebuild the autoload registry</a>.</p>
+<h2>Callbacks you define, that can go in other files</h2>
+<p>A number of Drupal hooks, core and otherwise, permit you to specify one or many files that needs to be loaded in order for a callback to then be invoked. You should use this as an opportunity to factor out callback code sooner rather than later.</p>
+<h3>Your module's page callbacks can go in separate files</h3>
+<p>When you define a page callback with <a href="https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu/7"><span class="geshifilter"><code class="text geshifilter-text">hook_menu()</code></span></a>, you can define a file and filepath for each route:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_menu().
+ */</span>
+<span class="kw2">function</span> mymodule_menu<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$items</span><span class="br0">[</span><span class="st_h">'admin/config/system/my-config'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'title'</span> <span class="sy0">=&gt;</span> <span class="st_h">'My configuration'</span><span class="sy0">,</span>
+ 
+    <span class="st_h">'page callback'</span> <span class="sy0">=&gt;</span> <span class="st_h">'drupal_get_form'</span><span class="sy0">,</span>
+    <span class="st_h">'page arguments'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'mymodule_admin_config'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="st_h">'access arguments'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'administer mymodule'</span><span class="br0">)</span><span class="sy0">,</span>
+ 
+    <span class="co1">// All admin form callbacks in .admin.inc.</span>
+    <span class="st_h">'file'</span> <span class="sy0">=&gt;</span> <span class="st_h">'mymodule.admin.inc'</span><span class="sy0">,</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="re0">$items</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>How you architect all your callback code is partly up to you. However, you might want to consider:</p>
+<ul><li>A <span class="geshifilter"><code class="text geshifilter-text">.pages.inc</code></span>, with all functions beginning <span class="geshifilter"><code class="text geshifilter-text">mymodule_pages_*()</code></span>, for public-facing page callbacks.</li>
+<li>A <span class="geshifilter"><code class="text geshifilter-text">.admin.inc</code></span>, with all functions beginning <span class="geshifilter"><code class="text geshifilter-text">mymodule_admin_*()</code></span>, for configuration page callbacks.</li>
+</ul><p>Ensure that, however you break it down, it's consistent, documented, and clearly laid out (with comments) in the hook.</p>
+<h3>Your theme templates and preprocess hooks can go in separate files</h3>
+<p>When you declare a new theme hook, your module's templates can go in one folder, and preprocess hooks can go in one or many other files. You might want to consider only having a single file for all your preprocess hooks and function-based theme definitions, <span class="geshifilter"><code class="text geshifilter-text">.theme.inc</code></span>, and having all your theme files in a <span class="geshifilter"><code class="text geshifilter-text">theme/</code></span> subfolder:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_theme().
+ */</span>
+<span class="kw2">function</span> mymodule_theme<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$theme_subfolder</span> <span class="sy0">=</span> drupal_get_path<span class="br0">(</span><span class="st_h">'module'</span><span class="sy0">,</span> <span class="st_h">'mymodule'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"/theme"</span><span class="sy0">;</span>
+  <span class="re0">$items</span><span class="br0">[</span><span class="st_h">'mymodule_mytheme'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+      <span class="st_h">'path'</span> <span class="sy0">=&gt;</span> <span class="re0">$theme_subfolder</span><span class="sy0">,</span>
+      <span class="st_h">'template'</span> <span class="sy0">=&gt;</span> <span class="st_h">'mymodule-mytheme'</span><span class="sy0">,</span>
+ 
+      <span class="co1">// All preprocess hooks in .theme.inc.</span>
+      <span class="st_h">'file'</span> <span class="sy0">=&gt;</span> <span class="st_h">'mymodule.theme.inc'</span><span class="sy0">,</span>
+    <span class="br0">)</span><span class="sy0">,</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="re0">$items</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>The above code both implicitly defines a template <span class="geshifilter"><code class="text geshifilter-text">mymodule-mytheme.tpl.php</code></span>, and explicitly defines a location for preprocess hooks <span class="geshifilter"><code class="text geshifilter-text">mymodule.theme.inc</code></span>, all in a subfolder. Again, comment your architectural decision so it's clear what you've done.</p>
+<h3>Other callbacks</h3>
+<p>Lots of third-party modules provide inner platforms with their own architecture, hooks, plugins and includes: I don't cover them here, though, as this is intended as a guide for beginners. Where possible, though, consider taking advantage of such an architecture sooner rather than later: it'll be more awkward to refactor everything into separate files later; you might also then get warnings of missing functionality (especially classes) until you clear caches or rebuild the registry.</p>
+<h2>Arbitrary breaking-down of your remaining code</h2>
+<p>Finally, here are a couple of tips for when you want to construct your own file hierarchy even further. I won't dictate to you what that hierarchy should be, but instead I provide a couple of tricks to get you moving in the right direction.</p>
+<h3>Commonly-used code in an API file</h3>
+<p>If your module has some central functionality—for example, integrating with an external API, or making complicated calculations—that's used in several different scenarios—for example, in a core hook, but also part-way through a template preprocess callback—then it makes sense to store that in a separate file, which can be brought in <em>only</em> when absolutely necessary.</p>
+<p>You can call your shared file <span class="geshifilter"><code class="text geshifilter-text">.api.inc</code></span> or even simply <span class="geshifilter"><code class="text geshifilter-text">.inc</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_init().
+ */</span>
+<span class="kw2">function</span> mymodule_init<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">if</span> <span class="br0">(</span>user_access<span class="br0">(</span><span class="st0">"use mymodule remote services"</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Loads mymodule.api.inc.</span>
+    module_load_include<span class="br0">(</span><span class="st0">"api.inc"</span><span class="sy0">,</span> <span class="st0">"mymodule"</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Shorter alternative: loads mymodule.inc.</span>
+    module_load_include<span class="br0">(</span><span class="st0">"inc"</span><span class="sy0">,</span> <span class="st0">"mymodule"</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    mymodule_api_some_remote_service<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Ideally you should include this shared file every time you use one of its functions; in practice, if the function you're currently writing is internal to your module (its name begins with an underscore) and you know it's only ever called <em>after</em> the API file is included, you can probably wing it.</p>
+<h3>Stubbing out large hooks into a separate file</h3>
+<p>If you have large—and I mean really large—hooks in <span class="geshifilter"><code class="text geshifilter-text">.module</code></span>, the meat of which is generally not necessary; and if you genuinely believe they're harming legibility; you <em>can</em> move them out into a file of your choosing:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_init().
+ */</span>
+<span class="kw2">function</span> mymodule_init<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">if</span> <span class="br0">(</span>user_access<span class="br0">(</span><span class="st0">"administer site config"</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Call separate stub for performance/readability reasons.</span>
+    module_load_include<span class="br0">(</span><span class="st0">"stub.inc"</span><span class="sy0">,</span> <span class="st0">"mymodule"</span><span class="br0">)</span><span class="sy0">;</span>
+    _mymodule_stub_init<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>But now you're creating not just your own module and code, but also your own architecture. This can also make your module harder to maintain, because you're now making up your own architecture, and there's no guarantee any other Drupal developer will think the way you do.</p>
+<p>So if you decide to do this, ensure your code is up to Drupal standards (you're already doing that, right? because we talked about that earlier, right?) and comment, comment, comment; and document, document, document. Your future self and the rest of your (future) team will thank you for it. I'm as guilty as anyone else of underdocumenting the architectural decisions I make, so we can all of us always do more, and do better.</p>
+<h2>Summary</h2>
+<p>Drupal 7 and its ecosystem of contributed modules offer a number of standard ways to separate code into different files in your module's folder. You should feel <em>very comfortable using the standard ways</em>, as long as your code is up to Drupal's coding standards, and as long as you comment your decisions; on the other hand, you should feel <em>uncomfortable making up your own architecture</em>, unless you strive to be consistent, and unless you make crystal-clear every architectural decision you've made.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-235"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Mike Kovacevich (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 05/08/2015 - 00:30      </p>
+      <p class="comment-permalink">
+        <a href="235.html#comment-235" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="235.html#comment-235" class="permalink" rel="bookmark">Hi there J-P, thanks for</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Hi there J-P, thanks for sharing your insight into the crazy world of Drupal code architecture ;-) I am currently building out an install file on a client's module and getting that uncomfortable feeling you have written about. The install file is taking care of setting up and populating a load of content types (with associated fields), taxonomies, menus and views. I have split the file up using module_load_include and sub-files (my-module.node.inc, my-module.fields.inc, my-module.taxonomy.inc, etc.). This has made the code more manageable but probably at the risk of sane architecture.</p>
+<p>Ever had to deal with this or any advice on how you would tackle it?</p>
+<p>Thanks, Mike.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/235.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-236"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 05/08/2015 - 08:40      </p>
+      <p class="comment-permalink">
+        <a href="236.html#comment-236" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="236.html#comment-236" class="permalink" rel="bookmark">Install files only get pulled</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Install files only get pulled into Drupal's active code on very rare occasions, so unless you've a specific architectural reason for splitting them into other files (e.g. you're going to need some, but not all, of your code in some <em>other</em> code elsewhere) then I simply wouldn't do it. All in one file, but make sure you follow Drupal coding standards and comment functions properly with docblocks.</p>
+<p>What you describe shouldn't involve very much code anyway. Any reason for not using features? This is the standard way to create content types, views, taxonomy vocabularies etc. and it handles its own file-by-file separation. It would make most of the separate files you mention go away, I think.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/236.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-237"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 05/08/2015 - 08:44      </p>
+      <p class="comment-permalink">
+        <a href="237.html#comment-237" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="237.html#comment-237" class="permalink" rel="bookmark">(Incidentally, I&#039;ve got</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>(Incidentally, I've got suggestions for <a href="http://www.jpstacey.info/blog/2014-10-30/splitting-your-drupal-features-thematically">how to split up your features</a> too, to avoid fragmenting features too much.)</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/237.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div></div><a id="comment-261"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Wyckham Seelig (not verified)</span>      </p>
+      <p class="comment-time">
+        Tue, 28/06/2016 - 16:25      </p>
+      <p class="comment-permalink">
+        <a href="261.html#comment-261" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="261.html#comment-261" class="permalink" rel="bookmark">Thank  you very much for this</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thank  you very much for this, J-P.</p>
+<p>I'm wondering what you think about enfity definition.  It is possible, and I think perhaps common, to put any entities that you define in a separate module, but that is not really necessary.  You could put the schema definitions in your module's .install file and put the rest of the entity definition in a separate .inc file, but that separates code that really ought to be together, don't you think?</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/261.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-263"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Tue, 28/06/2016 - 20:26      </p>
+      <p class="comment-permalink">
+        <a href="263.html#comment-263" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="263.html#comment-263" class="permalink" rel="bookmark">I&#039;m not totally sure what you</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>I'm not totally sure what you mean by "entity definitions", but regardless, I would use Features:</p>
+<ul><li>If you mean actual entities (e.g. nodes) then you can use the UUID module in conjunction with Features. However, I've generally found UUID to be a bit awkward to work with (the Features rapidly become overridden, even with no edits.)</li>
+<li>If you mean bundles (e.g. content types) then again, export using Features. Non-node bundles can be defined and exported with the help of ECK: even if you don't specifically use ECK to build the bundle, you should export into an ECK-compatible file breakdown and function naming.</li>
+</ul><p>Either way, you're still breaking them down into files: you're just letting Features define the standard for how that happens.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/263.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-264"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Wyckham Seelig (not verified)</span>      </p>
+      <p class="comment-time">
+        Thu, 30/06/2016 - 16:08      </p>
+      <p class="comment-permalink">
+        <a href="264.html#comment-264" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="264.html#comment-264" class="permalink" rel="bookmark">Thanks again, JP, and I&#039;m</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks again, JP, and I'm sorry if I wasn't clear.</p>
+<p>By "Entity" I meant my own defined entity, using hook_entity_info, hook_entity_property_info, and my own class overrides and CRUD functions.</p>
+<p>As it happens, I got a reply on Drupal Answers to a different version of this question.  acrosman says that I am correct, and that it IS common practice to put the entity definition in its own module and then include that module as a dependency in any module that uses the entity.  If I followed this approach, I would have to figure out a way to package the two modules together in a distribution, but that is, for me, a problem for another day.</p>
+<p>Wyckham</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/264.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-265"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Thu, 30/06/2016 - 17:52      </p>
+      <p class="comment-permalink">
+        <a href="265.html#comment-265" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="265.html#comment-265" class="permalink" rel="bookmark">Yeah, ECK features export</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yeah, ECK features export supports entity types too: but you can implement how you want! Feel free to link to the Drupal Answers post here, though, so people have options....</p>
+<p> </p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/265.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div></div></div><a id="comment-266"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Wyckham Seelig (not verified)</span>      </p>
+      <p class="comment-time">
+        Fri, 01/07/2016 - 04:25      </p>
+      <p class="comment-permalink">
+        <a href="266.html#comment-266" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="266.html#comment-266" class="permalink" rel="bookmark">JP,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>JP,</p>
+<p>I tried to post the link, but Mollom's spam flter blocked  me for some reason.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/266.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-267"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Fri, 01/07/2016 - 10:36      </p>
+      <p class="comment-permalink">
+        <a href="267.html#comment-267" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="267.html#comment-267" class="permalink" rel="bookmark">Oh! I&#039;m afraid Mollom&#039;s a</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Oh! I'm afraid Mollom's a closed book to me, sorry.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/267.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div><a id="comment-269"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Jaya (not verified)</span>      </p>
+      <p class="comment-time">
+        Fri, 30/09/2016 - 10:00      </p>
+      <p class="comment-permalink">
+        <a href="269.html#comment-269" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="269.html#comment-269" class="permalink" rel="bookmark">JP,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>JP,</p>
+<p>Thanks very much for this post. Really excellent article!</p>
+<p> </p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/597/269.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/standards.html">standards</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/drupal.html">drupal</a>, <a href="../category/wordpress-tag/architecture.html">architecture</a>, <a href="../category/tags/files.html">files</a>, <a href="../category/wordpress-tag/performance.html">performance</a>, <a href="../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-6f92dfe59b1aca0e31ab8cd341fe8692">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

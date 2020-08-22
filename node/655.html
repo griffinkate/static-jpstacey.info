@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-10-26/drupal-8-api-entities.html" />
+<link rel="shortlink" href="655.html" />
+  <title>Drupal 8 API: entities | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"nzyW9OaNCv258D4m64vXAV8hyaArAIqMRHKF5YODQhg","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-655 node-type-blog" >
+  <div id="skip-link">
+    <a href="655.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: entities        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, October 26, 2016 - 09:37</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/category/tags/d8apiui">User interface</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-17/drupal-8-api-annotations">Annotations</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+</ul><h2>An entity is an object with an arbitrary list of properties, called fields</h2>
+<p>Entities have been in Drupal since 7, but in Drupal 8 they've become the <i>de facto</i> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>, for storing and manipulating data "lumps", where each lump is identifiable and separate from the others (although it might reference them), and can have some complexity of internal structure. A particular blogpost, or news item, is an entity; each user is an entity; each file uploaded to Drupal becomes both the raw uploaded file (e.g. a PDF) and also an entity in the database. Entities allow metadata to be recorded about non-entity resources external to the database, like files, and also give a lifecycle to both the data and any external resources: the data can be retrieved later, updated and ultimately deleted.</p>
+<p>Why did Drupal invent its own ORM, rather than using something like <a href="http://www.doctrine-project.org/">Doctrine</a>? After all, Drupal already uses Doctrine's annotations, as we've seen previously, and Doctrine invented these specifically to provide metadata to (m)ap between PHP (o)bjects and a (r)elational database (hence ORM.) Well, this highlights the key difference between Drupal entities and objects: in traditional ORMs, an object declared in code has a hardwired set of properties, which map to columns in the database; in Drupal, entities of a given <em>type</em> can have both a shared, hardwired set of fields, but also a configurable set of fields, and even subsets of fields configured through <em>bundles</em>. In addition, entities can have a kind of <em>fundamental type</em>, meaning they can either be storing configuration data, or content data.</p>
+<p>What fields an entity has, therefore, are not fixed like in a traditional ORM, but configurable in both code and database, based on different ways of subtyping entities: content versus config; node versus user; article versus event versus news item. These different subtypings might seem confusing, so here's a template to help illustrate where in the "subtyping" hierarchy different terminologies might lie:</p>
+<blockquote><p>A [real-world item] is a [fundamental type] [entity type] entity of bundle [bundle type], with base fields [some example fields] and configured fields [some example fields]</p></blockquote>
+<p>And here are some illustrative examples based on that template, assuming you might have configured some of the following in your website already:</p>
+<ol><li>A <strong>blogpost</strong> is a <strong>content node</strong> entity of bundle <strong>blogpost</strong>, with base fields <strong>title, author, created datetime etc.</strong> and configured fields <strong>body and related tags</strong>.</li>
+<li>A <strong>news item</strong> is a <strong>content node</strong> entity of bundle <strong>news item</strong>, with base fields <strong>title, author, created datetime etc.</strong> and configured fields <strong>body, related news items, related files</strong>.</li>
+<li>A <strong>tag</strong> is a <strong>content taxonomy</strong> entity of bundle <strong>tags</strong>, with base fields <strong>name, description, parent term etc.</strong> and configured fields <strong>related tag</strong>.</li>
+<li>A <strong>menu link added in the UI</strong> is a <strong>content menu-link-content</strong> entity of bundle <strong>menu-link-content</strong>, with base fields <strong>title, link etc.</strong> but not usually any configured fields (although <a href="https://www.drupal.org/node/2311295">this is under discussion</a>.)</li>
+<li>A <strong>user</strong> is a <strong>content user</strong> entity of bundle <strong>user</strong>, with base fields <strong>name, email address etc.</strong> and configured fields <strong>first name and last name</strong>.</li>
+<li>A <strong>block</strong> is a <strong>config</strong> entity, with <strong>arbitrary data</strong>.</li>
+<li>A <strong>block's content</strong> is a <strong>content block-content</strong> entity, with base fields <strong>name, email address etc.</strong> but not usually any configured fields.</li>
+<li>A <strong>field's configuration</strong> is a <strong>config</strong> entity, with arbitrary data including <strong>associated entity type and bundle</strong>.</li>
+<li>A <strong>view</strong> is a <strong>config entity</strong>, with arbitrary settings but as a minimum <strong>ID, label and other defined values</strong>.</li>
+<li>A <strong>contact settings</strong> is a <strong>config object</strong>, with arbitrary settings but including <strong>flood limiting and whether the personal contact form is enabled</strong>.</li>
+</ol><p>This is by no means an exhaustive list (as we'll see below, anyone can create a new entity type) but gives you some idea of what different subtypings mean.</p>
+<p>Note from the above that config objects entities are not fieldable and have no bundles: they just store (effectively, but not quite) arbitrary structured data; we'll explain in a later tutorial how that's different from fields. In addition, users are fieldable "content" entities, but they only have one bundle, "user". A user's profile, on the other hand, can have different bundles.</p>
+<h2>Creating new entities of an existing type</h2>
+<p>Let's build a custom form, which creates a new article node (or maybe "a content node entity of type article"!) when submitted. This will illustrate the general principle of interacting with content entities of a given type (in this case, "node"):</p>
+<ol><li>Obtain the entity manager, as a service, through dependency injection (previously discussed).</li>
+<li>Obtain (from the entity manager) the storage manager for content entities of type "node".</li>
+<li>Tell the "node" storage to perform tasks relating to nodes: creating (for later saving); retrieval by ID; discovery of many nodes by query.</li>
+</ol><p>Note that creating and saving are two separate tasks: the storage creates a node object, and then the object can be told to "save itself". Note also that entity queries can be instantiated via manager-service-via-storage, but can also be created by <a href="https://docs.acquia.com/article/lesson-61-entity-queries-and-loading-entities">a query factory service</a>. If you only need to e.g. find an entity ID based on certain conditions, you could inject the factory service into your code instead.</p>
+<p>Here's a new custom form <span class="geshifilter"><code class="text geshifilter-text">RandomNodeForm</code></span>: save to a relevant place in your module (see previous discussion on naming conventions):</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\EntityManagerInterface<span class="sy0">;</span>
+use Drupal\Core\Form\FormBase<span class="sy0">;</span>
+use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Form: create a random node.
+ */</span>
+<span class="kw2">class</span> RandomNodeForm <span class="kw2">extends</span> FormBase <span class="br0">{</span>
+  <span class="co4">/**
+   * @var EntityManagerInterface
+   *   Entity manager to create and save nodes.
+   */</span>
+  protected <span class="re0">$entityManager</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>EntityManagerInterface <span class="re0">$entity_manager</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span> <span class="sy0">=</span> <span class="re0">$entity_manager</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>ContainerInterface <span class="re0">$container</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span><span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'entity.manager'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> getFormId<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="st_h">'d8api_random_node_form'</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// We'll use this storage potentially several times in the loop below.</span>
+    <span class="re0">$node_storage</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'node'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Get a list of the most recent node IDs, and generate links to them.</span>
+    <span class="re0">$nids</span> <span class="sy0">=</span> <span class="re0">$node_storage</span><span class="sy0">-&gt;</span><span class="me1">getQuery</span><span class="br0">(</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'status'</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'type'</span><span class="sy0">,</span> <span class="st_h">'article'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">range</span><span class="br0">(</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">3</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">sort</span><span class="br0">(</span><span class="st_h">'created'</span><span class="sy0">,</span> <span class="st_h">'DESC'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$nids</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$markup</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Recent article nodes:'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+      <span class="co1">// Load a node for each ID returned from the query, and generate its link.</span>
+      <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$nids</span> <span class="kw1">as</span> <span class="re0">$nid</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="re0">$node</span> <span class="sy0">=</span> <span class="re0">$node_storage</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">(</span><span class="re0">$nid</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="re0">$markup</span> <span class="sy0">.=</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$node</span><span class="sy0">-&gt;</span><span class="me1">toLink</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">toString</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st_h">','</span><span class="sy0">;</span>
+      <span class="br0">}</span>
+ 
+      <span class="co1">// Add markup with links to the top of the form.</span>
+      <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'recent_nodes'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+        <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'markup'</span><span class="sy0">,</span>
+        <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="st_h">'&lt;p&gt;'</span> <span class="sy0">.</span> <a href="http://www.php.net/trim"><span class="kw3">trim</span></a><span class="br0">(</span><span class="re0">$markup</span><span class="sy0">,</span> <span class="st_h">','</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st_h">'.&lt;/p&gt;'</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'create'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'submit'</span><span class="sy0">,</span>
+      <span class="st_h">'#value'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Create node'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$form</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> submitForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="sy0">&amp;</span><span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Some entity types refer to "bundles" differently: nodes call them "types".</span>
+    <span class="re0">$bundle_key</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getDefinition</span><span class="br0">(</span><span class="st_h">'node'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">getKey</span><span class="br0">(</span><span class="st_h">'bundle'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Data for the node.</span>
+    <span class="re0">$node_data</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'title'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/uniqid"><span class="kw3">uniqid</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="co1">// Body CAN be just a string, but this way we specify body format too.</span>
+      <span class="st_h">'body'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="st_h">'value'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/uniqid"><span class="kw3">uniqid</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+        <span class="st_h">'format'</span> <span class="sy0">=&gt;</span> <span class="st_h">'full_html'</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+      <span class="re0">$bundle_key</span> <span class="sy0">=&gt;</span> <span class="st_h">'article'</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Create the node from the data array, save it and redirect to it.</span>
+    <span class="re0">$new_node</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'node'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">create</span><span class="br0">(</span><span class="re0">$node_data</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$new_node</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    drupal_set_message<span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Created new node.'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">setRedirectUrl</span><span class="br0">(</span><span class="re0">$new_node</span><span class="sy0">-&gt;</span><span class="me1">urlInfo</span><span class="br0">(</span><span class="st_h">'canonical'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This code demonstrates the following entity-related actions:</p>
+<dl><dt>Retrieving entities</dt>
+<dd>In the <span class="geshifilter"><code class="text geshifilter-text">buildForm()</code></span> above, we make an <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal.php/function/Drupal%3A%3AentityQuery/8.2.x">entity query</a>, which permits us to attach conditions on what entity IDs to return: but only ever returns entityIDs. We must then use the entity manager to load each entity in turn, so we can ask the entity for a HTML link to itself.</dd>
+<dt>Saving a new entity</dt>
+<dd>Later, in the <span class="geshifilter"><code class="text geshifilter-text">submitForm</code></span>, we use the same entity manager to create a new node object using structured data populated with random text. The resulting object must be explicitly saved, for it to persist in the data store.</dd>
+<dt>Linking to an entity</dt>
+<dd>Finally, we ask the node for a link to itself. Each entity type (node, user etc.) has routes named by convention, as we'll see below. That means that asking a node for its "canonical" route here (a term we'll discuss below in the context of a custom entity type) means we don't have to ask the routing for the "entity.node.canonical" route, then replace wildcards with the node ID etc.</dd>
+</dl><p>You can expose this new controller to the Drupal UI by adding the following to <span class="geshifilter"><code class="text geshifilter-text">d8api.routing.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">d8api.create_random_node:
+  path: '/tutorial/create-random-node'
+  defaults:
+    _title: 'Create article node with random title'
+    _form: '\Drupal\d8api\Form\RandomNodeForm'
+  requirements:
+    _node_add_access: 'node'</pre></div>
+<p>This form-based routing has been discussed previously and so should be familiar. The only new key is the <span class="geshifilter"><code class="text geshifilter-text">_node_add_access</code></span> in <span class="geshifilter"><code class="text geshifilter-text">requirements</code></span>, which should be self-explanatory.</p>
+<h2>Creating a new entity type</h2>
+<p>Creating a new entity type is fairly straightforward: a new class in <span class="geshifilter"><code class="text geshifilter-text">src/Entity/[TYPE].php</code></span>, with a correctly formatted annotation comment. But we need more than that to be able to successfully create and manage entities of this new type:</p>
+<ol><li>Along with the code and annotations defining the entity type...</li>
+<li>Routing and navigation permits access to (almost all existing) controllers which manage and list the entities.</li>
+<li>Some controllers must be extended to suit entities of the custom type.
+</li><li>New permissions prevent unauthorized users from accessing those controllers.</li>
+</ol><p>Let's consider a new content entity type: <strong>contacts</strong>. For example, your website might want lightweight (i.e. non-node) entities to permit several pages to list a particular contact point: for example, when many pages need to have a link to your HR department, or to a particular person on a particular team. In future, when we discuss the field API, we'll define a difference between organizations and people using bundles, so they can have different fields on them; for now, let's treat all contact entities as having the same fields.</p>
+<h3>1. The entity type</h3>
+<p>The core of the entity type is the following class. Save it to <span class="geshifilter"><code class="text geshifilter-text">src/Entity/Contact.php</code></span> in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Entity<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\EntityStorageInterface<span class="sy0">;</span>
+use Drupal\Core\Field\BaseFieldDefinition<span class="sy0">;</span>
+use Drupal\Core\Entity\ContentEntityBase<span class="sy0">;</span>
+use Drupal\Core\Entity\ContentEntityInterface<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityTypeInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Defines the Contact content entity.
+ *
+ * @ContentEntityType(
+ *   id = "contact",
+ *   label = @Translation("Contact entity"),
+ *   handlers = {
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "list_builder" = "Drupal\d8api\Controller\ContactListBuilder",
+ *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "form" = {
+ *       "add" = "Drupal\d8api\Form\ContactForm",
+ *       "edit" = "Drupal\d8api\Form\ContactForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *     },
+ *     "access" = "Drupal\d8api\Access\ContactAccessControlHandler",
+ *   },
+ *   base_table = "contact",
+ *   admin_permission = "administer contact entity",
+ *   fieldable = TRUE,
+ *   entity_keys = {
+ *     "id" = "id",
+ *     "label" = "name",
+ *     "uuid" = "uuid",
+ *   },
+ *   links = {
+ *     "canonical" = "/contact/{contact}",
+ *     "edit-form" = "/contact/{contact}/edit",
+ *     "delete-form" = "/contact/{contact}/delete",
+ *     "collection" = "/contact/list"
+ *   }
+ * )
+ */</span>
+<span class="kw2">class</span> Contact <span class="kw2">extends</span> ContentEntityBase implements ContentEntityInterface <span class="br0">{</span>
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> baseFieldDefinitions<span class="br0">(</span>EntityTypeInterface <span class="re0">$entity_type</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$fields</span> <span class="sy0">=</span> parent<span class="sy0">::</span><span class="me2">baseFieldDefinitions</span><span class="br0">(</span><span class="re0">$entity_type</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$fieldsConfig</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'id'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'integer'</span><span class="sy0">,</span> <span class="st_h">'label'</span> <span class="sy0">=&gt;</span> <span class="st_h">'ID'</span><span class="sy0">,</span> <span class="st_h">'desc'</span> <span class="sy0">=&gt;</span> <span class="st_h">'ID'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="st_h">'uuid'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'uuid'</span><span class="sy0">,</span> <span class="st_h">'label'</span> <span class="sy0">=&gt;</span> <span class="st_h">'UUID'</span><span class="sy0">,</span> <span class="st_h">'desc'</span> <span class="sy0">=&gt;</span> <span class="st_h">'UUID'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'string'</span><span class="sy0">,</span> <span class="st_h">'label'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Name'</span><span class="sy0">,</span> <span class="st_h">'desc'</span> <span class="sy0">=&gt;</span> <span class="st_h">'name'</span><span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$fieldsConfig</span> <span class="kw1">as</span> <span class="re0">$fieldKey</span> <span class="sy0">=&gt;</span> <span class="re0">$config</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$fields</span><span class="br0">[</span><span class="re0">$fieldKey</span><span class="br0">]</span> <span class="sy0">=</span> BaseFieldDefinition<span class="sy0">::</span><span class="me2">create</span><span class="br0">(</span><span class="re0">$config</span><span class="br0">[</span><span class="st_h">'type'</span><span class="br0">]</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">setLabel</span><span class="br0">(</span>t<span class="br0">(</span><span class="re0">$config</span><span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">setDescription</span><span class="br0">(</span>t<span class="br0">(</span><span class="st0">"Contact "</span> <span class="sy0">.</span> <span class="re0">$config</span><span class="br0">[</span><span class="st_h">'desc'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="re0">$fields</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">setReadOnly</span><span class="br0">(</span><span class="kw4">TRUE</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$fields</span><span class="br0">[</span><span class="st_h">'uuid'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">setReadOnly</span><span class="br0">(</span><span class="kw4">TRUE</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$fields</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">setSettings</span><span class="br0">(</span><span class="br0">[</span>
+        <span class="st_h">'default_value'</span> <span class="sy0">=&gt;</span> <span class="st_h">''</span><span class="sy0">,</span>
+        <span class="st_h">'max_length'</span> <span class="sy0">=&gt;</span> <span class="nu0">255</span><span class="sy0">,</span>
+        <span class="st_h">'text_processing'</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">setDisplayOptions</span><span class="br0">(</span><span class="st_h">'view'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'label'</span> <span class="sy0">=&gt;</span> <span class="st_h">'hidden'</span><span class="sy0">,</span> <span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'string'</span><span class="br0">]</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">setDisplayOptions</span><span class="br0">(</span><span class="st_h">'form'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'text_textfield'</span><span class="br0">]</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">setDisplayConfigurable</span><span class="br0">(</span><span class="st_h">'form'</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">setDisplayConfigurable</span><span class="br0">(</span><span class="st_h">'view'</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$fields</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> class can inherit so much from <span class="geshifilter"><code class="text geshifilter-text">ContentEntityBase</code></span> that there only remains two substantial blocks of code:</p>
+<ol><li>The <span class="geshifilter"><code class="text geshifilter-text">@ContentEntityType()</code></span> annotation in the comment.</li>
+<li>The <span class="geshifilter"><code class="text geshifilter-text">baseFieldDefinitions()</code></span> method, defining fields common to all contact entities.</li>
+</ol><h4>The <span class="geshifilter"><code class="text geshifilter-text">@ContentEntityType()</code></span> annotation</h4>
+<p>We've discussed annotations in a previous tutorial: structured metadata, stored in PHP comments. The structure of the annotation here is:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">id</code></span>, <span class="geshifilter"><code class="text geshifilter-text">label</code></span>, <span class="geshifilter"><code class="text geshifilter-text">base_table</code></span> and <span class="geshifilter"><code class="text geshifilter-text">fieldable</code></span></dt>
+<dd>These properties should be self-evident. Avoid changing the latter pair once you've got the entity set up: they determine structure in the database.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">handlers</code></span></dt>
+<dd>The core entity system can do a lot of the heavy lifting on not just page routes (we'll look at routing below) but also e.g. if you wanted to embed an "add contact" form fragment <i>in situ</i> on a node's edit form. To help it do this, we define handlers for different entity-related actions here. Again, core helps with base handlers, but we have to extend a form, a controller and an access handler as you can see (and as we'll also look at, below.)
+</dd><dt><span class="geshifilter"><code class="text geshifilter-text">admin_permission</code></span></dt>
+<dd>We'll define permissions below for the granular "<a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>" actions one might perform against an entity, but in the annotation we can also designate an "override" permission, to permit full administration of contact entities, which can be either an existing permission or one we define.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">entity_keys</code></span></dt>
+<dd>The keys of core entity properties as they're stored in PHP, matched to how they're stored in the database. These core properties aren't usually translatable, and are often read-only (or at any rate write-once) like ID, UUID and (as we'll see in a later tutorial) relevant bundle. We'll expose label (the odd one out) as a fieldable, editable property in the PHP code below.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">links</code></span></dt>
+<dd>Although we provide routing below, it's difficult for Drupal to work out e.g. the "edit" or "view all" link for a given entity, back from the routing which could be provided anywhere. As a shortcut, the essential links for "what can I do with this current entity?" should be listed here. A "canonical" link is a kind of "default" link for the entity: if in doubt, use this one.</dd>
+</dl><p>Taken as a whole, the annotation looks complicated; it breaks down fairly easily into the above chunks, though. We'll add a bit more to it in a later post, when we discuss fields and introduce bundles.</p>
+<h4>The <span class="geshifilter"><code class="text geshifilter-text">baseFieldDefinitions()</code></span> method</h4>
+<p>The fundamental properties of the entity, defined in the <span class="geshifilter"><code class="text geshifilter-text">entity_keys</code></span> part of the annotation, need to be made into base fields so that they can both be available in the entity edit form and (where appropriate) viewable on the entity view page.</p>
+<p>You can see in the code that we first call the parent method, which is generally good practice. Afterwards, we configure three base fields: one for each of the entity properties. Finally, we mark two of these base fields as read-only (these are the ID fields which should never change) and give the third some clearer instructions on what "type" of data it is. As we'll see later when we discuss fields in more detail, the big difference between the simple data value and an actual field is this collection of metadata about how the field should be stored, edited and displayed.</p>
+<h3>2. Permissions</h3>
+<p>Once we have the basic type class set up above, we need to define a few entity permissions, and provide a custom class to manage access through those very permissions.</p>
+<p>In the same way as we've configured routing, services and navigation previously, we need to create a YAML file at the top level of the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module. Call this <span class="geshifilter"><code class="text geshifilter-text">d8api.permissions.yml</code></span> and add the following:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">add contact entity:
+  title: 'Add a contact'
+  description: 'Add a contact entity'
+administer contact entity:
+  title: 'Administer any contact'
+  description: 'Administer any contact entity'
+delete contact entity:
+  title: 'Delete a contact'
+  description: 'Delete a contact entity'
+edit contact entity:
+  title: 'Edit a contact'
+  description: 'Edit a contact entity'
+view contact entity:
+  title: 'View a contact'
+  description: 'View a contact entity'</pre></div>
+<p>This provides titles and descriptions for the permissions UI, keyed by a potentially shorter text string which serves as a "machine name" (discussed previously). This machine name is what we reference e.g. in the <span class="geshifilter"><code class="text geshifilter-text">@ContentEntityType(admin_permission = "...")</code></span> annotation above.</p>
+<p>Also referenced in the annotation is an access control handler, which you should save to <span class="geshifilter"><code class="text geshifilter-text">src/Access/ContactAccessControlHandler.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Access<span class="sy0">;</span>
+ 
+use Drupal\Core\Access\AccessResult<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityAccessControlHandler<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityInterface<span class="sy0">;</span>
+use Drupal\Core\Session\AccountInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Control access to a contact.
+ *
+ * (Largely copied from the comment access control handler.)
+ *
+ * @see \Drupal\d8api\Entity\Contact.
+ */</span>
+<span class="kw2">class</span> ContactAccessControlHandler <span class="kw2">extends</span> EntityAccessControlHandler <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  protected <span class="kw2">function</span> checkAccess<span class="br0">(</span>EntityInterface <span class="re0">$entity</span><span class="sy0">,</span> <span class="re0">$operation</span><span class="sy0">,</span> AccountInterface <span class="re0">$account</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">switch</span> <span class="br0">(</span><span class="re0">$operation</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">case</span> <span class="st_h">'view'</span><span class="sy0">:</span>
+      <span class="kw1">case</span> <span class="st_h">'edit'</span><span class="sy0">:</span>
+      <span class="kw1">case</span> <span class="st_h">'delete'</span><span class="sy0">:</span>
+        <span class="kw1">return</span> AccessResult<span class="sy0">::</span><span class="me2">allowedIfHasPermission</span><span class="br0">(</span><span class="re0">$account</span><span class="sy0">,</span> <span class="st0">"<span class="es4">$operation</span> contact entity"</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> AccessResult<span class="sy0">::</span><span class="me2">allowed</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  protected <span class="kw2">function</span> checkCreateAccess<span class="br0">(</span>AccountInterface <span class="re0">$account</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$context</span><span class="sy0">,</span> <span class="re0">$entity_bundle</span> <span class="sy0">=</span> <span class="kw4">NULL</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> AccessResult<span class="sy0">::</span><span class="me2">allowedIfHasPermission</span><span class="br0">(</span><span class="re0">$account</span><span class="sy0">,</span> <span class="st_h">'add contact entity'</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This is a very simple class which negotiates access requests for certain entity actions, and responds accordingly. For <span class="geshifilter"><code class="text geshifilter-text">view</code></span>, <span class="geshifilter"><code class="text geshifilter-text">edit</code></span> and <span class="geshifilter"><code class="text geshifilter-text">delete</code></span> we straightforwardly return the permission. However, because our <span class="geshifilter"><code class="text geshifilter-text">create</code></span> permission is actually called <span class="geshifilter"><code class="text geshifilter-text">add contact entity</code></span>, we need to stub out the <span class="geshifilter"><code class="text geshifilter-text">checkCreateAccess()</code></span> method to map that separately.</p>
+<h3>3. Routing and adding some navigation</h3>
+<p>To establish some basic routes we edit <span class="geshifilter"><code class="text geshifilter-text">d8api.routing.yml</code></span> as discussed before:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">entity.contact.canonical:
+  path: '/contact/{contact}'
+  defaults:
+    _entity_view: 'contact'
+    _title: 'Contact'
+  requirements:
+    _entity_access: 'contact.view'
+ 
+entity.contact.collection:
+  path: '/contact/list'
+  defaults:
+    _entity_list: 'contact'
+    _title: 'Contact list'
+  requirements:
+    _permission: 'view contact entry'
+ 
+entity.contact.add_form:
+  path: '/contact/add'
+  defaults:
+    _entity_form: 'contact.add'
+    _title: 'Create contact'
+  requirements:
+    _entity_create_access: 'contact'
+ 
+entity.contact.edit_form:
+  path: '/contact/{contact}/edit'
+  defaults:
+    _entity_form: 'contact.edit'
+    _title: 'Edit contact'
+  requirements:
+    _entity_access: 'contact.edit'
+ 
+entity.contact.delete_form:
+  path: '/contact/{contact}/delete'
+  defaults:
+    _entity_form: 'contact.delete'
+    _title: 'Delete contact'
+  requirements:
+    _entity_access: 'contact.delete'</pre></div>
+<p>Here we have added routes for the four CRUD actions, plus a "collection" or listing route. There are new parameters, not discussed in routing before, like <span class="geshifilter"><code class="text geshifilter-text">_entity_form</code></span> and <span class="geshifilter"><code class="text geshifilter-text">_entity_access</code></span>: these are hopefully self-explanatory, and lets the routing system reference the controllers and forms defined already in the annotation rather than hardwiring the same classes twice.</p>
+<p>Sometimes entities have complex routing, that might not be suited to hardwiring in a YAML file. In those situations, you <em>can</em> use a <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21Routing%21EntityRouteProviderInterface.php/interface/EntityRouteProviderInterface/8.2.x">route provider class</a>, which will need to be registered in the <span class="geshifilter"><code class="text geshifilter-text">handlers</code></span> annotation section as a <span class="geshifilter"><code class="text geshifilter-text">route_provider</code></span>. However, we don't cover that complexity here. (Note also that <a href="https://www.drupal.org/node/2801409">route providers and YAML can co-exist</a>, so take care if you do decide to use both.)</p>
+<p>To implement some simple navigation links in menus, we also add to the following, existing YAML files:</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">d8api.links.action.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"># Entity action links.
+d8api.contact_add:
+  route_name: entity.contact.add_form
+  title: 'Add contact'
+  appears_on:
+    - system.admin_content
+    - entity.contact.collection
+    - entity.contact.canonical
+d8api.contact_list:
+  route_name: entity.contact.collection
+  title: 'View contacts'
+  appears_on:
+    - system.admin_content
+    - entity.contact.canonical</pre></div>
+<p>This adds action "shortcuts" on the <span class="geshifilter"><code class="text geshifilter-text">admin/content</code></span> page, and between the canonical and collection routes for contact entities.</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">d8api.links.task.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"># Entity tasks.
+d8api.contact.view:
+  route_name: entity.contact.canonical
+  base_route: entity.contact.canonical
+  title: 'View'
+d8api.contact.edit_form:
+  route_name: entity.contact.edit_form
+  base_route: entity.contact.canonical
+  title: 'Edit'
+d8api.contact.delete_form:
+  route_name: entity.contact.delete_form
+  base_route: entity.contact.canonical
+  title: 'Delete'</pre></div>
+<p>This adds a tab group of view/edit/delete for a given contact entity, permitting quick navigation between all three routes.</p>
+<h3>4. Controllers</h3>
+<p>Finally, we extend a couple of core controllers, to match the ones registered in the annotation above: for listing a collection of contacts; and a form for editing a contact. Core Drupal does provide us with basic classes for both of these, but they're not sufficient. The following two simple classes provide the extension we need:</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">src/Controller/ContactListBuilder.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Controller<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\EntityInterface<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityListBuilder<span class="sy0">;</span>
+use Drupal\Core\Url<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Controller: list of contact entity.
+ */</span>
+<span class="kw2">class</span> ContactListBuilder <span class="kw2">extends</span> EntityListBuilder <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildHeader<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$header</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'ID'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$header</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Name'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="re0">$header</span> <span class="sy0">+</span> parent<span class="sy0">::</span><span class="me2">buildHeader</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildRow<span class="br0">(</span>EntityInterface <span class="re0">$entity</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">link</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="re0">$row</span> <span class="sy0">+</span> parent<span class="sy0">::</span><span class="me2">buildRow</span><span class="br0">(</span><span class="re0">$entity</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>These two methods just add columns to the collection table, so we can identify each contact entity by its name (label). Otherwise, the table contains no columns (because every entity's properties are potentially different.)</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">src/Form/ContactForm.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\ContentEntityForm<span class="sy0">;</span>
+use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Form controller: add/edit form for contacts.
+ */</span>
+<span class="kw2">class</span> ContactForm <span class="kw2">extends</span> ContentEntityForm <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Save the entity, so it has an ID.</span>
+    parent<span class="sy0">::</span><span class="me2">save</span><span class="br0">(</span><span class="re0">$form</span><span class="sy0">,</span> <span class="re0">$form_state</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Redirect to the entity's own page.</span>
+    <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">setRedirect</span><span class="br0">(</span>
+      <span class="st_h">'entity.contact.canonical'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'contact'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entity</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This one method redirects to the entity's canonical (i.e. view) route, when the entity form is saved. Otherwise, the form does not redirect.</p>
+<h2>What you should see</h2>
+<p>As previously discussed, you should have Drush installed, and always clear caches when registering new configuration like services, routes etc.</p>
+<h3>Creating a random node</h3>
+<p>Navigate to <span class="geshifilter"><code class="text geshifilter-text">/tutorial/create-random-node</code></span>:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-135" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/create-article-node-random-titlepng.html">Create article node with random title.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Create&#32;article&#32;node&#32;with&#32;random&#32;title.png"><img class="media-element file-inline-image" alt="Form to create a new node with a random title" src="../sites/files/jps/styles/large/public/Create&#32;article&#32;node&#32;with&#32;random&#32;title.png%3Fitok=Pl6-3szl" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You should see the form to create a new node with a random title. If you hit the "Create node" button, then you'll see something like this:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-136" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/article-node-createdpng.html">Article node created.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Article&#32;node&#32;created.png"><img class="media-element file-inline-image" alt="Random node, just created, on its view or canonical route" src="../sites/files/jps/styles/large/public/Article&#32;node&#32;created.png%3Fitok=J8GZQXmQ" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Because the title and body text are randomly generated, you'll obviously see a different title from this screenshot. But if you now return to the form to create a new node:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-137" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/back-create-article-node-random-titlepng.html">Back to create article node with random title.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Back&#32;to&#32;create&#32;article&#32;node&#32;with&#32;random&#32;title.png"><img class="media-element file-inline-image" alt="Returning to the form to create a new node, to see the most recent node listed" src="../sites/files/jps/styles/large/public/Back&#32;to&#32;create&#32;article&#32;node&#32;with&#32;random&#32;title.png%3Fitok=lmqSvMjM" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You should see that the title of that most recently created node is also present now, above the "Create node" button.</p>
+<h3>Creating an entity of the new custom type</h3>
+<p>You should invoke the following Drush command, to update the database with the custom entity:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush <span class="kw2">updatedb</span> <span class="re5">--entity-updates</span></pre></div>
+<p>Because we've implemented lots of navigation above, you can now visit Drupal core's content administration page:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-138" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/admin-content-linkspng.html">Admin content with links.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Admin&#32;content&#32;with&#32;links.png"><img class="media-element file-inline-image" alt="Admin/content page with new buttons for add and list contact" src="../sites/files/jps/styles/large/public/Admin&#32;content&#32;with&#32;links.png%3Fitok=I-zMouQV" width="480" height="323" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You should see two new "blue button" actions under the breadcrumbs, to add a new contact or view existing ones. Let's just quickly look at that view first:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-139" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/empty-contact-listpng.html">Empty contact list.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Empty&#32;contact&#32;list.png"><img class="media-element file-inline-image" alt="Empty list of contacts" src="../sites/files/jps/styles/large/public/Empty&#32;contact&#32;list.png%3Fitok=pqrnIuAa" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You can see that the view copes quite happily with zero items in it: the boilerplate text here is provided by Drupal core based on the <span class="geshifilter"><code class="text geshifilter-text">label</code></span> in the class annotation ("Contact entity").</p>
+<p>We can navigate from this list to add a new contact; when you do so, you should see a form with a single text field:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-140" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/create-contactpng.html">Create contact.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Create&#32;contact.png"><img class="media-element file-inline-image" alt="Create a new contact" src="../sites/files/jps/styles/large/public/Create&#32;contact.png%3Fitok=NEI6_Pre" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Fill this in and submit it, and you're taken to the new contact:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-141" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/created-contactpng.html">Created contact.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Created&#32;contact.png"><img class="media-element file-default" alt="Contact just created, showing label/name as title of page" src="../sites/files/jps/styles/large/public/Created&#32;contact.png%3Fitok=yFTdB7pN" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>The contact's name is defined in the <span class="geshifilter"><code class="text geshifilter-text">entity_keys</code></span> as the entity's label, and is therefore used as the title of the entity's own page (in this case, "J-P").</p>
+<p>Now, if you click on the action to view the list of all contacts:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-142" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/contact-list-itemspng.html">Contact list with items.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Contact&#32;list&#32;with&#32;items.png"><img class="media-element file-inline-image" alt="List of contacts, now with newly created contact on it" src="../sites/files/jps/styles/large/public/Contact&#32;list&#32;with&#32;items.png%3Fitok=52Pg2Qq2" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>The new contact is listed, with the name linked to its view page. The dropdown of actions permits editing and even deleting of the contact, which you should definitely test! As you can see, I've done so, because the numeric ID of the contact is 8 (meaning I've created and deleted seven other contacts during testing.)</p>
+<p>If you can see all of the above, the congratulations! you have manipulated node content entities, and created entities of your own entirely custom entity type.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21entity.api.php/group/entity_api/8.2.x">Drupal 8 API: Entity API</a></li>
+<li><a href="https://www.drupal.org/node/2801409">Entity routing via YAML or via a routing provider is ambiguous in docs</a> (change request to the above)</li>
+<li><a href="http://valuebound.com/resources/blog/create-custom-entity-type-drupal8-for-better-content-management">Create a custom entity type in Drupal 8</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apidata.html">d8api:data</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-845318d6e51ebbc195c0d1049e772b42">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

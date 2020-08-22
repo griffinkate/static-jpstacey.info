@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-configuration.html" />
+<link rel="shortlink" href="../../node/670.html" />
+  <title>Drupal 8 API: configuration | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"uxyK4M22LF0FOcJI6d2kBsISut-8CAVaQNnoMOowfp4","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-670 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-configuration.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: configuration        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, December 1, 2016 - 11:55</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-11-18/drupal-8-api-types-information-drupal">Types of information in Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-11-28/drupal-8-api-state">State</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-17/drupal-8-api-annotations">Entities</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+</ul><h2>Configuration is exportable, user-editable state stored as entities</h2>
+<p>As we previously compared state with configuration, let's compare configuration with state:</p>
+<dl><dt>Semi-permanent</dt>
+<dd>Configuration is Drupal's fundamental instructions from the site administrators and developers for how to run itself. Unlike state, which Drupal itself is broadly at liberty to change, configuration is only likely to ever change at a human's behest. Examples include the site title, or whether the site is in maintenance mode: only a human can determine these settings; it's a rare use case where Drupal would change its own title, or put itself into maintenance mode.</dd>
+
+<dt>Complex life cycle</dt>
+<dd>If configuration is going to hang around for longer, it needs better curation of its life cycle. Configuration can also depend on certain modules, or even be made nonsensical or dangerous (and thus a candidate for uninstallation) when some module is uninstalled. Configuration has its own internal complexity above and beyond just the complexity of whatever data values are being stored.<br /></dd>
+</dl><p>Configuration uses <em>config objects</em> and <em>config entities</em> to support its persistence and complex behaviours, in contrast to state's simple, cached <em>key/value</em> store. The use of entities also permits configuration to be exported and re-imported, implying that an assembled entity's-worth of configuration (unlike state) can be of use to other sites, not just the one it was configured on.</p>
+<h2>Config objects versus config entities?</h2>
+<p>We've introduced a subtle divergence in terminology, which is only important, depending on what you're doing with configuration.</p>
+<p>A key aspect of content entities is their countability: if your website has <i>N</i> news items, you can easily envisage it having <i>N+1</i>; moreover, if the most recently created node had ID <i>X</i>, and no other nodes had been created since, then the next node will have ID <i>X+1</i>. If we imagine referring to nodes via their long, unique UUID string instead, we could instead say that they weren't so much countable as sequenceable: put all the nodes in some order, and you can always add a new node at the end of the list.</p>
+<p>With sequenceability in mind, here's how the two types of configuration differ:</p>
+<dl><dt>Config entities</dt>
+<dd>These are sequenceable, like content entities. They don't necessarily have a numeric ID, but they do have a unique name and can have a UUID for import and export. Config entities of a particular type must have names that conform to a particular pattern, defined in a <span class="geshifilter"><code class="text geshifilter-text">.schema.yml</code></span> file provided by the module responsible. Examples of config entities: a blogpost view; an input format; a field configuration.</dd>
+<dt>Config objects</dt>
+<dd>These are not sequenceable, and (while they <em>can</em> also have a UUID for import and export) are identified solely by their unique name: in this respect they are a kind of singleton. As such, there's no pattern for names that can be extended, although names should begin with the name of the module responsible for the configuration, so they can be uninstalled with the module. Config object structure can also defined in the schema YAML file of the module responsible. Example of config objects: views settings; contact form settings.</dd>
+</dl><p>Regardless of its type, configuration items all use the same class(es)! <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Config\Config</code></span>, or more usually an <span class="geshifilter"><code class="text geshifilter-text">ImmutableConfig</code></span> to avoid altering configuration by mistake. So in much of your day-to-day use of the configuration API, you'll hardly notice the difference.</p>
+<p>If your own configuration's type matters to your own code or to possible future extension by others, it must be defined in a <span class="geshifilter"><code class="text geshifilter-text">.schema.yml</code></span>. This file is also used to describe the internal contents of the configuration: for example, the data types of different keys and sub-keys. These provide type hints for the typed data API, which we will discuss later. If you like, you can have a look at the entry for <span class="geshifilter"><code class="text geshifilter-text">core.date_format.*</code></span> in the <span class="geshifilter"><code class="text geshifilter-text">core.data_types.schema.yml</code></span> file, and compare it to the example YAML file below.</p>
+<p>If you're only dealing with other modules' configuration, then the key difference you must remember is that you'll usually add config entities, not config objects. You can imagine adding config entities that other modules would be responsible for: e.g. installing a new view or content type (indeed, we did this previously when discussing entities and fields.) However, there is little point in your own module adding config objects for other modules: because they have no naming pattern, and no sequenceability, they have no discoverability; and the new configuration would therefore not be detectable by the other module.</p>
+<h2>Steps in the configuration lifecycle</h2>
+<h3>1. Create or install configuration</h3>
+<p>New configuration should always have an "owner" module, to make clear just what it's configuring. This ownership is reflected in naming conventions:</p>
+<ol><li>Configuration created solely for your custom module's own use should have a name beginning with your module's own e.g. <span class="geshifilter"><code class="text geshifilter-text">d8api.settings</code></span>. You may (and probably should) provide further information about the configuration's structure and type (object vs entity) in e.g. <span class="geshifilter"><code class="text geshifilter-text">d8api.schema.yml</code></span>, but we don't cover that here.</li>
+<li>Configuration created to integrate with another pre-existing module should have a name matching a pattern registered in that module's schema file e.g. <span class="geshifilter"><code class="text geshifilter-text">views.view.customview</code></span> references the <span class="geshifilter"><code class="text geshifilter-text">views.view.*</code></span> pattern found in <span class="geshifilter"><code class="text geshifilter-text">views.schema.yml</code></span>. This also implies the configuration must be a config entity, not a config object.</li>
+<li>Any other naming convention should be avoided.</li>
+</ol><p>At the time of writing, it is possible to create configuration with arbitrary names, as long as no dependencies are declared within the configuration's data structure (see below.) Don't do this; at the very least, it will not be uninstalled along with your own (or anyone else's) module, which is bad practice. At worst, it will be an ongoing maintenance headache, as future developers (including your future self) try to work out just how the configuration is meant to work.</p>
+<h4>Install configuration with YAML files</h4>
+<p>Any YAML files found in your module's <span class="geshifilter"><code class="text geshifilter-text">config/install/</code></span> folder will be activated in Drupal at the point of module installation, and this is the preferred method of creating new configuration. The file's name (minus the suffix) will become the configuration name: so <span class="geshifilter"><code class="text geshifilter-text">d8api.settings</code></span> should live in <span class="geshifilter"><code class="text geshifilter-text">config/install/d8api.settings.yml</code></span>.</p>
+<p>If your module is already installed, but you want to refresh the configuration, or install some new configuration file you forgot to originally include, you can use the <a href="https://www.drupal.org/project/config_devel">config_devel</a> module to provide a new Drush command for this purpose:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush cdi1 sites<span class="sy0">/</span>all<span class="sy0">/</span>modules<span class="sy0">/</span>d8api<span class="sy0">/</span>config<span class="sy0">/</span>install<span class="sy0">/</span>d8api.settings.yml</pre></div>
+<h4>Create configuration using the factory service</h4>
+<p>You can also create arbitrary new configuration using a <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Config\ConfigFactory</code></span> object: just use <span class="geshifilter"><code class="text geshifilter-text">-&gt;getEditable($newConfigName)</code></span> to retrieve a new mutable object, then <span class="geshifilter"><code class="text geshifilter-text">-&gt;save()</code></span> this object with the name provided.</p>
+<p>In classes, the factory should always be provided using dependency injection of the <span class="geshifilter"><code class="text geshifilter-text">config.factory</code></span> service, as discussed previously and demonstrated in the example class below; at the command line, you could use <span class="geshifilter"><code class="text geshifilter-text">\Drupal::service('config.factory')</code></span> directly.</p>
+<p>Remember to still respect naming conventions for any new configuration names.</p>
+<h3>2. Read and update configuration</h3>
+<p>Configuration can be read and updated through the same <span class="geshifilter"><code class="text geshifilter-text">config.factory</code></span> service discussed previously. Note that the simple <span class="geshifilter"><code class="text geshifilter-text">ConfigFactory::get()</code></span> method returns an immutable, or read-only, configuration item, using <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Config\ImmutableConfig</code></span>: as you can see in the example immediately above, <span class="geshifilter"><code class="text geshifilter-text">getEditable()</code></span> returns the editable <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Config\Config</code></span> instead.</p>
+<p>Values within the configuration item can be set using a dotted syntax, so that <span class="geshifilter"><code class="text geshifilter-text">Config::set('key1.key2', $value)</code></span> creates an array containing <span class="geshifilter"><code class="text geshifilter-text">key2 =&gt; $value</code></span>, then assigns it to <span class="geshifilter"><code class="text geshifilter-text">key1</code></span>.</p>
+<h3>3. Import and export configuration</h3>
+<p>A key aspect of configuration is Configuration Management. The configuration of any website is always exportable, and this export can be restored at a later date to reconfigure the site.</p>
+<p>There are many ways of exporting configuration; Drush provides a <span class="geshifilter"><code class="text geshifilter-text">config-export</code></span> command, to export into a directory defined in your site's <span class="geshifilter"><code class="text geshifilter-text">settings.php</code></span>, and the aforementioned config_devel has a command to re-export just the configuration for a particular module.</p>
+<h3>4. Delete or uninstall configuration</h3>
+<p>In code, you can explicitly delete configuration items retrieved with the <span class="geshifilter"><code class="text geshifilter-text">config.factory</code></span> service using <span class="geshifilter"><code class="text geshifilter-text">$config-&gt;delete()</code></span>. You can also just unset specific sub-arrays within the configuration, leaving the rest intact, using <span class="geshifilter"><code class="text geshifilter-text">$config-&gt;clear($key)-&gt;save()</code></span>. For sub-subarrays, <span class="geshifilter"><code class="text geshifilter-text">$key</code></span> can follow the same dotted syntax mentioned above e.g. <span class="geshifilter"><code class="text geshifilter-text">'key1.key2'</code></span>.</p>
+<p>However, you probably never need to delete configuration items explicitly, if you've followed the naming conventions discussed above. When a module is uninstalled, all configuration it "owns" will be uninstalled too. In addition, if you need to uninstall another module's config entity, when some other module is uninstalled—for example, a view depending on a field formatter in some other module—then you can include in the YAML file the <span class="geshifilter"><code class="text geshifilter-text">dependencies: enforced: - d8api</code></span> syntax, demonstrated in the example class below.</p>
+<h2>Examples of working with the configuration life cycle</h2>
+<h3>A. Working with configuration using PHP code</h3>
+<p>The following PHP class provides examples of how configuration works. You should save it to <span class="geshifilter"><code class="text geshifilter-text">src/ConfigExample.php</code></span> in your <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Drupal\Core\Config\ConfigFactoryInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Run some configuration API tests.
+ */</span>
+<span class="kw2">class</span> ConfigExample <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var ConfigFactoryInterface
+   */</span>
+  protected <span class="re0">$configFactory</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * @param ConfigInterface $configFactory
+   *   Config factory service, injected into the new object.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>ConfigFactoryInterface <span class="re0">$configFactory</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span> <span class="sy0">=</span> <span class="re0">$configFactory</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Read a configuration value; override it; change it back.
+   *
+   * Config names are stored in the name column of table config.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> temporarilyOverride<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$site_info</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'system.site'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">print</span> <span class="st0">"Raw data for system.site:<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$site_info</span><span class="sy0">-&gt;</span><span class="me1">getRawData</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$old_name</span> <span class="sy0">=</span> <span class="re0">$site_info</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'name'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$editableConfig</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">getEditable</span><span class="br0">(</span><span class="st_h">'system.site'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$editableConfig</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="st_h">'Example for config'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$editableConfig</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$site_info</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'system.site'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Site name has been changed to: "</span>
+      <span class="sy0">.</span> <span class="re0">$site_info</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'name'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+ 
+    <span class="re0">$editableConfig</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="re0">$old_name</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$editableConfig</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Site name has been changed back to <span class="es4">$old_name</span>.<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Create a new configuration value; save; clear part of it; delete.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> createSaveClearDelete<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$new_config</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">getEditable</span><span class="br0">(</span><span class="st_h">'d8api.config'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"New config is empty? "</span> <span class="sy0">.</span> <span class="br0">(</span><a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$new_config</span><span class="sy0">-&gt;</span><span class="me1">getRawData</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> ? <span class="st_h">'Y'</span> <span class="sy0">:</span> <span class="st_h">'N'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Save new configuration.</span>
+    <span class="re0">$new_config</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'foo'</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'baz.quux'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'fred'</span> <span class="sy0">=&gt;</span> <span class="st_h">'barney'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$new_config</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Reload, then clear a value.</span>
+    <span class="re0">$reloaded_config</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">getEditable</span><span class="br0">(</span><span class="st_h">'d8api.config'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$reloaded_config</span><span class="sy0">-&gt;</span><span class="me1">clear</span><span class="br0">(</span><span class="st_h">'foo'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Look at the entire raw data first.</span>
+    <span class="kw1">print</span> <span class="st0">"Config with 'foo' key cleared out: "</span>
+      <span class="sy0">.</span> <a href="http://www.php.net/var_export"><span class="kw3">var_export</span></a><span class="br0">(</span><span class="re0">$reloaded_config</span><span class="sy0">-&gt;</span><span class="me1">getRawData</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="co1">// You can even interrogate partial arrays of content e.g. just "baz".</span>
+    <span class="kw1">print</span> <span class="st0">"Config 'baz' data: "</span>
+      <span class="sy0">.</span> <a href="http://www.php.net/var_export"><span class="kw3">var_export</span></a><span class="br0">(</span><span class="re0">$reloaded_config</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'baz'</span><span class="br0">)</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Delete entirely</span>
+    <span class="re0">$reloaded_config</span><span class="sy0">-&gt;</span><span class="me1">delete</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$new_config</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">configFactory</span><span class="sy0">-&gt;</span><span class="me1">getEditable</span><span class="br0">(</span><span class="st_h">'d8api.config'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Config has been deleted? "</span> <span class="sy0">.</span> <span class="br0">(</span><a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$new_config</span><span class="sy0">-&gt;</span><span class="me1">getRawData</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> ? <span class="st_h">'Y'</span> <span class="sy0">:</span> <span class="st_h">'N'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This class consists of three methods:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span></dt>
+<dd>Provides compatibility with dependency injection, to obtain the config factory service.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">temporarilyOverride()</code></span></dt>
+<dd>Trivially demonstrates <span class="geshifilter"><code class="text geshifilter-text">$factory-&gt;get()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">$factory-&gt;getEditable()</code></span> to get configuration items, and then each item's <span class="geshifilter"><code class="text geshifilter-text">-&gt;set()</code></span> method to modify a value within the configuration.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">createSaveClearDelete()</code></span></dt>
+<dd>Shows the full life cycle of both a configuration item and also deleting certain data within it using <span class="geshifilter"><code class="text geshifilter-text">-&gt;clear()</code></span>.</dd>
+</dl><p>We'll show below how to use this class, and what results to expect.</p>
+<h3>B. Working with configuration using YAML files</h3>
+<p>Let's create three new YAML files in the <span class="geshifilter"><code class="text geshifilter-text">config/install/</code></span> subfolder. These will in turn install configuration with three names corresponding to the naming convention notes above:</p>
+<ol><li>For this module: <span class="geshifilter"><code class="text geshifilter-text">d8api.some.filename.yml</code></span></li>
+<li>For the core date formatting: <span class="geshifilter"><code class="text geshifilter-text">core.date_format.d8api_date.yml</code></span></li>
+<li>Incorrectly namespaced: <span class="geshifilter"><code class="text geshifilter-text">notamodule.d8api.yml</code></span></li>
+</ol><p>Depending on what tutorials you've completed previously, you'll probably have other files in <span class="geshifilter"><code class="text geshifilter-text">config/install/</code></span> already.</p>
+<h4><span class="geshifilter"><code class="text geshifilter-text">d8api.some.filename.yml</code></span></h4>
+<p>This will trivially create some configuration, owned by the module:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">some_config:
+  another_key: [1, 2, 3]</pre></div>
+<p>It will uninstall along with <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module.</p>
+<h4><span class="geshifilter"><code class="text geshifilter-text">views.view.d8api_dependency.yml</code></span></h4>
+<p>This will create a date format, owned by core. Because core defines a <span class="geshifilter"><code class="text geshifilter-text">core.data_types.schema.yml</code></span> for these config entities and others, we do need to provide valid data, not just some test keys and values:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - d8api
+id: d8api_date
+label: 'Example date format'
+locked: false
+pattern: 'm/d/Y - H:i'</pre></div>
+<p>We also want to demonstrate that this configuration can be uninstalled along with the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module. Hence the YAML includes <span class="geshifilter"><code class="text geshifilter-text">dependencies: enforced: module: - d8api</code></span>: that means, although this configuration "belongs" to core, it will also be uninstalled when <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> is uninstalled.</p>
+<p>Dependency enforcement only makes sense for config entities, because config objects are installed and uninstalled only with the module that owns them i.e. shares their namespace.</p>
+<h4><span class="geshifilter"><code class="text geshifilter-text">notamodule.d8api.yml</code></span></h4>
+<p>Finally, let's do what we shouldn't do. Here's a module with a broken namespace, as the filename above shows:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">some_config:
+  another_key: [1, 2, 3]</pre></div>
+<p>Once again, the data provided by the configuration is for illustrative purposes only. Also, because that data doesn't specify any dependencies, installation of it does not (at the time of writing) trigger a dependency check on the presence of the <span class="geshifilter"><code class="text geshifilter-text">notamodule</code></span> module. It should be silently installed; as we'll see below, though, it remains even when the module</p>
+<p>(By the way, the filename doesn't need to include the snippet <span class="geshifilter"><code class="text geshifilter-text">.d8api.</code></span>: we include that so we can keep track of it and delete it in the examples below.)</p>
+<h2>What you should see</h2>
+<p>As previously, you should have Drush available, and we don't cover that here. You should also uninstall the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module, so that the YAML examples included will work correctly.</p>
+<p>Begin by exporting all of your site's current configuration into a folder:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush config-export</pre></div>
+<p>You should see the response message:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"> [success] Configuration successfully exported to some/folder.</pre></div>
+<p>Now enable the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module, and re-export the configuration:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush en <span class="re5">-y</span> d8api
+drush config-export</pre></div>
+<p>The module will be enabled first:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">The following extensions will be enabled: d8api
+Do you really want to continue? (y/n): y
+ [ok] d8api was enabled successfully.
+d8api defines the following permissions: add contact entity, administer contact entity, delete contact entity, edit contact entity, view contact entity</pre></div>
+<p>And then <span class="geshifilter"><code class="text geshifilter-text">config-export</code></span> will recognize that new configuration exists and ask for confirmation:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Differences of the active config to the export directory:
+ 
+ Collection  Config                                           Operation                
+             d8api.contact_type.person                        create 
+             d8api.some.filename                              create 
+             field.storage.contact.field_jobtitle             create 
+             field.field.contact.person.field_jobtitle        create 
+             core.entity_view_display.contact.person.default  create 
+             core.entity_form_display.contact.person.default  create 
+             notamodule.d8api                                 create 
+             core.extension                                   update
+The .yml files in your export directory (/tmp/sync) will be deleted and replaced with the active config. (y/n):</pre></div>
+<p>The only <span class="geshifilter"><code class="text geshifilter-text">update</code></span> you should see will be to the <span class="geshifilter"><code class="text geshifilter-text">core.extension</code></span> configuration: the list of enabled modules now includes <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span>. You can confirm or deny at the "y/n" prompt above: it doesn't matter.</p>
+<p>We'll come back to the installed configuration later. Right now, let's look at the code examples. Firstly, run the <span class="geshifilter"><code class="text geshifilter-text">temporarilyOverride()</code></span> method as follows:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\ConfigExample(
+  \Drupal::service("config.factory")
+))-&gt;temporarilyOverride();'</span></pre></div>
+<p>This will produce the following output:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Raw data for system.site:
+array(10) {
+  ["uuid"]=&gt;
+  string(36) "75cc2103-601c-4eeb-aaeb-ac350d5cb945"
+  ["name"]=&gt;
+  string(8) "Tutorial"
+  # ... More details here....
+}
+Site name has been changed to: Example for config
+Site name has been changed back to Tutorial.</pre></div>
+<p>As you can see, <span class="geshifilter"><code class="text geshifilter-text">system.site</code></span> is a config object which happens to have a UUID. The output further shows that, when the config object is saved and then reloaded, its title has been changed; and then changed back, so this example doesn't permanently rename your site!</p>
+<p>Secondly, we run the <span class="geshifilter"><code class="text geshifilter-text">createSaveClearDelete()</code></span> example as follows:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\ConfigExample(
+  \Drupal::service("config.factory")
+))-&gt;createSaveClearDelete();'</span></pre></div>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">New config is empty? Y
+Config with 'foo' key cleared out: array (
+  'baz' =&gt; 
+  array (
+    'quux' =&gt; 
+    array (
+      'fred' =&gt; 'barney',
+    ),
+  ),
+)
+Config 'baz' data: array (
+  'quux' =&gt; 
+  array (
+    'fred' =&gt; 'barney',
+  ),
+)
+Config has been deleted? Y</pre></div>
+<p>The output from this shows respectively that: new, as-yet-unsaved config objects have an empty array as their "raw data"; the <span class="geshifilter"><code class="text geshifilter-text">-&gt;clear()</code></span> method only unsets specific subarrays within the configuration; we can retrieve sub-arrays of configuration using keys; and that the delete method entirely removes the config object from the site.</p>
+<p>Finally, let's look at what our configuration YAML files have created. Firstly, check the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> table:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush sqlq <span class="st0">"SELECT name FROM config WHERE name LIKE '%d8api%';"</span></pre></div>
+<p>This should produce output something like:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">core.date_format.d8api_date
+d8api.contact_type.person
+d8api.some.filename
+notamodule.d8api</pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">person</code></span> contact type is discussed in our previous tutorial on fields API; you can see the other three YAML files have resulted in three items of configuration.</p>
+<p>Now let's uninstall our <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module, and re-examine the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> table:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush pm-uninstall <span class="re5">-y</span> d8api
+drush sqlq <span class="st0">"SELECT name FROM config WHERE name LIKE '%d8api%';"</span></pre></div>
+<p>The result of uninstallation should be that all but one file has been removed:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">The following extensions will be uninstalled: d8api
+Do you really want to continue? (y/n): y
+ [ok] d8api was successfully uninstalled.
+notamodule.d8api</pre></div>
+<p>You can see that the badly-namespaced configuration has been "orphaned", although the others have been removed: the contact type, because it depends on a bundle defined in the module; the <span class="geshifilter"><code class="text geshifilter-text">d8api.some.filename</code></span>, because its namespace shows it is owned by the module; and the date format, because its YAML contained an enforced dependency.</p>
+<p>Unfortunately, this orphaned configuration will now prevent <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> from reinstalling itself. Luckily, configuration items all live solely in the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> database table, so (just this once, to fix a broken site), run:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush sqlq <span class="st0">"DELETE FROM config WHERE name LIKE '%d8api%';"</span></pre></div>
+<p>You should then also remove the <span class="geshifilter"><code class="text geshifilter-text">notamodule.d8api.yml</code></span> file from the module, before reinstalling.</p>
+<p>If you can see all of this, congratulations! you have learned what configuration is, how it's stored, and how to manipulate it.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/config_api/8.2.x">Drupal 8 API: Configuration API</a></li>
+<li><a href="https://www.drupal.org/docs/8/api/configuration-api/simple-configuration-api">Drupal 8 APIs: Simple Configuration API</a></li>
+<li><a href="https://www.drupal.org/docs/8/api/configuration-api/configuration-schemametadata">Drupal 8 APIs: Configuration schema/metadata</a></li>
+<li><a href="http://drupal.stackexchange.com/questions/173684/how-to-remove-mymodule-configurations-on-uninstall">Drupal Answers: how to remove mymodule configurations on uninstall</a></li>
+<li><a href="https://www.lullabot.com/articles/configuration-management-in-drupal-8-the-key-concepts">Configuration Management in Drupal 8: The Key Concepts</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8api.html">d8api</a>, <a href="../../category/tags/d8apidata.html">d8api:data</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-a043873ef86b8b5c41c12d3dd268e884">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

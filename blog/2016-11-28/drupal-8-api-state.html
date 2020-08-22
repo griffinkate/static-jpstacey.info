@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-state.html" />
+<link rel="shortlink" href="../../node/669.html" />
+  <title>Drupal 8 API: state | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"Yod6WetHhiwCfO4uOY1MeInPyVLbyOQsvhRK1ZButdo","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-669 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-state.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: state        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, November 28, 2016 - 10:28</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-11-18/drupal-8-api-types-information-drupal">Types of information in Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-17/drupal-8-api-annotations">Entities</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+</ul><h2>State is a bit like simplified configuration, only different</h2>
+<p>Since we discussed types of information in Drupal, it's been easy to see state as being a kind of more volatile yet simplified configuration:</p>
+<dl><dt>More volatile</dt>
+<dd>State is how Drupal keeps track of its internal, well, <em>state</em>: Drupal configuring itself with information about how recently it last run its own scheduled tasks, or where to find its own zipped-up Javascript files. As such it can change arbitrarily (without any particular user input) and frequently (any request might change at least some piece of state.)</dd>
+<dt>Simplified</dt>
+<dd>State is just a simple storage and retrieval mechanism of chunks of configuration based on keys. As such, although the chunks might look like configuration: they have no particular life cycle or behavioural complexity; they aren't meant to be exported through an equivalent of configuration management; and they are stored in a simple way.</dd>
+</dl><p>As a consequence of these differences, state is also fundamentally differently from configuration in its PHP. Whereas configuration uses <em>config entities</em>, which provides configuration with a lifecycle, including long-term persistence and caching, state uses a <em>key/value store</em>, and must therefore implement its own caching strategy.</p>
+<h2>How state, caching and the key/value store interact</h2>
+<p>State implements its own simplistic caching using protected object variables, which means it only lasts for the duration of a PHP request. This is understandable if we consider: on the one hand, a request to a database-level cache will be no quicker than a request to a database-level key/value store; on the other hand, a more complex caching strategy will still be about as volatile as uncached state is anyway.</p>
+<p>Drupal has a more generalized key/value store, which is partitioned into collections, and code should ideally only ever modify one collection for its "personal" use. Of these collections, state API's is called <span class="geshifilter"><code class="text geshifilter-text">'state'</code></span>. This means state only sees its own key/value pairs, not those of potentially other parts of Drupal core or contributed code.</p>
+<p>Because state has to negotiate between its own cache and the contents of the key/value store, then instantiating state followed by retrieving a value looks something like the following flowchart:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-165" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/state-cache-and-key2fvalue-storepng.html">State, cache and the key%2Fvalue store.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/State,&#32;cache&#32;and&#32;the&#32;key%252Fvalue&#32;store.png"><img class="media-element file-inline-image" alt="Flowchart of how state uses its internal cache and the key/value store to retrieve values" src="../../sites/files/jps/styles/large/public/State,&#32;cache&#32;and&#32;the&#32;key%252Fvalue&#32;store.png%3Fitok=FV7X6xOd" width="480" height="360" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Both state and the key/value store are provided by Drupal as services, capable of dependency injection as discussed previously. Although we use the raw <span class="geshifilter"><code class="text geshifilter-text">\Drupal::service()</code></span> call in the examples at the very end, this is because we're running them from the command line: all the classes we save will use dependency injection.</p>
+<p>Similarly, setting and deleting state proceeds via setting and deleting items in the key/value store. In addition, because state doesn't use entities, then state values have no "identity", which means that updating and creating both use the same "setting" operation.</p>
+<h2>Investigating state using a custom class</h2>
+<p>The following PHP class provides examples of how state works. You should save it to <span class="geshifilter"><code class="text geshifilter-text">src/StateExample.php</code></span> in your <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Drupal\Core\State\StateInterface<span class="sy0">;</span>
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface<span class="sy0">;</span>
+use Drupal\Core\KeyValueStore\KeyValueStoreInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Run some state API tests.
+ */</span>
+<span class="kw2">class</span> StateExample <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var StateInterface
+   */</span>
+  protected <span class="re0">$state</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var KeyValueStoreInterface
+   */</span>
+  protected <span class="re0">$keyValueStore</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * @param StateInterface $state
+   *   State service, injected into the new object.
+   * @param KeyValueFactoryInterface $key_value_factory
+   *   Key/value factory service, injected into the new object.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    StateInterface <span class="re0">$state</span><span class="sy0">,</span>
+    KeyValueFactoryInterface <span class="re0">$key_value_factory</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span> <span class="sy0">=</span> <span class="re0">$state</span><span class="sy0">;</span>
+    <span class="co1">// Replicate the key/value store that state itself uses.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">keyValueStore</span> <span class="sy0">=</span> <span class="re0">$key_value_factory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'state'</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Write a new state value; read it back.
+   *
+   * State names are stored in the name column of table key_value,
+   * where the collection is "state".
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> writeNewStateAndRead<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">print</span> <span class="st0">"Previous value for custom state: "</span>
+      <span class="sy0">.</span> <a href="http://www.php.net/var_export"><span class="kw3">var_export</span></a><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api.example'</span><span class="br0">)</span><span class="sy0">,</span> <span class="kw4">TRUE</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">".<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Setting custom state to: ['time' =&gt; "</span> <span class="sy0">.</span> REQUEST_TIME <span class="sy0">.</span> <span class="st0">"].<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'d8api.example'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'time'</span> <span class="sy0">=&gt;</span> REQUEST_TIME<span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Write and read state; meanwhile, change via key/value.
+   *
+   * Changing state directly through the key/value does not update the
+   * cached data in state.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> stateVersusDirectKeyValue<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Set a value through state, which is cached.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'d8api.outdated'</span><span class="sy0">,</span> <span class="st_h">'What state thinks it is'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Set a value directly into the key/value store.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">keyValueStore</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'d8api.outdated'</span><span class="sy0">,</span> <span class="st_h">'What the store has changed it to'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// State still has the old, stale value.</span>
+    <span class="kw1">print</span> <span class="st0">"State still has the value: '"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api.outdated'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"'<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="co1">// Clearing caches fixes this.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">resetCache</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"State now retrieves the value: '"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">state</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api.outdated'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"'<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This class consists of three methods:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span></dt>
+<dd>Provides compatibility with dependency injection, to obtain both the state service and the key/value factory service.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">writeNewStateAndRead()</code></span></dt>
+<dd>Trivially demonstrates state <span class="geshifilter"><code class="text geshifilter-text">get($key)</code></span> and <span class="geshifilter"><code class="text geshifilter-text">set($key, $value)</code></span> behaviour, including a nonscalar <span class="geshifilter"><code class="text geshifilter-text">$value</code></span></dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">stateVersusDirectKeyValue()</code></span></dt>
+<dd>Shows how state uses its internal cache, by also creating a custom key/value store to interrogate the <span class="geshifilter"><code class="text geshifilter-text">'state'</code></span> collection directly, bypassing the cache.</dd>
+</dl><p>Note that, whereas services inject the state directly into the constructor, a <em>factory</em> is provided for key/value objects. This permits state to use the factory to obtain a <span class="geshifilter"><code class="text geshifilter-text">'state'</code></span> key/value collection, and other classes to do the same with their own custom collections, while minimizing the number of services subsequently required to just one.</p>
+<h2>What you should see</h2>
+<p>As previously discussed, you should have Drush installed, and we don't cover that here.</p>
+<p>To run the two test methods in turn, you need to a) initialize an object of your new custom class b) inject the relevant services while doing so and then c) call the method.</p>
+<p>Merely initializing the class is straightforward:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'new \Drupal\d8api\StateExample(
+  \Drupal::service("state"), \Drupal::service("keyvalue")
+);'</span></pre></div>
+<p>This provides the class with the two relevant services. However, you'll need to call a method to obtain any output, as we'll show below.</p>
+<h3>Trivial <span class="geshifilter"><code class="text geshifilter-text">get()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">set()</code></span> behaviour</h3>
+<p>Chain the object creation with a method call, by wrapping the <span class="geshifilter"><code class="text geshifilter-text">new ...</code></span> in brackets and following it with the method:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\StateExample(
+  \Drupal::service("state"), \Drupal::service("keyvalue")
+))-&gt;writeNewStateAndRead();'</span></pre></div>
+<p>If you run this a few times in turn you should see:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">...
+Previous value for custom state: array (
+  'time' =&gt; 1480094066,
+).
+Setting custom state to: ['time' =&gt; 1480328225].
+...
+Previous value for custom state: array (
+  'time' =&gt; 1480328225,
+).
+Setting custom state to: ['time' =&gt; 1480328237].
+...</pre></div>
+<p>The state is being set with a nonscalar value (an array with a single element "time"), and each call first retrieves the state from the previous call, before updating it.</p>
+<h3>Demonstrating the cache inside state, compared to the raw key/value store</h3>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\StateExample(
+  \Drupal::service("state"), \Drupal::service("keyvalue")
+))-&gt;stateVersusDirectKeyValue();'</span></pre></div>
+<p>You should always see the output:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">State still has the value: 'What state thinks it is'
+State now retrieves the value: 'What the store has changed it to'</pre></div>
+<p>The first line is the result of modifying the data in the key/value store, but state has still cached the stale data; the second line shows state having cleared its internal cache and picking up on the changes.</p>
+<p>If you see all of the above then congratulations! you have successfully manipulated state, and its underlying key/value store and cache.</p>
+<h2>Further reading</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/state_api/8.2.x">Drupal 8 API: State API</a></li>
+<li><a href="https://www.drupal.org/docs/8/api/state-api">Drupal 8 APIs: State API</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-296"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <a href="http://andrewmorton.info" rel="nofollow" class="username">mortona2k (not verified)</a>      </p>
+      <p class="comment-time">
+        Mon, 22/05/2017 - 00:50      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/296.html#comment-296" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/296.html#comment-296" class="permalink" rel="bookmark">Thanks for the writeup on</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks for the writeup on KeyValue in D8! There's nothing mentioned currently in the docs, and I was curious what the difference was vs the State API. Very helpful!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/669/296.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-297"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Mon, 22/05/2017 - 09:51      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/297.html#comment-297" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/297.html#comment-297" class="permalink" rel="bookmark">A pleasure! Glad it was of</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>A pleasure! Glad it was of some use.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/669/297.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8api.html">d8api</a>, <a href="../../category/tags/d8apidata.html">d8api:data</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-30be3aeef228bd0c7bc535668710cef0">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

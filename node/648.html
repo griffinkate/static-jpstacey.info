@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers.html" />
+<link rel="shortlink" href="648.html" />
+  <title>Drupal 8 API: routing API and page controllers | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"c8DOfpjqS59kvn2jzuD2w4-h4Pbm8u-7Qzm0KIqjhos","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-648 node-type-blog" >
+  <div id="skip-link">
+    <a href="648.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: routing API and page controllers        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, September 19, 2016 - 09:39</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+</ul><h2>How Drupal works out what content to serve on what URL</h2>
+<p>When Drupal is asked to return the content for a given URL, it is the job of <a href="https://www.drupal.org/developing/api/8/routing">routing</a> to work out which code should be asked to handle the URL; does the URL correspond to:</p>
+<ul><li>a path alias, for a known node? If so, route to the entity module, via node module.</li>
+<li>a user's profile page? If so, route to the entitiy module, via user module.</li>
+<li>a view listing's page display? If so, route to the views module.</li>
+<li>a path registered by custom code? If so, route to that custom module.</li>
+<li>...</li>
+<li><em>(ultimately, route to the 404 handler.)</em></li>
+</ul><p>Routing in Drupal 8 is actually <a href="http://symfony.com/doc/current/routing.html">powered by a Symfony component</a>. This reduces the maintenance overhead required by Drupal's core contributors, because they can expect to rely on the Symfony project to maintain its own code.</p>
+<p>Routes are configured using YAML files in modules, which need to both define paths (or path patterns, using placeholders to define parameters for e.g. a node ID that might vary from path to path) and the actual PHP code that will handle any matches to those paths.</p>
+<h2>Creating a custom route handler</h2>
+<p>Let's say we know what the URL is that we want to wire up to some custom code. Before we can create a YAML file <em>that works</em>, we also need to write the custom code. Then, when we reference it, we don't get any errors.</p>
+<p>Let's imagine we want to handle three path patterns:</p>
+<ul><li>The path <span class="geshifilter"><code class="text geshifilter-text">/tutorial</code></span> as a kind of "index page".</li>
+<li>The path <span class="geshifilter"><code class="text geshifilter-text">/tutorial/{name}</code></span>, where the path is a pattern and provides the parameter <span class="geshifilter"><code class="text geshifilter-text">$name</code></span> so that the site visitor is given the message "Hello, <span class="geshifilter"><code class="text geshifilter-text">$name</code></span>" when they visit the path.</li>
+<li>The path <span class="geshifilter"><code class="text geshifilter-text">/tutorial/druplicon</code></span>, an exception to the tokenized path, where an alternative message is given to <a href="https://www.drupal.org/about/history#druplicon">Druplicon</a>, should he visit the site!</li>
+</ul><p>Our controller just needs to implement the correct methods and so could just be a brand new class. However, let's assume we also want to do basic tasks like permit our responses to be translatable, so that in future our site could serve an audience that spoke a different language. So we're going to use <em>inheritance</em> to bring in the translation <span class="geshifilter"><code class="text geshifilter-text">t()</code></span> function as a property of our object. We'll talk more about translation, much later.</p>
+<p>Here's the resulting class, which we put in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module folder, and locate it at <span class="geshifilter"><code class="text geshifilter-text">src/Controller/TutorialController.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Controller<span class="sy0">;</span>
+ 
+use Drupal\Core\Controller\ControllerBase<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Controller: /tutorial/*.
+ */</span>
+<span class="kw2">class</span> TutorialController <span class="kw2">extends</span> ControllerBase <span class="br0">{</span>
+  <span class="co4">/**
+   * Controller: index page.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'This is the tutorial index.'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Controller: Druplicon page.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> subPageForDruplicon<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Oh, Druplicon! I know you.'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Controller: page for anyone who isn't Druplicon.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> subPageWithParameter<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Hello, @name'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'@name'</span> <span class="sy0">=&gt;</span> <span class="re0">$name</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>The naming of these methods is not significant; instead, we'll configure the routing next, to recognize each method in turn.</p>
+<p>You might notice that each controller method returns an array of data. These are called <a href="https://www.drupal.org/developing/api/8/render/arrays">"render(able) arrays" in Drupal</a>, and we don't discuss them here (they're part of the much wider topic of theming, which we'll discuss later). For now, just note that you can return an array with two elements: the <span class="geshifilter"><code class="text geshifilter-text">#type</code></span> key set to a <span class="geshifilter"><code class="text geshifilter-text">markup</code></span> value, and then a corresponding <span class="geshifilter"><code class="text geshifilter-text">#markup</code></span> key which can contain any HTML markup.</p>
+<p>You should also spot that the <span class="geshifilter"><code class="text geshifilter-text">$this-&gt;t()</code></span> method is wrapping any text where it might (a) vary based on user input, which we might want to strip of any accidental or malicious HTML markup, and (b) need to be translatable at a later date.</p>
+<h2>Wiring up paths to routes</h2>
+<p>Now we've got class methods ready and waiting to handle our routes. We have all the elements in place to link path patterns with custom code.</p>
+<p>As discussed, each route needs to specify the path pattern and the location of the class method that will handle it. In addition, the route specification should provide both the page title (what will go in the &lt;h1&gt; and &lt;title&gt; tags in the HTML) and a description of permissions. In Drupal 8, permissions are a subset of "requirements": so you could demand not just "the site visitor must have this permission to see this route", but also "the site visitor must have this role", or merely "the site itself must have certain other modules enabled".</p>
+<p>Finally, the specification has a "machine name", which is the first line of each specification (the "top-level key" in YAML.) <a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">We discussed these</a> when we were first creating a module, so let's try to standardize on route names of the form:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">[MODULE MACHINE NAME].[ROUTE NAME]</pre></div>
+<p>We can then say that all the route names within one module are "namespaced" by that module i.e. their machine names begin with the module's machine name. You might also want to try to make route name match the class and method names for the controller code, so that you can tell at a glance how they relate to each other.</p>
+<p>Whew. With all that in mind, here's the three specifications, for our three routes, defining three path patterns and hooking them up to the three methods on our class above. These specifications should all go in a file called <span class="geshifilter"><code class="text geshifilter-text">d8api.routing.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">d8api.index:
+  path: '/tutorial'
+  defaults:
+    _controller: '\Drupal\d8api\Controller\TutorialController::index'
+    _title: 'Tutorial index'
+  requirements:
+    _permission: 'access content'
+ 
+d8api.sub_page_for_druplicon:
+  path: '/tutorial/druplicon'
+  defaults:
+    _controller: '\Drupal\d8api\Controller\TutorialController::subPageForDruplicon'
+    _title: 'Tutorial sub-page for Druplicon'
+  requirements:
+    _permission: 'access content'
+ 
+d8api.sub_page_with_parameter:
+  path: '/tutorial/{name}'
+  defaults:
+    _controller: '\Drupal\d8api\Controller\TutorialController::subPageWithParameter'
+    _title: 'Tutorial sub-page with name parameter'
+  requirements:
+    _permission: 'access content'</pre></div>
+<p>You should hopefully see a simple repeated structure among all three specifications:</p>
+<ul><li>Machine name, namespaced by the module name</li>
+<li>Path</li>
+<li>Controller method, and title for the page</li>
+<li>Permission requirements</li>
+</ul><p>This is, broadly, the minimum required for a route specification.</p>
+<h2>What you should see</h2>
+<p>First, you probably need to <strong>clear cache</strong>. This can be done in the admin UI ("Configuration" &gt; "Performance" &gt; "Clear all caches") or using Drush (<span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span>).</p>
+<p>Once you've done that, then if you navigate to different path patterns, you should see results as follows:</p>
+<h3>/tutorial</h3>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-125" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/tutorial-index-tutorialpng.html">Tutorial index   Tutorial.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Tutorial&#32;index&#32;&#32;&#32;Tutorial.png"><img class="media-element file-inline-image" alt="Tutorial index route with relevant text" src="../sites/files/jps/styles/large/public/Tutorial&#32;index&#32;&#32;&#32;Tutorial.png%3Fitok=bAX7c7IQ" width="480" height="316" /></a>  </div>
+
+  
+</div>
+</div></p>
+<h3>/tutorial/druplicon</h3>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-126" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/tutorial-sub-page-druplicon-tutorialpng.html">Tutorial sub-page for Druplicon   Tutorial.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Tutorial&#32;sub-page&#32;for&#32;Druplicon&#32;&#32;&#32;Tutorial.png"><img class="media-element file-inline-image" alt="Tutorial Druplicon route with relevant text" src="../sites/files/jps/styles/large/public/Tutorial&#32;sub-page&#32;for&#32;Druplicon&#32;&#32;&#32;Tutorial.png%3Fitok=sZvMXhUQ" width="480" height="316" /></a>  </div>
+
+  
+</div>
+</div></p>
+<h3>/tutorial/J-P</h3>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-127" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/tutorial-sub-page-name-parameter-tutorialpng.html">Tutorial sub-page with name parameter   Tutorial.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Tutorial&#32;sub-page&#32;with&#32;name&#32;parameter&#32;&#32;&#32;Tutorial.png"><img class="media-element file-inline-image" alt="Tutorial parametrized route with relevant text" src="../sites/files/jps/styles/large/public/Tutorial&#32;sub-page&#32;with&#32;name&#32;parameter&#32;&#32;&#32;Tutorial.png%3Fitok=rte-vpLI" width="480" height="316" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If so, then congratulations! you've just created and registered some custom route handlers in Drupal.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Routing%21routing.api.php/group/routing/8.2.x">Drupal 8 API: Routing API</a></li>
+<li><a href="https://www.drupal.org/developing/api/8/routing">Routing system in Drupal 8</a></li>
+<li><a href="http://symfony.com/doc/current/routing.html">Symfony: Routing</a></li>
+<li><a href="https://www.drupal.org/developing/api/8/render/arrays">Drupal 8 API: Render arrays</a></li>
+<li><a href="https://www.drupal.org/node/2092643">Structure of routes</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-274"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <a href="http://live-fred-mcclurg-showcase.pantheonsite.io/" rel="nofollow" class="username">Fred McClurg (not verified)</a>      </p>
+      <p class="comment-time">
+        Fri, 18/11/2016 - 00:59      </p>
+      <p class="comment-permalink">
+        <a href="../comment/274.html#comment-274" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../comment/274.html#comment-274" class="permalink" rel="bookmark">Dear JP Stacey:</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Dear JP Stacey:</p>
+<p>Thank you *very* kindly for the tutorial!  I know that you put in much work building it.  Your efforts are much appreciated.</p>
+<p>I believe I found an error in your example.  Please update your code so that it will not stump others like it did me.  Line 18 should be:</p>
+<p>    _controller: '\Drupal\d8api\Controller\TutorialController::subPageForDruplicon'</p>
+<p>And line 29 should be:</p>
+<p>    _controller: '\Drupal\d8api\Controller\TutorialController::subPageWithParameter'</p>
+<p>Thanks again for your diligence.  If you ever publish a book, I would be very interested in a complementary copy!  :)</p>
+<p> </p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../comment/reply/648/274.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-278"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Fri, 18/11/2016 - 09:40      </p>
+      <p class="comment-permalink">
+        <a href="../comment/278.html#comment-278" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../comment/278.html#comment-278" class="permalink" rel="bookmark">Thanks again, Fred. As per</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks again, Fred. As per <a href="http://www.jpstacey.info/comment/275#comment-275">your other comment</a>, some edits have been lost in translation to these blogposts. That should be fixed now.</p>
+<p>I'm not sure about a book—there's not much money in publishing these days, at least not for the authors!—although you'd be welcome to a feedback freebie! Regardless, at some point I might make the full (working) codebase for the d8api module available, so people can work around these small typos.</p>
+<p>What I don't want, though, is to have just basically re-created <a href="https://www.drupal.org/project/examples">the Examples module</a>. The focus does need to be on people writing this stuff for themselves, not looking up the answers in the back.</p>
+<p>Anyway, thanks again,<br />J-P</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../comment/reply/648/278.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8apiui.html">d8api:ui</a>, <a href="../category/tags/d8api.html">d8api</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-9df7760b9322a1b412d78af3f1b6f1d4">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

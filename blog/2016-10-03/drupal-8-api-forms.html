@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-forms.html" />
+<link rel="shortlink" href="../../node/649.html" />
+  <title>Drupal 8 API: forms | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"1soWTcymUCE9TEQ-5AVH6BboxdF4HNbY4DtyTKhF4oQ","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-649 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-forms.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: forms        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, October 3, 2016 - 11:34</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers">Routing API and page controllers</a></li>
+</ul><h2>A form is a special type of route-handling callback</h2>
+<p>Previously we learned how routing is a way of tying together on the one hand URLs that we want Drupal to start responding to, and on the other hand a class method containing the custom code that we want to be invoked to handle the response.</p>
+<p>A routed form is a special case of this: whereas a general class for routing can have many methods with arbitrary names, one method per URL, each returning very different content; a form class must implement a set number of methods specified by a PHP interface, and one class can only return the same one form, although it could change how it appears during the process of someone submitting the form e.g. it could have several different steps (which we don't cover here.)</p>
+<p>Form classes <em>must</em> implement the <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Form\FormInterface</code></span> class: they can do this by (a) extending an existing core class, as we'll see below, then (b) defining the remaining methods that that class doesn't give you, to actually build the form.</p>
+<h2>Creating a form class</h2>
+<p>A form class inheriting from <span class="geshifilter"><code class="text geshifilter-text">Drupal\Core\Form\FormBase</code></span> implements the <span class="geshifilter"><code class="text geshifilter-text">FormInterface</code></span> described above. In addition, you <em>must</em> add the following methods:</p>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">getFormId()</code></span>: return a unique string of characters identifying the form within your Drupal site. As with the previous discussion of "machine name", you should consider using form IDs which are lowercase, underscored, and begin with the machine name of your module.</li>
+<li><span class="geshifilter"><code class="text geshifilter-text">build()</code></span>: return an array of nested Form API render data. This is different from normal theme render arrays (which we'll discuss later): Drupal 8's Form API render array format is very similar to <a href="https://www.drupal.org/node/37775">Drupal 7's</a> and so does not have its own separate documentation.</li>
+<li><span class="geshifilter"><code class="text geshifilter-text">submitForm()</code></span>: once a submission is received and e.g. all required fields are present, you will invariably want to do something with the results. This means that you must implement this method, even if (for whatever reason) it's empty and does nothing.</li>
+</ul><p>In addition, the form class <em>can</em> (override) <span class="geshifilter"><code class="text geshifilter-text">FormBase#validateForm()</code></span>. This method checks the data submitted by the site visitor to ensure it's consistent with your custom requirements, before <span class="geshifilter"><code class="text geshifilter-text">submitForm()</code></span> is called.</p>
+<p>Here's an example of a form class implementing the bare minimum of what's required. In the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module from previous tutorials, add the following class at <span class="geshifilter"><code class="text geshifilter-text">src/Form/TutorialForm.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Form\FormBase<span class="sy0">;</span>
+use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Form: simple submit-form for tutorial.
+ */</span>
+<span class="kw2">class</span> TutorialForm <span class="kw2">extends</span> FormBase <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> getFormId<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="st_h">'d8api_tutorial_form'</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'phone'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'tel'</span><span class="sy0">,</span>
+      <span class="st_h">'#title'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Your telephone number'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'go'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'submit'</span><span class="sy0">,</span>
+      <span class="st_h">'#value'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Go'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$form</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> submitForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="sy0">&amp;</span><span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    drupal_set_message<span class="br0">(</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Ringing @phone'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'@phone'</span> <span class="sy0">=&gt;</span> <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">getValue</span><span class="br0">(</span><span class="st_h">'phone'</span><span class="br0">)</span><span class="br0">]</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>A couple of points:</p>
+<ul><li>The <span class="geshifilter"><code class="text geshifilter-text">build()</code></span> method returns a structured array of data about the form fields. This is a longstanding data structure in Drupal, often called "Form API", and little changed in Drupal 8. <a href="https://www.drupal.org/node/2117411">More information on Form API is available here.</a></li>
+<li>The <span class="geshifilter"><code class="text geshifilter-text">submitForm()</code></span> method returns a different structured array, a render(able) array, which we encountered previously during <a href="http://www.jpstacey.info/blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers">discussions about routing</a> and we'll discuss later.</li>
+<li>As previously, because we extend a Drupal core class (<span class="geshifilter"><code class="text geshifilter-text">FormBase</code></span>) we have access to translation services via <span class="geshifilter"><code class="text geshifilter-text">$this-&gt;t()</code></span>. Use this to wrap any "English" text you might ever want to translate in the future for the user interface.</li>
+<li>Historically (on the web generally, not Drupal), simple forms could have no submit button; when you pressed enter in a textfield, it would just submit. However, not only is this considered bad practice these days (it presents accessibility and usability problems) but <a href="https://www.drupal.org/node/2797721">Drupal won't even process the submission</a>: the <span class="geshifilter"><code class="text geshifilter-text">submitForm()</code></span> method will not get called! So always have at least one submit button on your form.</li>
+<li>Not all of Drupal is object-oriented: we've sneaked in a call to the bare function <span class="geshifilter"><code class="text geshifilter-text">drupal_set_message()</code></span> in <span class="geshifilter"><code class="text geshifilter-text">submitForm()</code></span>.</li>
+</ul><h2>Wiring up the new class to the URL we've chosen</h2>
+<p>As with routing classes, on the one hand we now have our form class; on the other, we also presumably have some URL in mind, that the form will need to be accessible at. We therefore need to wire the two together.</p>
+<p>To do this, we edit the previously defined <span class="geshifilter"><code class="text geshifilter-text">d8api.routing.yml</code></span> to include a new route specification:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">d8api.form:
+  path: '/tutorial/form'
+  defaults:
+    _title: 'Tutorial form'
+    _form: '\Drupal\d8api\Form\TutorialForm'
+  requirements:
+    _permission: 'access content'</pre></div>
+<p>You can see this is slightly <a href="http://www.jpstacey.info/blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers">different from basic routing</a>, and defines a <span class="geshifilter"><code class="text geshifilter-text">_form</code></span> key with the form class in it. This is because a form associates an entire class with each route, rather than reusing the same class with potentially a method to each route. Also, we only need specify the class name, and the routing then knows to always use the <span class="geshifilter"><code class="text geshifilter-text">build()</code></span> method for a form.</p>
+<h2>What you should see</h2>
+<p>As previously discussed, you should clear caches so that the new routing specification is recognized.</p>
+<p>If you then navigate to /tutorial/form, you should see the form ready for input submission:</p>
+<p><div class="media media-element-container media-inline_image"><div id="file-131" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/forms-tutorial-formpng.html">Forms - tutorial form.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/Forms&#32;-&#32;tutorial&#32;form.png"><img class="media-element file-inline-image" alt="Form ready for submission with an example phone number in it" src="../../sites/files/jps/styles/large/public/Forms&#32;-&#32;tutorial&#32;form.png%3Fitok=Dlhcr8FQ" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>When you press the "go" button, you should see the confirmation message containing the phone number you submitted:</p>
+<p><div class="media media-element-container media-inline_image"><div id="file-132" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/forms-tutorial-form-submittedpng.html">Forms - tutorial form submitted.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/Forms&#32;-&#32;tutorial&#32;form&#32;submitted.png"><img class="media-element file-inline-image" alt="Form submitted, showing the submitted phone number in a confirmation message" src="../../sites/files/jps/styles/large/public/Forms&#32;-&#32;tutorial&#32;form&#32;submitted.png%3Fitok=Xel3b_sr" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you can see this then congratulations! you have created your first custom form in Drupal.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/form_api/8.2.x">Drupal 8 API: forms</a></li>
+<li><a href="https://www.drupal.org/node/2797721">Custom form handler's submitForm not called</a></li>
+<li><a href="https://www.drupal.org/node/2117411">Form API in Drupal 8</a> and <a href="https://www.drupal.org/node/37775">Form API in Drupal 7</a> (for reference)</li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8api.html">d8api</a>, <a href="../../category/tags/d8apiui.html">d8api:ui</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-2bfcc4aacb9b72190f5d04bb5d650415">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

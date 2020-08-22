@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="image-manipulation-in-the-browser.html" />
+<link rel="shortlink" href="../../../../node/49.html" />
+  <title>Image manipulation in the browser | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"CjgKZMTsrmwWbAWhuoxYwnwcViTVXuNnOpHeH_-nDZs","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-49 node-type-blog" >
+  <div id="skip-link">
+    <a href="image-manipulation-in-the-browser.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Image manipulation in the browser        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, June 6, 2007 - 19:15</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>While <a href="http://www.picnik.com/">Picnik</a> gradually converts the functionality of desktop image processing software into online tools (in the hope, presumably, of being bought up by one of the big players), Flash has found other, more piecemeal uses in augmenting the image and font functionality of your average browser. Hot on the heels of <a href="http://wiki.novemberborn.net/sifr">sIFR</a>, which replaces text with the equivalent image in a font of your choosing, comes <a href="http://www.swfir.com/">swfIR</a>, a pair of of Flash and Javascript chunks which, between them, permit your browser to rotate and resize images, adding shadows and rounded-corner borders, <i>in situ</i> after they’ve been retrieved from the server.</p>
+<p>I’ve never been a fan of gratuitous Flash, but I’ve recently agreed to implement a complex page design (using swfIR) to help a client reuse existing content. Portrait images of users need to look “normal” on an index page, but then be rotated to line up with a fake “polaroid” background at around 2.5 degrees on the user profile page. Rather than have the client upload at least two copies of every image, which seemed a bit mean if we could avoid it, swfIR could do the rotation for us.</p>
+<p>Apart from an initial problem, swfIR worked very well, the Javascript interface to the Flash proving very easy to use and the resultant image quality fine for our purposes. There’s the standard background problem with freeware Flash plugins (the background of the bounding box of the plugin’s influence on the page cannot be transparent, and thus chips away at the background polaroid blank on Ubuntu/Firefox) but otherwise it integrated seamlessly into both the design of the site and the technology of our existing Javascript workflow. It also coexisted happily in the browser with the <a href="http://jquery.com/">jQuery</a> and <a href="http://www.mochikit.com/">MochiKit</a> frameworks, as we’d already restricted the latter’s scope to just the <code>window.MochiKit</code> object: compare this with the declarations on the swfIR site that neither <a href="http://mootools.net/">MooTools</a> nor <a href="http://www.prototypejs.org/"> Prototype</a> sit well with their system.</p>
+<p>The initial problem I mention above was one of URL paths. The path to the <code>.swf</code> half of the swfIR pair is hard-coded into the object returned by the <code>window.swfir()</code> function. Not only that, but it’s a relative path: just <code>"swfir.swf"</code>. When the visitor was viewing the page <code>.../node/100</code>, the Javascript was creating a Flash embedded object that effectively referenced <code>.../node/100/swfir.swf</code>; but then when the visitor navigated to the aggregated view at <code>.../view/all_users</code>, a completely different file was being referenced by the embed. This situation was hardly helped by many of these apparent directories actually not existing on the server at all, but being phantoms, handled by Drupal and Apache cleverness.</p>
+<p>The fix for this was eventually fairly simple, but it did involve hacking the Javascript. In <code>swfir.js</code> I changed the function declaration (line 354) to:</p>
+<blockquote class="code"><p>function swfir(path)</p>
+</blockquote>
+<p>I then permitted this path to be brought in at the front of the existing hardwired path (line 364):</p>
+<blockquote class="code"><p>this.src = (typeof path == “undefined” ? “” : path) + “swfir.swf”;</p>
+</blockquote>
+<p>I could in principle have just overridden it entirely and dropped the hardwired bit, but decided against it for backwards-compatibility reasons. On reflection, too, the object’s property <code>this.src</code> could probably have been modified post-instantiation, but I have enough JS headaches already, working out what different browsers consider to be “mutability,” to want to add another to the contents of my weary cranium.</p>
+<p>That’s it, then: the full fix. I’ll mention the issue to the swfIR people shortly. A more foresighted solution would cause that function to accept a whole object as a parameter, an object whose properties could then be used to override any one of the configuration variables currently hardwired around line 360. But this quick and dirty change worked fine. I just wish I could show off the results, but the site itself is still embargoed. As soon as it appears in the real world then you can guarantee that I’ll point everyone I know at it, as it’s arguably one of the best, completest, tightest websites I’ve done, thanks in no small part to the efforts of my co-workers in design and additional development.</p>
+<p>Among all this Flash hysteria, of course, it’s important to remember the wise words of <a href="http://hughw.blogspot.com/2007/05/ria-fill-er-up.html" title="RIA -- fill 'er up!">Hugh Winkler (</a><a href="http://seanmcgrath.blogspot.com/2007_04_29_seanmcgrath_archive.html#9180786898079500068">via the otherwise ever-quotable Sean McGrath</a>)</p>
+<blockquote><p>Users have voted with their mice, and they’ve voted for the web experience — exploring the web information space using hyperlinks — as far more important than whizzy UI. Ask eBay. Ask MySpace…. It <em>is</em> good to have super expressive widgets — hear hear. But if you’re not pushing a bunch of hypertext down to my browser, you’re not helping me explore the space.</p>
+</blockquote>
+<p>The lesson, I suppose is to use Flash, but use it sparingly, as a <a href="http://hesketh.com/publications/progressive_enhancement_paving_way_for_future.html">progressive enhancement</a>.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-category/hacking.html">hacking</a>, <a href="../../../../category/wordpress-category/layers.html">layers</a>, <a href="../../../../category/wordpress-category/projects.html">projects</a>, <a href="../../../../category/wordpress-category/software.html">software</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-tag/javascript.html">javascript</a>, <a href="../../../../category/wordpress-tag/mochikit.html">mochikit</a>, <a href="../../../../category/wordpress-tag/browser.html">browser</a>, <a href="../../../../category/wordpress-tag/flash.html">flash</a>, <a href="../../../../category/wordpress-tag/framework.html">framework</a>, <a href="../../../../category/wordpress-tag/image.html">image</a>, <a href="../../../../category/wordpress-tag/mootools.html">mootools</a>, <a href="../../../../category/wordpress-tag/picnik.html">picnik</a>, <a href="../../../../category/wordpress-tag/prototype.html">prototype</a>, <a href="../../../../category/wordpress-tag/rotate.html">rotate</a>, <a href="../../../../category/wordpress-tag/swf.html">swf</a>, <a href="../../../../category/wordpress-tag/swfir.html">swfir</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-aca262a6af5f4f3d80307c3f6674c5ff">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-blocks.html" />
+<link rel="shortlink" href="../../node/650.html" />
+  <title>Drupal 8 API: blocks | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"cj7eJMwS77CR25OXskLyTY5wcbSnww1T_S7UOC2_3nU","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-650 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-blocks.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: blocks        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Friday, September 16, 2016 - 10:49</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+</ul><h2>Controlling the livery of the page via regions and blocks</h2>
+<p>Outside of the main content—usually, what site maintainers understand as a "page", or "event", or "blogpost"—lies what we might call the livery: the branding, logos, persistent navigation and elements common to large proportions of any website. A key aspect of content management systems is that they work to keep a coherent design of this livery across the entire website: as much as they possibly can. This means using standard templates (which we'll look at later) to determine a lot of the HTML markup, and only permitting certain areas within that markup to change. </p>
+<p>Drupal calls these changeable areas <strong>regions</strong>, and the "chunks" that can be moved around within them, <strong>blocks</strong>. Here's a suggestion for how raw HTML templates, and configurable regions and blocks, might separate out in your own theme:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-122" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/regions-and-blocks-drupal-8png.html">Regions and blocks in Drupal 8.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/Regions&#32;and&#32;blocks&#32;in&#32;Drupal&#32;8.png"><img class="media-element file-inline-image" alt="Diagram of how blocks sit in regions, which themselves sit as placeholders inside HTML markup" src="../../sites/files/jps/styles/large/public/Regions&#32;and&#32;blocks&#32;in&#32;Drupal&#32;8.png%3Fitok=b1TUmS2a" width="480" height="360" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Obviously no two themes are the same, but this hopefully indicates how: blocks can sit in regions (and be moved within them, or from region to region); and regions are defined at the theme layer to sit within HTML; which is in turn not particularly configurable, to try to maintain</p>
+<p>Each block can contain e.g: a chunk of a menu (potentially long menu hierarchies); widgets to subscribe to a post or a newsletter; even custom content editable within the Drupal admin interface. The editable content of a node is itself inserted as a block of a special type: typically you'll want to leave this untouched, in the main content column; but, by turning that into a block too, Drupal 7 and now 8 are able to make all chunks of content behave and relate to each other in the same way, improving maintainability and consistency.</p>
+<h2>Defining a custom block in code</h2>
+<p>Custom blocks live in modules, so you should know already how to create a module in Drupal 8. They're provided by a PHP class which extends a particular subtype of <em>plugins</em> (more on them later.) That means that, if you create a file in the <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Block/</code></span> subfolder of your module, and if both the class and file have the right naming conventions (as discussed previously), and also methods and comment formatting (more important than you think: see below), then the block your code describes will appear in Drupal's block/region admin UI automatically, with no extra effort.</p>
+<p>Here's an example, in a file called <span class="geshifilter"><code class="text geshifilter-text">TutorialBlock.php</code></span>, in the module <span class="geshifilter"><code class="text geshifilter-text">sites/default/modules/d8api/</code></span>, in a further subfolder <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Block/</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Block<span class="sy0">;</span>
+ 
+use Drupal\Core\Block\BlockBase<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Block for the tutorial.
+ *
+ * @Block(
+ *   id = "d8api_tutorial_block",
+ *   admin_label = @Translation("Tutorial block")
+ * )
+ */</span>
+<span class="kw2">class</span> TutorialBlock <span class="kw2">extends</span> BlockBase <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From BlockPluginInterface via BlockBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> build<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'#markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Tutorial block'</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>The necessary elements to this code are:</p>
+<ul><li>Extend the core <span class="geshifilter"><code class="text geshifilter-text">BlockBase</code></span> class, using <em>inheritance</em> so that our new class "looks right" to Drupal, and must provide the relevant methods.</li>
+<li>Implement the <span class="geshifilter"><code class="text geshifilter-text">BlockPluginInterface#build()</code></span> method, which is the one "relevant method" that <span class="geshifilter"><code class="text geshifilter-text">BlockBase</code></span> leaves up to us entirely.</li>
+<li>Format the class comment to use <a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/annotation/8.2.x">annotations</a> like <span class="geshifilter"><code class="text geshifilter-text">@Block</code></span>.</li>
+</ul><p>As previously seen during <a href="http://www.jpstacey.info/blog/2016-09-19/drupal-8-api-routing-api-and-page-controllers">discussions about routing</a> the <span class="geshifilter"><code class="text geshifilter-text">build()</code></span> method returns a "render(able) array" of data describing what should appear in the block. We'll discuss that later.</p>
+<p>Annotations are the Drupal 8 way of providing information that used to be in <span class="geshifilter"><code class="text geshifilter-text">_info()</code></span> hooks in Drupal 7: metadata about the classes. We won't discuss them further here, but suffice it to say that they mean that the syntax of a comment becomes important, in the same way as the syntax of your code.</p>
+<h2>What you should see</h2>
+<p>First, you probably need to <strong>clear cache</strong>. This can be done in the admin UI ("Configuration" &gt; "Performance" &gt; "Clear all caches") or using Drush (<span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span>).</p>
+<p>If you then navigate to "Structure" &gt; "Block layout" and scroll down to any region e.g. "Sidebar left", then when you click on "Place block" you should be able to search for your new block in the modal dialog:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-123" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/block-layout-tutorialpng.html">Block layout   Tutorial.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/Block&#32;layout&#32;&#32;&#32;Tutorial.png"><img class="media-element file-inline-image" alt="Clicking &quot;place block&quot; on left sidebar and searching for &quot;tutorial&quot; finds our block" src="../../sites/files/jps/styles/large/public/Block&#32;layout&#32;&#32;&#32;Tutorial.png%3Fitok=2Kcn1Pk_" width="480" height="316" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Finally, click back to your homepage, and you should see the new block in place; here, in the bottom of the left sidebar:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-124" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/new-block-positionedpng.html">new-block-positioned.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/new-block-positioned.png"><img class="media-element file-inline-image" alt="New block visible on the homepage, bottom-left" src="../../sites/files/jps/styles/large/public/new-block-positioned.png%3Fitok=CeiuHFwQ" width="480" height="426" /></a>  </div>
+
+  
+</div>
+</div></p>
+<!--MEDIA-WRAPPER-END-1-->
+<p>Congratulations! you've just created a custom block.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21modules%21block%21block.api.php/group/block_api/8.2.x">Drupal 8 API: Blocks</a></li>
+<li><a href="https://www.drupal.org/developing/api/8/block_api">Develop for Drupal: Block API in Drupal 8</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8api.html">d8api</a>, <a href="../../category/tags/d8apiui.html">d8api:ui</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-e1791d66025ee17f741a68abcd97cb03">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

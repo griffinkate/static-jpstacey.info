@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="extend-rss-drupal-arbitrary-extra-data.html" />
+<link rel="shortlink" href="../../node/614.html" />
+  <title>Extend RSS in Drupal with arbitrary extra data | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"DECeWXzFtNRELKSpAGgslXEcjQO2n_8QNqBtWZOCsJU","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-614 node-type-blog" >
+  <div id="skip-link">
+    <a href="extend-rss-drupal-arbitrary-extra-data.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Extend RSS in Drupal with arbitrary extra data        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, November 25, 2015 - 19:21</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>RSS 2.0 (which is what we usually talk about when we talk about RSS, although <a href="http://atomenabled.org/developers/syndication/">other formats are available</a>) is a great format for syndicating, but in itself it isn't very flexible. However, within certain limits, you can customize RSS with extra XML elements and attributes. While not every RSS reader is likely to be able to interpret your custom results, then as long as you "play the game" properly, your extensions won't get in the way of those third parties, and they'll still be able to parse the underlying plain RSS.</p>
+<p>A lot of extensions exist which you can already use, as long as you declare their namespaces at the top of your RSS file; for example, a lot of existing RSS feeds include Dublin Core authorial metadata, tags usually beginning "dc":</p>
+<div class="geshifilter">
+<pre class="xml geshifilter-xml" style="font-family:monospace;"><span class="sc3"><span class="re1">&lt;?xml</span> <span class="re0">version</span>=<span class="st0">"1.0"</span> <span class="re0">encoding</span>=<span class="st0">"UTF-8"</span><span class="re2">?&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;rss</span> <span class="re0">version</span>=<span class="st0">"2.0"</span></span>
+<span class="sc3">  <span class="re0">xmlns:dc</span>=<span class="st0">"http://purl.org/dc/elements/1.1/"</span><span class="re2">&gt;</span></span>
+  <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;item<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;dc:creator<span class="re2">&gt;</span></span></span>Brian Blessed<span class="sc3"><span class="re1">&lt;/dc:creator<span class="re2">&gt;</span></span></span>
+    <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;/item<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/rss<span class="re2">&gt;</span></span></span></pre></div>
+<p>GeoRSS is a separate RSS-extension standard, to provide RSS items with simple location data:</p>
+<div class="geshifilter">
+<pre class="xml geshifilter-xml" style="font-family:monospace;"><span class="sc3"><span class="re1">&lt;?xml</span> <span class="re0">version</span>=<span class="st0">"1.0"</span> <span class="re0">encoding</span>=<span class="st0">"UTF-8"</span><span class="re2">?&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;rss</span> <span class="re0">version</span>=<span class="st0">"2.0"</span></span>
+<span class="sc3">  <span class="re0">xmlns:georss</span>=<span class="st0">"http://www.georss.org/georss"</span><span class="re2">&gt;</span></span>
+  <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;item<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;georss:point<span class="re2">&gt;</span></span></span>53.3836 -1.4669<span class="sc3"><span class="re1">&lt;/georss:point<span class="re2">&gt;</span></span></span>
+    <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;/item<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/rss<span class="re2">&gt;</span></span></span></pre></div>
+<p>As long as your element and attribute names begin with the same namespace as you declare at the top, then as far as a basic RSS parser is concerned it's like your extensions live in a parallel world; whereas RSS parsers that understand the extensions (and many understand the above two examples) can delve into that parallel world and find the information. Think of your extensions as being written with an ultraviolet marker, and only people with special UV lights can see them: everyone else can still see all the other writing.</p>
+<p>Below we're going to show how you can create your namespace, your own parallel storage engine, for keeping track of what Drupal vocabulary a given RSS category belongs to. This serves as an example of some of the things you'd need to do, to extend both RSS syndication and also RSS consumption. The point with the below is that to get complete success <em>you need to have some control over both syndicator and consumer website.</em> But other consumers, outside of your control, will still understand the result.</p>
+<h2>Syndicator server: extending outputted RSS to add vocabularies to categories</h2>
+<p>Let's imagine your module is called <span class="geshifilter"><code class="text geshifilter-text">rsshierarchy</code></span> in the following examples. We're going to add a custom namespace "rh" to our RSS:</p>
+<div class="geshifilter">
+<pre class="xml geshifilter-xml" style="font-family:monospace;"><span class="sc3"><span class="re1">&lt;?xml</span> <span class="re0">version</span>=<span class="st0">"1.0"</span> <span class="re0">encoding</span>=<span class="st0">"UTF-8"</span><span class="re2">?&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;rss</span> <span class="re0">version</span>=<span class="st0">"2.0"</span></span>
+<span class="sc3">  <span class="re0">xmlns:rh</span>=<span class="st0">"http://www.jpstacey.info/blog/2015-11-25/extend-rss-drupal-arbitrary-extra-data"</span><span class="re2">&gt;</span></span>
+  <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;item<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;category</span> <span class="re0">rh:vocabulary</span>=<span class="st0">"ingredients"</span><span class="re2">&gt;</span></span>Baking powder<span class="sc3"><span class="re1">&lt;/category<span class="re2">&gt;</span></span></span>
+    <span class="sc-1">&lt;!-- ... --&gt;</span>
+  <span class="sc3"><span class="re1">&lt;/item<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/rss<span class="re2">&gt;</span></span></span></pre></div>
+<p>The URL you define for your namespace doesn't actually have to resolve to anything—it just has to be unique—but it's good if it can do so. You can point it at human-readable documentation, or at a DTD or an XSL schema: something defining your extensions is useful.</p>
+<p>We want to be able to use this RSS extension to only map certain terms into certain recipient vocabularies. For example, imagine your syndicating website, a big repository of world cuisine recipes, has "region" categories and "ingredient" categories: how do we make sure that, in your consuming website, the right categories end up in the right vocabularies?</p>
+<p>As we'll see below, outputting these extra attributes is actualy the easy part, although first you have to decide which of the two main methods of displaying RSS you're going to use. </p>
+<h3>1. Using core's RSS display</h3>
+<p>If you're just using Drupal's core RSS display, the following will quickly add extra attributes to the category tags, and an XML namespace so that they can be understood:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// Our custom XML namespace.</span>
+<a href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st_h">'RSSHIERARCHY_NS'</span><span class="sy0">,</span> <span class="st_h">'http://www.jpstacey.info/blog/2015-11-25/extend-rss-drupal-arbitrary-extra-data'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Implements hook_field_attach_view_alter().
+ *
+ * Add custom rh:vocabulary attributes to RSS &lt;category&gt; elements.
+ */</span>
+<span class="kw2">function</span> rsshierarchy_field_attach_view_alter<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$output</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$context</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// Need to have an entity with RSS elements context already.</span>
+  <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$context</span><span class="br0">[</span><span class="st_h">'entity'</span><span class="br0">]</span><span class="br0">)</span> <span class="sy0">||</span> <span class="sy0">!</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$context</span><span class="br0">[</span><span class="st_h">'entity'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">rss_elements</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co1">// Add custom attributes to categories.</span>
+  <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$context</span><span class="br0">[</span><span class="st_h">'entity'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">rss_elements</span> <span class="kw1">as</span> <span class="re0">$elementKey</span> <span class="sy0">=&gt;</span> <span class="sy0">&amp;</span><span class="re0">$element</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$element</span><span class="br0">[</span><span class="st_h">'key'</span><span class="br0">]</span> <span class="sy0">!==</span> <span class="st_h">'category'</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">continue</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Retrieve each term's tid from the &lt;category domain="..."&gt; URL. </span>
+    <span class="co1">// Turn a path alias into an internal path if necessary.</span>
+    <span class="re0">$domain</span> <span class="sy0">=</span> <a href="http://www.php.net/parse_url"><span class="kw3">parse_url</span></a><span class="br0">(</span><span class="re0">$element</span><span class="br0">[</span><span class="st_h">'attributes'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'domain'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$path</span> <span class="sy0">=</span> <a href="http://www.php.net/trim"><span class="kw3">trim</span></a><span class="br0">(</span><span class="re0">$domain</span><span class="br0">[</span><span class="st_h">'path'</span><span class="br0">]</span><span class="sy0">,</span> <span class="st_h">'/'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">(</span><span class="re0">$path</span><span class="sy0">,</span> <span class="st_h">'taxonomy/term'</span><span class="br0">)</span> <span class="sy0">===</span> <span class="kw4">FALSE</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$path</span> <span class="sy0">=</span> drupal_lookup_path<span class="br0">(</span><span class="st_h">'source'</span><span class="sy0">,</span> <span class="re0">$path</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="re0">$element</span><span class="br0">[</span><span class="st_h">'tid'</span><span class="br0">]</span> <span class="sy0">=</span> 1 <span class="sy0">*</span> <a href="http://www.php.net/preg_replace"><span class="kw3">preg_replace</span></a><span class="br0">(</span>
+      <span class="st_h">'!.*/taxonomy/term/(\d)$!'</span><span class="sy0">,</span>
+      <span class="st_h">'$1'</span><span class="sy0">,</span>
+      <span class="re0">$element</span><span class="br0">[</span><span class="st_h">'attributes'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'domain'</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$element</span><span class="br0">[</span><span class="st_h">'tid'</span><span class="br0">]</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">continue</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Load the vocabulary and add its machine name as the custom attribute.</span>
+    <span class="re0">$term</span> <span class="sy0">=</span> taxonomy_term_load<span class="br0">(</span><span class="re0">$element</span><span class="br0">[</span><span class="st_h">'tid'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$term</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$element</span><span class="br0">[</span><span class="st_h">'attributes'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'rh:vocabulary'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$term</span><span class="sy0">-&gt;</span><span class="me1">vocabulary_machine_name</span><span class="sy0">;</span>
+      <span class="co1">// Also conditionally add the namespace to the &lt;rss&gt; root element.</span>
+      <span class="re0">$context</span><span class="br0">[</span><span class="st_h">'entity'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">rss_namespaces</span><span class="br0">[</span><span class="st_h">'xmlns:rh'</span><span class="br0">]</span> <span class="sy0">=</span> RSSHIERARCHY_NS<span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span> </pre></div>
+<p>And that's it! Your RSS feed will now output categories with vocabularies attached.</p>
+<h3>2. Using Views RSS fields</h3>
+<p>Because Views RSS does so much more—it allows you to override the outgoing author field, or the published date, for example—then it's necessarily a more complex framework to integrate your code with. Also, it has some slightly odd logic in its handling of preprocessing hooks, which means that—if you define one, as we do below, then you have to build the XML tag entirely from scratch. This is OK, if you only have one module playing this trick; otherwise, whoever gets there last....</p>
+<p>Here's an example using Views RSS:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// Our custom XML namespace.</span>
+<a href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st_h">'RSSHIERARCHY_NS'</span><span class="sy0">,</span> <span class="st_h">'http://www.jpstacey.info/blog/2015-11-25/extend-rss-drupal-arbitrary-extra-data'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Implements hook_views_rss_namespaces().
+ *
+ * We must a add the rh namespace, even if we might not need it.
+ */</span>
+<span class="kw2">function</span>  rsshierarchy_views_rss_namespaces<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$namespaces</span><span class="br0">[</span><span class="st_h">'rh'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+    <span class="st_h">'prefix'</span> <span class="sy0">=&gt;</span> <span class="st_h">'xmlns'</span><span class="sy0">,</span>
+    <span class="st_h">'uri'</span> <span class="sy0">=&gt;</span> RSSHIERARCHY_NS<span class="sy0">,</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="re0">$namespaces</span><span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="co4">/**
+ * Implements hook_views_rss_item_elements_alter().
+ *
+ * This adds our own custom preprocess function to Views RSS's theme layer.
+ */</span>
+<span class="kw2">function</span> rsshierarchy_views_rss_item_elements_alter<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$elements</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$elements</span><span class="br0">[</span><span class="st_h">'views_rss_core'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'category'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'preprocess functions'</span><span class="br0">]</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span>
+    <span class="st_h">'rsshierarchy_views_rss_preprocess_item_category'</span><span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="co4">/**
+ * Preprocess function for Views RSS item:category.
+ */</span>
+<span class="kw2">function</span> rsshierarchy_views_rss_preprocess_item_category<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$variables</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$variables</span><span class="br0">[</span><span class="st_h">'elements'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Implementing a preprocess hook changes the internal logic of views_rss,</span>
+  <span class="co1">// so we have to completely rebuild each &lt;category&gt; XML from scratch.</span>
+  <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$variables</span><span class="br0">[</span><span class="st_h">'raw'</span><span class="br0">]</span> <span class="kw1">as</span> <span class="re0">$tid</span> <span class="sy0">=&gt;</span> <span class="re0">$term_wrapper</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// We do at least get each term's information, as an array.</span>
+    <span class="re0">$term</span> <span class="sy0">=</span> <span class="re0">$term_wrapper</span><span class="br0">[</span><span class="st_h">'raw'</span><span class="br0">]</span><span class="sy0">;</span>
+    <span class="re0">$variables</span><span class="br0">[</span><span class="st_h">'elements'</span><span class="br0">]</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+      <span class="st_h">'key'</span> <span class="sy0">=&gt;</span> <span class="st_h">'category'</span><span class="sy0">,</span>
+      <span class="st_h">'value'</span> <span class="sy0">=&gt;</span> <span class="re0">$term</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="st_h">'attributes'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+        <span class="st_h">'domain'</span> <span class="sy0">=&gt;</span> url<span class="br0">(</span><span class="re0">$term</span><span class="br0">[</span><span class="st_h">'path'</span><span class="br0">]</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'absolute'</span> <span class="sy0">=&gt;</span> <span class="kw4">TRUE</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">,</span>
+        <span class="st_h">'rh:vocabulary'</span> <span class="sy0">=&gt;</span> <span class="re0">$term</span><span class="br0">[</span><span class="st_h">'vocabulary_machine_name'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<h2>Consumer website: consuming RSS so that categories are understood</h2>
+<p>Even with the slight added complexity of Views RSS, that seemed fairly simple, right? Yes, but while you've been able to extend outgoing RSS with your own namespace, the hard part is convincing an existing RSS parsing system to actually find and use your extensions.</p>
+<p>In Drupal, we usually use Feeds to consume RSS. It's a great framework and pretty extensible: a lot of it is object-oriented code, so the objects can be <span class="geshifilter"><code class="text geshifilter-text">extends</code></span>ed to minimize the extra code required to make something work. However, extensions by default appear as entirely new feed processors etc. and our preference here is to merely augment the existing RSS Parser and Node Processor plugins.</p>
+<p>To get around the limitation, we override the existing Feeds plugins using an alter hook. That way they silently replace the existing plugins and no further work is needed.</p>
+<p>First, ensure your module's <span class="geshifilter"><code class="text geshifilter-text">.info</code></span> file contains references to the classes as follows:</p>
+<div class="geshifilter">
+<pre class="ini geshifilter-ini" style="font-family:monospace;">files<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> plugins/FeedsNodeProcessorRH.inc
+files<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> plugins/FeedsSyndicationParserRH.inc</pre></div>
+<p>The following <em>might</em> work without these two lines; this is being a good Drupal citizen, though, as anyone having to override your work in future will thank you for making your classes autoloadable.</p>
+<p>It's time to work on the module code itself. First, in the <span class="geshifilter"><code class="text geshifilter-text">.module</code></span> file, extend the Feeds "field mapping" UI, so that for categories ("tags") mappings, you can also store a "source vocabulary", the expected vocabulary name that will be used to filter out any incoming categories that don't declare themselves in that vocabulary:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_form_ID_alter().
+ *
+ * Alter the expanded chunk of the Feeds UI mapping form which lets you
+ * specify criteria for mapping into elements.
+ */</span>
+<span class="kw2">function</span> rsshierarchy_form_feeds_ui_mapping_form_alter<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$form</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$form</span><span class="br0">[</span><span class="st_h">'config'</span><span class="br0">]</span> <span class="kw1">as</span> <span class="re0">$config_key</span> <span class="sy0">=&gt;</span> <span class="sy0">&amp;</span><span class="re0">$config</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// We have to have both config settings, and also separately</span>
+    <span class="co1">// a mapping already registered so we can check it's from "tags"</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$config</span><span class="br0">[</span><span class="st_h">'settings'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">continue</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#mappings'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$config_key</span><span class="br0">]</span><span class="br0">)</span> <span class="sy0">||</span> <span class="br0">(</span><span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#mappings'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$config_key</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'source'</span><span class="br0">]</span> <span class="sy0">!==</span> <span class="st_h">'tags'</span><span class="br0">)</span> <span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">continue</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Add our extra configuration item to the configuration here and it will</span>
+    <span class="co1">// automatically be saved into the #mappings settings.</span>
+    <span class="re0">$config</span><span class="br0">[</span><span class="st_h">'settings'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'vocabulary_name'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'textfield'</span><span class="sy0">,</span>
+      <span class="st_h">'#title'</span> <span class="sy0">=&gt;</span> t<span class="br0">(</span><span class="st_h">'Source vocab name to map'</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#description'</span> <span class="sy0">=&gt;</span> t<span class="br0">(</span><span class="st_h">'The fd:vocabulary extension to RSS will carry a vocabulary name we can search for.'</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#default_value'</span> <span class="sy0">=&gt;</span> <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#mappings'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$config_key</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'vocabulary_name'</span><span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Next, register your two custom classes with Feeds, by replacing the existing classes via the following hook:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * Implements hook_ctools_plugin_pre_alter().
+ *
+ * Switch plugins to use our extended classes.
+ */</span>
+<span class="kw2">function</span> rsshierarchy_ctools_plugin_pre_alter<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$plugin</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$info</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span> <span class="sy0">===</span> <span class="st_h">'Node processor'</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'class'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'FeedsNodeProcessorRH'</span><span class="sy0">;</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'file'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'FeedsNodeProcessorRH.inc'</span><span class="sy0">;</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'path'</span><span class="br0">]</span> <span class="sy0">=</span> drupal_get_path<span class="br0">(</span><span class="st_h">'module'</span><span class="sy0">,</span> <span class="st_h">'rsshierarchy'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st_h">'/plugins'</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span> <span class="sy0">===</span> <span class="st_h">'Common syndication parser'</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'class'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'FeedsSyndicationParserRH'</span><span class="sy0">;</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'file'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'FeedsSyndicationParserRH.inc'</span><span class="sy0">;</span>
+    <span class="re0">$plugin</span><span class="br0">[</span><span class="st_h">'handler'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'path'</span><span class="br0">]</span> <span class="sy0">=</span> drupal_get_path<span class="br0">(</span><span class="st_h">'module'</span><span class="sy0">,</span> <span class="st_h">'rsshierarchy'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st_h">'/plugins'</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Now we have to extend the two Feeds-bundled classes with our own new ones. First we extend the RSS parser, so that it can understand your transmitted RSS extensions. Inside your module, create a folder <span class="geshifilter"><code class="text geshifilter-text">plugins/</code></span> and add the following file as <span class="geshifilter"><code class="text geshifilter-text">plugins/FeedsSyndicationParserRH.inc</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * @class
+ * FeedsSyndicationParserRH.
+ */</span>
+<span class="kw2">class</span> FeedsSyndicationParserRH <span class="kw2">extends</span> FeedsSyndicationParser <span class="br0">{</span>
+  <span class="co4">/**
+   * Implements FeedsParser::parse().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> parse<span class="br0">(</span>FeedsSource <span class="re0">$source</span><span class="sy0">,</span> FeedsFetcherResult <span class="re0">$fetcher_result</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Call parent class to do most of the heavy lifting.</span>
+    <span class="re0">$result</span> <span class="sy0">=</span> parent<span class="sy0">::</span><span class="me2">parse</span><span class="br0">(</span><span class="re0">$source</span><span class="sy0">,</span> <span class="re0">$fetcher_result</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Have to re-parse the XML as we only get a data array from Feeds.</span>
+    <span class="sy0">@</span> <span class="re0">$xml</span> <span class="sy0">=</span> <a href="http://www.php.net/simplexml_load_string"><span class="kw3">simplexml_load_string</span></a><span class="br0">(</span><span class="re0">$fetcher_result</span><span class="sy0">-&gt;</span><span class="me1">getRaw</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span> <span class="kw4">NULL</span><span class="sy0">,</span> LIBXML_NOERROR <span class="sy0">|</span> LIBXML_NOWARNING <span class="sy0">|</span> LIBXML_NOCDATA<span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Extract rh:* attributes and add to the original $result.</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">xpath</span><span class="br0">(</span><span class="st_h">'//item'</span><span class="br0">)</span> <span class="kw1">as</span> <span class="re0">$i</span> <span class="sy0">=&gt;</span> <span class="re0">$item</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">xpath</span><span class="br0">(</span><span class="st_h">'category'</span><span class="br0">)</span> <span class="kw1">as</span> <span class="re0">$category</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="co1">// Store in temporary array so we always set *something* for each</span>
+        <span class="co1">// category; that way -&gt;tags and -&gt;c2v match up 1-to-1, even if empty.</span>
+        <span class="re0">$categoryToVocabulary</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$category</span><span class="sy0">-&gt;</span><span class="me1">attributes</span><span class="br0">(</span>RSSHIERARCHY_NS<span class="br0">)</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">)</span> <span class="br0">{</span>
+          <span class="re0">$categoryToVocabulary</span><span class="br0">[</span><span class="re0">$key</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">(</span>string<span class="br0">)</span><span class="re0">$value</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+        <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">items</span><span class="br0">[</span><span class="re0">$i</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$categoryToVocabulary</span><span class="sy0">;</span>
+      <span class="br0">}</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$result</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Finally, add the following code to <span class="geshifilter"><code class="text geshifilter-text">plugins/FeedsNodeProcessorRH.inc</code></span>. This will extend the node processor, so that when it maps RSS categories into a taxonomy field, it will check to see if there are any vocabularies on each &lt;category/&gt; tag; if so, and if the taxonomy field is configured to only receive certain vocabularies (using your RSS extension above) then the following will only map terms whose <span class="geshifilter"><code class="text geshifilter-text">rh:vocabulary</code></span> attribute matches:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="co4">/**
+ * @class
+ * FeedsNodeProcessorRH.
+ */</span>
+<span class="kw2">class</span> FeedsNodeProcessorRH <span class="kw2">extends</span> FeedsNodeProcessor <span class="br0">{</span>
+  <span class="co4">/**
+   * Overrides parent::map().
+   *
+   * By default, $item is just an array of text categories. Extend this to
+   * an array containing a key 'tags' with a sub-array, plus arbitrary
+   * other keys. We then override mapToTarget() to unwrap this.
+   */</span>
+  protected <span class="kw2">function</span> map<span class="br0">(</span>FeedsSource <span class="re0">$source</span><span class="sy0">,</span> FeedsParserResult <span class="re0">$result</span><span class="sy0">,</span> <span class="re0">$target_item</span> <span class="sy0">=</span> <span class="kw4">NULL</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Smuggling categoryToVocabulary inside tags.</span>
+    <span class="re0">$item</span> <span class="sy0">=&amp;</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">current_item</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$item</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$item</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$item</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+        <span class="st_h">'tags'</span> <span class="sy0">=&gt;</span> <span class="re0">$item</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span><span class="sy0">,</span>
+        <span class="st_h">'categoryToVocabulary'</span> <span class="sy0">=&gt;</span> <span class="re0">$item</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> parent<span class="sy0">::</span><span class="me2">map</span><span class="br0">(</span><span class="re0">$source</span><span class="sy0">,</span> <span class="re0">$result</span><span class="sy0">,</span> <span class="re0">$target_item</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Overrides parent::mapToTarget().
+   *
+   * Unwrap the 'tags envelope' from above if we need to, then
+   * pass everything on to the parent method to do the heavy lifting.
+   */</span>
+  protected <span class="kw2">function</span> mapToTarget<span class="br0">(</span>FeedsSource <span class="re0">$source</span><span class="sy0">,</span> <span class="re0">$target</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$target_item</span><span class="sy0">,</span> <span class="re0">$value</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$mapping</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$mapping</span><span class="br0">[</span><span class="st_h">'vocabulary_name'</span><span class="br0">]</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$value</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$value</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span> <span class="kw1">as</span> <span class="re0">$valueKey</span> <span class="sy0">=&gt;</span> <span class="re0">$valueData</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="co1">// Maybe this tag hasn't been extended with fd:vocabulary data?</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$value</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$valueKey</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'vocabulary'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+          <span class="kw1">continue</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+        <span class="co1">// If it has, and the vocabulary doesn't match our setting, unsetjhk</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$value</span><span class="br0">[</span><span class="st_h">'categoryToVocabulary'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$valueKey</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'vocabulary'</span><span class="br0">]</span> <span class="sy0">!==</span> <span class="re0">$mapping</span><span class="br0">[</span><span class="st_h">'vocabulary_name'</span><span class="br0">]</span><span class="br0">)</span> <span class="br0">{</span>
+          <a href="http://www.php.net/unset"><span class="kw3">unset</span></a><span class="br0">(</span><span class="re0">$value</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span><span class="br0">[</span><span class="re0">$valueKey</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+      <span class="br0">}</span>
+      <span class="co1">// Now unpack tags again, after having smuggled it through with extras.</span>
+      <span class="re0">$value</span> <span class="sy0">=</span> <span class="re0">$value</span><span class="br0">[</span><span class="st_h">'tags'</span><span class="br0">]</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> parent<span class="sy0">::</span><span class="me2">mapToTarget</span><span class="br0">(</span><span class="re0">$source</span><span class="sy0">,</span> <span class="re0">$target</span><span class="sy0">,</span> <span class="re0">$target_item</span><span class="sy0">,</span> <span class="re0">$value</span><span class="sy0">,</span> <span class="re0">$mapping</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>And that's it: you should now be able to map terms from vocabulary to vocabulary, across RSS.</p>
+<h2>Summary</h2>
+<p>RSS is so simple it's almost simplistic, to the point where Atom and RDF were designed to try to provide a more complex and configurable system. But if you need to get most of your point across in RSS 2.0, you can always extend it, either with off-the-shelf namespaces like Dublin Core, or custom namespaces that you build yourself.</p>
+<p>Not everyone will be able to understand the data in your custom namespaces, but if you control both ends of the RSS pipeline then you will be able to pass rich information between websites by piggybacking on RSS. And if you use namespaces properly, other sites will still be able to consume the resulting RSS.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/content.html">content</a>, <a href="../../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/drupal.html">drupal</a>, <a href="../../category/wordpress-tag/rss.html">rss</a>, <a href="../../category/wordpress-tag/syndication.html">syndication</a>, <a href="../../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-0178da3e32394c9fae441ad522248ddd">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

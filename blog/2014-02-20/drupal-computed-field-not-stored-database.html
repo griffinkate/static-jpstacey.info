@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-computed-field-not-stored-database.html" />
+<link rel="shortlink" href="../../node/512.html" />
+  <title>Like Drupal computed field, but not stored in the database | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"WGFj_cvfUwNPYmBOsEZ9BE0D0grNDCteugNfhuBBrNk","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-512 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-computed-field-not-stored-database.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Like Drupal computed field, but not stored in the database        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, February 20, 2014 - 19:18</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>At <a href="http://www.meetup.com/oxduguk/events/161340672/">the last Oxford Drupal User Group meetup</a>, <a href="http://mbharris.co.uk/">Mike Harris</a> demonstrated an amazing tracking system for orders, purchases, and accounts payable, built in Drupal just using nodes augmented with <a href="https://drupal.org/project/field_collection">Field Collection</a>, <a href="https://drupal.org/project/views_pdf">Views PDF</a>... and <a href="https://drupal.org/project/computed_field">Computed Field</a>.</p>
+<p>Oh, Computed Field. Wherever I've worked - first at Torchbox, now as a freelance - I've always had a policy of avoiding storing PHP in the database, for all sorts of reasons: maintainability, robustness, versioning, security.... But Mike's results were so darned impressive. How conflicted I felt, as I saw what he'd built "just work" in a way that my supposedly superior code often didn't.</p>
+<p>With that still in my mind, later that same week I wondered to myself: how easy would it be to replicate the functionality Computed Field, in a module structured so that almost anyone can build - practically by example? Obviously you can do anything you like in PHP code, but: how easy would it be to do it - simply, easily, repeatably? That way the same functionality could be put together, but with all the security and maintainability improvements that come from versioning, IDEs, and not permitting PHP execution through Drupal's GUI.</p>
+<p>I worked out you could indeed do it, by leveraging a specific Drupal 7 hook. Here's how.</p>
+<h2>Example content type</h2>
+<p>Let's look at a simple CF example. A content type where each node stores a number of people and a number of apples, and what's required is an on-the-fly calculation - at the point of node save, which is how CF does it - of how many apples can be shared out per person.</p>
+<p>My content type therefore has the following four fields:</p>
+<ol><li><strong>field_num_apples</strong> (integer): number of apples available</li>
+<li><strong>field_num_people</strong> (integer): number of people to share the apples between</li>
+<li><strong>field_apples_per_person</strong> (computed field): see below.</li>
+<li><strong>field_apples_per_person_2</strong> (decimal field): see further below</li>
+</ol><p>CF takes over the third field above; but the fourth field will remain empty until I build a dedicated module below.</p>
+<p>Firstly, here's the code I put in the computed field configuration, to calculate the result:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$entity_field</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'value'</span><span class="br0">]</span> <span class="sy0">=</span> 
+  <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_apples'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">/</span>
+  <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_people'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>It's a simple division of one field by another, using the <span class="geshifilter"><code class="text geshifilter-text">array_pop()</code></span> syntax actually suggested by CF help. It's fairly simple to work out what's going on, but as we'll see it's just as simple when it's in a module - if you embed it in the right structure.</p>
+<h2>Module equivalent</h2>
+<p>Here's we build the equivalent functionality, but in a module. In sites/MYSITE/modules, create a subdirectory called "mycompfield". Then, add the following files within that directory:</p>
+<h3>Filename: mycompfield.info</h3>
+<div class="geshifilter">
+<pre class="ini geshifilter-ini" style="font-family:monospace;"><span class="re1">name</span> <span class="sy0">=</span><span class="re2"> My Computed Fields</span>
+<span class="re1">description</span> <span class="sy0">=</span><span class="re2"> Computed fields, except using code under version control</span>
+<span class="re1">core</span> <span class="sy0">=</span><span class="re2"> 7.x</span></pre></div>
+<h3>Filename: mycompfield.module</h3>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * Implements hook_field_storage_pre_update().
+ */</span>
+<span class="kw2">function</span> mycompfield_field_storage_pre_update<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$skip_fields</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// Set the number of apples per person</span>
+  <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">field_apples_per_person_2</span><span class="br0">[</span><span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">language</span><span class="br0">]</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'value'</span><span class="br0">]</span> <span class="sy0">=</span>
+    <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_apples'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">/</span>
+    <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_people'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>And that's it! For my small example content type, anyway. You can see that I've used <span class="geshifilter"><code class="text geshifilter-text">hook_field_storage_pre_update()</code></span> to change the value, but I'm letting core Drupal carry on and save the content of that field for me.</p>
+<p>With this code in place, then if you save the node, the second field should get populated as if it were powered by CF. You should be able to see the clear parallels between the code that went into the CF configuration screen: if you rewrite the <span class="geshifilter"><code class="text geshifilter-text">$entity_field[0]...</code></span> bit of the CF code, you can see it's almost a drop-in replacement.</p>
+<p>That works fine, but it's not extensible or robust: for a start, I'd need to add a lot more logic if I were dealing with many entity types and bundles (content types), with fields that might or might not exist. Very quickly it could get very complicated. But here's a quick fix that should help extend the code very easily - and also make moving away from CF a little bit easier.</p>
+<h2>Improvement: a function for each field</h2>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co4">/**
+ * Implements hook_field_storage_pre_update().
+ */</span>
+<span class="kw2">function</span> mycompfield_field_storage_pre_update<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$skip_fields</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$entity</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="sy0">&amp;</span><span class="re0">$value</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$function</span> <span class="sy0">=</span> <span class="st0">"_mycompfield_compute_<span class="es4">{$entity_type}</span>_<span class="es4">{$key}</span>"</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/function_exists"><span class="kw3">function_exists</span></a><span class="br0">(</span><span class="re0">$function</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="co1">// Drill down into language to be the equivalent of Computed Field</span>
+      <span class="re0">$languaged_value</span> <span class="sy0">=&amp;</span> <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="br0">{</span><span class="re0">$key</span><span class="br0">}</span><span class="br0">[</span><span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">language</span><span class="br0">]</span><span class="sy0">;</span>
+      <span class="re0">$function</span><span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="re0">$languaged_value</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw2">function</span> _mycompfield_compute_node_field_apples_per_person_2<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$entity_field</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$entity_field</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'value'</span><span class="br0">]</span> <span class="sy0">=</span>
+    <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_apples'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">/</span>
+    <a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span><a href="http://www.php.net/array_pop"><span class="kw3">array_pop</span></a><span class="br0">(</span>field_get_items<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="st_h">'field_num_people'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw2">function</span> _mycompfield_compute_node_ANOTHER_FIELD<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$entity_field</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="coMULTI">/* ... Drop in your CF code here */</span>
+<span class="br0">}</span>
+ 
+<span class="kw2">function</span> _mycompfield_compute_ANOTHER_ENTITY_TYPE_SOME_FIELD<span class="br0">(</span><span class="re0">$entity_type</span><span class="sy0">,</span> <span class="re0">$entity</span><span class="sy0">,</span> <span class="sy0">&amp;</span><span class="re0">$entity_field</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="coMULTI">/* ... Drop in your CF code here */</span>
+<span class="br0">}</span></pre></div>
+<p>... and so on: this pattern is extensible for as many combinations of entity types and field names that you might care to imagine. Also, you can see at the same time that I've solved the <span class="geshifilter"><code class="text geshifilter-text">$entity_field...</code></span> issue: you no longer have to edit your CF configuration before just dropping it in between the curly brackets of the function definition.</p>
+<h2>Summary</h2>
+<p>I like what Computed Field does, but not how it does it. These patterns let you very quickly build a pseudo-CF module, which you can then submit to version control, easily roll back or switch off if you need to etc. In that way, it combines the best of both worlds: powerful in-Drupal field calculations, with the stability and reliability of versionable code.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/culture.html">culture</a>, <a href="../../category/wordpress-category/quickies.html">quickies</a>, <a href="../../category/wordpress-category/software.html">software</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/versioning.html">versioning</a>, <a href="../../category/wordpress-tag/module.html">module</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d929ad63f7a8e03bb46a7d68f32c71d2">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

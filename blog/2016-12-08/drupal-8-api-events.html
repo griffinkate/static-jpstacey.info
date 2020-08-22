@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-events.html" />
+<link rel="shortlink" href="../../node/674.html" />
+  <title>Drupal 8 API: events | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"7j4bUa32Pcyki1rvoEjfByIVC14d4c88PxIOwi5Qw1k","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-674 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-events.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: events        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, December 8, 2016 - 15:14</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-11-28/drupal-8-api-state">State</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-26/drupal-8-api-entities">Entities</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+</ul><h2>Objects dispatch events to an intermediate; others, subscribing to that event, respond</h2>
+<p>Drupal's menagerie of third-party and custom modules is a good example of when an unpredictable variety of components are added to a framework, and want to talk to each other while involving the framework core as little as possible.</p>
+<p>An example might be when a module saves a particular data structure into the database: it might want to inform other modules that it's about to do so, in case they need to modify it; and it might later want to inform them that it's saved, so they can react. At the same time, not every class in every module should have to be told. Also, the process of event propagation (notifying the next subscriber on the list, once the previous one has finished) needs to be stoppable, so that any one subscriber can step in first and terminate the response of all other subscribers.</p>
+<p>Enter the event-driven programming pattern: many subscriber objects tell an intermediary or <a href="https://en.wikipedia.org/wiki/Mediator_pattern">mediator</a> what kinds of event they want to be notified about; then any notifier object can dispatch some event to the mediator, which then notifies only subscribers to that particular event's type. Other languages like Erlang are <a href="http://www.needlesslymessianic.com/2010/01/15/how-erlang-makes-evented-code-easy">well suited to event-driven programming</a>, and good, decoupled Javascript in the browser is very strongly event-driven in practice. But PHP (like Python or Ruby) has no language-core implementation of events, and must instead rely on a library, component, package or whatever the language calls extensions.</p>
+<p>Drupal's historic method for implementing event-driven programming has been to use <em>hooks</em> (more on them in a moment), but since Drupal 8's adoption of Symfony components, it has begun to shift its event-driven burden onto <a href="http://symfony.com/blog/using-the-symfony-event-system">Symfony's event system</a>. If you can find an existing event for your code to subscribe to, you can very quickly leverage that to have powerful effects throughout Drupal.</p>
+<h2>Aside: Drupal hooks: non-OO events, using naming conventions</h2>
+<p>Although we've generally avoided discussing "legacy" Drupal-isms in these blogposts, then even in Drupal 8 the hooks system is anything but legacy. Even now, <a href="http://drupal.stackexchange.com/questions/222057/does-drupal-8-entities-have-any-events-i-can-listen-to">the lifecycle of entities uses hooks</a> to communicate.</p>
+<p>Pre-dating object orientation, Drupal modules have historically been made of a set of PHP functions, in the global namespace, all beginning with the module's machine name; for example, in the module file <span class="geshifilter"><code class="text geshifilter-text">d8api.module</code></span>, hooks look something like:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * @file
+ * D8API module: example only.
+ */</span>
+ 
+<span class="co4">/**
+ * Hook for event "foo"
+ */</span>
+<span class="kw2">function</span> d8api_foo<span class="br0">(</span><span class="re0">$some</span><span class="sy0">,</span> <span class="re0">$arguments</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="coMULTI">/* ... */</span>
+<span class="br0">}</span>
+ 
+<span class="co4">/**
+ * Hook for event "bar"
+ */</span>
+<span class="kw2">function</span> d8api_bar<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$other_arguments</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="coMULTI">/* ... */</span>
+<span class="br0">}</span>
+ 
+<span class="coMULTI">/* ... (etc.) ... */</span></pre></div>
+<p>The big strengths of hooks are: lightweightness; quick to write; and help encourage coding standards and naming conventions in older, non-OO PHP. The big disadvantage, along with pollution of the global namespace, is that they're largely undiscoverable: if you don't know the hook, you don't know how powerful Drupal can be. Along with robustness and maintenance improvements, this difficulty of discovering unknown hooks is why the move to Symfony events, while not yet complete, is a big improvement for Drupal.</p>
+<p>We don't discuss hooks any further here: along with a large amount of existing documentation for previous versions (at least some ten years of it, since Drupal 5.0), there's an open issue to <a href="http://drupal.org/node/1972304">expose existing hooks as a HookEvent in Drupal 8.3.x</a>, which would mean that you could write almost all code using events rather than hooks. But it's important to be aware that hooks are very much still around for the time being.</p>
+<h2>Subscribing to an event; dispatching a custom one; subscribing to that</h2>
+<p>We're going to subscribe our custom code to an existing event, dispatched by core request/response handling; this code will then dispatch a custom event, which another part of our custom code will subscribe to and handle in order to log what's happened. To do this cleanly, we write the necessary code back-to-front, to avoid Drupal complaining about any of the classes being missing.</p>
+<h3>Custom event class</h3>
+<p>Let's create a custom event class, by extending Symfony's <span class="geshifilter"><code class="text geshifilter-text">Event</code></span>. Save the following in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module as <span class="geshifilter"><code class="text geshifilter-text">src/ExampleEvent.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Symfony\Component\EventDispatcher\Event<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Custom event.
+ */</span>
+<span class="kw2">class</span> ExampleEvent <span class="kw2">extends</span> Event <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var string
+   *   Original message.
+   */</span>
+  protected <span class="re0">$message</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * @param string $message
+   *   Message provided via query string.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$message</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">message</span> <span class="sy0">=</span> <span class="re0">$message</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * @return string $message
+   *   Message set by constructor.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> getMessage<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">message</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>The Symfony class is <em>not</em> abstract, so it needs no further methods. But we're going to use it to notify any subscribers to a particular event type, of a message which we don't want to be changed during event propagation: hence we set this <span class="geshifilter"><code class="text geshifilter-text">protected $message</code></span> during the constructor, then only provide a getter to retrieve it.</p>
+<h3>Event subscriber and dispatcher</h3>
+<p>An event subscriber class must implement <span class="geshifilter"><code class="text geshifilter-text">Symfony\Component\EventDispatcher\EventSubscriberInterface</code></span>, which only consists of one method: <span class="geshifilter"><code class="text geshifilter-text">getSubscribedEvents()</code></span>. This should return the following array tree:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="br0">[</span>
+      <span class="re0">$event_type_using_some_class_constant</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="br0">[</span><span class="re0">$method_name</span><span class="sy0">,</span> <span class="re0">$optional_weighting</span><span class="br0">]</span><span class="sy0">,</span>
+        <span class="br0">[</span><span class="re0">$method_name</span><span class="br0">]</span><span class="sy0">,</span>
+        <span class="coMULTI">/* ... (etc.) ... */</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+      <span class="re0">$another_event_type</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="br0">[</span><span class="re0">$method_name</span><span class="br0">]</span><span class="sy0">,</span>
+        <span class="coMULTI">/* ... (etc.) ... */</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+<span class="br0">]</span><span class="sy0">;</span></pre></div>
+<p>The primary array keys should always be class constants, so they can be referred to by name by other people's code: you'll see an example below. For each event type, an array of handlers is provided; each handler is itself an array of either one string value (the name of a method on the object) or a string value followed by a number (the weighting of this handler, relative to all other subscribers' handlers.)</p>
+<p>Below we implement a suitable class; save this as <span class="geshifilter"><code class="text geshifilter-text">src/ExampleEventSubscriber.php</code></span> in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Drupal\Core\Logger\LoggerChannel<span class="sy0">;</span>
+use Drupal\Core\Logger\LoggerChannelFactory<span class="sy0">;</span>
+use Symfony\Component\EventDispatcher\EventDispatcherInterface<span class="sy0">;</span>
+use Symfony\Component\EventDispatcher\EventSubscriberInterface<span class="sy0">;</span>
+use Symfony\Component\HttpFoundation\Response<span class="sy0">;</span>
+use Symfony\Component\HttpKernel\Event\GetResponseEvent<span class="sy0">;</span>
+use Symfony\Component\HttpKernel\KernelEvents<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Example event subscriber and dispatcher, all in one.
+ */</span>
+<span class="kw2">class</span> ExampleEventSubscriber implements EventSubscriberInterface <span class="br0">{</span>
+ 
+  <span class="co1">// Custom event.</span>
+  <span class="kw2">const</span> D8API <span class="sy0">=</span> <span class="st_h">'d8api.custom_event'</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var EventDispatcherInterface
+   *   Dispatcher provided by the factory injected below in the constructor.
+   */</span>
+  protected <span class="re0">$eventDispatcher</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var LoggerChannel
+   *   Logger provided by the factory injected below in the constructor.
+   */</span>
+  protected <span class="re0">$logger</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * Dependency injection defined in services.yml.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    EventDispatcherInterface <span class="re0">$eventDispatcher</span><span class="sy0">,</span>
+    LoggerChannelFactory <span class="re0">$loggerFactory</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">eventDispatcher</span> <span class="sy0">=</span> <span class="re0">$eventDispatcher</span><span class="sy0">;</span>
+    <span class="co1">// We inject logger factory, but only save custom channel in state.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">logger</span> <span class="sy0">=</span> <span class="re0">$loggerFactory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api'</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> getSubscribedEvents<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      KernelEvents<span class="sy0">::</span><span class="me2">REQUEST</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="br0">[</span><span class="st_h">'onRequest'</span><span class="br0">]</span><span class="br0">]</span><span class="sy0">,</span>
+      ExampleEventSubscriber<span class="sy0">::</span><span class="me2">D8API</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="br0">[</span><span class="st_h">'onD8api'</span><span class="br0">]</span><span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Subscribed event callback: KernelEvents::REQUEST.
+   *
+   * Look for the query parameter 'd8api' and log what it contains.
+   *
+   * @param GetResponseEvent $event
+   *   An initially empty response event.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> onRequest<span class="br0">(</span>GetResponseEvent <span class="re0">$event</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$message</span> <span class="sy0">=</span> <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">getRequest</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api'</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="co1">// Set a response object with plain HTML.</span>
+      <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">setResponse</span><span class="br0">(</span><span class="kw2">new</span> Response<span class="br0">(</span>
+        <span class="st0">"Your message was: "</span> <span class="sy0">.</span> <a href="http://www.php.net/htmlspecialchars"><span class="kw3">htmlspecialchars</span></a><span class="br0">(</span><span class="re0">$message</span><span class="br0">)</span>
+      <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+      <span class="co1">// Dispatch *another* event to log the message.</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">eventDispatcher</span><span class="sy0">-&gt;</span><span class="me1">dispatch</span><span class="br0">(</span>
+        ExampleEventSubscriber<span class="sy0">::</span><span class="me2">D8API</span><span class="sy0">,</span>
+        <span class="kw2">new</span> ExampleEvent<span class="br0">(</span><span class="re0">$message</span><span class="br0">)</span>
+      <span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Subscribed event callback: ExampleEventSubscriber::REQUEST.
+   *
+   * Log the message on the event.
+   *
+   * @param ExampleEvent $event
+   *   An example event, dispatched by the previous method.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> onD8api<span class="br0">(</span>ExampleEvent <span class="re0">$event</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">logger</span><span class="sy0">-&gt;</span><span class="me1">notice</span><span class="br0">(</span>
+      <span class="st0">"Message received via ExampleEvent: %message"</span><span class="sy0">,</span>
+      <span class="br0">[</span><span class="st_h">'%message'</span> <span class="sy0">=&gt;</span> <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>From top to bottom, this class includes:</p>
+<dl><dt>Class constant for custom event type</dt>
+<dd>Rather than using a bare string, we define a class constant <span class="geshifilter"><code class="text geshifilter-text">ExampleEventSubscriber::D8API</code></span>. If you have a number of custom events, you should create an entirely new class to store them in, for tidiness and separation of concerns: for example, <a href="https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Event%21MigrateEvents.php/class/MigrateEvents/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">MigrateEvents</code></span></a> in core.</dd>
+<dt>Dependency injection</dt>
+<dd>The <span class="geshifilter"><code class="text geshifilter-text">protected</code></span> variables and <span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span> permit dependency injection, which has been discussed before. This permits the service configuration defined below to provide our custom code with both the event dispatcher service, and a logging factory service for connecting to new or existing logging channels.</dd>
+<dt>Event subscriber interface</dt>
+<dd>The <span class="geshifilter"><code class="text geshifilter-text">getSubscribedEvents()</code></span> method subscribes this object to two types of events: an in-Drupal event dispatched by the Symfony kernel when handling HTTP requests; and our custom event defined by our custom code here.</dd>
+<dt>Event handlers</dt>
+<dd>These two handlers are registered in the interface method described previously, to handle the two events. The first handler creates a HTTP response based on the query string of the HTTP request, which prevents further propagation of the <span class="geshifilter"><code class="text geshifilter-text">GetResponseEvent</code></span> and returns to the browser; but not before it also dispatches a custom event using an <span class="geshifilter"><code class="text geshifilter-text">ExampleEvent</code></span> object; the second handler subscribes to this custom event, and just uses it as an example, to log the message from the HTTP request without actually touching any HTTP objects itself.</dd>
+</dl><p>Note that we inject a logger factory, but there's unfortunately no factory for Symfony <span class="geshifilter"><code class="text geshifilter-text">Response</code></span> objects, meaning we have to have one of the (rare) instances of the <span class="geshifilter"><code class="text geshifilter-text">new</code></span> keyword in our code. However, much of the event subscribers in Drupal core follow the same coding pattern, and <span class="geshifilter"><code class="text geshifilter-text">Response</code></span> is well tested and (assuming you don't explicitly call any <span class="geshifilter"><code class="text geshifilter-text">send*()</code></span> methods) have no side effects.</p>
+<p>The class above is intended as a simple example, which is why the same class is subscribing to and dispatching events, but you should be able to see how to apply this to a more complex situation.</p>
+<h3>Add the subscriber as a service</h3>
+<p>Finally, to expose your event subscriber to Drupal/Symfony/the dispatcher, append the following to the end of your existing <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  # (unchanged)
+ 
+  d8api.event_subscriber:
+    class: 'Drupal\d8api\ExampleEventSubscriber'
+    arguments: ['@event_dispatcher', '@logger.factory']
+    tags:
+      - {name: event_subscriber}</pre></div>
+<p>These five lines of YAML register our new subscriber class as a service, and tags it as an <span class="geshifilter"><code class="text geshifilter-text">event_subscriber</code></span>: all that's required for Symfony to investigate its subscriptions. In addition, it also provides dependency injection of the event dispatcher and the logger.</p>
+<h2>What you should see</h2>
+<p>Because you've registered new services, you should clear caches with <span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span>. As we've covered this a number of times before, we don't cover it here.</p>
+<p>Navigate to the homepage, and you should see no obvious difference:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-168" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/events-homepagepng.html">events-homepage.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/events-homepage.png"><img class="media-element file-inline-image" alt="Homepage, prior to adding any query string" src="../../sites/files/jps/styles/large/public/events-homepage.png%3Fitok=AhwbAu6r" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>This is because, while the <span class="geshifilter"><code class="text geshifilter-text">GetResponseEvent</code></span> is being passed to <span class="geshifilter"><code class="text geshifilter-text">ExampleEventSubscriber::onRequest()</code></span>, that code checks for the <span class="geshifilter"><code class="text geshifilter-text">d8api=</code></span> query string parameter, and returns silently if none is found.</p>
+<p>Now edit the URL in your browser's navigation bar to include the query string <span class="geshifilter"><code class="text geshifilter-text">?d8api=hello,%20world</code></span>. Note that you should encode any whitespace in URLs using its equivalent ASCII code (space=20). You should now see an otherwise empty screen with the text:</p>
+<blockquote><p>
+Your message was: hello, world
+</p></blockquote>
+<p>This is because the code is now providing <span class="geshifilter"><code class="text geshifilter-text">GetResponseEvent</code></span> with a Symfony HTTP <span class="geshifilter"><code class="text geshifilter-text">Response</code></span>, which terminates event propagation and indeed the rest of Drupal's response cycle.</p>
+<p>Now, navigate to the logs. You should find that <span class="geshifilter"><code class="text geshifilter-text">ExampleEventSubscriber::onD8api()</code></span> has logged a message in the logs, of "type" ("channel") <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span>:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-169" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/events-log-messagespng.html">events-log-messages.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/events-log-messages.png"><img class="media-element file-inline-image" alt="Log messages, showing new item" src="../../sites/files/jps/styles/large/public/events-log-messages.png%3Fitok=f8KBvqKR" width="480" height="300" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you navigate through to this log item itself, you can see that the formatting specified in the logging call—use italics for <span class="geshifilter"><code class="text geshifilter-text">%message</code></span>—is being respected:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-170" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/events-log-messagepng.html">events-log-message.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/events-log-message.png"><img class="media-element file-inline-image" alt="Individual log message, showing $message formatted in italics as per the tokens in the formatting string." src="../../sites/files/jps/styles/large/public/events-log-message.png%3Fitok=DF8QAHiY" width="480" height="323" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you can see this, then congratulations! you have learned how to dispatch events, how to subscribe to them, and how to act on them when they're dispatched.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/events/8.2.x">Drupal 8 API: events</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mediator_pattern">Wikipedia: Mediator pattern</a></li>
+<li><a href="http://api.symfony.com/2.7/Symfony/Component/EventDispatcher/EventDispatcherInterface.html">Symfony: Event Dispatcher Interface</a></li>
+<li><a href="http://symfony.com/blog/using-the-symfony-event-system">Symfony event system</a></li>
+<li><a href="http://drupal.stackexchange.com/questions/222057/does-drupal-8-entities-have-any-events-i-can-listen-to">Drupal Answers: hooks for entity life cycle</a></li>
+<li><a href="http://drupal.org/node/1972304">Add a HookEvent (to expose hooks as events)</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8apiother.html">d8api:other</a>, <a href="../../category/tags/d8api.html">d8api</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-986bb097ac365c2ac51700375555d506">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

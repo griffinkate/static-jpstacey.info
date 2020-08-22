@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-09-13/drupal-8-api-extending-and-altering-drupal.html" />
+<link rel="shortlink" href="652.html" />
+  <title>Drupal 8 API: extending and altering Drupal | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"9G2FeA0fRPWBYJHBWVLM9zR7gFeaH5WO8fr_X3UAWNA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-652 node-type-blog" >
+  <div id="skip-link">
+    <a href="652.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: extending and altering Drupal        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, September 13, 2016 - 11:33</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<p><em>None.</em></p>
+<h2>Projects (modules, themes and profiles) are the basis of extending Drupal</h2>
+<p>Drupal can be extended in many different ways; these extensions are usually packaged up inside <em>projects</em>, which can be one of three types:</p>
+<dl><dt>Profiles</dt>
+<dd>Manage the installation of a brand-new Drupal website, and permit radically different starting points: Drupal as a CRM, or Drupal as a shop.</dd>
+<dt>Themes</dt>
+<dd>Encapsulate the entire display layer of a Drupal website, containing (in theory) no business logic and interchangeable for another theme at a later date.</dd>
+<dt>Modules</dt>
+<dd>Modify and extend the way Drupal behaves with new functionality, logic, structure, content, behaviours etc.</dd>
+</dl><p>For the purposes of these tutorials, the most straightforward way to extend Drupal is with a module, and we focus on those. Almost all of the code examples will be in the same module.</p>
+<p>In D8, the minimum structure of a module is very simple indeed; you just need:</p>
+<ol><li>A folder in the right place</li>
+<li>Containing a metadata file</li>
+</ol><p>In Drupal 8, modules, themes and profiles all standardize on the suffix <span class="geshifilter"><code class="text geshifilter-text">.info.yml</code></span> for the filename, and structure the contents of the file according to the <a href="http://yaml.org/">YAML specification</a>.</p>
+<h2>Folder: what to call it; where to put it</h2>
+<p>What do you call your module folder? Well, Drupal has a longstanding (but <a href="https://www.drupal.org/node/2797643">slightly ambiguous</a>) concept of a "machine name": in practice, it usually means any number of word or words, made from lowercase a–z and the numbers 0–9, with the whitespace between them replaced by underscores, and not containing any other punctuation except (sometimes, but not for module names) hyphens and (sometimes, but not for module names) dots.</p>
+<p>So <span class="geshifilter"><code class="text geshifilter-text">hello_world_123</code></span> is a good example, but <span class="geshifilter"><code class="text geshifilter-text">hello world!</code></span> is not. In addition, to avoid possible conflicts later owing to Drupal's concept of hooks (not in the scope of this blogpost) you might also want to reduce the machine name to a single word, without any underscores: <span class="geshifilter"><code class="text geshifilter-text">helloworld123</code></span>.</p>
+<p>Once you've decided on a provisional machine name, you should also make sure it doesn't already exist as a contributed extension you might want to use in the future: in this example, try visiting <span class="geshifilter"><code class="text geshifilter-text">http://drupal.org/project/helloworld123</code></span>. It doesn't exist, so we could  go with this as our machine name. That's a bit of a weird name, though, so for the sake of the rest of this blogpost we'll use the machine name <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span>.</p>
+<p>You can create a folder with this machine name in one of the following directories, relative to the Drupal root:</p>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">modules/</code></span> (Drupal 8 preferred)</li>
+<li><span class="geshifilter"><code class="text geshifilter-text">sites/all/modules/</code></span> (Drupal 6/7 legacy location)</li>
+<li><span class="geshifilter"><code class="text geshifilter-text">sites/default/modules/</code></span> (Drupal 8, for use on only the default site)</li>
+</ul><p>(These locations are determined by the <a href="http://cgit.drupalcode.org/drupal/tree/core/lib/Drupal/Core/Extension/ExtensionDiscovery.php#n159">ExtensionDiscovery</a> service.)</p>
+<p>Your particular site folder should be <span class="geshifilter"><code class="text geshifilter-text">sites/default</code></span> as above, as <a href="http://www.jpstacey.info/blog/2015-03-17/drupal-multisite-considered-niche-not-necessarily-harmful">you probably don't want to use multisite</a>. For now, let's assume you've created the folder <span class="geshifilter"><code class="text geshifilter-text">sites/default/modules/d8api</code></span>.</p>
+<h2>File: what to call it; what to put in it</h2>
+<p>The name of the file which contains your module's metadata <em>should</em> be the machine name, followed by <span class="geshifilter"><code class="text geshifilter-text">.info.yml</code></span>, and go in the top-level folder of your module. So, assuming the machine name above: <span class="geshifilter"><code class="text geshifilter-text">sites/default/modules/d8api/d8api.info.yml</code></span>.</p>
+<p><em>Aside:</em> you <em>can</em> use a different machine name for this metadata file, from the folder name. Don't do it! Keep the machine names the same. For a long time in Drupal 7 there was a module called <span class="geshifilter"><code class="text geshifilter-text">googleanalytics</code></span> where all of its files' names began <span class="geshifilter"><code class="text geshifilter-text">google_analytics.*</code></span>—or maybe it was the other way round. That's the point, in fact: it was always difficult to remember the difference, and there was no benefit from them being different. Keep the same machine name, kids.</p>
+<p>This metadata file should contain, as a minimum, the following entries:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">name: Tutorial
+description: Example module created for the tutorial.
+ 
+type: module
+core: 8.x</pre></div>
+<p>This tells Drupal, in turn:</p>
+<ol><li>The (human-readable) name of the extension.</li>
+<li>A short (human-readable) description providing further information.</li>
+<li>That this extension is of type "module" and not "theme" or "profile".</li>
+<li>That it's compatible with Drupal core 8.x (basically any Drupal 8 core.)</li>
+</ol><p>You might add a <span class="geshifilter"><code class="text geshifilter-text">package: ...</code></span> line to help the Extend page (see below) put your module with others that provide related functionality. If you're interested, you can also <a href="https://www.drupal.org/node/2000204">read more about the possible contents of this metadata info file</a>.</p>
+<h2>Other, optional contents of the module</h2>
+<p>That's all you need for a module. As we proceed with future tutorials, you'll find we'll add many other files; for example:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">*.yml</code></span></dt>
+<dd>Module-level configuration, for settings, routes, menu items etc.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">src/**/*.php</code></span></dt>
+<dd>Object-oriented class files, in subdirectories which sometimes have important meanings (see the later tutorial on plugins.)</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">MODULENAME.module</code></span><br /><dt>
+</dt></dt><dd>Non-objectoriented code, especially hooks (see the later tutorial on events.)</dd>
+</dl><p>However, here we've only covered the bare minimum to begin your module, and you should already be all set.</p>
+<h2>What you should see</h2>
+<p>Open up a web browser, log into your site as an administrator, and navigate to the "Extend" tab. When you search for your module's name, it should filter down to a shorter list that includes your module:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-121" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/d8-example-modulepng.html">d8-example-module.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/d8-example-module.png"><img class="media-element file-inline-image" alt="The Extend page in Drupal&#039;s admin UI" src="../sites/files/jps/styles/large/public/d8-example-module.png%3Fitok=RQKHEZYU" width="480" height="311" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You can then enable this module. It doesn't do anything yet, but: congratulations! You've just created the bare minimum of a Drupal module.</p>
+<h2>Further reading etc.</h2>
+<ol><li><cite><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/extending/8.2.x">Drupal 8 API: Extending and altering Drupal</a></cite></li>
+<li><cite><a href="https://www.drupal.org/node/2116781">Naming and placing your Drupal 8 module</a></cite></li>
+<li><cite><a href="https://www.drupal.org/node/2000204">Let Drupal 8 know about your module with an .info.yml file</a></cite></li>
+</ol></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apibg.html">d8api:bg</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-a828533aad32ec30733b1fbb2100661d">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

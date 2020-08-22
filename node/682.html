@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2017-02-20/drupal-8-api-database-abstraction-layer.html" />
+<link rel="shortlink" href="682.html" />
+  <title>Drupal 8 API: database abstraction layer | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"zNZjGaz-Wa4w9HGwsOqVrGSVfxuOFo3AK2jR4PJxKb4","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-682 node-type-blog" >
+  <div id="skip-link">
+    <a href="682.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: database abstraction layer        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, February 20, 2017 - 12:40</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-12-01/drupal-8-api-configuration">Configuration API</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-26/drupal-8-api-entities">Entities</a></li>
+</ul><h2>Different querying methods based on complexity of requirements</h2>
+<p>Depending on the complexity of your query, your environment requirements (what flavours of SQL you need to support) and the use case (what you're going to do with the results), you should pick one of three different methods.</p>
+<p><strong>Note:</strong> you should access all of these methods:</p>
+<ol><li>using dependency-injected services wherever possible</li>
+<li>otherwise, if you're writing procedural code, you can use any of the helper methods on <span class="geshifilter"><code class="text geshifilter-text">\Drupal</code></span></li>
+<li>But avoid using the legacy procedural <span class="geshifilter"><code class="text geshifilter-text">db_*()</code></span> functions: these have been deprecated, and are anyway only wrappers for the underlying services.</li>
+</ol><p>Worked examples will follow the discussion below, so don't worry if you're not completely sure what they mean at first.</p>
+<h3>1. Simple queries <span class="geshifilter"><code class="text geshifilter-text">Connection::query()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">Connection::queryRange()</code></span></h3>
+<p>If your query:</p>
+<ul><li>does not involve entities</li>
+<li>has simple syntax that can be detailed in a single string (perhaps with placeholders for variables)</li>
+<li>uses syntax compatible with all versions of SQL you care about</li>
+</ul><p>then you can use the <span class="geshifilter"><code class="text geshifilter-text">database</code></span> DI service, and call the method <span class="geshifilter"><code class="text geshifilter-text">::query()</code></span>.</p>
+<p>To permit simple range queries across all SQL variants supported by Drupal core, <span class="geshifilter"><code class="text geshifilter-text">::queryRange()</code></span> will convert any simple query into a <span class="geshifilter"><code class="text geshifilter-text">LIMIT</code></span>/<span class="geshifilter"><code class="text geshifilter-text">OFFSET</code></span> or <span class="geshifilter"><code class="text geshifilter-text">TOP</code></span> query, to only retrieve a maximum number of results for reasons of paging. The return value is an executed implementation <span class="geshifilter"><code class="text geshifilter-text">\Drupal\Core\Database\StatementInterface</code></span>, which extends <span class="geshifilter"><code class="text geshifilter-text">\Traversible</code></span> and hence can be looped over with <span class="geshifilter"><code class="text geshifilter-text">foreach</code></span>.</p>
+<p>Simple queries can in theory run any SQL, including <span class="geshifilter"><code class="text geshifilter-text">UPDATE</code></span>, <span class="geshifilter"><code class="text geshifilter-text">DELETE</code></span> etc. statements. Because of that lack of restraint, then to prevent potential SQL injection attacks you should avoid building complex strings of SQL before passing them into the method; use placeholders for any variables that might need to be different each time you invoke the query:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$query_service</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">(</span>
+  <span class="co1">// See "further reading" below for explanation of curly brackets.</span>
+  <span class="st_h">'DELETE FROM {watchdog} WHERE wid = :wid'</span><span class="sy0">,</span>
+  <span class="co1">// Placeholder replacement.</span>
+  <span class="br0">[</span><span class="st_h">':wid'</span> <span class="sy0">=&gt;</span> 123<span class="br0">]</span>
+<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>Drupal doesn't—can't, really—enforce a programming style of simple and readable strings whenever <span class="geshifilter"><code class="text geshifilter-text">::query()</code></span> is invoked, but it's strongly recommended you should focus on readability when it comes to SQL queries, given the risk of SQL injection.</p>
+<p><em>Procedural equivalent: retrieve the database service using </em><span class="geshifilter"><code class="text geshifilter-text">\Drupal::database()</code></span><em> or </em><span class="geshifilter"><code class="text geshifilter-text">\Drupal::service("database")</code></span>.</p>
+<h3>2. Complex queries with <span class="geshifilter"><code class="text geshifilter-text">Connection::select()</code></span>, <span class="geshifilter"><code class="text geshifilter-text">Connection::update()</code></span> etc.</h3>
+<p>If your query:</p>
+<ul><li>does not involve entities</li>
+<li>is too complex to use the simple method above</li>
+</ul><p>then you can use the <span class="geshifilter"><code class="text geshifilter-text">database</code></span> service again, but instead call the method relating to the query's main verb: <span class="geshifilter"><code class="text geshifilter-text">::select()</code></span>, <span class="geshifilter"><code class="text geshifilter-text">::update()</code></span>, <span class="geshifilter"><code class="text geshifilter-text">::delete()</code></span> etc.</p>
+<p>Each of these methods return different objects, e.g. dynamic select query support is provided by an implementation of <span class="geshifilter"><code class="text geshifilter-text">\Drupal\Core\Database\Query\SelectInterface</code></span>. These objects implement all major SQL clauses through their methods, meaning that (depending on logic at the PHP level) the same query can sometimes have different e.g. <span class="geshifilter"><code class="text geshifilter-text">WHERE</code></span> conditions:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$query_service</span><span class="sy0">-&gt;</span><span class="me1">select</span><span class="br0">(</span><span class="st_h">'watchdog'</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="co1">// Find by ID?</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$find_watchdog_by_id</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'wid'</span><span class="sy0">,</span> <span class="re0">$wid</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+<span class="co1">// Otherwise, return the most recent entry.</span>
+<span class="kw1">else</span> <span class="br0">{</span>
+  <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">orderBy</span><span class="br0">(</span><span class="st_h">'wid'</span><span class="sy0">,</span> <span class="st_h">'DESC'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">range</span><span class="br0">(</span>0<span class="sy0">,</span> 1<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>The return value from any explicit <span class="geshifilter"><code class="text geshifilter-text">::execute()</code></span> call is an executed <span class="geshifilter"><code class="text geshifilter-text">StatementInterface</code></span>, as per the simple queries above.</p>
+<p><em>Procedural equivalent: retrieve the database service as for simple queries.</em></p>
+<h3>3. Entity queries with <span class="geshifilter"><code class="text geshifilter-text">QueryFactory::get()</code></span> or <span class="geshifilter"><code class="text geshifilter-text">EntityManagerInterface::getStorage()::getQuery()</code></span></h3>
+<p>If your query involves content or config entities, you should use the entity query API, part of the entity API discussed previously.</p>
+<p>Both fundamental types of entity can be queried using this API; the return value is either an integer for count queries, or an array of entity IDs:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$all_view_ids</span> <span class="sy0">=</span> <span class="re0">$query_factory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'view'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$num_temporary_files</span> <span class="sy0">=</span> <span class="re0">$query_factory</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'file'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'status'</span><span class="sy0">,</span> FILE_STATUS_PERMANENT<span class="st_h">', '</span><span class="sy0">&lt;&gt;</span><span class="st_h">')
+  -&gt;count()-&gt;execute();</span></pre></div>
+<p>Any code expecting an array of IDs must then itself load any entities.</p>
+<p><em>Procedural equivalent: retrieve the entity query service directly using</em><span class="geshifilter"><code class="text geshifilter-text">\Drupal::entityQuery()</code></span><em>; alternatively, if you already have the entity manager service using </em><span class="geshifilter"><code class="text geshifilter-text">\Drupal::entityManager()</code></span><em>, then call </em><span class="geshifilter"><code class="text geshifilter-text">::getStorage()</code></span><em>on this. You can then build a new query with </em><span class="geshifilter"><code class="text geshifilter-text">::getQuery</code></span>.</p>
+<h2>Example class demonstrating both simple and dynamic queries</h2>
+<p>Because entity queries were covered when we discussed the entity API, we only demonstrate the first two query styles in this tutorial. So much in Drupal 8 is covered by either the entity API or the configuration (entity) API, so let's consider one of the few remaining tables that aren't: the <span class="geshifilter"><code class="text geshifilter-text">watchdog</code></span> table, where logs are stored.</p>
+<p>Save the following PHP class to a file <span class="geshifilter"><code class="text geshifilter-text">src/DatabaseExample.php</code></span> in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\Query\QueryFactoryInterface<span class="sy0">;</span>
+use Drupal\Core\Database\Connection<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Example database calls.
+ */</span>
+<span class="kw2">class</span> DatabaseExample <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var Connection
+   *   Database connection.
+   */</span>
+  protected <span class="re0">$connection</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>Connection <span class="re0">$connection</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connection</span> <span class="sy0">=</span> <span class="re0">$connection</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Simple non-entity queries.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> simpleQuery<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Get watchdog data from multiple queries, just to be able to demo</span>
+    <span class="co1">// more of the functionality of the simple -&gt;query*() methods.</span>
+    <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connection</span><span class="sy0">-&gt;</span><span class="me1">queryRange</span><span class="br0">(</span>
+      <span class="st_h">'SELECT wid FROM {watchdog} ORDER BY wid DESC'</span><span class="sy0">,</span>
+      0<span class="sy0">,</span> 3
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$result</span> <span class="kw1">as</span> <span class="re0">$record</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$full_result</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connection</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">(</span>
+        <span class="st_h">'SELECT * FROM {watchdog} WHERE wid = :wid'</span><span class="sy0">,</span>
+        <span class="br0">[</span><span class="st_h">':wid'</span> <span class="sy0">=&gt;</span> <span class="re0">$record</span><span class="sy0">-&gt;</span><span class="me1">wid</span><span class="br0">]</span>
+      <span class="br0">)</span><span class="sy0">;</span>
+      <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$full_result</span> <span class="kw1">as</span> <span class="re0">$full_record</span><span class="br0">)</span> <span class="br0">{</span>
+        <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$full_record</span><span class="sy0">-&gt;</span><span class="me1">message</span><span class="br0">)</span><span class="sy0">;</span>
+      <span class="br0">}</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Dynamic non-entity queries.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> dynamicQuery<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Equivalent of the simple queryRange() with extra message field.</span>
+    <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connection</span><span class="sy0">-&gt;</span><span class="me1">select</span><span class="br0">(</span><span class="st_h">'watchdog'</span><span class="sy0">,</span> <span class="st_h">'w'</span><span class="br0">)</span>
+      <span class="co1">// Alias 'w' comes in useful when many tables are joined.</span>
+      <span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">(</span><span class="st_h">'w'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'wid'</span><span class="sy0">,</span> <span class="st_h">'message'</span><span class="br0">]</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'type'</span><span class="sy0">,</span> <span class="st_h">'d8api'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">orderBy</span><span class="br0">(</span><span class="st_h">'wid'</span><span class="sy0">,</span> <span class="st_h">'DESC'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">range</span><span class="br0">(</span>0<span class="sy0">,</span> 3<span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$result</span> <span class="kw1">as</span> <span class="re0">$record</span><span class="br0">)</span> <span class="br0">{</span>
+      <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$record</span><span class="sy0">-&gt;</span><span class="me1">message</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Delete rows and report back how many.</span>
+    <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="st0">"Deleted rows: "</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connection</span><span class="sy0">-&gt;</span><span class="me1">delete</span><span class="br0">(</span><span class="st_h">'watchdog'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">(</span><span class="st_h">'type'</span><span class="sy0">,</span> <span class="st_h">'d8api'</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This class contains a DI-compatible <span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span> method, and a method for each of the two query styles under consideration.</p>
+<h2>What you should see</h2>
+<p>At the command prompt, use Drush to add three messages to the watchdog logs on the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> channel:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'\Drupal::logger("d8api")-&gt;notice("Test 1");
+  \Drupal::logger("d8api")-&gt;notice("Test 2");
+  \Drupal::logger("d8api")-&gt;notice("Test 3");'</span></pre></div>
+<p>This should log the messages to the screen:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"> [notice] Test 1
+ [notice] Test 2
+ [notice] Test 3</pre></div>
+<p>And, if you have the <span class="geshifilter"><code class="text geshifilter-text">dblog</code></span> module turned on, it will also log to the database table.</p>
+<p>Next, inject the database service into an instance of the <span class="geshifilter"><code class="text geshifilter-text">DatabaseExample</code></span> object and run <span class="geshifilter"><code class="text geshifilter-text">simpleQuery()</code></span>:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\DatabaseExample(\Drupal::service("database")))
+  -&gt;simpleQuery();'</span></pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">queryRange()</code></span> method will loop over the three watchdog items you've just logged, and produce the following repeatable result:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">string(6) "Test 3"
+string(6) "Test 2"
+string(6) "Test 1"</pre></div>
+<p>Do the same for the <span class="geshifilter"><code class="text geshifilter-text">dynamicQuery()</code></span> method:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new \Drupal\d8api\DatabaseExample(\Drupal::database()))
+  -&gt;dynamicQuery();'</span></pre></div>
+<p>Note that, for a change, we've used the the <span class="geshifilter"><code class="text geshifilter-text">\Drupal::database()</code></span> method instead here. The response will be almost the same as for the simple query:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">string(6) "Test 3"
+string(6) "Test 2"
+string(6) "Test 1"
+string(15) "Deleted rows: 3"</pre></div>
+<p>Except that the <span class="geshifilter"><code class="text geshifilter-text">delete()</code></span> method has deleted some rows at the end. Your own row count could be greater than 3, if you've played with the events tutorial, because that also logs some messages on the same channel/of the same type.</p>
+<p>If you run the dynamic query again immediately, you should just see:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">string(15) "Deleted rows: 0"</pre></div>
+<p>And if you re-fill the logs with your three watchdog items using the first command-line example shown at the very top of this section, you can then re-run the dynamic queries and see you delete only three rows this time.</p>
+<p>If you can see all this, then congratulations! you have successfully accessed the database using both simple and dynamic queries.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Database%21database.api.php/group/database/8.2.x">Drupal 8 API: database abstraction layer</a></li>
+<li><a href="https://www.drupal.org/node/1894396">Mark db_*() wrappers in database.inc as deprecated for 9.x</a></li>
+<li><a href="https://www.drupal.org/node/1902034">Entity Query support for config entities</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apidata.html">d8api:data</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-ca61f5aedb59c7954d246e8b4b3851fb">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

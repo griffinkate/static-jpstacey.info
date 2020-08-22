@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="upgrading-blog-based-drupal-site-6-7.html" />
+<link rel="shortlink" href="../../node/443.html" />
+  <title>Upgrading a blog-based Drupal site from 6 to 7 | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"2qIavbgp-9A9sQsrF9dqNdXJGFwSZPgfP7ASIIXgK0k","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-443 node-type-blog" >
+  <div id="skip-link">
+    <a href="upgrading-blog-based-drupal-site-6-7.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Upgrading a blog-based Drupal site from 6 to 7        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Sunday, April 21, 2013 - 18:50</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>As mentioned previously, <a href="../2013/04/18/upgrade-drupal-7.html">this site was recently upgraded</a> from Drupal 6 to Drupal 7. Here's a more in-depth post explaining how I did it, and what the experience was like. Note that I use "upgraded", as distinct from "migrated", because I didn't create a brand new D7 site and push the content into it. For better or worse, I followed the actual d.o recommended upgrade path for major releases.</p>
+<p>To avoid having to repeat the tedious work of database upgrades and code downloads, again and again for each different permutation of preferred modules, I used the <a href="http://drupal.org/project/drush_sup">drush site-upgrade</a> command. I can really recommend it: while it's no silver bullet, it at least permits you to set a site upgrade running, then do other more productive tasks while it completes instead of having to babysit the process. <strong>drush site-upgrade</strong> very closely follows the Drupal 7.x major upgrade procedure <a href="http://drupalcode.org/project/drupal.git/blob/refs/heads/7.x:/UPGRADE.txt">described in UPGRADE.txt</a>, which means that you can at least go through its output and dissect precisely what it was doing at each point.</p>
+<p>Below, then, is my direct experience of the upgrade process: it hardly constitutes recommended best practice, as it does detail some of my slip-ups as well. If you're going to follow something step by step, then read UPGRADE.txt instead.</p>
+<h2>Before you start: just give it a whirl</h2>
+<p>Because <strong>drush site-upgrade </strong>takes away a lot of the pain of upgrading, and because it does so in a separate D7 instance that you specify with <a href="http://drush.ws/examples/example.aliases.drushrc.php">Drush site aliases</a>, then it's tempting to just give it a try. I did, and I can heartily recommend doing so: it's the best way of discovering the biggest, most problematic hurdles between you and a D7 site.</p>
+<p>I think in theory <strong>drush site-upgrade</strong> should upgrade all the modules in your D6 site first, before beginning on the major site upgrade. But you should also consider doing that yourself on your current site, especially as it's a (somewhat time-consuming) no-brainer that <strong>site-upgrade</strong> is always going to have to perform.</p>
+<p>Running this command with no options means that Drush might request your input, so you probably want to babysit this trial upgrade and see what happens.</p>
+<h2>Preparing your site(s)</h2>
+<p>Along with upgrading all the contributed modules and core in your D6 site, you should also look at a few other tasks which the initial trial upgrade should have highlighted:</p>
+<ul><li><strong>Create an empty target Drupal 7 database</strong>. Unless you specify a particular configuration in your site alias for this, it will need to have the name "Site alias name with punctuation removed" + "db", and the same access credentials as your D6 website. My site alias was "@jps7.local", which meant that I needed a database called "jps7localdb".</li>
+<li>If you have any file <code>include()</code>s in <code>settings.php</code>, <strong>remove them or comment them out</strong>. This file gets copied over verbatim into your new D7 site, so it's possible that such includes will break. Not a serious problem, but it does make the upgrade output very noisy with unnecessary PHP warnings.</li>
+<li><strong>Download and enable the <a href="http://drupal.org/project/schema">schema module</a></strong>, and use it to fix any inconsistencies between the D6 database as it should be, and the database as it really is. If it looks like a load of tables have been left behind by a long-gone contrib module, download that module and explicitly uninstall it, as this will also clear up any system variables it might have set. Disable and uninstall it when you're done.</li>
+<li>Disable your custom theme. It's not essential, but having a custom theme did lead to some loss of themeing for me on my new D7 website, even though <strong>drush site-upgrade</strong> claims to downgrade the theme to core Garland.</li>
+<li><strong>Disable and uninstall as many contrib modules as you can</strong>. Because my configuration was straightforward, I uninstalled the whole of <a href="http://jpstacey.lndo.site/blog/2013-04-21/drupal.org/project/ds">Display Suite</a> including <a href="http://jpstacey.lndo.site/blog/2013-04-21/drupal.org/project/nd">Node Displays</a> etc, because my trial site upgrade simply could not deal with it: there seems to be <a href="http://drupal.org/node/1872528">a relevant bug in the issue queue</a>, but this was the easiest solution for me. I appreciate this was a pretty drastic move, but for a blog-based website I didn't foresee any serious consequences of redoing the DS configuration by hand. <span style="line-height: 1.538em;">I also got uninstalled Image Gallery and CCK Redirection, although again this might be too drastic for your website. </span><span style="line-height: 1.538em;">Remember to uninstall any helper modules: schema, as discussed above; but also devel, coder and any testing modules.</span></li>
+<li><strong>Delete any content types you don't use</strong>. The same goes for any input formats, taxonomies etc: anything that you really don't need to migrate. If it has potential to break your migration, get rid of it now rather than later.</li>
+</ul><h2>Successful (or at any rate completed) site upgrade</h2>
+<p>With the above changes made to the website, I ran <code>drush site-upgrade @site.alias --auto</code>. This extra flag means that the process runs with as little input from you as possible: in fact, assuming you've fixed any fatal errors mentioned above</p>
+<p>This did mean that the following assumptions were made by the Drush command:</p>
+<ul><li>I would fix any hacks to core (htaccess, robots.txt etc.)</li>
+<li>I would also copy across sites/files and sites/all/libraries</li>
+<li>The default CCK-equivalent modules in D7 were used: specifically node_ and user_reference, rather than entityreference.</li>
+<li>Automatic CCK field migration was performed on any fields that could be found, using D7's instance of CCK and the cck_migrate module. This migration of variable reliability, but improved by assuming the defaults above.</li>
+</ul><h2>Immediate fixes on the D7 site</h2>
+<p>Once the upgrade happened, I concentrated on just getting a working D7 site with the content looking right to the site visitor. For that, I had to do the following:</p>
+<ul><li>As mentioned above, <strong>my uploaded files and my libraries folder</strong> had not been copied over by the automated process, and I had to do that myself.</li>
+<li>My themeing was <strong>largely broken and CSS-free</strong>. This might have been because I was using the core Color module. Anyway, (re-)saving Garland's theme settings fixed it straight away. </li>
+<li>To <strong>get Geshi syntax highlighting working again</strong>, I had to enable it on the text formats, and then administer Geshi and add at least one other language to the list of available languages. I think the latter is a minor bug in the CSS workflow of Drupal's geshi module.</li>
+<li>I also <strong>downloaded and enabled the <a href="http://drupal.org/project/media">media </a>module and file_entity</strong>, sooner rather than later. To be honest, I couldn't tell you for certain whether this was a requirement of any of the procedures here as such. I just knew I was probably going to need something to manage documents and images.</li>
+</ul><p>This was the point at which I switched the codebases over on the live site, and my web presence was from that point on entirely in Drupal 7!</p>
+<h2>Improving admin and more niggles</h2>
+<p>There were still a few problems with the site; in fact, I'm still shaking a few bugs out now. None of them were really serious, but they did all have to be dealt with, and I did so as follows:</p>
+<ul><li>I was using the image module for image management: I know, old-skool, right? This meant that to have my images managed and appearing in Media,  <strong>image nodes had to be converted to managed files</strong>. The <a href="http://jpstacey.lndo.site/blog/2013-04-21/drupal.org/project/field_convert">field convert</a> module helps with this; for a more detailed howto, <a href="http://rarepattern.com/nodes/2012/recovering-contrib-image-modules-content-upgrade-drupal-7">read this excellent blogpost by Laura Scott</a>.</li>
+<li>I lost my <strong>WYSIWYG profile for full text</strong>. I recreated this manually.</li>
+<li><strong>Pathauto was failing because token syntax has changed radically </strong>(arguably for the better) but this was not migrated by the upgrade procedure. To fix, I manually edited the tokens to use the new syntax.</li>
+<li>My migrated images were managed OK, but the actual page for each image entity wasn't rendering the image. This was because <strong>each image's bundle type was set to "undefined"</strong> in the file_managed table. This was probably the worst problem to solve for anyone not well versed in databases, as it required a (relatively straightforward) SQL UPDATE statement.</li>
+</ul><h2>Embracing Drupal 7</h2>
+<p>Finally, it was time to start taking advantage of some of the simplest improvements with Drupal 7. This included the following:</p>
+<ul><li>Toolbar and shortcut module, to provide an "<a href="http://drupal.org/project/admin_menu">admin menu</a>" experience across the top of the site</li>
+<li>Contextual links, for quick links to edit e.g. blocks on a page, or a view listing.</li>
+<li>An administrator role (under Configuration &gt; Account settings), so that whenever a new module is enabled users with that role get all permissions for it straight away</li>
+<li>Update emails, warning me of important security updates, once per week (although all those decisions are configurable to taste)</li>
+<li>Media module, as mentioned above</li>
+<li>Views had automatically upgraded to version 3, which includes a huge and improving overhaul of the UI. </li>
+</ul><p>There are a lot more improvements I can make going forwards, but this is where I drew a line under my personal upgrade project, and called it: <strong>success</strong>.</p>
+<h2>Summary</h2>
+<p>Upgrading a simple site from Drupal 6 to Drupal 7 is certainly comparable, if not preferable, to a content migration. The above took me around a working day and a half, split over a few nights. Personally, I can recommend it, as I felt at the end that, once everything had obviously migrated correctly, I had a very robust D7 setup.</p>
+<p>Obviously if your site is more complicated, then automatic upgrading might be less straightforward. Almost certainly you'll need to keep Display Suite in place, which means solving the bug I encountered. And if you've got any custom code or (more likely) themeing, then upgrading this to work with Drupal 7's new APIs and themeing layer will not be at all straightforward.</p>
+<p>But much of that would be the case whether you upgraded or merely migrated content. So do consider an upgrade: I found out from my own very meagre personal experience at the <a href="http://cph2010.drupal.org/">Drupalcon Copenhagen</a> code sprint that a huge amount of work has been put into the upgrade path; it really seems to have paid off.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a>, <a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/drupal6.html">drupal6</a>, <a href="../../category/wordpress-tag/drupal7.html">drupal7</a>, <a href="../../category/wordpress-tag/upgrade.html">upgrade</a>, <a href="../../category/wordpress-tag/ux.html">ux</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-cd91b4fafef74babdac7c62193407763">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2011/09/17/trying-out-drupal-aegir-using-vagrant-virtual-machine-automation.html" />
+<link rel="shortlink" href="395.html" />
+  <title>Trying out Drupal Aegir using Vagrant virtual machine automation | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"FzSDMS09TfrOl8phhl8fVP-N_kd0Rn-_7PFyr65P50c","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-395 node-type-blog" >
+  <div id="skip-link">
+    <a href="395.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Trying out Drupal Aegir using Vagrant virtual machine automation        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Saturday, September 17, 2011 - 20:08</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Motivations</h2>
+<p>After attending the <a href="http://london2011.drupal.org/conference/sessions/aegir-one-drupal-rule-them-all">fascinating talk on Aegir by Antoine and Steven</a> at <a href="http://london2011.drupal.org/">DrupalCon London</a> (<a href="http://www.jpstacey.info/blog/2011/08/26/wednesday-3-antoine-beaupre-and-steven-jones-aegir-one-drupal-rule-them-all">my notes here</a>) I really wanted to try out both the Aegir framework - it's clearly come on leaps and bounds since I first saw it two years ago in Paris - and also their apt-get based installation process. But Antoine's initial problems with his live demo (soon sorted) made me slightly trepidatious about trying it out on my work laptop.</p>
+<p>Two months ago, I was able to take enough time out from there was <a href="http://oxford.geeknights.net/2011/jun-15th/">a great talk at Oxford Geek Night 22 by Branden Faulls</a> about <a href="http://vagrantup.com/">Vagrant</a>. This is a framework for managing Virtualbox VMs, and provisioning them using a number of frameworks, including Chef and Puppet. With Vagrant you can;</p>
+<ul><li>Download a generic-installation VM image (a sort of whitelabel machine) from <a href="http://vagrantbox.es">vagrantbox.es</a> (this is the slow bit)</li>
+<li>Use that VM as a starting point for a number of Vagrant configuration instances</li>
+<li>Turn the whitelabel VM into e.g. a fully configured reverse proxy, mail server or web server, in a repeatable way</li>
+<li>Start up an instance, ssh into it, work with it, reconfigure it and tear it down when you're done</li>
+</ul><p>The idea is that if you <em>do</em> want to work with VMs, Vagrant avoids you having to have e.g. three VM images if you really want to replicate your client's live load balancer setup on your local machine: you just need one image, and three version-controlled sets of provisioning instructions. You can also use Vagrant to create your production VMs, if you're happy using Virtualbox as your live platform.</p>
+<p>Below I provide a route to getting a fully installed Aegir server VM working on your local machine. I'm not going to go into the installation of Vagrant on your own system, as there's <a href="http://vagrantup.com/docs/getting-started/index.html">already pretty good documentation on how to do just that</a>. Instead, I just want to take you through downloading and provisioning the VM, and some of the pitfalls involved.</p>
+<h2>Method</h2>
+<h3>Getting a bootable VM</h3>
+<p>Once you've installed Vagrant, you need a VM image to start configuring. Images can be many hundreds of megabytes in size, so this can take quite a while to download. Using the <a href="http://www.vagrantbox.es/26/">Ubuntu 11.04 i386 server image</a> as an example, run the following anywhere on your filesystem:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant$ vagrant box add ubuntu-<span class="nu0">1104</span>-server-i386 \ 
+http:<span class="sy0">//</span>dl.dropbox.com<span class="sy0">/</span>u<span class="sy0">/</span><span class="nu0">7490647</span><span class="sy0">/</span>talifun-ubuntu-<span class="nu0">11.04</span>-server-i386.box
+<span class="br0">[</span>vagrant<span class="br0">]</span> Downloading with Vagrant::Downloaders::HTTP...
+<span class="br0">[</span>vagrant<span class="br0">]</span> Downloading box: http:<span class="sy0">//</span>dl.dropbox.com<span class="sy0">/</span>u<span class="sy0">/</span><span class="nu0">7490647</span><span class="sy0">/</span>talifun-ubuntu-<span class="nu0">11.04</span>-server-i386.box
+Progress: N<span class="sy0">%</span> <span class="br0">(</span><span class="nu0">123456</span> <span class="sy0">/</span> <span class="nu0">123456789</span><span class="br0">)</span></pre></div>
+<p>The progress indicator at least gives you an idea of how long you have to wait. It will download the image to <span class="geshifilter"><code class="text geshifilter-text">~/.vagrant.d/boxes</code></span>, so it doesn't matter where you run it from.</p>
+<p>Then, create a new configuration directory - why not call it <span class="geshifilter"><code class="text geshifilter-text">aegir</code></span> - and <span class="geshifilter"><code class="text geshifilter-text">cd</code></span> into it. In this directory you can run <span class="geshifilter"><code class="text geshifilter-text">vagrant init ubuntu-1104-server-i386</code></span> to create a new <span class="geshifilter"><code class="text geshifilter-text">VagrantFile</code></span> configuration file, but here's one I rolled earlier:</p>
+<div class="geshifilter">
+<pre class="ruby geshifilter-ruby" style="font-family:monospace;"><span class="re2">Vagrant::Config</span>.<span class="me1">run</span> <span class="kw1">do</span> <span class="sy0">|</span>config<span class="sy0">|</span>
+  <span class="co1"># The base image we just downloaded</span>
+  config.<span class="me1">vm</span>.<span class="me1">box</span> = <span class="st0">"ubuntu-1104-server-i386"</span>
+ 
+  <span class="co1"># Forward the VM "guest" port 80 to my laptop's "host" port 4567</span>
+  config.<span class="me1">vm</span>.<span class="me1">forward_port</span><span class="br0">(</span><span class="st0">"web"</span>, <span class="nu0">80</span>, <span class="nu0">4567</span><span class="br0">)</span>
+ 
+  <span class="co1"># Enable provisioning with chef solo, specifying a cookbooks path (relative</span>
+  <span class="co1"># to this Vagrantfile), and adding some recipes and/or roles.</span>
+  config.<span class="me1">vm</span>.<span class="me1">provision</span> <span class="re3">:chef_solo</span> <span class="kw1">do</span> <span class="sy0">|</span>chef<span class="sy0">|</span>
+    <span class="co1"># Store both Vagrant's default cookbooks, plus our own, locally</span>
+    chef.<span class="me1">cookbooks_path</span> = <span class="st0">"cookbooks"</span>
+ 
+    <span class="co1"># Tell chef what recipes to run.</span>
+    chef.<span class="me1">add_recipe</span><span class="br0">(</span><span class="st0">"vagrant_main"</span><span class="br0">)</span> <span class="co1"># Vagrant's own main recipe</span>
+    <span class="co1"># chef.add_recipe("aegir")        # Our custom Aegir recipe</span>
+  <span class="kw1">end</span>
+<span class="kw1">end</span></pre></div>
+<p>You can see that we've got two Chef-based recipes there, which will provision our box. I've commented out the custom Aegir recipe for now so we can get our box working. In the <span class="geshifilter"><code class="text geshifilter-text">aegir</code></span> directory, save this to <span class="geshifilter"><code class="text geshifilter-text">VagrantFile</code></span>.</p>
+<p>Next, get the Vagrant cookbooks from <a href="http://files.vagrantup.com/getting_started/cookbooks.tar.gz">http://files.vagrantup.com/getting_started/cookbooks.tar.gz</a>. Extract them so that you now have:</p>
+<ul><li>a subfolder in <span class="geshifilter"><code class="text geshifilter-text">aegir</code></span> of <span class="geshifilter"><code class="text geshifilter-text">cookbooks</code></span></li>
+<li>and subfolders in there called <span class="geshifilter"><code class="text geshifilter-text">cookbooks/vagrant_main</code></span>, <span class="geshifilter"><code class="text geshifilter-text">.../apache</code></span> and <span class="geshifilter"><code class="text geshifilter-text">.../apt</code></span></li>
+</ul><p>Now let's try out your new box! Run <span class="geshifilter"><code class="text geshifilter-text">vagrant up</code></span> to watch it configure itself, then <span class="geshifilter"><code class="text geshifilter-text">vagrant ssh</code></span> to log into it!</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant<span class="sy0">/</span>aegir$ vagrant up
+<span class="br0">[</span>default<span class="br0">]</span> Importing base box <span class="st_h">'ubuntu-1104-server-i386'</span>...
+Progress: 0<span class="sy0">%</span>
+...
+jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant<span class="sy0">/</span>aegir$ vagrant <span class="kw2">ssh</span>
+Welcome to Ubuntu 11.04 <span class="br0">(</span>GNU<span class="sy0">/</span>Linux 2.6.38-8-generic-pae i686<span class="br0">)</span>
+ 
+ <span class="sy0">*</span> Documentation:  https:<span class="sy0">//</span>help.ubuntu.com<span class="sy0">/</span>
+Last <span class="kw2">login</span>: Sun May  <span class="nu0">8</span> <span class="nu0">16</span>:01:<span class="nu0">18</span> <span class="nu0">2011</span>
+vagrant<span class="sy0">@</span>natty:~$</pre></div>
+<p>Once you've logged out, at this early stage you really ought to run <span class="geshifilter"><code class="text geshifilter-text">vagrant destroy</code></span> to get rid of it all (see later), but if you don't read this bit then there's probably no harm done....</p>
+<h3>Installing Aegir</h3>
+<p>Aegir's aptitude-based installation is a great trick - installing aegir with <span class="geshifilter"><code class="text geshifilter-text">sudo apt-get install aegir</code></span> - but it does require some user input. So to get round this we're going to write a new Chef cookbook, with a single <span class="geshifilter"><code class="text geshifilter-text">default.rb</code></span> recipe, that does the following:</p>
+<ul><li>Add the Koumbit package repository, install Koumbit's secure key and then update <span class="geshifilter"><code class="text geshifilter-text">apt-get</code></span></li>
+<li>Implement <a href="http://www.debian-administration.org/articles/394">Debian preseeding</a> with <span class="geshifilter"><code class="text geshifilter-text">debconf-set-selections</code></span> to avoid the Aegir installation wanting to ask any awkward questions.</li>
+<li>"Silently" install Aegir and its MySQL server dependencies, with the MySQL root password left as an empty string (which, <a href="http://snowulf.com/2008/12/04/truly-non-interactive-unattended-apt-get-install/">as detailed here</a>, is a minor security risk but fine for our purposes.)</li>
+</ul><p>Chef recipes are easy enough to write once you know what you're doing, but <a href="http://wiki.opscode.com/display/chef/Home">the Chef documentation is atrocious</a>. Here's how to get a cookbook for Aegir going. First, create the following directories:</p>
+<ul><li>aegir/cookbooks/aegir
+<ul><li>.../recipes</li>
+<li>.../templates
+<ul><li>.../default</li>
+</ul></li>
+</ul></li>
+</ul><p>Then, save the following into a file <span class="geshifilter"><code class="text geshifilter-text">aegir/cookbooks/aegir/recipes/default.rb</code></span>:</p>
+<div class="geshifilter">
+<pre class="ruby geshifilter-ruby" style="font-family:monospace;"><span class="co1"># Add the koumbit package repository</span>
+e = execute <span class="st0">"echo deb http://debian.koumbit.net/debian stable main &gt; /etc/apt/sources.list.d/aegir.list"</span> <span class="kw1">do</span>
+    action <span class="re3">:run</span>
+<span class="kw1">end</span>
+<span class="co1"># Add Koumbit's secure key and update</span>
+e = execute <span class="st0">"wget http://debian.koumbit.net/debian/key.asc &amp;&amp; apt-key add key.asc &amp;&amp; apt-get update"</span> <span class="kw1">do</span>
+    action <span class="re3">:run</span>
+<span class="kw1">end</span>
+ 
+<span class="co1"># Configure debian default selections for Postfix and Aegir</span>
+package <span class="st0">"debconf-utils"</span> <span class="kw1">do</span>
+    action <span class="br0">[</span><span class="re3">:install</span><span class="br0">]</span>
+<span class="kw1">end</span>
+<span class="co1"># Put debconf.selections.conf in /tmp, then debconf-set-selections it</span>
+template <span class="st0">"/tmp/debconf.selections.conf"</span> <span class="kw1">do</span>
+    source <span class="st0">"debconf.selections.erb"</span>
+    mode 0755
+    owner <span class="st0">"root"</span>
+    group <span class="st0">"root"</span>
+<span class="kw1">end</span>
+e = execute <span class="st0">"debconf-set-selections /tmp/debconf.selections.conf"</span> <span class="kw1">do</span>
+    action <span class="re3">:run</span>
+<span class="kw1">end</span>
+ 
+<span class="co1"># Now see if we can install Aegir with no user input required</span>
+package <span class="st0">"aegir"</span> <span class="kw1">do</span>
+    action <span class="br0">[</span><span class="re3">:install</span><span class="br0">]</span>
+<span class="kw1">end</span></pre></div>
+<p>This will do all the tasks you want, but it also needs some preconfigurations in the file <span class="geshifilter"><code class="text geshifilter-text">aegir/cookbooks/aegir/templates/default/debconf.selections.erb</code></span> (don't forget that stray "/default/".) Here's some examples of what you'll need in this file:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"># Postfix might not need all of these, but it's best to provide them to keep it quiet
+postfix postfix/root_address    string  
+postfix postfix/rfc1035_violation       boolean false
+postfix postfix/mydomain_warning        boolean 
+postfix postfix/mynetworks      string  127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+postfix postfix/mailname        string  MYMAILHOST.com
+postfix postfix/tlsmgr_upgrade_warning  boolean 
+postfix postfix/recipient_delim string  +
+postfix postfix/main_mailer_type        select  Satellite system
+postfix postfix/destinations    string  MYMAILHOST.com, localhost
+postfix postfix/retry_upgrade_warning   boolean 
+postfix postfix/kernel_version_warning  boolean 
+postfix postfix/not_configured  error   
+postfix postfix/mailbox_limit   string  0
+postfix postfix/relayhost       string  MYLOCALMAILRELAY.com
+postfix postfix/procmail        boolean false
+postfix postfix/bad_recipient_delimiter error   
+postfix postfix/protocols       select  all
+postfix postfix/chattr  boolean false
+ 
+# Aegir doesn't store the root password, which is good, but makes life hard
+aegir-hostmaster        aegir/db_user   string  root
+aegir-hostmaster        aegir/email     string  MYEMAILADDRESS@MYMAILHOST.com
+aegir-hostmaster        aegir/db_host   string  localhost
+aegir-hostmaster        aegir/makefile  string  
+aegir-hostmaster        aegir/site      string  aegir.local</pre></div>
+<p>You'll need to replace anything above in capital letters with your own configuration. As you can see, we've only preconfigured two software packages:</p>
+<ol><li><strong>Postfix</strong> - at the time of writing, <a href="http://drupal.org/node/1167738">Aegir's packages will not install without a working email server on the machine</a>. I think the only motivation for this is to be able to send the root user a one-time login email; after that, it's completely unnecessary to Aegir's functioning. This is frankly bizarre, but there you go.</li>
+<li><strong>aegir-hostmaster</strong> - a few defaults, including the URL you're going to use to access Aegir in a browser window (note you'll actually access it at <a href="http://aegir.local:4567/">http://aegir.local:4567/</a> , as per the port mapping in your <span class="geshifilter"><code class="text geshifilter-text">VagrantFile</code></span> above.</li>
+<li>This leaves e.g. <strong>MySQL</strong>. As we said earlier, we leave MySQL with the default root password: an empty string. Luckily, Aegir's installation also assumes an empty string and it all mostly works out.</li>
+
+<p>If you get as far as a successful Aegir installation, you can actually grab these configuration options yourself with <span class="geshifilter"><code class="text geshifilter-text">debconf-get-selections | grep postfix</code></span> etc, but I've given you them above so you don't have a bootstrapping problem of wanting to work out the configuration for something you don't already have configured!</p>
+<h3>It should just work</h3>
+<p>Now's the moment of truth: bring up your Vagrant box with these new configurations. If you've already brought the box up with <span class="geshifilter"><code class="text geshifilter-text">vagrant up</code></span>, you <em>might</em> be able to get away with <span class="geshifilter"><code class="text geshifilter-text">vagrant reload</code></span>. But for sanity's sake, I recommend tearing down the box and starting it again:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant<span class="sy0">/</span>aegir$ vagrant destroy
+<span class="br0">[</span>default<span class="br0">]</span> Forcing shutdown of VM...
+<span class="br0">[</span>default<span class="br0">]</span> Destroying VM and associated drives...
+jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant<span class="sy0">/</span>aegir$ vagrant up
+<span class="br0">[</span>default<span class="br0">]</span> Importing base box <span class="st_h">'ubuntu-1104-server-i386'</span>...
+Progress: <span class="nu0">0</span><span class="sy0">%</span>
+...</pre></div>
+<p>It will take some time, but you should see lines saying e.g:</p>
+<blockquote><p>
+...<br />
+[default] [Sat, 17 Sep 2011 14:32:35 +0000] INFO: execute[wget <a href="http://debian.koumbit.net/debian/key.asc">http://debian.koumbit.net/debian/key.asc</a> &amp;&amp; apt-key add key.asc &amp;&amp; apt-get update] sh(wget <a href="http://debian.koumbit.net/debian/key.asc">http://debian.koumbit.net/debian/key.asc</a> &amp;&amp; apt-key add key.asc &amp;&amp; apt-get update)<br />
+: stdout<br />
+...<br />
+[default] [Sat, 17 Sep 2011 14:32:45 +0000] INFO: execute[debconf-set-selections /tmp/debconf.selections.conf] sh(debconf-set-selections /tmp/debconf.selections.conf)<br />
+: stdout<br />
+...<br />
+[default] [Sat, 17 Sep 2011 14:32:45 +0000] INFO: Processing package[aegir] action install (aegir::default line 19)<br />
+: stdout<br />
+...
+</p></blockquote>
+<p>After that last line, it might take <em>ages</em> on a slow host machine for Aegir to install. Be patient (although at this point you can always ssh in and check with <span class="geshifilter"><code class="text geshifilter-text">ps</code></span> that everything's working - slowly!) Eventually it should all finish with no errors as before. </p>
+<p>Now, in your own computer's (i.e. the "host") <span class="geshifilter"><code class="text geshifilter-text">/etc/hosts</code></span> file, add a line saying:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">127.0.0.1    aegir.local</pre></div>
+<p>and you should then be able to navigate to <a href="http://aegir.local:4567/">http://aegir.local:4567/</a> in a web browser, and see the Aegir access denied error. </p>
+<p>Nearly there! Finally, to get into the admin interface, log into your Vagrant box and look for the email containing your onetime login:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">jp<span class="sy0">@</span>chaplain:~<span class="sy0">/</span>Documents<span class="sy0">/</span>programming<span class="sy0">/</span>ruby<span class="sy0">/</span>vagrant<span class="sy0">/</span>aegir$ vagrant <span class="kw2">ssh</span>
+Welcome to Ubuntu 11.04 <span class="br0">(</span>GNU<span class="sy0">/</span>Linux 2.6.38-8-generic-pae i686<span class="br0">)</span>
+ 
+ <span class="sy0">*</span> Documentation:  https:<span class="sy0">//</span>help.ubuntu.com<span class="sy0">/</span>
+Last <span class="kw2">login</span>: Sun May  8 16:01:18 2011
+vagrant<span class="sy0">@</span>natty:~$ <span class="kw2">sudo</span> <span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>mail<span class="sy0">/</span>aegir <span class="sy0">|</span> <span class="kw2">grep</span> user<span class="sy0">/</span>reset <span class="sy0">|</span> <span class="kw2">sed</span> <span class="re5">-e</span> <span class="st0">"s/local/local:4567/"</span>
+http:<span class="sy0">//</span>aegir.local:<span class="nu0">4567</span><span class="sy0">/</span>user<span class="sy0">/</span>reset<span class="sy0">/</span><span class="nu0">1</span><span class="sy0">/</span><span class="nu0">1316285605</span><span class="sy0">/</span>59081fae44d5aeda3c767995e48d165f
+vagrant<span class="sy0">@</span>natty:~$ </pre></div>
+<p>That shell one-liner gives you a onetime login link, with the right port mapping (remember, HTTP port 80 is exposed on your host machine as 4567 in the Vagrant file) which you should be able to click on and get into the Aegir admin interface. </p>
+<p>And you're done! Have fun playing with your new Aegir installation. </p>
+<p><small><i>(If Chef or Vagrant throws any major wobblies on the way, you're welcome to ask me about them in the comments. Just don't be surprised if I run away screaming.)</i></small></p>
+</ol></div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-6c12f148f3de1fc42830fc98caadbea5">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

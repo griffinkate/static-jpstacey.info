@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="http://jpstacey.lndo.site/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>J-P Stacey&#039;s recent blogposts</title>
+    <link>http://jpstacey.lndo.site/</link>
+    <description></description>
+    <language>en</language>
+     <atom:link href="http://jpstacey.lndo.site/blog/feed" rel="self" type="application/rss+xml" />
+      <item>
+    <title>Altering the length of a Drupal 8 text field that contains data</title>
+    <link>http://jpstacey.lndo.site/blog/2017-07-21/altering-length-drupal-8-text-field-contains-data</link>
+    <description>Don&#039;t look. It&#039;s awful.</description>
+     <pubDate>Fri, 21 Jul 17 11:31:42 +0100</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/689</guid>
+  </item>
+  <item>
+    <title>A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</title>
+    <link>http://jpstacey.lndo.site/blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my</link>
+    <description>If we could talk to the animals, learn their languages/ Maybe take an animal degree....</description>
+     <pubDate>Fri, 02 Jun 17 10:11:44 +0100</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/688</guid>
+  </item>
+  <item>
+    <title>Including Javascript in Behat tests, all inside a headless, virtual machine</title>
+    <link>http://jpstacey.lndo.site/blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine</link>
+    <description></description>
+     <pubDate>Tue, 30 May 17 16:51:17 +0100</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/687</guid>
+  </item>
+  <item>
+    <title>I&#039;m still here!</title>
+    <link>http://jpstacey.lndo.site/blog/2017-05-18/im-still-here</link>
+    <description>(Just not all here, as it were.)</description>
+     <pubDate>Thu, 18 May 17 20:37:03 +0100</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/686</guid>
+  </item>
+  <item>
+    <title>Quick rundown of Drupalcamp London 2017</title>
+    <link>http://jpstacey.lndo.site/blog/2017-03-07/quick-rundown-drupalcamp-london-2017</link>
+    <description>I don&#039;t have time for this, but I&#039;ve always got time for Drupal.</description>
+     <pubDate>Tue, 07 Mar 17 21:21:20 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/685</guid>
+  </item>
+  <item>
+    <title>I&#039;ll be at Drupalcamp London 2017, next weekend; see you there?</title>
+    <link>http://jpstacey.lndo.site/blog/2017-02-24/ill-be-drupalcamp-london-2017-next-weekend-see-you-there</link>
+    <description>There&#039;s Pancake Day, and St David&#039;s Day, so it must also be time for Drupalcamp London Weekend!</description>
+     <pubDate>Fri, 24 Feb 17 14:11:17 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/684</guid>
+  </item>
+  <item>
+    <title>Last of the Drupal 8 API blogposts... for now, anyway</title>
+    <link>http://jpstacey.lndo.site/blog/2017-02-21/last-drupal-8-api-blogposts-now-anyway</link>
+    <description>Half-way through, I&#039;m taking a break.</description>
+     <pubDate>Tue, 21 Feb 17 12:23:06 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/683</guid>
+  </item>
+  <item>
+    <title>Drupal 8 API: database abstraction layer</title>
+    <link>http://jpstacey.lndo.site/blog/2017-02-20/drupal-8-api-database-abstraction-layer</link>
+    <description>Learn how to find entries in the database; how to do simple, fast queries; how to do more complex, dynamic queries; and how and when to use other means like entity queries.</description>
+     <pubDate>Mon, 20 Feb 17 12:40:36 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/682</guid>
+  </item>
+  <item>
+    <title>Drupal 8 API: render API</title>
+    <link>http://jpstacey.lndo.site/blog/2017-02-03/drupal-8-api-render-api</link>
+    <description>Learn how Drupal and Symfony communicate in order to return rendered HTML and other formats, how Drupal&#039;s render pipeline works both when invoked directly or when called from within the request/response pipeline.</description>
+     <pubDate>Fri, 03 Feb 17 12:02:33 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/681</guid>
+  </item>
+  <item>
+    <title>That was Drupal Global Sprint Weekend 2017</title>
+    <link>http://jpstacey.lndo.site/blog/2017-01-30/was-drupal-global-sprint-weekend-2017</link>
+    <description>Of the issues tackled globally, 1 in 5 involved a Sheffield sprinter.</description>
+     <pubDate>Mon, 30 Jan 17 13:51:30 +0000</pubDate>
+ <dc:creator>jp.stacey</dc:creator>
+ <guid isPermaLink="true">http://www.jpstacey.info/node/680</guid>
+  </item>
+  </channel>
+</rss>

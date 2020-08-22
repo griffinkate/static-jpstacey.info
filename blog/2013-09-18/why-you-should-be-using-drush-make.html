@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="why-you-should-be-using-drush-make.html" />
+<link rel="shortlink" href="../../node/473.html" />
+  <title>Why you should be using Drush make | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"fsN16pFba8K0ExhlYohbdwTOJQQ_dBhEmrLtNcU4GLQ","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-473 node-type-blog" >
+  <div id="skip-link">
+    <a href="why-you-should-be-using-drush-make.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Why you should be using Drush make        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, September 18, 2013 - 19:32</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><a href="http://drupal.org/project/drush">Drush make</a> is an unassuming bit of Drupal-associated technology that <a href="https://drupal.org/node/1476014">sits at the heart of practically every distribution hosted on drupal.org</a>. It's the ideal way to build a codebase, really: a clear shorthand format for all the manual effort of downloading the right versions of this and that, and putting it together exactly how you want it.</p>
+<p>You might have heard of Drush make; you might even have dabbled with it yourself; in fact, you might even be <em>using </em>it in your projects. But do you know the many, many ways in which it's so very, very good? Here are a few.</p>
+<h2>Get amazing "compression" on your codebase</h2>
+<p>Drush make turns megabytes of contributed site code into kilobytes of makefile entries. The codebase for the <a href="https://drupal.org/project/views">Views</a> project can be downloaded as a 1.56MB gzipped archive at the time of writing; an equivalent makefile entry -'projects[views][version] = 3.7' - is 31 bytes, including the newline.</p>
+<p>You've probably worked out where I'm going with this: the difference between those two file sizes can be said to define a kind of pseudo-"compression factor"; in this case, nearly 53,000. It's cheating, of course: gunzipping is not the same as automating a dynamic download. But there's a clear case for wanting to pass around - and maintain - a multi-kilobyte makefile in your development team, rather than a multi-megabyte gzip or its rsync equivalent.</p>
+<h2>Utilize drupal.org's version control</h2>
+<p>When work is done on a contributed module, d.o tracks those changes for you, in its own git repositories. If you're storing your own copies of those modules, in your own version control, then unless you're doing something very clever with git submodule (which I don't recommend) then you're basically repeating drupal.org's version control yourself, with no clear advantage. Not only can you start off with quite a large codebase, but after a year or two of incremental upgrades, your repository can be much bigger still.</p>
+<p>The difference between two releases of a big module can sometimes be made up of many atomic changesets. Especially when something goes wrong, it can be useful to step through those changesets and see what might have caused the problem: regression testing, effectively. If you've flattened them all into one re-commit into your own repository, then you're out of luck.</p>
+<h2>Avoid forking code</h2>
+<p>When you take code from drupal.org, remove its original VCS history, and then add it to your own VCS repository, you have effectively severed any formal ties between your copy and the original code. This is a worse consequence them the previously discussed problem of mere history duplication or flattening: the new copy is effectively <em>forked</em>, in principle if not in practice.</p>
+<p>That means that, for the rest of the lifetime of the website, you and your team and any freelancers should all resist hacking that module. Because if you do, and if there's no obvious agreed sign that you've done so, then the next developer to take on the project has to know what you've hacked; or you need to use a special subfolder; or that next developer needs to have the presence of mind to use something like <a href="https://drupal.org/project/md5check">md5check</a>to see what's changed. Even then, unless you leave perfectly crafted and unambiguous log messages, they will still have to work out why you hacked it.</p>
+<p>Even if your only "hacks" are patches applied from drupal.org issue queues, you've no guarantee they'll be approved by the time the module needs upgrading to a new d.o release. A simple security sweep of out-of-date modules could roll back your hack, which was so important that you just had to fork the code, and - often subtly - cripple your site.</p>
+<p>Drush make avoids all of this in the first instance, by simply preventing you hacking and then re-committing contributed code. Whenever the site is rebuilt, it happens on top of a scorched earth: your hacks are gone. Although that makes rapid, indiscriminate changes harder, it also means you can rely on your codebase to always consist of the d.o standard contributions.</p>
+<h2>Track, apply and contribute patches</h2>
+<p>However, just because Drush make is preventing you from <em>in situ </em>forking and hacking of contributed modules, as part of your own version control, that doesn't mean you can't still do it. But rather than trusting your luck to a code fork, Drush make lets you apply patches to any given d.o project, every time the site is built, as a list of URLs to patch files. If you've found a bug, fire up a d.o issue and submit a patch file. Then reference that URL in your makefile, and every time you redeploy your site, the project will be re-patched.</p>
+<p>You could even host the patches on your own server(s), but ask yourself: why? However foolish your reasons for patching might seem to you, they're no less foolish than ending up in a situation where some proprietary fileserver has fallen over, but d.o is chugging along and if only you had submitted your patch file there, with a suitably sheepish explanation on the issue....</p>
+<p>Look at it this way: for years at Torchbox, we tried to work out how we might contribute to the community, especially through code. It now turns out that, by moving to a make-powered workflow, we have effectively forced ourselves to contribute more via patches than we've contributed by all other methods combined. It's simply easier to post your fix on d.o than not. Drush make encourages giving back.</p>
+<p>And, for the really adventurous: you can even consider hacking I mean patching core; safe in the knowledge that, one by one, each patch can be rolled back. </p>
+<h2>Reference non-d.o modules and themes</h2>
+<p>The syntax of a makefile has been understandably made as straightforward as possible for the most likely use case, that of a module or theme being downloaded from drupal.org. That's why a project like Views can be "compressed" into a makefile reference totalling so few bytes. However, that doesn't mean that you're restricted to projects - modules, themes or profiles - hosted on d.o alone.</p>
+<p>The syntax is easily extensible to cover projects hosted anywhere, as long as they're either (a) maintained using a popular VCS (CVS, subversion, git, bazaar) or (b) accessible at a persisting URL in a popular archive format (tar, gzip, zip). So you can host projects on github, Sourceforge or your own hosting provision, and Drush make is able to use them to build your codebase.</p>
+<h2>Control 3rd-party library versions</h2>
+<p>Through the libraries API, Drush make can generate and later interpret entries for the third-party libraries you tend to use: TinyMCE, jQuery UI, PHPMailer; if it can be sourced as a URL or VCS repository, Drush make can find it.</p>
+<p>(The one disadvantage of this is when e.g. Sourceforge changed all of their download URLs. Although that hasn't happened very often, unlike the URL of e.g. Colorbox. All of this can be improved by local mirrors, although see the discussion on patches above: if you're going to mirror libraries, then ensure you're moving to a more reliable source when you do so.)</p>
+<h2>Deploy everwhere</h2>
+<p>Well, not quite everywhere. But any server you can install Drush on, you can build a make-powered website on. Drush doesn't need sudo: if you've got access to where the codebase is kept, then if nothing else you can build your site in a temporary location and swap things round (more on that in a later post....)</p>
+<h2>So why isn't everyone using Drush make?</h2>
+<p>I'd claim that Drush make is absolutely the perfect tool for your initial site build. And if you combine it with e.g. an install profile, then you've got a way of building an entire codebase, ready for a potentially complex installation.</p>
+<p>That said, there are a few reasons why Drush make isn't a panacea for the requirements of ongoing (re-)deployment. Depending on your existing deployment workflow, it might be difficult to fit makefiles into your way of doing things. The cleverer your methods - rsyncs, git hooks, anything like that - then the harder it will be to incorporate a build phase. Makefiles literally build the contributed code, plus libraries, and nothing else. And an existing site doesn't always lend itself to conversion into a makefile at a later date (not least because by then you might have already forked contrib, which has to be unravelled by hand!)</p>
+<p>But I hope to talk about those a bit more in a future post. Right now, even if not everyone is using Drush make, <em>you can still give it a go</em>. Go on: if you don't have Drush, <a href="https://drupal.org/node/1791676">install it now</a> (regardless of whether or not you use Drush make, Drush alone will change your life). Drush make comes with it, so next thing is to start playing!</p>
+<p>On your next site build, try using a makefile; keep it in sites/default with the site's custom code. Or maybe generate a makefile for your production site, and then try redeploying it yourself on a different server. It might take a few goes, but when it works then not only do you get all the advantages above, but also a make-powered site build is a wonderful thing to watch.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/drush.html">drush</a>, <a href="../../category/tags/drush-make.html">drush-make</a>, <a href="../../category/tags/codebase.html">codebase</a>, <a href="../../category/wordpress-tag/build.html">build</a>, <a href="../../category/tags/contrib.html">contrib</a>, <a href="../../category/wordpress-tag/software.html">software</a>, <a href="../../category/wordpress-tag/tool.html">tool</a>, <a href="../../category/tags/commandline.html">commandline</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d199e5b2592a2e5fbef0d1798ab1dacb">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

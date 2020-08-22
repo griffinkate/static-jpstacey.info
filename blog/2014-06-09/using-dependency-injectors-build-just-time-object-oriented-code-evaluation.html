@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="using-dependency-injectors-build-just-time-object-oriented-code-evaluation.html" />
+<link rel="shortlink" href="../../node/531.html" />
+  <title>Using dependency injectors to build "just-in-time" object-oriented code evaluation | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"cg13oMzhLhD6IJPGpQIOCvx053hQGa6kWvU6Y1bFCek","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-531 node-type-blog" >
+  <div id="skip-link">
+    <a href="using-dependency-injectors-build-just-time-object-oriented-code-evaluation.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Using dependency injectors to build &quot;just-in-time&quot; object-oriented code evaluation        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, June 9, 2014 - 15:58</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><em>Note: if you haven't yet watched Star Wars, especially <cite>The Empire Strikes Back</cite>, there are spoilers below. But go watch it! I'll wait. Seriously: it's a long film, but it's worth it. While you're watching it, I'll watch it as well: how's that?</em></p>
+<p>Frameworks use <a href="http://code.tutsplus.com/tutorials/dependency-injection-in-php--net-28146">dependency injection</a> as a software pattern to make their code more testable: if you've got some code that's expecting a real-live request from a real-live webserver, but you can inject a mock request into it, then unit tests can be written against that code. But dependency injection is often difficult to get right, and difficult to sustain: it's all too easy to start hiding dependencies inside, later on.</p>
+<p>Enter a dependency injection container: <a href="http://symfony.com/doc/current/components/dependency_injection/introduction.html">Symfony has a fully-featured one</a>; more lightweight options exist, like <a href="http://pimple.sensiolabs.org/">Pimple</a>.</p>
+<h2>What if I don't <em>have</em> any dependencies?</h2>
+<p>So what, you might ask? Well, DI containers are basically a way of assembling code logic, so that the logic can be executed at a later date. They're almost like a simplistic virtual PHP environment, within your PHP environment. In fact, a bit like <span class="geshifilter"><code class="text geshifilter-text">eval()</code></span>, only with a limited logic that's much more robust and maintainable.</p>
+<p>Can we use a DI container to rebuild <span class="geshifilter"><code class="text geshifilter-text">eval()</code></span>? Do we have the technology? Can we can make it better than it was? Better... stronger... faster? Well, yes!</p>
+<h2>The most important reveal in the Star Wars universe, reimagined in code</h2>
+<p>Imagine watching <cite>Star Wars IV: A New Hope</cite> the first time round (as it was the first one released) and thinking, hey, Luke's an orphan. Maybe Obi Wan Kenobi was secretly his dad! It makes a lot of sense, especially if you see the films as a kind of sci-fi fairytale, rather than a straight story. Anyway, if you ever thought that, then <cite>The Empire Strikes Back</cite> would have been a real eye-opener for you.</p>
+<p>In honour of such a delusion, here's some code that encapsulates it in PHP:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// father-of-luke.php</span>
+ 
+<span class="kw2">class</span> Person
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$name</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> setFather<span class="br0">(</span>Person <span class="re0">$father</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$father</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Darth Vader"</span>
+            <span class="sy0">&amp;&amp;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Luke Skywalker"</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"No! That's not true! That's impossible!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">else</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"Hi, Dad!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="re0">$obiWan</span> <span class="sy0">=</span> <span class="kw2">new</span> Person<span class="br0">(</span><span class="st0">"Obi Wan Kenobi"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$darth</span>  <span class="sy0">=</span> <span class="kw2">new</span> Person<span class="br0">(</span><span class="st0">"Darth Vader"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$luke</span>   <span class="sy0">=</span> <span class="kw2">new</span> Person<span class="br0">(</span><span class="st0">"Luke Skywalker"</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="re0">$luke</span><span class="sy0">-&gt;</span><span class="me1">setFather</span><span class="br0">(</span><span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$argv</span><span class="br0">[</span>1<span class="br0">]</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$argv</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">==</span> <span class="st0">"darth"</span><span class="br0">)</span> ? <span class="re0">$darth</span> <span class="sy0">:</span> <span class="re0">$obiWan</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>The above is a script that you can run, to decide which of the two Jedis from <cite>A New Hope</cite> was actually Luke's father. If you run it like this:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">$ php father-of-luke.php
+Hi, Dad<span class="sy0">!</span></pre></div>
+<p>it assumes Obi Wan is Luke's father, but if you run it like this:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">$ php father-of-luke.php darth
+No<span class="sy0">!</span> That<span class="st_h">'s not true! That'</span>s impossible<span class="sy0">!</span></pre></div>
+<p>then it—spoiler!—gives you a quote from the film. That's all it does.</p>
+<h2>Using Symfony's DI container to build this code, in code</h2>
+<p>Let's see if we can rebuild the procedural bits of the above, using Symfony's DI container. We're going to use <a href="https://getcomposer.org/">composer</a> to bring that in: if you haven't used it yet, I can really recommend it.</p>
+<p>To configure composer actions, you create a <span class="geshifilter"><code class="text geshifilter-text">composer.json</code></span> file:</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">{</span>
+    <span class="st0">"require"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"symfony/dependency-injection"</span><span class="sy0">:</span> <span class="st0">"2.4.*"</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Put this in the same directory as <span class="geshifilter"><code class="text geshifilter-text">father-of-luke.php</code></span>, then run: <span class="geshifilter"><code class="text geshifilter-text">composer update</code></span>. It should fetch just the one Symfony component, and at the same time create a <span class="geshifilter"><code class="text geshifilter-text">vendor/autoload.php</code></span> that you can include to ensure <a href="http://www.php.net//manual/en/language.oop5.autoload.php">your PHP scripts can autoload any classes it finds</a>.</p>
+<p>We'll do that very thing. Create this new version of our script, now using a DI container:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// father-of-luke-container.php</span>
+ 
+<span class="kw2">class</span> Person
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$name</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> setFather<span class="br0">(</span>Person <span class="re0">$father</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$father</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Darth Vader"</span>
+            <span class="sy0">&amp;&amp;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Luke Skywalker"</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"No! That's not true! That's impossible!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">else</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"Hi, Dad!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// Include composer's autoload, to let PHP find the Symfony classes.</span>
+<span class="kw1">require_once</span> <span class="st0">"vendor/autoload.php"</span><span class="sy0">;</span>
+<span class="co1">// Bring in the DI container and the reference object (for building references).</span>
+use Symfony\Component\DependencyInjection<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\Reference<span class="sy0">;</span>
+<span class="re0">$sc</span> <span class="sy0">=</span> <span class="kw2">new</span> DependencyInjection\ContainerBuilder<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'obiWan'</span><span class="sy0">,</span> <span class="st_h">'Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Obi Wan Kenobi"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'darth'</span><span class="sy0">,</span>  <span class="st_h">'Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Darth Vader"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'luke'</span><span class="sy0">,</span>   <span class="st_h">'Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Luke Skywalker"</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="sy0">-&gt;</span><span class="me1">addMethodCall</span><span class="br0">(</span><span class="st_h">'setFather'</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="kw2">new</span> Reference<span class="br0">(</span>
+        <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$argv</span><span class="br0">[</span>1<span class="br0">]</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$argv</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">==</span> <span class="st0">"darth"</span><span class="br0">)</span> ? <span class="st0">"darth"</span> <span class="sy0">:</span> <span class="st0">"obiWan"</span>
+    <span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="re0">$luke</span> <span class="sy0">=</span> <span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'luke'</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>The end result is the same, and it looks like basically we've had to write a lot more code to get there. Not impressive, is it?</p>
+<p>Well, that's a good point. But notice now that we never actually instantiate the darth/obiWan object we don't use. We register the <em>idea</em> of "darth" and "obiWan" references, with a classname (as a string, not as a class) and the future argument(s) to pass to each; then we register the idea of a "luke" object, which immediately after <span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span>-ion has a method called on it, with a future argument that depends on the command line parameter: but it's only at the point of calling <span class="geshifilter"><code class="text geshifilter-text">-&gt;get()</code></span> on the DI container that the required objects in the current dependency tree—and no others—are instantiated.</p>
+<p>This is the bit that I claim is like a sanitized version of <span class="geshifilter"><code class="text geshifilter-text">eval()</code></span>: but instead of building code to be evaluated by concatenating strings together, you build it using objects, and method calls on those objects. In both cases, the methodology means that very little actually happens until that structure is evaluated (or even <span class="geshifilter"><code class="text geshifilter-text">eval()</code></span>-uated.)</p>
+<h2>What happens if we autoload everything?</h2>
+<p>The really exciting bit is when we remove <span class="geshifilter"><code class="text geshifilter-text">Person</code></span> from the executable file, and put it in its own classfile. We can train composer's <span class="geshifilter"><code class="text geshifilter-text">autoload.php</code></span> to find it for us, if we make sure we use the PSR-0 naming scheme to match our subfolders to our object namespaces.</p>
+<p>Move the <span class="geshifilter"><code class="text geshifilter-text">Person</code></span> object into a file <span class="geshifilter"><code class="text geshifilter-text">src/Family/Person</code></span>, and prefix the file with a <span class="geshifilter"><code class="text geshifilter-text">namespace</code></span> declaration as follows:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// src/Family/Person.php</span>
+ 
+<span class="kw2">namespace</span> Family<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> Person
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$name</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> setFather<span class="br0">(</span>Person <span class="re0">$father</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$father</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Darth Vader"</span>
+            <span class="sy0">&amp;&amp;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">==</span> <span class="st0">"Luke Skywalker"</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"No! That's not true! That's impossible!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">else</span>
+        <span class="br0">{</span>
+            <span class="kw1">print</span> <span class="st0">"Hi, Dad!<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>We can then tell composer to look for namespaces beginning <span class="geshifilter"><code class="text geshifilter-text">Family/</code></span>, in PSR-0-standard subfolders, starting at <span class="geshifilter"><code class="text geshifilter-text">src/</code></span>, by changing the <span class="geshifilter"><code class="text geshifilter-text">composer.json</code></span> file to look like this:</p>
+<div class="geshifilter">
+<pre class="javascript geshifilter-javascript" style="font-family:monospace;"><span class="br0">{</span>
+    <span class="st0">"require"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"symfony/dependency-injection"</span><span class="sy0">:</span> <span class="st0">"2.4.*"</span>
+    <span class="br0">}</span><span class="sy0">,</span>
+    <span class="st0">"autoload"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"psr-0"</span><span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"Family"</span><span class="sy0">:</span> <span class="st0">"src/"</span> <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Create a copy of the script called <span class="geshifilter"><code class="text geshifilter-text">just-container.php</code></span> and remove all traces of objects from it:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// just-container.php</span>
+ 
+<span class="kw1">require_once</span> <span class="st0">"vendor/autoload.php"</span><span class="sy0">;</span>
+use Symfony\Component\DependencyInjection<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\Reference <span class="sy0">;</span>
+<span class="re0">$sc</span> <span class="sy0">=</span> <span class="kw2">new</span> DependencyInjection\ContainerBuilder<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'obiWan'</span><span class="sy0">,</span> <span class="st_h">'Family\Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Obi Wan Kenobi"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'darth'</span><span class="sy0">,</span>  <span class="st_h">'Family\Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Darth Vader"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="st_h">'luke'</span><span class="sy0">,</span>   <span class="st_h">'Family\Person'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">setArguments</span><span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">"Luke Skywalker"</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="sy0">-&gt;</span><span class="me1">addMethodCall</span><span class="br0">(</span><span class="st_h">'setFather'</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="kw2">new</span> Reference<span class="br0">(</span>
+        <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$argv</span><span class="br0">[</span>1<span class="br0">]</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$argv</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">==</span> <span class="st0">"darth"</span><span class="br0">)</span> ? <span class="st0">"darth"</span> <span class="sy0">:</span> <span class="st0">"obiWan"</span>
+    <span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="re0">$luke</span> <span class="sy0">=</span> <span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'luke'</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>Thanks to the just-in-time nature of the <span class="geshifilter"><code class="text geshifilter-text">use</code></span> statement, <span class="geshifilter"><code class="text geshifilter-text">Family\Person</code></span> isn't even registered as a <em>class</em> until <span class="geshifilter"><code class="text geshifilter-text">-&gt;get()</code></span> is called, never mind an object! Huge class structures can be safely hidden from your main script and only introduced <em>just in time</em>, right at the point that you evaluate your dependency tree.</p>
+<h2>Performance improvements in action</h2>
+<p>Let's simulate performance overhead with some <span class="geshifilter"><code class="text geshifilter-text">sleep()</code></span> statements. Imagine that Obi Wan is no longer a <span class="geshifilter"><code class="text geshifilter-text">Family\Person</code></span> object: he's a <span class="geshifilter"><code class="text geshifilter-text">Family\Goodie</code></span> object. Here's what one of those looks like, saved to <span class="geshifilter"><code class="text geshifilter-text">src/Family/Goodie.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co1">// src/Family/Goodie.php</span>
+ 
+<span class="kw2">namespace</span> Family<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> Goodie <span class="kw2">extends</span> Person
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">print</span> <span class="st0">"<span class="es4">$name</span> is a good guy, but he takes 5 seconds to start.<span class="es1">\n</span>"</span><span class="sy0">;</span>
+        <a href="http://www.php.net/sleep"><span class="kw3">sleep</span></a><span class="br0">(</span>5<span class="br0">)</span><span class="sy0">;</span>
+        parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="re0">$name</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">print</span> <span class="st0">"Autoloading Goodie: waiting 2 seconds.<span class="es1">\n</span>"</span><span class="sy0">;</span>
+<a href="http://www.php.net/sleep"><span class="kw3">sleep</span></a><span class="br0">(</span>2<span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>We use two delays: one to simulate PHP having to parse the file and register what might instead be a huge and complex class; and the other to simulate a resource-intensive constructor function on the object. We'll also need to change the <span class="geshifilter"><code class="text geshifilter-text">Family\Person</code></span> string in <span class="geshifilter"><code class="text geshifilter-text">just-container.php</code></span> to read <span class="geshifilter"><code class="text geshifilter-text">Family\Goodie</code></span>, just for the <span class="geshifilter"><code class="text geshifilter-text">obiWan</code></span> DI registration.</p>
+<p>What happens now, if we run our script so that <span class="geshifilter"><code class="text geshifilter-text">Goodie.php</code></span> is both parsed and then an object created from its class?</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">$ <span class="kw1">time</span> php just-container.php
+... <span class="nu0">7.048</span> total</pre></div>
+<p>Just over seven seconds, as we'd expect. But if <span class="geshifilter"><code class="text geshifilter-text">luke</code></span>'s dependency tree does <em>not</em> include <span class="geshifilter"><code class="text geshifilter-text">Family\Goodie</code></span>?</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">$ <span class="kw1">time</span> php just-container.php darth
+... <span class="nu0">0.034</span> total</pre></div>
+<p>A fraction of a second. <span class="geshifilter"><code class="text geshifilter-text">Goodie.php</code></span> has clearly been completely ignored by the DI container, as we would expect and most definitely desire.</p>
+<h2>Summary</h2>
+<p>Dependency injection is an important code pattern anyway, but here I've demonstrated (with my tongue slightly in my cheek) that a DI container can be used to assemble and then evaluate semi-arbitrary code: and what we lose in arbitrariness, we gain in strength and transparency. Am I saying you should use a DI container to do this? Well, maybe: it really depends on your use case. Am I saying you can, if you really want? Absolutely!</p>
+<p>Most importantly, this demonstrates what's so good about a DI container: that its just-in-time loading of classes and instantiating of objects can really improve the handling of potentially resource-hungry PHP classes and objects. Better, stronger and—as I promised—faster.</p>
+<p>Also, I've totally given away the big reveal in the original Star Wars trilogy. My next tutorial will be all about Dumbledore and Snape: I bet you can't wait.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/hacking.html">hacking</a>, <a href="../../category/wordpress-category/layers.html">layers</a>, <a href="../../category/wordpress-category/paradigms.html">paradigms</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/dependencyinjection.html">dependencyinjection</a>, <a href="../../category/tags/di.html">di</a>, <a href="../../category/tags/symfony.html">symfony</a>, <a href="../../category/tags/pimple.html">pimple</a>, <a href="../../category/tags/eval.html">eval</a>, <a href="../../category/wordpress-tag/php.html">php</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-c9fe79592476cf6ecedd4947430bc14e">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

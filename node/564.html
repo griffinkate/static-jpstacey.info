@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-12-09/if-youre-using-version-control-you-should-also-use-more-one-branch.html" />
+<link rel="shortlink" href="564.html" />
+  <title>If you're using version control you should also use more than one branch | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"1HCPKS-6nVKktuWS-cdsqpqEVFVz78h0kGxYpy3QNXA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-564 node-type-blog" >
+  <div id="skip-link">
+    <a href="564.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          If you&#039;re using version control you should also use more than one branch        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, December 9, 2014 - 12:19</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>There's some things that seem so obvious that you don't expect to have to say them. For example, I know that people coming from a background of subversion and other non-distributed VCSs tend to avoid branching unless they have to; but it's a work of a moment to say "honestly, branching in git has a tiny impact, and merging back is almost always very good indeed, in comparison."</p>
+<p>But you never expect to have to explain to seasoned DVCS users, who know full well how to branch, why they shouldn't have a whole team working on just master. Right? I mean, branching in a DVCS is an amazing experience: once you get started on moving up and down the branch, the fetched remote commits, the reflog... it's tough, but you level up to the point where switches come on inside your head. Even if you decide that a specific standardized git workflow (like git flow) isn't quite the fit for you, why would you then come up with a branchless one of your own?</p>
+<p>The thing is, I've heard of teams doing this twice now, with two different rationales for why branches either shouldn't or needn't be used. I want to present those arguments below, along with reasons for why I think branching is too important to sacrifice to those concerns.</p>
+<h2>The "syntactic merging" argument (i.e. you shouldn't branch)</h2>
+<p>Git merging is stupid. That's not an insult; it's meant to be stupid, as it was built that way: <a href="http://www.gelato.unsw.edu.au/archives/git/0504/2178.html">"very repeatable and non-clever"</a>. That means that, for example, git does not take into account the language your file is written in, and try to e.g. respect Javascript object integrity when merging. If git encounters anything it can't merge from very simple algorithms, it marks it as a conflict and leaves it for a human to make the decision.</p>
+<p>Between what git doesn't understand (and reports) and what it does understand (and merges correctly) there is in theory a chance for git to merge, but get it wrong. And this is the nub of the "syntactic merging" argument for not branching:</p>
+<blockquote><p>At the point of re-merging a branch, git does it syntactically, not semantically: so it's dangerous to merge [and branching should therefore never be attempted.]</p>
+</blockquote>
+<p>You can see where this comes from: when you merge two branches (your own, into master-with-new-commits), you're relying on git to know which bits of which files should and shouldn't be touched. And because git has no concept of any programming language's native file structuring, it could get them wrong. In theory, it could get them very wrong. Of course, this theoretical problem is not unique to git, or to VCSs: some merge more cleverly than others, but we all know how stupid the smartest AIs can be.</p>
+<p>I have to say, I have never seen this happen. Or rather, I've seen git merge syntactically e.g. start a diff mid-way through a Doxygen comment, and then end it mid-way through another; but I've never seen the merge on its own have a drastic effect. When something's gone wrong, it's been a much more complex problem: often to do with team communication and large—huge—changes being done elsewhere that the current work ought to have taken account of: that is, a social problem, not a coding one.</p>
+<p>Of course, then, that's not to say it doesn't happen, and you should certainly take pains to make sure you're not likely to be affected by it e.g:</p>
+<ul><li>With a large team of differing skills, recommend a senior developer make merges into master: someone who can check the diff by eye and walk the developer through its repercussions.</li>
+<li>Proactively manage the potential for overlaping and conflicting work, and stop pretending that "agile" means "we don't need project managers".</li>
+<li>Write tests to cover as much code/functionality as possible, using unit/behavioural testing frameworks respectively.</li>
+</ul><p>All of these will not just help you avoid conflicts during merging, but are also things you ought to be considering doing on your project anyway, because they're good practice. But even if you don't think these measures are enough, the "git merges are non-clever" argument is not sufficient argument to drop branches altogether. Why?</p>
+<p>Because if you're working on master, and if someone else works on master, and you want to fetch the changes on master, you must either let git merge them, or rebase them manually. What do you think most of your dev team will do, most of the time? Even if you don't merge, you <em>do</em> merge: you just don't know it.</p>
+<p>You can of course teach all your developers git rebase. I agree! developers should know how to rebase. But is rebasing really a simpler procedure, less likely to go wrong, than using branches? And so, even if you try to get people to rebase after fetch (and you can't police their own personal machines), aren't you just bringing that senior developer back in to eyeball changes—only in another guise?</p>
+<h2>The "many local masters" argument (i.e. you needn't branch)</h2>
+<p>Another team explained to me how, while they all worked on master, they were each working on their own local copies of master. Let me explain.</p>
+<p>Only features which were signed off to QA could get to their "blessed" repository. However, as a team, they had effectively decided to outlaw git push. Instead, senior developers (see, there's no avoiding having a senior developer somewhere!) were the ones permitted to log in and pull into the "merge" repository. Everyone else could then pull those changes; indeed, were encouraged to pull very regularly from "merge".</p>
+<p>But! how do you get such changes to other team members e.g. QA? Well, every machine (VMs, thankfully) was on a VPN, and everyone's VM had everyone else's public keys on them. And so QA could pull from your repository, into their repository, and test your edits there.</p>
+<p>In theory, this looked like the platonic ideal of a multi-primary, maximally distributed DVCS setup, with no origins and no artificial hierarchy to weigh the team. In practice, it was difficult to leverage, and ended up more difficult, the more any two developers' work overlapped. </p>
+<p>The biggest difficulty was that you could never be completely sure, at the point of telling QA to pull your local master, of exactly what else QA had on their local master. It might contain approved features, which hadn't yet gone through the senior developer onto merge, and hence weren't available to you at the point that you signed off. It might even contain rejected features, that they hadn't thought to roll back before pulling your changes. You literally could not say with confidence "what works in my environment will work in QA's environment when they pull the changes".</p>
+<p>What does this signify? In essence, <em>many local masters is still only one master</em>. It's just that each developer carries an incomplete copy of that "ideal master" with holes in some places and extra cruft in others, right up to the point where they pull: at which time, their master tries to turn itself into the "ideal master" and lots of things can happen.</p>
+<p>At any given point in time, each developer's computer is ignorant of changes going on elsewhere, that will at the point of pulling them suddenly be incorporated into their timeline. Who knows what problems they will cause? And because each feature's development has no start and end points in the codebase, everyone chases a moving target, with any new combinatorial bugs being their problem to fix; it's only skill and luck together (not including the occasional exceptional circumstances that people suddenly remember with an "oh, yeah, that one time") that everyone's managed to hit each target thus far.</p>
+<h2>Why you should (feel free to) branch</h2>
+<p>Here's a key tenet of working with a DVCS, especially as opposed to a VCS:</p>
+<blockquote><p>commit often; pull/push regularly</p>
+</blockquote>
+<p>What do I mean by that? Well, with a VCS, every time you committed, your commits were visible to other people. Even working on branches, you might have a co-developer working on the same branch as you: if your commits break the head of your shared branch, then it interrupts both of your work until it's fixed. So you're loath to commit: storing up just enough changes that it would be a disaster if you lost them all to a local disk failure before doing so.</p>
+<p>With a DVCS, you can gleefully commit as granularly as your local work permits or requires: keep on stacking up commits. Then, when you're happy to make them public (and maybe after tidying them up with a rebase), you can pull any changes (on your branch) and then push those commits, and you're now safe </p>
+<p>However, if everyone's working on the same branch, committing often and pulling regularly very rapidly makes a mess of your own local history. Here's an example.</p>
+<h2>What happens when you do/don't branch</h2>
+<p>A few practical examples might help convince you. Let's say a team of three developers (A, B and C) follow a git branching model: git flow is the one I'm used to, but it needn't be so. Here's what a pseudo-log of commits on the master branch can easily look like:</p>
+<ol><li>31 May (A): bugfix B1 released</li>
+<li>24 May (C): feature F2 released</li>
+<li>11 May (B): feature F1 released</li>
+<li>1 May (A): first release</li>
+</ol><p>That's the ideal scenario: obviously it can get more complicated, but it needn't. And if people are doing a lot of heavy merging, then sometimes merge commits can leak through. But with a well-disciplined team, they needn't. Also, this doesn't detail all the commits on other branches, which will be numerous: but then, as a historical record, it needn't do so. That's not its purpose.</p>
+<p>Compare this to what happens when the team doesn't branch, or at any rate are discouraged from branching, meaning that:</p>
+<ul><li>Potentially, whenever you pull changes from master, you get a local merge commit</li>
+<li>Because you need to pull changes from master regularly, they can often interfere with your ongoing work, meaning you can no longer rebase.</li>
+</ul><p>Here's the pseudo-log now:</p>
+<ol><li>31 May (A): bugfix B1 behaves slightly differently after F2 and so more work is required; released</li>
+<li><strong>28 May (A): merged feature F2 into A's master</strong></li>
+<li>24 May (C): feature F2 finished and released</li>
+<li><strong>17 May (A): possible bug B1 spotted and work done on master</strong></li>
+<li><strong>12 May (C): merged feature F1 into C's master</strong></li>
+<li>11 May (B): feature F1 released</li>
+<li><strong>5 May (C): first part of F2 committed</strong></li>
+<li>1 May (A): first release</li>
+</ol><p>Commits in bold are new (to the public record, anyway; before they could have been rebased away locally.) As you can see, local merge commits are now generated. In addition, the merging of released features into local masters makes local rebasing prior to release impossible or at any rate very difficult without forcing changes up to the origin (and hence disrupting the whole team who would have to fetch those changes.)</p>
+<p>Finally, compare this to what happens when you use a multi-distributed pull workflow, with a new QA team member D, meaning that:</p>
+<ul><li>D will be merging code from different developers who are at different points on their own masters</li>
+<li>D might not remember to back out changes before QAing another developer.</li>
+</ul><p>Here's an idea of how that pseudo-log will now look:</p>
+<ol><li><strong>10 June</strong> (<b>D</b>): bugfix B1 released</li>
+<li>24 May (<strong>D</strong>): feature F2 finished and released</li>
+<li><strong>23 May (D): merge commit on pulling changes from C on feature F2 to QA them: approved.</strong></li>
+<li><strong>17 May (D): merge commit on pulling changes from A on bugfix B1 to QA them: rejected (C's code breaks them).</strong></li>
+<li><strong>16 May (D): merge commit on pulling changes from C on feature F2 to QA them; rejected.</strong></li>
+<li><strong>12 May (C): merged feature F1 into local master</strong></li>
+<li>11 May (<strong>D</strong>): feature F1 released</li>
+<li><strong>10 May (D): merge commit on pulling changes from B to QA them; approved.</strong></li>
+<li><strong>5 May (C): first part of F2 committed</strong></li>
+<li>1 May (A): first release</li>
+</ol><p>Changes again are in bold.</p>
+<p>You might disagree with some of the details, but I hope you appreciate where the extra complexity in the logs is coming from. You'll also note that bugfix B1 was released late, because on 30 May A's hard drive died, and because he had no remote repository to safely push to (only D can pull into merge), he lost all his changes! At least he avoided that conflict with feature F2....</p>
+<h2>Summary: time travel is less useful than many alternative presents</h2>
+<p>When people try to sell the benefits of version control, they often present it as a way of being able to time-travel. I've used this metaphor myself, in <a href="http://www.jpstacey.info/blog/2013-06-20/basic-and-intermediate-git">my Basic Git talk to Torchbox</a>. If you find yourself in a present you don't like (you deleted a file three years ago that now you really need), you can travel back to a past you prefer (four years ago) and at least work out what went wrong. But travelling in time, purely to observe, is only of limited value, and <em>this way of seeing version control makes your usage of it it no smarter than incremental backups.</em></p>
+<p>I would argue instead that <em>version control's strength comes from branching</em>. Branching is the way that you truly decouple one developer's work from another: however temporarily. And maybe, yes, sometimes that decoupling means you have to pay in time and effort later, to re-couple their separated work back together and resolve the conflicts. But it's only really through branching, that version control can be elevated above comparisons with quite trivial backup strategies.</p>
+<p>Ultimately, the purpose of modern version control systems, especially of distributed ones, is less as a method of time travel, and more as <em>a way of managing multiple independent and often conflicting present times.</em> If you watched the slides of my talk linked above, then maybe I misled you about what a branching version control work flow permits you to do: forget <em>Twelve Monkeys</em>; forget even <em>Back to the Future</em>. Branched workflows permit you to harness <a href="http://en.wikipedia.org/wiki/Primer_(film)#mediaviewer/File:Time_Travel_Method-2.svg">the complexity of Primer</a>: safer than that presented in the film itself, but no less powerful.</p>
+<p>And ultimately, if you don't branch, you're not version-controlling. You're just making very complicated backups, with an untidy log.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/culture.html">culture</a>, <a href="../category/wordpress-category/paradigms.html">paradigms</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/git.html">git</a>, <a href="../category/tags/dvcs.html">dvcs</a>, <a href="../category/wordpress-tag/workflow.html">workflow</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-312dde0332a6889e3b17944624c36b0f">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

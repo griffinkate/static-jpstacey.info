@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-11-10/reflog-gits-breadcrumb-trail-leading-you-back-home.html" />
+<link rel="shortlink" href="566.html" />
+  <title>The reflog is git's breadcrumb trail, leading you back home | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"v-jbiezeqGl5MvnxVaWT_JD7XX8_0X_OTJppSyDfzJg","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-566 node-type-blog" >
+  <div id="skip-link">
+    <a href="566.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          The reflog is git&#039;s breadcrumb trail, leading you back home        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, November 10, 2014 - 19:56</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>It's very easy to get lost—or feel like you're going to get lost—when you're embarking on more complicated branch operations in git. What branch are you on? What branch will you be on, once you've done this next step? Where are you at the end of a rebase? How do you find where you were, before you started rebasing?</p>
+<p>What you need ideally is a "browser history" or "trail of breadcrumbs" detailing all the steps you've (recently) made in your local git repository. Git provides this, and it's called the reflog.</p>
+<p>Accessing the reflog is simple enough: you type <span class="geshifilter"><code class="text geshifilter-text">git reflog</code></span> and you get a long list of—especially if you've been working on this repository a lot—all manner of confusing items. Some of them look like commit messages; some of them are clearly added in some automated fashion: but while  <a href="http://alblue.bandlem.com/2011/05/git-tip-of-week-reflogs.html">advanced users can prune and manage the list</a> in all sorts of complex ways, there's clearly a lot that needs explaining before we get to that stage.</p>
+<p><a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase-i">This Atlassian tutorial</a> explains the reflog thus:</p>
+<blockquote><p>Every time the current HEAD gets updated (by switching branches, pulling in new changes, rewriting history or simply by adding new commits) a new entry will be added to the reflog.</p></blockquote>
+<p>You should note that this definition is both:</p>
+<ul><li>more inclusive than you'd think: changes to HEAD that you don't explicitly instigate (but which git internals need to perform certain tasks) can add extra items into the reflog</li>
+<li>less inclusive than you'd think: operations on branch and tag references, that don't actually impact on HEAD at all, won't appear in the reflog.</li>
+</ul><p>However, the fact that each movement of HEAD (which is, after all, "what have I got checked out right now?") is tracked in the reflog makes it a very powerful history of your movements up, down and around the repository's commit tree.</p>
+<p>Here's an example of how different git actions can add items to the reflog, starting with a new repository and then merging, rebasing and eventually backing out of changes:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;"><span class="co0"># 1. Creating a repository, making two commits, then moving between them</span>
+<span class="co0"># Adds 4 items to reflog (=4)</span>
+git init
+<span class="kw2">touch</span> README.txt
+git add README.txt
+git commit <span class="co0"># adds to reflog</span>
+<span class="kw2">vim</span> README.txt
+git commit <span class="re5">-a</span> <span class="co0"># adds to reflog</span>
+git checkout HEAD~ <span class="co0"># adds to reflog</span>
+git checkout master <span class="co0"># adds to reflog</span>
+ 
+<span class="co0"># 2. Checking out a new branch, making a commit, then merging into master</span>
+<span class="co0"># Adds 4 items to reflog (=8)</span>
+git checkout <span class="re5">-b</span> alpha <span class="co0"># adds to reflog</span>
+<span class="kw2">vim</span> README.txt
+git commit <span class="re5">-a</span> <span class="co0"># adds to reflog</span>
+git checkout master <span class="co0"># adds to reflog</span>
+git merge alpha <span class="co0"># adds to reflog</span>
+ 
+<span class="co0"># 3. Checking out a new branch; make two commits; rebase onto master as one</span>
+<span class="co0"># Adds 6 items to reflog (=14)</span>
+git checkout alpha <span class="co0"># adds to reflog</span>
+<span class="kw2">vim</span> README.txt
+git commit <span class="re5">-a</span> <span class="co0"># adds to reflog</span>
+<span class="kw2">vim</span> README.txt
+git commit <span class="re5">-a</span> <span class="co0"># adds to reflog</span>
+git rebase <span class="re5">-i</span> master <span class="co0"># squashing 2nd commit; adds 3 items to reflog</span>
+ 
+<span class="co0"># 4. Make a new commit on beta by mistake, then force branch back and</span>
+<span class="co0"># create a new branch for that mistaken commit</span>
+<span class="co0"># Adds 4 items to reflog (=18)</span>
+git checkout <span class="re5">-b</span> beta
+<span class="kw2">vim</span> README.txt
+git commit <span class="co0"># adds to reflog</span>
+git checkout HEAD~ <span class="co0"># adds to reflog</span>
+git branch <span class="re5">-f</span> beta <span class="co0"># does NOT add to reflog! HEAD is not moved.</span>
+<span class="co0"># Now if you try to run gitk, gitx or git-log, you find you can no longer</span>
+<span class="co0"># see the mistaken commit. But if it's in the reflog, you can check it out</span>
+<span class="co0"># using the following reflog-specific syntax.</span>
+git checkout HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span> <span class="co0"># adds to reflog</span>
+git checkout <span class="re5">-b</span> gamma <span class="co0"># adds to reflog</span></pre></div>
+<p>Here's the resulting commit tree from the above operations:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">       master   alpha   gamma
+            |     |     |
+o-----o-----o-----o-----o &lt;- HEAD
+            \     |
+             \   beta
+              \
+               o-----o &lt;- pre-rebase commits; eventually discarded</pre></div>
+<p>... and, finally, the corresponding reflog of all 18 items (note in reverse order!) with whitespace and comments added, and long commit hashes truncated with "[...]", purely to aid clarity:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;"><span class="co0"># 4. Make a new commit on beta by mistake, then force branch back and</span>
+<span class="co0"># create a new branch for that mistaken commit</span>
+9918a94 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span>: checkout: moving from 9918a94<span class="br0">[</span>...<span class="br0">]</span> to gamma
+9918a94 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>: checkout: moving from 1f29d28<span class="br0">[</span>...<span class="br0">]</span> to HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>
+1f29d28 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>: checkout: moving from beta to HEAD~
+9918a94 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">3</span><span class="br0">}</span>: commit: Accidentally check into beta
+ 
+<span class="co0"># 3. Checking out a new branch; make two commits; rebase onto master as one</span>
+1f29d28 HEAD<span class="sy0">@</span><span class="br0">{</span>4<span class="br0">}</span>: rebase <span class="re5">-i</span> <span class="br0">(</span>finish<span class="br0">)</span>: returning to refs<span class="sy0">/</span>heads<span class="sy0">/</span>beta
+1f29d28 HEAD<span class="sy0">@</span><span class="br0">{</span>5<span class="br0">}</span>: rebase <span class="re5">-i</span> <span class="br0">(</span>squash<span class="br0">)</span>: Committing <span class="st_h">'one-beta'</span> to README.txt
+22b7c81 HEAD<span class="sy0">@</span><span class="br0">{</span>6<span class="br0">}</span>: rebase <span class="re5">-i</span> <span class="br0">(</span>start<span class="br0">)</span>: checkout master
+e6e448e HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">7</span><span class="br0">}</span>: commit: Committing <span class="st_h">'two-beta'</span> to README.txt
+22b7c81 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">8</span><span class="br0">}</span>: commit: Committing <span class="st_h">'one-beta'</span> to README.txt
+33066d2 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">9</span><span class="br0">}</span>: checkout: moving from master to beta
+ 
+<span class="co0"># 2. Checking out a new branch, making a commit, then merging into master</span>
+33066d2 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">10</span><span class="br0">}</span>: merge alpha: Fast-forward
+b9f989c HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">11</span><span class="br0">}</span>: checkout: moving from alpha to master
+33066d2 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">12</span><span class="br0">}</span>: commit: Committing <span class="st_h">'one-alpha'</span> to README.txt
+b9f989c HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">13</span><span class="br0">}</span>: checkout: moving from master to alpha
+ 
+<span class="co0"># 1. Creating a repository, making two commits, then moving between them</span>
+b9f989c HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">14</span><span class="br0">}</span>: checkout: moving from 2beabb7<span class="br0">[</span>...<span class="br0">]</span> to master
+2beabb7 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">15</span><span class="br0">}</span>: checkout: moving from master to 2beabb7
+b9f989c HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">16</span><span class="br0">}</span>: commit: Committing <span class="st_h">'one'</span> to README.txt
+2beabb7 HEAD<span class="sy0">@</span><span class="br0">{</span><span class="nu0">17</span><span class="br0">}</span>: commit <span class="br0">(</span>initial<span class="br0">)</span>: First commit</pre></div>
+<p>Hopefully it should be clear by comparison of the three different representations above of what's happened, that the reflog is very much a comprehensive history of what you've been up to with the local HEAD reference. And hopefully you should also therefore be able to see that, by simple use of the <span class="geshifilter"><code class="text geshifilter-text">HEAD@{...}</code></span> references, you can feel comfortable that, if you relaly, really need it, you always have a breadcrumb trail leading you back to home or thereabouts.</p>
+<p><em>(Now, have a look at some <a href="http://alblue.bandlem.com/2011/05/git-tip-of-week-reflogs.html">further</a> <a href="http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html">references</a> for the next level up in reflog and commit-object management!)</em></p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/layers.html">layers</a>, <a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/git.html">git</a>, <a href="../category/tags/history.html">history</a>, <a href="../category/wordpress-tag/undo.html">undo</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d321709676208524f9ccb59f66563445">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

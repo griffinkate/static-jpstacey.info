@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="drupal-8-api-fields.html" />
+<link rel="shortlink" href="../../node/665.html" />
+  <title>Drupal 8 API: fields | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"R670mZbpy5mmIGcUdFG0sAi2ZiyoVLPrZ9NAewjmL5g","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-665 node-type-blog" >
+  <div id="skip-link">
+    <a href="drupal-8-api-fields.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: fields        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, November 8, 2016 - 14:16</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-10-19/drupal-8-api-plugins">Plugins</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-26/drupal-8-api-entities">Entities</a></li>
+</ul><h2>Field configuration on bundles provides field values on nodes</h2>
+<p>In Drupal terminology the word "fields" is used a lot to mean slightly different things, all related. This is partly a consequence of the way the concept has grown organically, through <a href="https://www.drupal.org/project/cck">Content Construction Kit</a> in Drupals 4-6 and <a href="https://api.drupal.org/api/drupal/modules%21field%21field.module/group/field/7.x">fields in Drupal 7 core</a>. Let's clarify one or two ideas, through a real-world example.</p>
+<h3>Example: an event</h3>
+<p>Let's say we've created an event content type (we might also call "event" a bundle for node content entities). We want to model this simple real-world situation.</p>
+<blockquote><p>
+An <strong>event</strong> has a <strong>start date</strong> and a <strong>location</strong>.
+</p></blockquote>
+<p>Let's try to continue using this "domain-specific" terminology below, while we talk about what Drupal needs to do in order to flexibly model the domain.</p>
+<h3>Field configuration associated with the event bundle</h3>
+<p>As we've discussed previously, the "event" node bundle is itself a configuration entity. Alongside the bundle, we represent field configuration so that:</p>
+<blockquote><p>
+An <strong>event</strong> bundle (for node content entities) has associated with it:</p>
+<ul><li>A <strong>start date</strong> field configuration, containing information about the label and granularity for all event start dates (<em>field.field.node.event.field_start_date</em>).</li>
+<li>A <strong>location</strong> field configuration, containing similar information, but also details of how e.g. the longitude and latitude might be represented (<em>field.field.node.event.field_location</em>).</li>
+
+</ul></blockquote>
+<p>These configurations provide semantic meaning for the underlying start date and location: the start date is a point in time; the location is a point in space. In brackets at the end are the <span class="geshifilter"><code class="text geshifilter-text">name</code></span>s of each configuration entity, as it would be stored in the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> table. This dot-separated name comes from the fact that the configuration is, respectively: managed by the field module; pertains to a field configuration; restricted to node entities; associated with an event node; and has a name "field_start_date" or "field_location."</p>
+<h3>Field storage associated with the node entity type</h3>
+<p>When a field has been added to one bundle (for a given entity type), it <em>could</em> be added in future to a different bundle. So events might have a start date; and a notice for some kind of special offer might also have a start date: in a sense, these are the same "date-ish" concepts, such that you could envisage (for example) all active content on the site being sorted by start date, or compared by location.</p>
+<p>This results in separate configuration, independent of bundles, for <strong>field storage</strong>:</p>
+<blockquote><p>
+Node content entities have associated with them:</p>
+<ul><li>A <strong>start date</strong> field storage configuration, containing information about the storage type (which in turn determines the SQL columns used) and the cardinality (<em>field.storage.node.field_start_date</em>).</li>
+<li>A <strong>location</strong> field storage configuration, containing similar information (<em>field.storage.node.field_location</em>).</li>
+</ul></blockquote>
+<p>The dot-separated notation of the config names at the end of each line above imply that the field storage configuration no longer depends on event, and thus could be shared across bundles; but it does depend on the entity type, and so could not be associated with a user, or a taxonomy term.</p>
+<p>(Note that earlier versions of Drupal used to refer to field storage as "field", and field configuration as "field instance", so you might still see this terminology.)</p>
+<h3>Optional: field display options for a bundle in form and view mode</h3>
+<p>The following isn't essential, and doesn't depend on any one field, but will ultimately appear when display modes are saved:</p>
+<blockquote><p>
+An <strong>event</strong> node bundle's display has associated with it:</p>
+<ul><li>A <strong>view</strong> display mode, of type <strong>default</strong>, containing information about how both start date and location might appear to the <strong>site visitor</strong> (<em>core.entity_view_display.node.event.default</em>).</li>
+<li>A <strong>form</strong> display mode, of type <strong>default</strong>, containing information about how both start date and location might appear to the <strong>content editor</strong> (<em>core.entity_form_display.node.event.default</em>).</li>
+</ul></blockquote>
+<p>Again we look at the dotted names, and it's clear that: there's no longer any field-dependent element to these configuration entities; and entity display modes, and types, are provided by core.</p>
+<h3>Field values on a node</h3>
+<p>Finally, now that field configuration tells us what fields <em>mean</em>, field storage tells us how they can be <em>stored</em>, and entity view mode configuration tells us how they can be <em>displayed</em>, we can represent our original real-world example in a PHP abstraction:</p>
+<blockquote><p>
+A node entity object in PHP, of bundle <strong>event</strong>, can be populated with field values:</p>
+<ul><li>A <strong>start date</strong> field value.</li>
+<li>A <strong>location</strong> field value.</li>
+</ul><p>Data stored in these field values can be accessed using both a longhand syntax and a shortcut notation, by means of the typed data API which will be discussed later.
+</p></blockquote>
+<p>In summary, then: any one event node has a unique start date (location) field value; all event nodes share (start date/location) field configuration and display modes; and all nodes, of all types, have the potential to access shared (start date/location) field storage.</p>
+<h2>Enabling bundles for contact entities</h2>
+<p>A bundle (which defines a [sub-]type of content entity) is itself a config entity. Although these are simpler than content entities, we'll still need to do some setup work to define them and make them creatable and editable:</p>
+<ol><li>An entity class, which we call <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span>, with annotations and any other methods as discussed earlier; modifications to <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> to reference this.</li>
+<li>Any custom controllers required for creating new config entities e.g. <span class="geshifilter"><code class="text geshifilter-text">ContactTypeForm</code></span>.</li>
+<li>New routes for the new config entity type; modifications to existing routes for <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> content entity type to support choosing a contact type first.</li>
+</ol><p>We need to modify our existing routes, to introduce an intermediate step for creating a new contact: the contact type must be selected first, in the same way as creating a new node first involves choosing what content type will be added.</p>
+<h3>1. Create config entity class <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span> and change <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span>'s annotation</h3>
+<p>We define the <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span> config entity in <span class="geshifilter"><code class="text geshifilter-text">src/Entity/ContactType.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Entity<span class="sy0">;</span>
+ 
+use Drupal\Core\Config\Entity\ConfigEntityBundleBase<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Defines the Contact Type configuration entity.
+ *
+ * @ConfigEntityType(
+ *   id = "contact_type",
+ *   label = @Translation("Contact type"),
+ *   handlers = {
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "list_builder" = "Drupal\d8api\Controller\ContactTypeListBuilder",
+ *     "form" = {
+ *       "add" = "Drupal\d8api\Form\ContactTypeForm",
+ *       "edit" = "Drupal\d8api\Form\ContactTypeForm",
+ *       "delete" = "Drupal\Core\Entity\ConfigEntityDeleteForm",
+ *     },
+ *     "access" = "Drupal\d8api\Access\ContactAccessControlHandler",
+ *   },
+ *   admin_permission = "administer contact types",
+ *   config_prefix = "contact_type",
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *   },
+ *   bundle_of = "contact",
+ *   entity_keys = {
+ *     "id" = "id",
+ *     "label" = "label"
+ *   },
+ *   links = {
+ *     "canonical" = "/contact-type/{contact_type}",
+ *     "edit-form" = "/contact-type/{contact_type}/edit",
+ *     "delete-form" = "/contact-type/{contact_type}/delete",
+ *     "collection" = "/contact-type/list"
+ *   },
+ * )
+ */</span>
+<span class="kw2">class</span> ContactType <span class="kw2">extends</span> ConfigEntityBundleBase <span class="br0">{</span>
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> isLocked<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">!==</span> <span class="kw4">NULL</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>This is very similar to the <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> entity we defined previously: most of the heavy lifting is done by the annotation comment, which defines some extra fields specific to config entities (<span class="geshifilter"><code class="text geshifilter-text">config_prefix</code></span> and <span class="geshifilter"><code class="text geshifilter-text">config_export</code></span>). Later, you should be able to see config entities stored in the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> table, whose name and content satisfy those two annotations respectively.</p>
+<p>By inheriting from <span class="geshifilter"><code class="text geshifilter-text">ConfigEntityBundleBase</code></span> we also inherit all the relevant behaviours and interfaces from config entities; the only remaining method we define is <span class="geshifilter"><code class="text geshifilter-text">isLocked()</code></span>. This just prevents editing of the config entity (e.g. its ID) after it's been saved: this is referenced by contacts as their bundle identifier, so might otherwise lead to orphaned content.</p>
+<p>Once our <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span> exists, we must complete the connection between it and <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span>. In the bundle's annotation comment, we already declared it was a <span class="geshifilter"><code class="text geshifilter-text">bundle_of = "contact"</code></span>: however, we need to make this declaration bi-directional.</p>
+<p>Modify <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span>'s comment annotation to include the following:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="coMULTI">/* (unchanged) */</span>
+ 
+<span class="co4">/**
+ * Defines the Contact content entity.
+ *
+ * @ContentEntityType(
+ *   (unchanged)
+ *   entity_keys = {
+ *     (unchanged)
+ *     "bundle" = "type"
+ *   },
+ *   bundle_entity_type = "contact_type",
+ *   bundle_label = @Translation("Contact type"),
+ * )
+ */</span>
+<span class="kw2">class</span> Contact <span class="kw2">extends</span> ContentEntityBase implements ContentEntityInterface <span class="br0">{</span>
+  <span class="coMULTI">/* (unchanged) */</span>
+<span class="br0">}</span></pre></div>
+<p>Because <span class="geshifilter"><code class="text geshifilter-text">baseFieldDefinitions()</code></span> already calls its <span class="geshifilter"><code class="text geshifilter-text">parent::</code></span> method, we don't need to do anything else for bundle-specific fields to be applied to a <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> entity.</p>
+<h3>2. Extend existing controllers for <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span> routes</h3>
+<p>As with the <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> entity, we need to extend two controllers; first, a <span class="geshifilter"><code class="text geshifilter-text">ContactTypeForm</code></span> for adding and editing contact types:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\BundleEntityFormBase<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityTypeInterface<span class="sy0">;</span>
+use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Form controller: add/edit form for contact types.
+ */</span>
+<span class="kw2">class</span> ContactTypeForm <span class="kw2">extends</span> BundleEntityFormBase <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> form<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$form</span> <span class="sy0">=</span> parent<span class="sy0">::</span><span class="me2">form</span><span class="br0">(</span><span class="re0">$form</span><span class="sy0">,</span> <span class="re0">$form_state</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="re0">$type</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entity</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">operation</span> <span class="sy0">==</span> <span class="st_h">'add'</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#title'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Add contact type'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span> <span class="br0">{</span>
+      <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#title'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Edit %label contact type'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'%label'</span> <span class="sy0">=&gt;</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#title'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Name'</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'textfield'</span><span class="sy0">,</span>
+      <span class="st_h">'#default_value'</span> <span class="sy0">=&gt;</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#required'</span> <span class="sy0">=&gt;</span> <span class="kw4">TRUE</span><span class="sy0">,</span>
+      <span class="st_h">'#size'</span> <span class="sy0">=&gt;</span> 30<span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'machine_name'</span><span class="sy0">,</span>
+      <span class="st_h">'#default_value'</span> <span class="sy0">=&gt;</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#maxlength'</span> <span class="sy0">=&gt;</span> EntityTypeInterface<span class="sy0">::</span><span class="me2">BUNDLE_MAX_LENGTH</span><span class="sy0">,</span>
+      <span class="st_h">'#disabled'</span> <span class="sy0">=&gt;</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">isLocked</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#machine_name'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span>
+        <span class="st_h">'exists'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'Drupal\d8api\Entity\ContactType'</span><span class="sy0">,</span> <span class="st_h">'load'</span><span class="br0">]</span><span class="sy0">,</span>
+        <span class="st_h">'source'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">protectBundleIdElement</span><span class="br0">(</span><span class="re0">$form</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Save the entity, so it has an ID.</span>
+    parent<span class="sy0">::</span><span class="me2">save</span><span class="br0">(</span><span class="re0">$form</span><span class="sy0">,</span> <span class="re0">$form_state</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Redirect to the entity's own page.</span>
+    <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">setRedirect</span><span class="br0">(</span>
+      <span class="st_h">'entity.contact_type.canonical'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'contact_type'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entity</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Second, a <span class="geshifilter"><code class="text geshifilter-text">ContactTypeListBuiler</code></span>, to list all contact types:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Controller<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\EntityInterface<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityListBuilder<span class="sy0">;</span>
+use Drupal\Core\Url<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Controller: list of contact type entity.
+ */</span>
+<span class="kw2">class</span> ContactTypeListBuilder <span class="kw2">extends</span> EntityListBuilder <span class="br0">{</span>
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildHeader<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$header</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'ID'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$header</span><span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Label'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="re0">$header</span> <span class="sy0">+</span> parent<span class="sy0">::</span><span class="me2">buildHeader</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildRow<span class="br0">(</span>EntityInterface <span class="re0">$entity</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'label'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$entity</span><span class="sy0">-&gt;</span><span class="me1">link</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="re0">$row</span> <span class="sy0">+</span> parent<span class="sy0">::</span><span class="me2">buildRow</span><span class="br0">(</span><span class="re0">$entity</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Although this seems like a lot of extra code, it's very similar to the <span class="geshifilter"><code class="text geshifilter-text">Contact</code></span> controllers implemented previously (changing the behaviour of the submit form, and extending the columns used in the listing table, respectively), so we don't discuss it further here.</p>
+<h3>3. Add new routing configuration and modify existing routing</h3>
+<p>We trivially add five routes for the new contact type CRUD(i) actions:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">entity.contact_type.canonical:
+  path: '/contact-type/{contact_type}'
+  defaults:
+    _entity_view: 'contact_type'
+    _title: 'Contact type'
+  requirements:
+    _entity_access: 'contact_type.view'
+ 
+entity.contact_type.collection:
+  path: '/contact-type/list'
+  defaults:
+    _entity_list: 'contact_type'
+    _title: 'Contact type list'
+  requirements:
+    _permission: 'view contact_type entry'
+ 
+entity.contact_type.add_form:
+  path: '/contact-type/add'
+  defaults:
+    _entity_form: 'contact_type.add'
+    _title: 'Contact type'
+  requirements:
+    _entity_create_access: 'contact_type'
+ 
+entity.contact_type.edit_form:
+  path: '/contact-type/{contact_type}/edit'
+  defaults:
+    _entity_form: 'contact_type.edit'
+    _title: 'Edit contact type'
+  requirements:
+    _entity_access: 'contact_type.edit'
+ 
+entity.contact_type.delete_form:
+  path: '/contact-type/{contact_type}/delete'
+  defaults:
+    _entity_form: 'contact_type.delete'
+    _title: 'Delete contact type'
+  requirements:
+    _entity_access: 'contact_type.delete'</pre></div>
+<p>These are almost a cut-and-paste of the routes we added for contacts previously, so we don't discuss them here.</p>
+<p>We also modify the existing "add contact" route, to expect a bundle ID; and add an intermediate step where the bundle can be chosen:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">entity.contact.add_list_types:
+  path: '/contact/add'
+  defaults:
+    _controller: '\Drupal\d8api\Controller\TutorialController::listContactTypes'
+    _title: 'Add contact by type'
+  requirements:
+    _entity_create_access: 'contact'
+ 
+entity.contact.add_form:
+  path: '/contact/{type}/add'
+  defaults:
+    _entity_form: 'contact.add'
+    _title: 'Create contact'
+  requirements:
+    _entity_create_access: 'contact'</pre></div>
+<p>The new method to choose a bundle could be added anywhere; but we add it to our existing <span class="geshifilter"><code class="text geshifilter-text">TutorialController</code></span> for simplicity's sake:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="coMULTI">/* (unchanged) */</span>
+<span class="kw2">class</span> TutorialController <span class="kw2">extends</span> ControllerBase <span class="br0">{</span>
+  <span class="coMULTI">/* (unchanged) */</span>
+  <span class="co4">/**
+   * Controller: /contact/add
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> listContactTypes<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$markup</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'contact_type'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">loadMultiple</span><span class="br0">(</span><span class="br0">)</span> <span class="kw1">as</span> <span class="re0">$type</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="co1">// Later, we can use theming to write this HTML properly.</span>
+      <span class="re0">$markup</span> <span class="sy0">.=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span>
+        <span class="st0">"&lt;li&gt;&lt;a href='/contact/{<span class="es4">$type-&gt;id</span>()}/add'&gt;Add @type&lt;/a&gt;&lt;/li&gt;"</span><span class="sy0">,</span>
+        <span class="br0">[</span><span class="st_h">'@type'</span> <span class="sy0">=&gt;</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+      <span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$markup</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$markup</span> <span class="sy0">=</span> t<span class="br0">(</span><span class="st_h">'There are no contact types defined yet.'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span> <span class="br0">{</span>
+      <span class="re0">$markup</span> <span class="sy0">=</span> <span class="st0">"&lt;ul&gt;<span class="es4">$markup</span>&lt;/ul&gt;"</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="re0">$markup</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>In this new method, we take advantage of the inherited dependency injection (DI) on <span class="geshifilter"><code class="text geshifilter-text">ControllerBase</code></span> to retrieve an entity manager service: we then ask this service for all the <span class="geshifilter"><code class="text geshifilter-text">contact_type</code></span> entities (referencing the <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span>'s <span class="geshifilter"><code class="text geshifilter-text">@ConfigEntityType(id)</code></span> annotation property) and list them. Right now, we assemble the markup tag by tag: later we'll look at theming in Drupal, which provides better methods for doing this.</p>
+<p>With the routing in place, you can also add new actions (quick links below a page's title) and tasks (local tab groups) in <span class="geshifilter"><code class="text geshifilter-text">d8api.links.action.yml</code></span> and <span class="geshifilter"><code class="text geshifilter-text">d8api.links.task.yml</code></span>; this is exactly the equivalent of the existing actions and tasks for contact entities:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"># Entity bundle action links.
+d8api.contact_type_add:
+  route_name: entity.contact_type.add_form
+  title: 'Add contact type'
+  appears_on:
+    - entity.node_type.collection
+    - entity.contact_type.collection
+    - entity.contact_type.canonical
+d8api.contact_type_list:
+  route_name: entity.contact_type.collection
+  title: 'View contact types'
+  appears_on:
+    - entity.node_type.collection
+    - entity.contact_type.canonical</pre></div>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;"># Entity bundle tasks.
+d8api.contact_type.view:
+  route_name: entity.contact_type.canonical
+  base_route: entity.contact_type.canonical
+  title: 'View'
+ 
+d8api.contact_type.edit_form:
+  route_name: entity.contact_type.edit_form
+  base_route: entity.contact_type.canonical
+  title: 'Edit'
+ 
+d8api.contact_type.delete_form:
+  route_name: entity.contact_type.delete_form
+  base_route: entity.contact_type.canonical
+  title: 'Delete'</pre></div>
+<p>Note! You should also change the existing "Add contact" action to use the <span class="geshifilter"><code class="text geshifilter-text">entity.contact.add_list_types</code></span> route:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">d8api.contact_add:
+  route_name: entity.contact.add_list_types
+  # (unchanged)</pre></div>
+<p>This allows the action button to access the intermediate "pick a contact type" page, which is now a requirement for adding a new contact.</p>
+<h2>Adding a bundle, and adding fields to the bundle</h2>
+<p>We now have a UI for adding new bundles; but if you wanted to add some bundles and field configurations initially, the recommended method is to use configuration YAML files as below.</p>
+<p>However, you might sometimes want to manipulate fields programmatically, so further below is an example of how to manipulate field configuration associated with a bundle directly, using PHP.</p>
+<h3>Adding bundle and fields with YAML</h3>
+<p>Let's use YAML to create a "Person" contact type, with a "job title" field that (for now) won't appear on other contact types. For this, we need at least three and ideally five YAML files:</p>
+<ul><li>The <span class="geshifilter"><code class="text geshifilter-text">person</code></span> bundle, for person contacts.</li>
+<li>The <span class="geshifilter"><code class="text geshifilter-text">field_jobtitle</code></span> field configuration, and field storage configuration.</li>
+<li>(Optional) two lots of display configuration for person fields, for both the editor's form and the site visitor's view.</li>
+</ul><p>While the last item is technically optional, you should always provide display configuration for fields, as otherwise they might not be editable, or visible. For nodes and content types, Drupal's UI does that for you; building such a UI for contacts isn't really in scope here, though.</p>
+<p>Below are the five YAML files, each with a very brief discussion (we'll talk about configuration management and export files later.) You can put these YAML files in the <span class="geshifilter"><code class="text geshifilter-text">config/install/</code></span> folder of the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module; but note that, to install the configuration, you'd need to disable and then re-enable the module: if so, delete all existing contact entities first.</p>
+<p>Note also that, if you want to generate any of your own YAML files from scratch, you'll need a unique UUID for each configuration file: duplicating them accidentally will cause an install to fail. You could use <a href="https://www.uuidgenerator.net/">an online generator</a>, but Drupal also provides a <span class="geshifilter"><code class="text geshifilter-text">uuid</code></span> service which will generate them for you:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'print \Drupal::service("uuid")-&gt;generate() . "\n";'</span></pre></div>
+<p>Remember that, if you want to use this service in a class, you should use DI, as discussed previously.</p>
+<h4>1. The person contact type</h4>
+<p>This is the simplest YAML file; save it to <span class="geshifilter"><code class="text geshifilter-text">d8api.contact_type.person.yml</code></span> in the subfolder:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">uuid: db09a040-edfd-4ac6-80d8-3bbf9931b3ea
+langcode: en
+status: true
+dependencies: {  }
+id: person
+label: Person</pre></div>
+<p>As we're discussing configuration management later, we won't go into any further detail about this here. Between the configuration file name(-spacing), and the file itself, there's no need to state any further dependencies.</p>
+<h4>2 &amp; 3. The job title field and field storage configuration</h4>
+<p>We start with the storage, because that underpins the field itself; <span class="geshifilter"><code class="text geshifilter-text">field.storage.contact.field_jobtitle.yml</code></span> should read:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">uuid: 9de4eef5-c3af-4df2-8e23-616f6e4906c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - d8api
+id: contact.field_jobtitle
+field_name: field_jobtitle
+entity_type: contact
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false</pre></div>
+<p>The configuration defines things like the cardinality and translatability of the field. You can see that it declares <span class="geshifilter"><code class="text geshifilter-text">dependencies: module: d8api</code></span> (for the contact entity type), and specifies storage configuration <em>for</em> a field on <span class="geshifilter"><code class="text geshifilter-text">entity_type: contact</code></span>; but it doesn't include any dependency on the person contact type: yet. Such a dependency arises in the field configuration instead, which is in <span class="geshifilter"><code class="text geshifilter-text">field.field.contact.person.field_jobtitle.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">uuid: bbf7091a-2d16-4b11-8668-2f5a9bcf0099
+langcode: en
+status: true
+dependencies:
+  config:
+    - d8api.contact_type.person
+    - field.storage.contact.field_jobtitle
+id: contact.person.field_jobtitle
+field_name: field_jobtitle
+entity_type: contact
+bundle: person
+label: Job title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string</pre></div>
+<p>The field configuration depends on both of our previous configuration YAML files: the person contact type, and the field storage; the file itself defines things like the label and default value for the field.</p>
+<h4>4 &amp; 5. The person field display configuration</h4>
+<p>Form and view both ideally need display configuration. These are long files, because they have small elements of configuration for each field (including both the person-specific <span class="geshifilter"><code class="text geshifilter-text">field_jobtitle</code></span> <em>and</em> the contact-wide <span class="geshifilter"><code class="text geshifilter-text">name</code></span> field. However, they should hopefully be self-explanatory.</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">core.entity_form_display.contact.person.default.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">uuid: 3bc6a78e-e67d-43fe-a379-3ebaede024f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - d8api.contact_type.person
+    - field.field.contact.person.field_jobtitle
+  module:
+    - text
+id: contact.person.default
+targetEntityType: contact
+bundle: person
+mode: default
+content:
+  field_jobtitle:
+    type: string_textfield
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }</pre></div>
+<p><span class="geshifilter"><code class="text geshifilter-text">core.entity_view_display.contact.person.default.yml</code></span>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">uuid: 971a595e-0832-4b25-ba04-22f9910e63cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - d8api.contact_type.person
+    - field.field.contact.person.field_jobtitle
+id: contact.person.default
+targetEntityType: contact
+bundle: person
+mode: default
+content:
+  field_jobtitle:
+    type: string
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  name:
+    label: above
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }</pre></div>
+<h3>Adding bundle and fields manually and/or programmatically</h3>
+<p>Let's create a new form controller, which will permit an administrator to select an existing contact type through Form API, and either add or remove a "phone" field from it. This isn't a replacement for the fully-featured UI that node content types usually have for adding and removing fields, but should hopefully demonstrate some of the important principles.</p>
+<p>The following code can be saved to <span class="geshifilter"><code class="text geshifilter-text">src/Form/AddRemoveFieldForm.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Entity\EntityManagerInterface<span class="sy0">;</span>
+use Drupal\Core\Entity\EntityFieldManagerInterface<span class="sy0">;</span>
+use Drupal\Core\Form\FormBase<span class="sy0">;</span>
+use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Form: add/remove field on contact type bundle.
+ */</span>
+<span class="kw2">class</span> AddRemoveFieldForm <span class="kw2">extends</span> FormBase <span class="br0">{</span>
+  <span class="co4">/**
+   * Implements __construct().
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    EntityManagerInterface <span class="re0">$entityManager</span><span class="sy0">,</span>
+    EntityFieldManagerInterface <span class="re0">$entityFieldManager</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span> <span class="sy0">=</span> <span class="re0">$entityManager</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityFieldManager</span> <span class="sy0">=</span> <span class="re0">$entityFieldManager</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>ContainerInterface <span class="re0">$container</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span>
+      <span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'entity.manager'</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'entity_field.manager'</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> getFormId<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="st_h">'add_remove_field_form'</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Save contact types in form state for later.</span>
+    <span class="re0">$types</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'contact_type'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">loadMultiple</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="st_h">'types'</span><span class="sy0">,</span> <span class="re0">$types</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Use them, right now, to populate the dropdown.</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'type'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#title'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Contact type'</span><span class="br0">)</span><span class="sy0">,</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'select'</span><span class="sy0">,</span>
+      <span class="st_h">'#options'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array_map"><span class="kw3">array_map</span></a><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="re0">$type</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="re0">$type</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="br0">}</span><span class="sy0">,</span> <span class="re0">$types</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'go'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'submit'</span><span class="sy0">,</span>
+      <span class="st_h">'#value'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Go'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$form</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   *
+   * From FormInterface, via FormBase.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> submitForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="sy0">&amp;</span><span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Retrieve bundle ID and related bundle.</span>
+    <span class="re0">$bundle_id</span> <span class="sy0">=</span> <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">getValue</span><span class="br0">(</span><span class="st_h">'type'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$types</span> <span class="sy0">=</span> <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'types'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$bundle</span> <span class="sy0">=</span> <span class="re0">$types</span><span class="br0">[</span><span class="re0">$bundle_id</span><span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="co1">// If field already exists, delete it.</span>
+    <span class="re0">$fields</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityFieldManager</span><span class="sy0">-&gt;</span><span class="me1">getFieldDefinitions</span><span class="br0">(</span><span class="st_h">'contact'</span><span class="sy0">,</span> <span class="re0">$bundle_id</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$fields</span><span class="br0">[</span><span class="st_h">'field_phone'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$fields</span><span class="br0">[</span><span class="st_h">'field_phone'</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">delete</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+      drupal_set_message<span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span>
+        <span class="st_h">'Deleted field from @type contact type'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'@type'</span> <span class="sy0">=&gt;</span> <span class="re0">$bundle</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+      <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="co1">// Otherwise, add it.</span>
+    <span class="kw1">else</span> <span class="br0">{</span>
+      <span class="co1">// Add the field storage configuration, and field configuration.</span>
+      <span class="re0">$field_storage_values</span> <span class="sy0">=</span> <span class="br0">[</span>
+        <span class="st_h">'field_name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'field_phone'</span><span class="sy0">,</span>
+        <span class="st_h">'entity_type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'contact'</span><span class="sy0">,</span>
+        <span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'string'</span><span class="sy0">,</span>
+        <span class="st_h">'translatable'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">;</span>
+      <span class="re0">$field_values</span> <span class="sy0">=</span> <span class="br0">[</span>
+        <span class="st_h">'field_name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'field_phone'</span><span class="sy0">,</span>
+        <span class="st_h">'entity_type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'contact'</span><span class="sy0">,</span>
+        <span class="st_h">'bundle'</span> <span class="sy0">=&gt;</span> <span class="re0">$bundle_id</span><span class="sy0">,</span>
+        <span class="st_h">'label'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Phone'</span><span class="sy0">,</span>
+        <span class="st_h">'translatable'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">;</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'field_storage_config'</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">create</span><span class="br0">(</span><span class="re0">$field_storage_values</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+      <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">entityManager</span><span class="sy0">-&gt;</span><span class="me1">getStorage</span><span class="br0">(</span><span class="st_h">'field_config'</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">create</span><span class="br0">(</span><span class="re0">$field_values</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+      <span class="co1">// Configure form and view displays to show the field.</span>
+      entity_get_form_display<span class="br0">(</span><span class="st_h">'contact'</span><span class="sy0">,</span> <span class="re0">$bundle_id</span><span class="sy0">,</span> <span class="st_h">'default'</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">setComponent</span><span class="br0">(</span>
+          <span class="st_h">'field_phone'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'text_textfield'</span><span class="sy0">,</span> <span class="st_h">'weight'</span> <span class="sy0">=&gt;</span> 20<span class="br0">]</span>
+        <span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+      entity_get_display<span class="br0">(</span><span class="st_h">'contact'</span><span class="sy0">,</span> <span class="re0">$bundle_id</span><span class="sy0">,</span> <span class="st_h">'default'</span><span class="br0">)</span>
+        <span class="sy0">-&gt;</span><span class="me1">setComponent</span><span class="br0">(</span>
+          <span class="st_h">'field_phone'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'string'</span><span class="br0">]</span>
+        <span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+      drupal_set_message<span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span>
+        <span class="st_h">'Added field to @type contact type'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'@type'</span> <span class="sy0">=&gt;</span> <span class="re0">$bundle</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span>
+      <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>This controller uses an entity manager to retrieve all the different contact types to populate a dropdown; on submission, it uses an entity field manager to either save new field configuration and field storage configuration, or delete it. A few notes:</p>
+<ul><li>The two manager services are provided using DI, as discussed previously.</li>
+<li>Form state is used to both temporarily store the contact types (to avoid having to look them up more than once) and also to store the values submitted via the user.</li>
+<li>Non-object methods like <span class="geshifilter"><code class="text geshifilter-text">entity_get_display()</code></span> and <span class="geshifilter"><code class="text geshifilter-text">drupal_set_message()</code></span> have crept in, for simplicity. These are well-tested methods and so are less of a problem than they might otherwise be, but you should consider factoring them out later.</li>
+<li>Field storage type and display formatter types ("string", "text_textfield" and "string" respectively) need to match field storage and formatter plugins (we've discussed the plugin architecture previously. If in doubt, you can use the Plugin module, or examine the dropdowns in the content types/add field UI and use the values for the options there.</li>
+<li>Field configuration, and field storage configuration, persists through a two-step process of first creating, then saving: we've seen this before for nodes, and it's the case for other entities.</li>
+<li>In the display configuration, while we do set a single component, the <span class="geshifilter"><code class="text geshifilter-text">save()</code></span> method is acting on the entire configuration. You should be aware of this, because this step <em>might</em> fail with no clear reason, <a href="http://drupal.stackexchange.com/questions/215967/entity-get-form-display-setcomponent-throws-plugin-does-not-exist-regardless-o">because of a mistaken display formatter type in e.g. the <span class="geshifilter"><code class="text geshifilter-text">Contact#baseFieldDefinitions()</code></span> method</a>.</li>
+</ul><p>Finally, you should add another entry to <span class="geshifilter"><code class="text geshifilter-text">d8api.routing.yml</code></span></p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">d8api.add_remove_field_form:
+  path: '/tutorial/add-remove-field'
+  defaults:
+    _title: 'Add/remove phone field from a contact type'
+    _form: '\Drupal\d8api\Form\AddRemoveFieldForm'
+  requirements:
+    _permission: 'access content'</pre></div>
+<p>This permits a route to our new form controller, as discussed previously.</p>
+<h2>What you should see</h2>
+<p>To get Drupal to recognize the <span class="geshifilter"><code class="text geshifilter-text">ContactType</code></span> class and other changes, you would usually clear caches. However, because we've made substantial changes elsewhere, you should disable and reinstall the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module completely. Note that you might need to delete all existing contacts to do this.</p>
+<p>First of all, navigate to <span class="geshifilter"><code class="text geshifilter-text">/contact-type/list</code></span>. You should see a list consisting of a single contact type, the Person provided by the YAML:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-156" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-contact-type-list-personpng.html">fields-contact-type-list-person.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-contact-type-list-person.png"><img class="media-element file-inline-image" alt="List of contact types, just including &#039;Person&#039;" src="../../sites/files/jps/styles/large/public/fields-contact-type-list-person.png%3Fitok=_oBiyAcn" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Because we've not bothered (for reasons of brevity) to implement good navigation between all the steps for contact types, you'll need to navigate manually to <span class="geshifilter"><code class="text geshifilter-text">/contact-type/add</code></span>; when you do so, you can add a new "Organization" contact type:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-163" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-add-contact-typepng-0.html">fields-add-contact-type.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-add-contact-type.png"><img class="media-element file-inline-image" alt="Add a new contact type" src="../../sites/files/jps/styles/large/public/fields-add-contact-type.png%3Fitok=FPetLrCj" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>After submission, this new type will be listed alongside Person:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-160" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-contact-type-list-bothpng.html">fields-contact-type-list-both.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-contact-type-list-both.png"><img class="media-element file-inline-image" alt="List of contact types, just including &#039;Person&#039;" src="../../sites/files/jps/styles/large/public/fields-contact-type-list-both.png%3Fitok=dsi51uz9" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you now navigate through the "Admin content" UI, to add a new contact, you're presented with the intermediate screen where you can pick a contact type:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-162" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-add-contact-typepng.html">fields-add-contact-by-type.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-add-contact-by-type.png"><img class="media-element file-inline-image" alt="Add a contact by type" src="../../sites/files/jps/styles/large/public/fields-add-contact-by-type.png%3Fitok=EAnttU2Y" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Select "Person"; you're invited to create a contact with a job title as defined in the YAML:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-161" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-create-person-contactpng.html">fields-create-person-contact.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-create-person-contact.png"><img class="media-element file-inline-image" alt="Add a Person contact" src="../../sites/files/jps/styles/large/public/fields-create-person-contact.png%3Fitok=QiybL7H9" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>When you save the person, the job title is displayed as per the view display configuration:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-164" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-person-contact-createdpng.html">fields-person-contact-created.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-person-contact-created.png"><img class="media-element file-inline-image" alt="Newly created Person contact" src="../../sites/files/jps/styles/large/public/fields-person-contact-created.png%3Fitok=v0G6VPJu" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Separately now, if you navigate to <span class="geshifilter"><code class="text geshifilter-text">/tutorial/add-remove-field</code></span>, you will see a dropdown with your two new contact types:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-158" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-add-removepng.html">fields-add-remove.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-add-remove.png"><img class="media-element file-inline-image" alt="Custom form to add/remove phone field from a contact type" src="../../sites/files/jps/styles/large/public/fields-add-remove.png%3Fitok=k67RQeRO" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You <em>could</em> add the field to the Person contact type! but instead, add it to the Organization type:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-159" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-add-remove-addedpng.html">fields-add-remove-added.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-add-remove-added.png"><img class="media-element file-inline-image" alt="After submission of custom form to add/remove phone field from a contact type" src="../../sites/files/jps/styles/large/public/fields-add-remove-added.png%3Fitok=2iLV4eWL" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Then, when you navigate back to "Add contact" and choose to add a new organization contact, you will see the "phone" field:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-157" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/fields-create-org-contact-phonepng.html">fields-create-org-contact-with-phone.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/fields-create-org-contact-with-phone.png"><img class="media-element file-inline-image" alt="Add an Organization contact with phone" src="../../sites/files/jps/styles/large/public/fields-create-org-contact-with-phone.png%3Fitok=FYFi1aUo" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>You can create new Organization contacts with the phone field in place; but be aware that, once any entities use the field storage for "phone", it will no longer be possible to remove it from any contact type: core Drupal objects, given the storage contains values; and our custom form isn't smart enough to work around it (I leave that as an exercise for the reader.)</p>
+<p>If you see all this then congratulations! you have added, configured and otherwise manipulated Drupal fields through both the fields API and through YAML files.</p>
+<h2>Further reading</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21modules%21field%21field.module/group/field/8.2.x">Drupal 8 API: field API</a></li>
+<li><a href="https://www.drupal.org/node/2078241">Defining and using Content Entity Field definitions</a></li>
+<li><a href="http://www.ixis.co.uk/blog/drupal-8-creating-field-types-multiple-values">Creating field types with multiple columns</a> (creating a wholly new field type, with internal data granularity like longitude/latitude.)</li>
+<li><a href="http://drupal.stackexchange.com/questions/215967/entity-get-form-display-setcomponent-throws-plugin-does-not-exist-regardless-o">When entity_get_form_display setComponent throws “plugin does not exist” regardless of type</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/tags/d8apidata.html">d8api:data</a>, <a href="../../category/tags/d8api.html">d8api</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-aafb32ee43816b38c37ce044383ea64f">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

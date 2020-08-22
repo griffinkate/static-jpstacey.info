@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container.html" />
+<link rel="shortlink" href="663.html" />
+  <title>Drupal 8 API: services and the dependency-injection Container | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"qCzQ44NBP7EBrQAMYnBlvCyG0HgMTXRGYNBphLrm68A","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-663 node-type-blog" >
+  <div id="skip-link">
+    <a href="663.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: services and the dependency-injection Container        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, October 13, 2016 - 16:13</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+</ul><h2>Dependency injection inverts how you create helper objects</h2>
+<p>When we're writing some method on some object, and we need some helper object, to do work for the current object, the naive way of creating the helper is:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">class</span> MyClass <span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> doSomething<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$helper</span> <span class="sy0">=</span> <span class="kw2">new</span> Helper<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>However, it's now very hard to test <span class="geshifilter"><code class="text geshifilter-text">doSomething()</code></span> without also having your test depend on the correct behaviour of <span class="geshifilter"><code class="text geshifilter-text">Helper</code></span>: you can't drop a "pretend" or <a href="https://phpunit.de/manual/3.0/en/mock-objects.html">mock</a> helper object in. This complicates tests in all sorts of ways. It also means that, if you were to come up with an <span class="geshifilter"><code class="text geshifilter-text">AdvancedHelper</code></span> in the future, you couldn't make use of it in your code: <span class="geshifilter"><code class="text geshifilter-text">Helper</code></span> is hardwired, leading to strong coupling between <span class="geshifilter"><code class="text geshifilter-text">MyClass</code></span> and <span class="geshifilter"><code class="text geshifilter-text">Helper</code></span>.</p>
+<p>The general solution to this and other coupling problems is <em>dependency injection</em>:</p>
+<blockquote><p>Dependency Injection (DI) is a way of abolishing the <span class="geshifilter"><code class="text geshifilter-text">new</code></span> keyword from your code (in all except factory and repository objects, which are ntended for the creation of new objects.)</p></blockquote>
+<p>For more background, you can read <a href="http://www.jpstacey.info/category/tags/di">my other blogposts on DI</a>. For now, this tutorial assumes familiarity with the general concept.</p>
+<h2>How services are registered in Drupal</h2>
+<p>Services in Drupal are strongly Symphony, and work in almost the same way. Every module <span class="geshifilter"><code class="text geshifilter-text">modulename</code></span> can have a <span class="geshifilter"><code class="text geshifilter-text">modulename.services.yml</code></span> file in its top-level folder, and these define which service names map to which classes, and what other options the service might need to be successfully created.</p>
+<p>A services can be an object of any class: it doesn't have to implement any interface, or extend any abstract class. For example, create the following file in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module at <span class="geshifilter"><code class="text geshifilter-text">src/ExampleService.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> ExampleService <span class="br0">{</span>
+<span class="br0">}</span></pre></div>
+<p>Then add the following to the <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span> file in the top-level folder of the module:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  d8api.example:
+    class: 'Drupal\d8api\ExampleService'</pre></div>
+<p>If the <span class="geshifilter"><code class="text geshifilter-text">services:</code></span> key already exists (you might have done these tutorials in a different order!) don't add another one: just add the <span class="geshifilter"><code class="text geshifilter-text">d8api.example:</code></span> key and what follows. But make sure you get the indentation right: only <span class="geshifilter"><code class="text geshifilter-text">services:</code></span> is unindented.</p>
+<p>You could now access the service using:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$exampleService</span> <span class="sy0">=</span> \Drupal<span class="sy0">::</span><span class="me2">service</span><span class="br0">(</span><span class="st_h">'d8api.example'</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>anywhere in your code. But DI is more subtle than that, as we'll see.</p>
+<h2>Injecting services</h2>
+<p>The method for injecting a service into something else depends on what you want the something else is.</p>
+<h3>Inject one service into another</h3>
+<p>Injecting services that Drupal knows about, into others Drupal knows about, couldn't be simpler! Alongside your existing <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span> class file, add the following as <span class="geshifilter"><code class="text geshifilter-text">src/ExampleServiceInjected.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * An example service, with another service injected.
+ */</span>
+<span class="kw2">class</span> ExampleServiceInjected <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var ExampleService
+   */</span>
+  protected <span class="re0">$exampleService</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * @param ExampleService $exampleService
+   *   The example service, injected.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>ExampleService <span class="re0">$exampleService</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">exampleService</span> <span class="sy0">=</span> <span class="re0">$exampleService</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Retrieve the class name of the stored example service.
+   *
+   * @return string
+   *   Name of the class.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> retrieveExampleServiceClass<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <a href="http://www.php.net/get_class"><span class="kw3">get_class</span></a><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">exampleService</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This might not look simple, but it's what you'd have to write anyway in order to bring in a helper service: the DI part is yet to come. You can see this class has an object <span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span> method, which takes an object of class <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span> and stores it in a protected object variable. The class name of this injected object can then be returned by another method, as a test that injection has worked.</p>
+<p>How do we now perform good DI of <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span> into our new <span class="geshifilter"><code class="text geshifilter-text">ExampleServiceInjected</code></span>? Well, we add another entry into <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span> to instantiate this new service, but using arguments for its constructor:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  # ... (unchanged) ...
+  d8api.example_injected:
+    class: 'Drupal\d8api\ExampleServiceInjected'
+    arguments: ['@d8api.example']</pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">@</code></span> symbol in the argument indicates that it's not simply the plaintext string "d8api.example", but the actual service with that name should be provided instead. In this way, the <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span> is instantiated and injected into <span class="geshifilter"><code class="text geshifilter-text">ExampleServiceInjected</code></span>, whenever the latter is itself retrieved. No more work is necessary.</p>
+<h3>Inject services into other code</h3>
+<p>There are two ways of injecting services into other code:</p>
+<ul><li>"Most" objects, like forms and page callbacks, can declare they implement <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21DependencyInjection%21ContainerInjectionInterface.php/interface/ContainerInjectionInterface/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">ContainerInjectionInterface</code></span></a>.</li>
+<li>Plugins (which we'll discuss later) need to declare a different interface, <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Plugin%21ContainerFactoryPluginInterface.php/interface/ContainerFactoryPluginInterface/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">ContainerFactoryPluginInterface</code></span></a>.</li>
+</ul><p>Whatever interface you declare your object implements, you must then add the class method <span class="geshifilter"><code class="text geshifilter-text">create()</code></span> to your class, and implement a <span class="geshifilter"><code class="text geshifilter-text">__construct()</code></span> which takes the new DI arguments you want. This differs slightly depending on the interface;</p>
+<p><span class="geshifilter"><code class="text geshifilter-text">ContainerInjectionInterface</code></span> is very straightforward:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> MyThing implements ContainerInjectionInterface <span class="br0">{</span>
+ 
+  protected <span class="re0">$exampleService</span><span class="sy0">;</span>
+ 
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>ContainerInterface <span class="re0">$container</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span><span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api.example'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>ExampleService <span class="re0">$exampleService</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// If you're extending some other class, call its constructor.</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">exampleService</span> <span class="sy0">=</span> <span class="re0">$exampleService</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p><span class="geshifilter"><code class="text geshifilter-text">ContainerFactoryPluginInterface</code></span> is more complex, because the plugin configuration needs to be passed along:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> MyPlugin <span class="kw2">extends</span> SomePluginClass implements ContainerFactoryPluginInterface <span class="br0">{</span>
+ 
+  protected <span class="re0">$exampleService</span><span class="sy0">;</span>
+ 
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>
+      ContainerInterface <span class="re0">$container</span><span class="sy0">,</span>
+      <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span>
+    <span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span>
+      <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+      <span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'d8api.example'</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+      <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+      ExampleService <span class="re0">$exampleService</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// If you're extending a core plugin class, call its constructor.</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">exampleService</span> <span class="sy0">=</span> <span class="re0">$exampleService</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>Later, when we discuss plugins in more depth, we'll see examples of both of these.</p>
+<p>Even though there's a lot of code here (and we've omitted method and variable comments for brevity, which you shouldn't ever do!) it's mostly boilerplate, and only <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span>, <span class="geshifilter"><code class="text geshifilter-text">$exampleService</code></span>, <span class="geshifilter"><code class="text geshifilter-text">d8api.example</code></span> etc. are the bits that matter. It's true that in theory, you <em>are</em> calling <span class="geshifilter"><code class="text geshifilter-text">\Drupal::service(...)</code></span> here in your own code, through <span class="geshifilter"><code class="text geshifilter-text">$container-&gt;get(...)</code></span>; in practice, the <span class="geshifilter"><code class="text geshifilter-text">create()</code></span> code pattern strictly limits the possible side-effects of doing so. As a rule: class methods can safely access <span class="geshifilter"><code class="text geshifilter-text">$container</code></span>; but they should never pass <span class="geshifilter"><code class="text geshifilter-text">$container</code></span> to the object for its own use later on.</p>
+<h2>What you should see</h2>
+<p>If you've edited the <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span> file, you should rebuild caches. In order to test this code, you should also <a href="http://docs.drush.org/en/master/install/">install Drush</a>. We don't cover either process here.</p>
+<p>With Drush installed, open a terminal and change the directory so you're inside the codebase for your Drupal site. You can then type the following:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'print get_class(\Drupal::service("d8api.example"));'</span></pre></div>
+<p>The response will be:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">Drupal\d8api\ExampleService</pre></div>
+<p>In this example, Drupal-as-service-container looks up the service, finds and loads the class, instantiates the object and passes it to <span class="geshifilter"><code class="text geshifilter-text">get_class()</code></span>. This then prints the class name to the terminal window.</p>
+<p>To show that <span class="geshifilter"><code class="text geshifilter-text">ExampleServiceInjected</code></span> has been registered correctly as a service, you can run the same code but with the key for the injected service:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'print get_class(\Drupal::service("d8api.example_injected"));'</span>
+<span class="co0"># Output:</span>
+Drupal\d8api\ExampleServiceInjected</pre></div>
+<p>However, you can go one stage further and run the following:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'print \Drupal::service("d8api.example_injected")-&gt;retrieveExampleServiceClass();'</span>
+<span class="co0"># Output:</span>
+Drupal\d8api\ExampleService</pre></div>
+<p>This output shows that <span class="geshifilter"><code class="text geshifilter-text">ExampleService</code></span> has been successfully instantiated and injected into <span class="geshifilter"><code class="text geshifilter-text">ExampleServiceInjected</code></span>, and the latter returned by the container.</p>
+<p>If you can see all this then congratulations! you have registered two services with Drupal, and successfully injected one into the other.</p>
+<h2>Further reading</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/container/8.2.x">Drupal 8 API: Services and Dependency Injection Container</a></li>
+<li><a href="http://www.jpstacey.info/category/tags/di">J-P Stacey's blogposts on dependency injection</a></li>
+<li><a href="https://events.drupal.org/dublin2016/sessions/mastering-dependency-injection-d8">Drupalcon Dublin: Mastering Dependency Injection in D8, by Nicolas Grekas</a></li>
+<li><a href="https://www.drupal.org/node/2626738#exposing-plugin-types">Exposing plugin types</a> using the contrib Plugin module</li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiother.html">d8api:other</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-dc4f3f40f0128454beb436a0a43f4adf">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

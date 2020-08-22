@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2009/12/08/render-any-block-drupal-5.html" />
+<link rel="shortlink" href="309.html" />
+  <title>Render any block in Drupal 5 | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"p6CZMUuTsQSHmlE5Zg2XwVr9GrbmJNAgeW-ND-yWMtw","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-309 node-type-blog" >
+  <div id="skip-link">
+    <a href="309.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Render any block in Drupal 5        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, December 8, 2009 - 09:37</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Blocks aren't what you might call "first-class citizens" in Drupal 5 or 6 (or 7, as far as I'm aware). Block functionality is provided by a range of functions and database tables, but ultimately there's no thingness, no <i>Ding an sich</i> tying them together as an object the way that a node of content or a user might be.</p>
+<p>Annoyingly, there's no function in Drupal 5 to grab a block and render it. You can render a <em>region</em>, a block container which then makes a number of decisions for you about what blocks should appear in it. Blocks can in principle be uniquely identified by (a) the module which provides the block through its implementation of <span class="geshifilter"><code class="text geshifilter-text">hook_block()</code></span> and (b) the "delta", the unique (potentially non-numeric) ID for each block in a given module. Yet there are no functions in the core block module to handle this.</p>
+<p>One option is to move to Panels, which I'm doing for this site. Yet if your existing site is heavily based around blocks and regions, implementing Panels can be a lot of overhead just to render a single block in a template.</p>
+<p>Here's a function which returns a single block, given the module name and block delta. It's an abstraction from <span class="geshifilter"><code class="php geshifilter-php">block_list<span class="br0">(</span><span class="br0">)</span></code></span>, the function which returns all the blocks in a given region. You can put this in a shell module with an info file (see the previous post on <a href="../blog/2009/11/24/basic-theme-preprocess-hooks-drupal-5.html">theme preprocess hooks in Drupal 5</a> for how to quickly set up an otherwise empty module) or if you're not comfortable with that you can always name it accordingly and put it in <span class="geshifilter"><code class="php geshifilter-php">template<span class="sy0">.</span>php</code></span></p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co4">/**
+ * Get a single block for themeing
+ */</span>
+<span class="kw2">function</span> mymodule_get_block<span class="br0">(</span><span class="re0">$module</span><span class="sy0">,</span> <span class="re0">$delta</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// User roles mean blocks are still invisible if the user</span>
+  <span class="co1">// isn't permitted to see them</span>
+  <span class="kw2">global</span> <span class="re0">$user</span><span class="sy0">;</span>
+  <span class="re0">$rids</span> <span class="sy0">=</span> <a href="http://www.php.net/array_keys"><span class="kw3">array_keys</span></a><span class="br0">(</span><span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">roles</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="re0">$placeholders</span> <span class="sy0">=</span> <a href="http://www.php.net/implode"><span class="kw3">implode</span></a><span class="br0">(</span><span class="st_h">','</span><span class="sy0">,</span> <a href="http://www.php.net/array_fill"><span class="kw3">array_fill</span></a><span class="br0">(</span>0<span class="sy0">,</span> <a href="http://www.php.net/count"><span class="kw3">count</span></a><span class="br0">(</span><span class="re0">$rids</span><span class="br0">)</span><span class="sy0">,</span> <span class="st_h">'%d'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// This is still cropped from block_list() , but newlines added</span>
+  <span class="co1">// for legibility and blogposting</span>
+  <span class="re0">$result</span> <span class="sy0">=</span> db_query<span class="br0">(</span>
+      <span class="st0">"SELECT DISTINCT b.* "</span>
+    <span class="sy0">.</span> <span class="st0">" FROM {blocks} b LEFT JOIN {blocks_roles} r "</span>
+    <span class="sy0">.</span> <span class="st0">"   ON b.module = r.module AND b.delta = r.delta "</span>
+    <span class="sy0">.</span> <span class="st0">" WHERE (r.rid IN (<span class="es4">$placeholders</span>) OR r.rid IS NULL) "</span>
+    <span class="sy0">.</span> <span class="st0">"   AND b.module = '<span class="es6">%s</span>' "</span>
+    <span class="sy0">.</span> <span class="st0">"   AND b.delta = '<span class="es6">%s</span>' "</span>
+    <span class="sy0">.</span> <span class="st0">" ORDER BY b.region, b.weight, b.module"</span><span class="sy0">,</span> 
+    <a href="http://www.php.net/array_merge"><span class="kw3">array_merge</span></a><span class="br0">(</span><span class="re0">$rids</span><span class="sy0">,</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="re0">$module</span><span class="sy0">,</span><span class="re0">$delta</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Assemble block info from the module</span>
+  <span class="kw1">while</span> <span class="br0">(</span><span class="re0">$block</span> <span class="sy0">=</span> db_fetch_object<span class="br0">(</span><span class="re0">$result</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Invoke the block hook in the supporting </span>
+    <span class="co1">// module and convert the return array</span>
+    <span class="re0">$array</span> <span class="sy0">=</span> module_invoke<span class="br0">(</span><span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">module</span><span class="sy0">,</span> <span class="st_h">'block'</span><span class="sy0">,</span> <span class="st_h">'view'</span><span class="sy0">,</span> <span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">delta</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$array</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <a href="http://www.php.net/is_array"><span class="kw3">is_array</span></a><span class="br0">(</span><span class="re0">$array</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$array</span> <span class="kw1">as</span> <span class="re0">$k</span> <span class="sy0">=&gt;</span> <span class="re0">$v</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="re0">$block</span><span class="sy0">-&gt;</span><span class="re0">$k</span> <span class="sy0">=</span> <span class="re0">$v</span><span class="sy0">;</span>
+      <span class="br0">}</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// Swap in any user-defined title in admin interface</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">subject</span> <span class="sy0">=</span> <span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">title</span> <span class="sy0">==</span> <span class="st_h">'&lt;none&gt;'</span> ? <span class="st_h">''</span> <span class="sy0">:</span> check_plain<span class="br0">(</span><span class="re0">$block</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$block</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Once this is safely out of the way you can grab and render a block. The following code grabs the fourth block that you ever created through the block admin interface (the "block" module is the "maintainer" of those blocks, and the blocks are numbered starting at zero, hence "3"):</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span> <span class="kw1">print</span> theme<span class="br0">(</span><span class="st_h">'block'</span><span class="sy0">,</span> mymodule_get_block<span class="br0">(</span><span class="st_h">'block'</span><span class="sy0">,</span> 3<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></pre></div>
+<p>This is a bit unsafe, though. What if you disable <span class="geshifilter"><code class="text geshifilter-text">mymodule</code></span>? The template will break, and depending on your server configuration your visitors might see a pretty ugly error. So use the <a href="../blog/2009/11/24/basic-theme-preprocess-hooks-drupal-5.html">theme preprocess hooks</a> trick. If you want the block to show in <span class="geshifilter"><code class="text geshifilter-text">node.tpl.php</code></span> then you're going to have to bite the bullet and put the bigger code snippet above in a module. Then, in the same module, you can write a <span class="geshifilter"><code class="text geshifilter-text">hook_preprocess_node</code></span> as follows:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">function</span> mymodule_preprocess_node<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$vars</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'myblock'</span><span class="br0">]</span> <span class="sy0">=</span> theme<span class="br0">(</span><span class="st_h">'block'</span><span class="sy0">,</span> mymodule_get_block<span class="br0">(</span><span class="st_h">'block'</span><span class="sy0">,</span> 3<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>Then you can put just the bare variable in your <span class="geshifilter"><code class="text geshifilter-text">node.tpl.php</code></span>, which is much safer:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span> <span class="kw1">print</span> <span class="re0">$myblock</span> <span class="sy1">?&gt;</span></pre></div>
+<p>Turn off mymodule, and this just prints an empty string.</p>
+<p>So, ta-da, blocks are now better exposed in your Drupal backend, for you to use in different places in your themeing. Unfortunately that still doesn't make them first-class citizens: they can't be categorized or given an "owner" i.e. an associated user ID; they can't be made to link to nodes in the same robust way that nodes can link to each other with node reference; they certainly can't have any CCK fields hung off them. But, humble though blocks are, they've still got some life left in them yet.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/hacking.html">hacking</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/drupal.html">drupal</a>, <a href="../category/wordpress-tag/hook.html">hook</a>, <a href="../category/wordpress-tag/block.html">block</a>, <a href="../category/tags/panels.html">panels</a>, <a href="../category/tags/recipe.html">recipe</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-ce05a8632c4b1093cc0b16c25ee5c1d7">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

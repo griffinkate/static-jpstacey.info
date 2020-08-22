@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-10-19/drupal-8-api-plugins.html" />
+<link rel="shortlink" href="../node/660.html" />
+  <title>Drupal 8 API: plugins | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"TQN0yLaqRzqxasrBIv0JuGbyJRa7pfzrsXI9_2qw5OM","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-660 node-type-blog" >
+  <div id="skip-link">
+    <a href="286.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: plugins        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, October 19, 2016 - 10:04</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-17/drupal-8-api-annotations">Annotations</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the dependency-injection container</a></li>
+</ul><h2>Plugins are discoverable code, classified by "type" across all modules</h2>
+<p>A description of what plugins mean in Drupal can sound so vague that it's hard to explain what's special about them; for example:</p>
+<blockquote><p>plugins are reusable and interchangeable bits of code (classes), grouped by "plugin type" independent of what module they might be in, and made discoverable to Drupal by some means so that they can be retrieved simply by a combination of type and ID.</p></blockquote>
+<p>We can improve our understanding of what makes plugins useful, by referring to previous tutorials:</p>
+<ul><li>We've already discussed how naming conventions let Drupal discover modules ("look for files called <span class="geshifilter"><code class="text geshifilter-text">modulename/modulename.yml</code></span>") and let PHP discover classes ("look for class name(space)s that match file paths"). So we know that following such standards make autodiscovery possible.</li>
+<li>We've even <em>already built a plugin</em>: the custom block in the previous tutorial could be more accurately described as "a single plugin, of plugin type 'block.'" While that code didn't feel very "reusable" in any kind of "library of code" sense, we can imagine situations in which a block is placed more than once on a page, and each instance has different configuration.The separate instances in this situation could again be described as "<em>derivatives</em> of a single plugin, of plugin type 'block'".</li>
+</ul><p>Blocks are a classic use of the plugin architecture: blocks are plugins <em>precisely because</em> a site administrator will want to select any one of many blocks (and any one of potentially many instances, or derivatives, of a block), and have it always "behave" in similar ways; blocks need to be assignable to regions, and weighted up and down, to share containing markup etc. In effect, all block plugins share "blockish" behaviour, and that "formalized equivalent of a PHP interface" the whole point of a plugin type. But lots of other things in core are plugins too, for the same reason: text formats, field formatters, email backends, image toolkits....</p>
+<p>Plugin types provided by core are such that, if you want to write a plugin of an existing type, you need to:</p>
+<ul><li>Follow the relevant naming and folder conventions, usually: put the code in the subfolder <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/[PluginType]/</code></span> (or sometimes a sub-subfolder of that); and have the class in the file declare the namespace <span class="geshifilter"><code class="text geshifilter-text">Drupal\[modulename]\Plugin\[PluginType]</code></span>.
+</li><li>Extend the class, or implement the interface, that all plugins of a given type require.</li>
+<li>Add an annotation comment, as discussed previously, to the top of the class.</li>
+</ul><p>The annotation is where you register as a minimum the plugin's ID, but can also register a (translatable) label for the plugin etc. It's <em>feasible</em> to write a custom method of plugin discovery, which doesn't use annotations, or could demand a completely different file location convention: in practice, though, unless you've got a good reason not to, you should follow core's conventions for discovery.</p>
+<p>(By the way, when you're developing plugins, if you need to find out what existing plugins and types are available, the third-party <a href="https://www.drupal.org/project/plugin">Plugin module</a> can really help.)</p>
+<h2>Establishing your own plugin type</h2>
+<p>As we've already created plugins of type "block", let's consider creating a custom plugin type, and then creating a plugin of that type. Let's try to think beyond generic Drupal or CMS concepts, to imagine just what we could use the plugin architecture to accomplish.</p>
+<p>What if we could create a <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span> plugin?</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/eustatius/30164167065/in/dateposted/" title="Four little white paws"><img src="https://c2.staticflickr.com/6/5748/30164167065_1a39053baf_z.jpg" width="640" height="361" alt="Four little white paws" /></a></p>
+<script async="" src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script><p>
+Wouldn't that be amazing? Of course, a <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span> plugin would be of plugin type <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span>. This plugin type would constitute a whole library of different animals: third-party modules could even extend it with their own <span class="geshifilter"><code class="text geshifilter-text">Horse</code></span> and <span class="geshifilter"><code class="text geshifilter-text">Badger</code></span> plugins.</p>
+<p>To define the <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> plugin type, we need the following:</p>
+<ol><li>A common interface (more flexible than a parent class) that all plugins of that type promise to implement.</li>
+<li>An annotation class, to convert the annotation text on a plugin's class-level comment into a separate object.</li>
+<li>A plugin manager class, implementing the <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Plugin%21PluginManagerInterface.php/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">PluginManagerInterface</code></span></a> and defining the plugin discovery rules.</li>
+<li>An entry in the module's <span class="geshifilter"><code class="text geshifilter-text">services.yml</code></span>, to register the plugin manager with Drupal as a service that can be used elsewhere.</li>
+</ol><p>We discussed services previously, in the context of dependency injection. Here the service is the main point of contact between our custom code—plugin type, annotation class, discovery method—and the rest of Drupal.</p>
+<h3>1. Common interface for all plugins of the new type</h3>
+<p>Animals can do lots of things, obviously, but let's imagine two behaviours we care about when it comes to an <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> plugin:</p>
+<ol><li>Is the <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> capable of sustaining its own body heat?</li>
+<li>What does the <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span>'s call sound like?</li>
+</ol><p>The first method confers different behaviour on the <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span> plugin and <span class="geshifilter"><code class="text geshifilter-text">Frog</code></span> plugin, for example.</p>
+<p>Here's an interface which defines the required behaviour common to all plugins of <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> plugin type; save it in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module as <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/AnimalInterface.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Animal<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Define interface common to all animals.
+ */</span>
+<span class="kw2">interface</span> AnimalInterface <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * Is the animal capable of sustaining its body temperature?
+   *
+   * @return bool
+   *   Response to the question.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> isHomeothermic<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * The animal's call.
+   *
+   * @return string
+   *   Animal's response.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> retrieveCall<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>By introducing two methods, we'll show below how you can both implement interfaces and also inherit from abstract classes, in building your first plugin.</p>
+<h3>2. The wrapper class for annotations on plugins of the new type</h3>
+<p>When plugin discovery finds an annotation, it attempts to parse it and then create an annotation object, which as discussed before is an extension of the core <span class="geshifilter"><code class="text geshifilter-text">Plugin</code></span> annotation class plus properties. Save the following in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module as <span class="geshifilter"><code class="text geshifilter-text">src/Annotation/Animal.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Annotation<span class="sy0">;</span>
+ 
+use Drupal\Component\Annotation\Plugin<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Defines an Animal annotation object.
+ *
+ * @Annotation
+ */</span>
+<span class="kw2">class</span> Animal <span class="kw2">extends</span> Plugin <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * The plugin ID.
+   *
+   * @var string
+   */</span>
+  <span class="kw2">public</span> <span class="re0">$id</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * The plugin name.
+   *
+   * @var string
+   */</span>
+  <span class="kw2">public</span> <span class="re0">$name</span><span class="sy0">;</span>
+ 
+<span class="br0">}</span></pre></div>
+<h3>3. Plugin manager to discover plugins of the new type</h3>
+<p>We're going to follow Drupal core's method of discovering plugins. This means we very simply inherit from <span class="geshifilter"><code class="text geshifilter-text">DefaultPluginManager</code></span>, and merely specify:</p>
+<ul><li>The path pattern we expect plugin files to be found on, relative to <span class="geshifilter"><code class="text geshifilter-text">src/</code></span> in the module.</li>
+<li>The common interface that all plugins of type <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> must implement.</li>
+<li>The annotation template to be used to parse the plugin's annotation comment.</li>
+</ul><p>This is all done in the plugin manager's constructor, as you can see; save this in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module as <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/AnimalManager.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Animal<span class="sy0">;</span>
+ 
+use Drupal\Core\Cache\CacheBackendInterface<span class="sy0">;</span>
+use Drupal\Core\Extension\ModuleHandlerInterface<span class="sy0">;</span>
+use Drupal\Core\Plugin\DefaultPluginManager<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Manages discovery and instantiation of animal plugins.
+ */</span>
+<span class="kw2">class</span> AnimalManager <span class="kw2">extends</span> DefaultPluginManager <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    \Traversable <span class="re0">$namespaces</span><span class="sy0">,</span>
+    CacheBackendInterface <span class="re0">$cache_backend</span><span class="sy0">,</span>
+    ModuleHandlerInterface <span class="re0">$module_handler</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span>
+      <span class="st_h">'Plugin/Animal'</span><span class="sy0">,</span>
+      <span class="re0">$namespaces</span><span class="sy0">,</span>
+      <span class="re0">$module_handler</span><span class="sy0">,</span>
+      <span class="st_h">'Drupal\d8api\Plugin\Animal\AnimalInterface'</span><span class="sy0">,</span>
+      <span class="st_h">'Drupal\d8api\Annotation\Animal'</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<h3>4. Registration of the plugin manager with Drupal's services</h3>
+<p>Finally, we need to tell Drupal where to find the plugin manager (which will then tell it where to find plugins) by registering it as a service;  add the following entry to <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span> in the top-level directory of the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  plugin.manager.d8api:
+    class: 'Drupal\d8api\Plugin\Animal\AnimalManager'
+    parent: default_plugin_manager</pre></div>
+<p>We will then use dependency injection below, to provide our custom code with this plugin manager.</p>
+<h2>Creating a discoverable plugin of the new type</h2>
+<p>Creating the new plugin type was the hard part; creating a plugin of that type should be easier. But we're going to introduce a slight complication:</p>
+<ol><li>Create an abstract class <span class="geshifilter"><code class="text geshifilter-text">AbstractMammal</code></span>, that declares the plugin type interface <span class="geshifilter"><code class="text geshifilter-text">implements AnimalInterface</code></span>, but only provides one of the two methods. This could then be inherited by lots of other plugins</li>
+<li>Create a concrete class <span class="geshifilter"><code class="text geshifilter-text">Cat extends AbstractMammal</code></span>, that provides the other method unique to a cat: the <span class="geshifilter"><code class="text geshifilter-text">retrieveCall()</code></span>.</li>
+</ol><p>This makes our test code more similar to a real-world example, where the key criterion for a plugin to be recognized—that it's a concrete class satisfying the relevant interface—can sometimes be obscured by layers of class inheritance; yet plugin discovery can still work with this less simple case.</p>
+<p>Here are the two classes; <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/AbstractMammal.php</code></span> (which could be a trait):</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Animal<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Define the abstract mammal class for extension.
+ */</span>
+abstract <span class="kw2">class</span> AbstractMammal implements AnimalInterface <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> isHomeothermic<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw4">TRUE</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>and <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/Cat.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Plugin\Animal<span class="sy0">;</span>
+ 
+use Drupal\d8api\Annotation\Animal<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Define a concrete class for a cat.
+ *
+ * @Animal(
+ *   id = "animal_cat",
+ *   name = @Translation("Cat")
+ * )
+ */</span>
+<span class="kw2">class</span> Cat <span class="kw2">extends</span> AbstractMammal <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> retrieveCall<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="st0">"Meow"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>The only point to note about <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span> is the annotation comment we referred to earlier, with the textual keys (<span class="geshifilter"><code class="text geshifilter-text">id = "animal_cat"</code></span> etc.) matching the object properties (<span class="geshifilter"><code class="text geshifilter-text">$id</code></span> etc.) You should also <span class="geshifilter"><code class="text geshifilter-text">use</code></span> the annotation class, even though it's not explicitly used by the PHP code, just referenced in the comment. Core annotation class discovery should work anyway, but this permits automatic code documentation systems to work out what class the <span class="geshifilter"><code class="text geshifilter-text">@Animal()</code></span> annotation refers to.</p>
+<p>You can see that, once we've put all the architecture in place, the actual plugin file is very simple; the complexity of the discovery process, annotation comment parsing etc. is all elsewhere in code that need not be repeated. It would be very quick to write those <span class="geshifilter"><code class="text geshifilter-text">Horse</code></span> and <span class="geshifilter"><code class="text geshifilter-text">Badger</code></span> plugins, and not much more work to write an <span class="geshifilter"><code class="text geshifilter-text">AbstractAmphibian</code></span> class to support a <span class="geshifilter"><code class="text geshifilter-text">Frog</code></span>! The result, furthermore, would be easy to understand and maintain.</p>
+<h2>Optional improvements</h2>
+<p>All of the above code should work (see later for a demonstration.) But here are two optional improvements you could implement.</p>
+<h3>1. Performance: clearing out the Plugin subfolder</h3>
+<p>So far, we've put four files in the <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/</code></span> subfolder of the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<ul><li><span class="geshifilter"><code class="text geshifilter-text">AbstractMammal.php</code></span></li>
+<li><span class="geshifilter"><code class="text geshifilter-text">AnimalInterface.php</code></span></li>
+<li><span class="geshifilter"><code class="text geshifilter-text">AnimalManager.php</code></span></li>
+<li><span class="geshifilter"><code class="text geshifilter-text">Cat.php</code></span></li>
+</ul><p>Generally speaking, it's good design to put files together, related by "domain knowledge" rather than simply by software-developer reasons. However, you should note that <em>standard plugin discovery checks every file in the folder specified</em>. This means that, when caches are rebuilt and plugins discovered, all files in every module's <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/Animal/</code></span> subfolder will be parsed and checked to see if they satisfy the interface and have the correct annotation. It's not a huge performance hit, and only happens occasionally, but it will slow down cache rebuilding.</p>
+<p>You should therefore avoid putting any files in a plugin subfolder, that don't have to be there. In this case, you could move all except <span class="geshifilter"><code class="text geshifilter-text">Cat.php</code></span> into some other folder, outside of <span class="geshifilter"><code class="text geshifilter-text">src/Plugin/</code></span>. But this is optional: just make sure you update the namespaces on any references to files you move around.</p>
+<h3>2. Reporting: expose your plugin to the Plugin module</h3>
+<p>Above we mention the <a href="https://www.drupal.org/project/plugin">Plugin module</a>, a contributed third-party module that provides documentation for all plugins available to Drupal. You can extend the code in this tutorial to <a href="https://www.drupal.org/node/2626738#exposing-plugin-types">expose the Animal plugin type</a> to the Plugin module's UI.</p>
+<p>However, there's a small catch. Every plugin that appears in the UI must implement the Plugin module's <span class="geshifilter"><code class="text geshifilter-text">PluginDefinitionDecoratorInterface</code></span>. It so happens that the Plugin module comes bundled with implementations for all plugins in core, but that's as far as it goes.</p>
+<p>Because these tutorials focus on core APIs, this one won't cover development against contributed modules: you can consider this as an exercise for you to try out in your own time!</p>
+<h2>Modify the existing custom block to get a <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span></h2>
+<p>Finally, for testing purposes, let's write some code that makes use of our new <span class="geshifilter"><code class="text geshifilter-text">Animal</code></span> plugin type by trying to find the <span class="geshifilter"><code class="text geshifilter-text">Cat</code></span> plugin through its ID: the annotation property <span class="geshifilter"><code class="text geshifilter-text">id = "animal_cat"</code></span>. The simplest change to make is to modify our existing <span class="geshifilter"><code class="text geshifilter-text">TutorialBlock</code></span> to do the following:</p>
+<ol><li>Retrieve the plugin manager for our new plugin type, through dependency injection as discussed previously.</li>
+<li>Later, when <span class="geshifilter"><code class="text geshifilter-text">build()</code></span>ing the block content, ask the plugin manager for <span class="geshifilter"><code class="text geshifilter-text">animal_cat</code></span> and return the resulting plugin's <span class="geshifilter"><code class="text geshifilter-text">retrieveCall()</code></span> text.</li>
+</ol><p>Below we show only (a) the constructor and <span class="geshifilter"><code class="text geshifilter-text">create()</code></span> additions and (b) the changes to <span class="geshifilter"><code class="text geshifilter-text">build()</code></span>, required in <span class="geshifilter"><code class="text geshifilter-text">TutorialBlock.php</code></span> to implement this:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="coMULTI">/* (unchanged) */</span>
+use Drupal\Component\Plugin\PluginManagerInterface<span class="sy0">;</span>
+use Symfony\Component\DependencyInjection\ContainerInterface<span class="sy0">;</span>
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface<span class="sy0">;</span>
+ 
+<span class="kw2">class</span> TutorialBlock <span class="kw2">extends</span> BlockBase implements ContainerFactoryPluginInterface <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var PluginManagerInterface
+   */</span>
+  protected <span class="re0">$pluginManager</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Standard block constructor, but with addition of a plugin manager.
+   *
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+    PluginManagerInterface <span class="re0">$pluginManager</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pluginManager</span> <span class="sy0">=</span> <span class="re0">$pluginManager</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * {@inheritDoc}
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> create<span class="br0">(</span>
+    ContainerInterface <span class="re0">$container</span><span class="sy0">,</span>
+    <a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> static<span class="br0">(</span>
+      <span class="re0">$configuration</span><span class="sy0">,</span> <span class="re0">$plugin_id</span><span class="sy0">,</span> <span class="re0">$plugin_definition</span><span class="sy0">,</span>
+      <span class="re0">$container</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'plugin.manager.d8api'</span><span class="br0">)</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="coMULTI">/* (unchanged, except:) */</span>
+ 
+  <span class="kw2">public</span> <span class="kw2">function</span> build<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$plugin</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pluginManager</span><span class="sy0">-&gt;</span><span class="me1">createInstance</span><span class="br0">(</span><span class="st_h">'animal_cat'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$markup</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Cat goes @call'</span><span class="sy0">,</span> <span class="br0">[</span><span class="st_h">'@call'</span> <span class="sy0">=&gt;</span> <span class="re0">$plugin</span><span class="sy0">-&gt;</span><span class="me1">retrieveCall</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'#markup'</span><span class="sy0">,</span>
+      <span class="st_h">'#markup'</span> <span class="sy0">=&gt;</span> <span class="re0">$markup</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>You should leave the rest of the code unchanged.</p>
+<h2>What you should see</h2>
+<p>As previously discussed, always clear caches when registering new configuration like services, routes etc.</p>
+<p>If you then navigate to the homepage you should see the changes to the block you've already enabled, as per the bottom left of this screenshot:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-134" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/plugin-cat-demopng.html">Plugin-cat-demo.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Plugin-cat-demo.png"><img class="media-element file-inline-image" alt="The Cat plugin provides the &quot;Meow&quot; text for the custom TutorialBlock, bottom left" src="../sites/files/jps/styles/large/public/Plugin-cat-demo.png%3Fitok=6Q4j0Lav" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If so, then congratulations! you have implemented a custom plugin type, manager and plugin.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/plugin_api/8.2.x">Drupal 8 API: Plugins</a></li>
+<li><a href="https://www.drupal.org/developing/api/8/plugins">Develop for Drupal: Plugin API in Drupal 8</a></li>
+<li><a href="https://www.drupal.org/node/1882526">Plugin API: Annotation-based plugins</a></li>
+<li><a href="https://www.sitepoint.com/tutorial-on-using-drupal-8-plugin-derivatives-effectively/">Tutorial on using Drupal 8 Plugin Derivatives Effectively</a></li>
+<li><a href="https://drupalize.me/blog/201409/unravelling-drupal-8-plugin-system">Unravelling the Drupal 8 Plugin system</a></li>
+<li><a href="https://www.drupal.org/project/plugin">The Plugin contributed module</a></li>
+<li><a href="https://www.youtube.com/watch?v=8vwC_01KFLo#t=32m00">Drupal 8: The Crash Course</a> (how Plugins relate to Drupal 7 code patterns)</li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-286"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">kndr (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 18/01/2017 - 18:38      </p>
+      <p class="comment-permalink">
+        <a href="286.html#comment-286" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="286.html#comment-286" class="permalink" rel="bookmark">I think, it&#039;s worth</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>I think, it's worth mentioning that the following clauses should be added at the beginning of TutorialBlock.php :</p>
+<p>use Drupal\Core\Plugin\ContainerFactoryPluginInterface;<br />
+use Drupal\Component\Plugin\PluginManagerInterface;<br />
+use Symfony\Component\DependencyInjection\ContainerInterface;</p>
+<p>I don't see it in the previous lesson about blocks (<a href="http://www.jpstacey.info/blog/2016-09-16/drupal-8-api-blocks">http://www.jpstacey.info/blog/2016-09-16/drupal-8-api-blocks</a>) but it is neccessary to make the TutorialBlock works properly.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/660/286.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-287"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Thu, 19/01/2017 - 11:21      </p>
+      <p class="comment-permalink">
+        <a href="287.html#comment-287" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="287.html#comment-287" class="permalink" rel="bookmark">Thanks, kndr. You&#039;re quite</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks, kndr. You're quite right: I think I originally thought they'd come in from some other tutorial; but there's nothing in between the blocks tutorial and this tutorial that would add them. Edited now!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/660/287.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiother.html">d8api:other</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-d86604ad21554deda012484b5860fa42">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

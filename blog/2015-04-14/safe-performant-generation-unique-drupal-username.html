@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="safe-performant-generation-unique-drupal-username.html" />
+<link rel="shortlink" href="../../node/589.html" />
+  <title>Safe, performant generation of a unique Drupal username | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"5-bVJ_CHTmkhT8m3tiS24dhJdlDK0Guj2hELqDYHwrc","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-589 node-type-blog" >
+  <div id="skip-link">
+    <a href="safe-performant-generation-unique-drupal-username.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Safe, performant generation of a unique Drupal username        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, April 14, 2015 - 09:53</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>There are examples out there for <a href="http://dropbucket.org/node/820">generating a unique Drupal username</a>. The usual technique is to continue incrementing a numeric suffix until an unused name is found. There's also a project to <a href="https://www.drupal.org/project/auto_username">automatically generate usernames</a> for new users. All of this makes sense and works, but compared to the existing solutions, I wanted one that focussed on encapsulation and stability; by which I mean it should:</p>
+<ol><li>provide simple string-to-string conversion: initial guess in; unique username out. That way it can be used in many different places, not reliant on specific workflows, or modules being in place.
+</li><li>assume the initial guess was itself a valid username, because different sites have different rules or conventions about that; so don't process the username except as required below.
+</li><li>ensure safety at the database level by respecting the limits on username length there.
+</li><li>ensure safety at the code level by not trying for uniqueness indefinitely, and using exceptions to notify other code of unexpected circumstances.
+</li><li>permit parametrization of both the delimiter between the suffix, and the maximum value of the suffix before throwing an exception.
+</li><li>perform well at the SQL/PDO layer (so minimizing the number of distinct queries.)
+</li></ol><p>Here's my version, then, heavily commented and indented, hopefully to satisfy coding standards:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * Helper function: create a unique username from an initial guess.
+ */</span>
+<span class="kw2">function</span> _mymodule_unique_username<span class="br0">(</span><span class="re0">$initial</span><span class="sy0">,</span> <span class="re0">$delimiter</span> <span class="sy0">=</span> <span class="st_h">'.'</span><span class="sy0">,</span> <span class="re0">$max_iter</span> <span class="sy0">=</span> <span class="nu0">99</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// In database, users.name is varchar(60) and we add at least</span>
+  <span class="co1">// a delimiter and an N-digit number.</span>
+  <span class="re0">$next_username</span> <span class="sy0">=</span> <span class="re0">$username_root</span> <span class="sy0">=</span> <a href="http://www.php.net/trim"><span class="kw3">trim</span></a><span class="br0">(</span><a href="http://www.php.net/substr"><span class="kw3">substr</span></a><span class="br0">(</span>
+    <span class="re0">$initial</span><span class="sy0">,</span>
+    0<span class="sy0">,</span>
+    60 <span class="sy0">-</span> <a href="http://www.php.net/ceil"><span class="kw3">ceil</span></a><span class="br0">(</span><a href="http://www.php.net/log10"><span class="kw3">log10</span></a><span class="br0">(</span><span class="re0">$max_iter</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">-</span> <a href="http://www.php.net/strlen"><span class="kw3">strlen</span></a><span class="br0">(</span><span class="re0">$delimiter</span><span class="br0">)</span>
+  <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Get all usernames of the form :name or LIKE :name:delimiter%</span>
+  <span class="co1">// in a single query to improve performance (especially if</span>
+  <span class="co1">// something goes wrong and we get many duplicates over time.)</span>
+  <span class="re0">$sql_result</span> <span class="sy0">=</span> db_query<span class="br0">(</span>
+    <span class="st0">"SELECT name FROM {users} WHERE name = :name OR name LIKE :likename"</span><span class="sy0">,</span>
+    <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st0">":name"</span> <span class="sy0">=&gt;</span> <span class="re0">$username_root</span><span class="sy0">,</span> <span class="st0">":likename"</span> <span class="sy0">=&gt;</span> <span class="st0">"<span class="es4">$username_root</span><span class="es4">$delimiter</span>%"</span><span class="br0">)</span>
+  <span class="br0">)</span><span class="sy0">;</span>
+  <span class="re0">$existing_names</span> <span class="sy0">=</span> <span class="re0">$sql_result</span><span class="sy0">-&gt;</span><span class="me1">fetchAllAssoc</span><span class="br0">(</span><span class="st0">"name"</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Loop to check uniqueness of trial username(s).</span>
+  <span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+  <span class="kw1">do</span> <span class="br0">{</span>
+    <span class="re0">$username</span> <span class="sy0">=</span> <span class="re0">$next_username</span><span class="sy0">;</span>
+    <span class="re0">$found</span> <span class="sy0">=</span> <a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$existing_names</span><span class="br0">[</span><span class="re0">$username</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Set up the next username in advance.</span>
+    <span class="re0">$next_username</span> <span class="sy0">=</span> <span class="re0">$username_root</span> <span class="sy0">.</span> <span class="re0">$delimiter</span> <span class="sy0">.</span> <span class="sy0">++</span><span class="re0">$i</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Loop until either nothing found or we've maxed out our iterations.</span>
+  <span class="br0">}</span> <span class="kw1">while</span> <span class="br0">(</span><span class="re0">$found</span> <span class="sy0">&amp;&amp;</span> <span class="br0">(</span><span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="re0">$max_iter</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// If we've maxed out, throw an exception for rest of code to handle.</span>
+  <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$i</span> <span class="sy0">==</span> <span class="re0">$max_iter</span><span class="br0">)</span> <span class="br0">{</span>
+    throw <span class="kw2">new</span> Exception<span class="br0">(</span><span class="st0">"Unique username guesses exhausted for '<span class="es4">$initial</span>'!"</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co1">// Otherwise, return the username.</span>
+  <span class="kw1">return</span> <span class="re0">$username</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>You can call it as follows:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="re0">$new_username</span> <span class="sy0">=</span> _mymodule_unique_username<span class="br0">(</span><span class="st0">"barry.perkins"</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>A few notes:</p>
+<ul><li>Each call to the function makes only one SQL query, because a repeated query in a PHP loop performs badly. Given the default maximum iterations is 99, if something goes wrong then that could be an issue.
+</li><li>I don't put any limit on the SQL query, because the sort order of <span class="geshifilter"><code class="text geshifilter-text">varchar</code></span> is not and cannot be made numeric. That means that if I limited it to a certain number of records, I wouldn't be guaranteed to get them back in the same order as my PHP iteration. The function might then return a name that wasn't actually unique.
+</li><li>It's not thread safe: it doesn't "reserve" the username at all in between the function call and when you create it.
+</li><li>I've also reformatted this in the browser since testing it, so you use it at your own risk!
+</li></ul><p>Feedback much appreciated, though!</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-214"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">pjcdawkins (not verified)</span>      </p>
+      <p class="comment-time">
+        Tue, 14/04/2015 - 19:45      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/214.html#comment-214" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/214.html#comment-214" class="permalink" rel="bookmark">You have a typo: $next</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>You have a typo: $next_usename should be $next_username</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/589/214.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-215"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 15/04/2015 - 09:44      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/215.html#comment-215" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/215.html#comment-215" class="permalink" rel="bookmark">Good spot: thanks!</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Good spot: thanks!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/589/215.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div><a id="comment-251"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">GBirch (not verified)</span>      </p>
+      <p class="comment-time">
+        Fri, 12/02/2016 - 05:07      </p>
+      <p class="comment-permalink">
+        <a href="../../comment/251.html#comment-251" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="../../comment/251.html#comment-251" class="permalink" rel="bookmark">The function does not take</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>The function does not take case-insensitive collations into account.<br />
+E.g. if submitted name is "FOO", the query will (correctly) find user named "foo".<br />
+But when checked using isset(), which IS case sensitive, the "foo" user is not seen, and the function happily returns FOO as unique.  This can cause nasty, fatal errors when Drupal goes to save the record.<br />
+To fix:<br />
+Change the select statement to: "SELECT LOWER(name) as name ..."<br />
+Change the found logic to:  $found = isset($existing_names[strtolower($username)]);</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="../../comment/reply/589/251.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/quickies.html">quickies</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/registration.html">registration</a>, <a href="../../category/wordpress-tag/snippet.html">snippet</a>, <a href="../../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-e9dbfb42523a906e8392e2d63ac62d17">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

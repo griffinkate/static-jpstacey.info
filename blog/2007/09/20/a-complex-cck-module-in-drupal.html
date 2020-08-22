@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="a-complex-cck-module-in-drupal.html" />
+<link rel="shortlink" href="../../../../node/83.html" />
+  <title>A complex CCK module in Drupal | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"gtVuy-LV0JFwW31iD_hNL3ZgcmHCDqPYBxqJmffvnqo","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-83 node-type-blog" >
+  <div id="skip-link">
+    <a href="a-complex-cck-module-in-drupal.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          A complex CCK module in Drupal        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, September 20, 2007 - 19:10</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>CCK is Drupal’s way of making rich content. It means that nodes of any content type can have any kind of data attached to them, so you can have e.g. a directory of superstore outlets, where the outlet records have their longitude and latitude (editable by a Google Map widget) whereas the contact records (e.g. Sales Manager, South-East) can have a portrait photo, selected from an image gallery in a dropdown widget. (A note on terminology: widgets are the structures which are used to edit the CCK data, typically defined in the same CCK submodule as the data types).</p>
+<p>There’s already <a href="http://drupal.org/node/106716">a tutorial with a CCK submodule</a> available. The premise of the sample module is to provide two fairly generic numerical formats. In principle that simplifies the submodule, but in practice it also means it’s difficult to work out precisely why particular programmatic choices were made and what you can tweak. Also, at work we wanted a much richer content type. Here’s what we wanted to display:</p>
+<ol><li>Build an “Available in” field for e.g. all the different formats that a book might come in.</li>
+<li>Record the dimensions DxWxH</li>
+<li>And some dscriptive information</li>
+<li>And let the user pick a thumbnail from a dropdown</li>
+<li>And let all of this be done multiple times</li>
+</ol><p>Here’s a mockup of what we wanted to appear on the admin page (excuse styling—Wordpress isn’t the best for this):</p>
+<form method="post">
+  <fieldset><br /><legend>Available in</legend>
+<div style="3px;">
+      <label>Brief description</label><br /><label>Width/ins</label><br /><label>Height/ins</label><br /><label>Depth/ins</label>
+<p>      <label>Thumbnail</label></p>
+</div>
+<div style="3px;">
+      <label>Brief description</label><br /><label>Width/ins</label><br /><label>Height/ins</label><br /><label>Depth/ins</label>
+<p>      <label>Thumbnail</label></p>
+</div>
+<div style="3px;">
+      <label>Brief description</label><br /><label>Width/ins</label><br /><label>Height/ins</label><br /><label>Depth/ins</label>
+<p>      <label>Thumbnail</label></p>
+</div>
+
+<p></p></fieldset><br /></form>
+<p>And here’s sort of what we wanted on the front end (again, sorry for the HTML: it’s table-heavy as it’s a one off):</p>
+<table style="auto" cellpadding="3"><tr><th colspan="9">Available in</th>
+</tr><tr><th colspan="3">Hardback</th>
+<th colspan="3">Paperback</th>
+<th colspan="3">Trade p/bk</th>
+</tr><tr><th></th>
+<td>ins</td>
+<td>cm</td>
+<th></th>
+<td>ins</td>
+<td>cm</td>
+<th></th>
+<td>ins</td>
+<td>cm</td>
+</tr><tr><th>W</th>
+<td>5.1</td>
+<td>13</td>
+<th>W</th>
+<td>5.1</td>
+<td>13</td>
+<th>W</th>
+<td>5.1</td>
+<td>13</td>
+</tr><tr><th>H</th>
+<td>7.6</td>
+<td>19.2</td>
+<th>H</th>
+<td>7.6</td>
+<td>19.2</td>
+<th>H</th>
+<td>7.6</td>
+<td>19.2</td>
+</tr><tr><th>D</th>
+<td>0.79</td>
+<td>2.0</td>
+<th>D</th>
+<td>0.79</td>
+<td>2.0</td>
+<th>D</th>
+<td>0.79</td>
+<td>2.0</td>
+</tr><tr><th colspan="3"><img src="http://ec1.images-amazon.com/images/I/01%2BxJfQvi2L.jpg" alt="" width="49" height="75" /></th>
+<th colspan="3"><img src="http://ec1.images-amazon.com/images/I/01%2BxJfQvi2L.jpg" alt="" width="49" height="75" /></th>
+<th colspan="3"><img src="http://ec1.images-amazon.com/images/I/01%2BxJfQvi2L.jpg" alt="" width="49" height="75" /></th>
+</tr></table><p>It was difficult, from the simplistic submodule available, to work out exactly how you leverage complex editing widgets, and how you get CCK to save all the database information in the five columns we needed: description, thumbnail image reference and three dimensions in inches. What’s worse is that a CCK submodule with an incomplete set of hook functions seems to do a fandango on certain areas of the database (possibly the cacheing of certain bits of the module’s behaviour): certainly developing a CCK submodule was quite painful, as the process of trial and error frequently required a database restore so as to try again. That tutorial does warn that “all hooks are required. CCK expects them to all be present and will not function correctly if some are missing.” But there’s a world of developer pain in those brief phrases.</p>
+<p>Since <a href="http://lists.drupal.org/archives/support/2007-07/msg00063.html">I originally mentioned the problems we were having</a> on the development mailing lists, a couple of people have asked me how to build a CCK submodule to support rich fields. With this in mind my employers <a href="http://torchbox.com/">Torchbox</a> have very gracefully let me make the module we built public, with some minor edits (the client’s site isn’t live yet, so names and details changed to protect the innocent). </p>
+<p><a href="http://jpstacey.lndo.site/blog/files/drupal/modules/cck_book.module">The module is available here.</a> It consists of 4 1/2 pairs of functions, as follows:</p>
+<ol><li>
+<div>Declare:</div>
+<ol type="a"><li>field types that the module supports</li>
+<li>widgets that the module supports, for editing fields on the node-edit page</li>
+</ol></li>
+<li>
+<div>Settings for:</div>
+<ol type="a"><li>field (so settings inherent to the way that particular field is stored e.g. decimal accuracy for numeric values)</li>
+<li>widgets (so e.g. the image gallery that populates the dropdown for the wireframes)</li>
+</ol></li>
+<li>
+<div>Handlers for:</div>
+<ol type="a"><li>field, so what happens to it when a node is loaded</li>
+<li>widget, so pre-processing of the field to fit a HTML form, or producing a chunk of Form API, or post-processing the HTML form into a database-saveable format.
+  </li>
+</ol></li>
+<li>BONUS UNNECESSARY FUNCTION: cck_book_complex_input just produces the Form API for function 3b. Ignore this one!</li>
+<li>
+<div>Formatters, which give you output options for fields on the “Display Fields” page.</div>
+<ol type="a"><li>Declaring formatters</li>
+<li>Formatters</li>
+</ol></li>
+</ol><p>A few extra pointers:</p>
+<ol><li>CCK does most stuff for you, so you don’t need to actually load/save field contents to the database; declaring the columns for widgets and fields is enough.</li>
+<li>If you’re in the developing phase with your CCK submodule, back up the database first. See above.</li>
+<li>We sidestepped formatters altogether as they don’t cope with e.g. multiple field values that need a header value. Instead, we just overrode <code>theme('field')</code>. One thing, though: you do need some formatters present, or the admin configuration page for “Display Fields” defaults every dropdown to “&lt;Hidden&gt;”, and you can’t get anything to appear.</li>
+<li>To reiterate, CCK needs all hooks present in its submodules from the start. The further you get from Drupal core, the more bleeding-edge APIs will get.</li>
+</ol><p>Note that as I say we had to peer into the node (use <code>var_dump($node)</code> and search for the right array) and then override the theme, because we wanted a fancy header to our field. But that was pretty painless—mostly a matter of knowing one’s PHP rather than one’s Drupal—and it all worked smoothly otherwise. And we ended up with by and large exactly what we wanted. It works and, in retrospect, Drupal has helped us to write readable, maintainable code.</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-category/efficiency.html">efficiency</a>, <a href="../../../../category/wordpress-category/hacking.html">hacking</a>, <a href="../../../../category/wordpress-category/projects.html">projects</a>, <a href="../../../../category/wordpress-category/software.html">software</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../../../category/wordpress-tag/database.html">database</a>, <a href="../../../../category/wordpress-tag/help.html">help</a>, <a href="../../../../category/wordpress-tag/drupal.html">drupal</a>, <a href="../../../../category/wordpress-tag/tutorial.html">tutorial</a>, <a href="../../../../category/wordpress-tag/book.html">book</a>, <a href="../../../../category/wordpress-tag/cck.html">cck</a>, <a href="../../../../category/wordpress-tag/example.html">example</a>, <a href="../../../../category/wordpress-tag/field.html">field</a>, <a href="../../../../category/wordpress-tag/format.html">format</a>, <a href="../../../../category/wordpress-tag/module.html">module</a>, <a href="../../../../category/wordpress-tag/multiple.html">multiple</a>, <a href="../../../../category/wordpress-tag/submodule.html">submodule</a>, <a href="../../../../category/wordpress-tag/widget.html">widget</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-9eb0d0fc39a580e8f6f100b7cb51f53d">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../../../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

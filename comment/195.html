@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-10-27/adapting-version-control-branching-workflows-aid-productivity.html" />
+<link rel="shortlink" href="../node/565.html" />
+  <title>Adapting version-control branching workflows to aid productivity | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"u3VZfDT4HueWBJZZtccghc_CQdSKuBnJ7BT5RHYT62w","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-565 node-type-blog" >
+  <div id="skip-link">
+    <a href="195.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Adapting version-control branching workflows to aid productivity        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, October 27, 2014 - 19:26</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>If you're using git (or indeed any other version control system, DVCS or not) then you're probably striving to: work safely (ensuring your work doesn't complicate other people's); while still getting things done (ensuring your work has a clear path to going live).</p>
+<p>A reasonable simplification of how you might accomplish this is by following steps a bit like this.</p>
+<ol><li>Identify a circumscribed body of work and agree on its criteria for done</li>
+<li><strong>Pull any recent changes from other developers into master</strong></li>
+<li><strong>Check out a new branch</strong></li>
+<li>Do the body of work, <strong>pushing as you go if the work is substantial</strong></li>
+<li>Get your QA team/client/yourself to check the work is done as per the criteria</li>
+<li><strong>Merge the branch into master and push</strong><strong> master</strong></li>
+</ol><p>Six items sounds complicated, but only the 3½ items in bold are really anything to do with git (which isn't to say the non-git steps are any less important to a robust workflow.) More succinctly, the fundamental, siimplest git workflow can be represented as:</p>
+<blockquote><p>pull; branch; work; merge; push</p>
+</blockquote>
+<p>... with extra steps added in as you see fit e.g. pushing intermediate work to a remote repository for backup purposes.</p>
+<p>However, if you work in a larger team, you're likely going to want to formalize this a bit more. But what aspects should you (or indeed can you) formalize, and to what extent?</p>
+<h2>Adopting conventions</h2>
+<p>The first big step you can take is to adopt conventions within your team, <em>and document them</em>: to your next co-worker, freelancer, consultant or even your boss, <strong>an undocumented convention is a convention that does not actually exist.</strong></p>
+<p>There are I'm sure plenty of naming conventions you could adopt, but two that I really like are:</p>
+<ol><li><a href="https://www.drupal.org/patch/submit#patch_naming">Drupal patch naming conventions</a> for branches. Whatever you think about Drupal (<a href="http://omappedia.org/wiki/Releasing_to_Linux_kernel_using_patches_and_emails">like Linux</a>) still using a patch-based workflow, these conventions are well thought out, and provide a good context of categorization (which project does this belong to), uniqueness (the issue ID and comment-in-thread ID) and a brief human description.</li>
+<li><a href="http://semver.org/">Semantic versioning</a> for tags. If you've ever puzzled over exactly which bit of your version numbering you should increment in the next live tag, then this is for you. Again, a simple, unambiguous off-the-shelf solution, which you might need to adapt for web projects (what's an incompatible API change?) but which can nonetheless stand you in good stead.</li>
+</ol><p>As implied in the introduction, branches and their names should march in step with work units, as closely as possible; to keep that relationship unambiguous, every unit of work that needs separate signoff, will need its own ID (usually represented in a ticketing system). If you've broken down an initial "epic" into multiple units of separable work, then each new unit should have its own, separate ID too. There ought to be no exceptions to this: if your work tracking system does not provide you with unique IDs within an epic, then at least work out your own alphanumeric ones and attach them to the tickets e.g. 575-auth, or 1276-parsingjson. Or use a better system.</p>
+<p>Along with a unique ID, branch names should also have a prefix which determines the type of work being done. With a nod to the next step, a reasonable prefixing scheme is:</p>
+<ul><li><strong>hotfix-  </strong>urgent fixes which will need to be deployed rapidly to the live site e.g. fixing serious bugs</li>
+<li><strong>feature-</strong>  new features e.g. important/substantial but not urgent change/addition requests to the project's functionality </li>
+<li><strong>merge-  </strong>when you need to merge two features for QA, prior to approval and hence merging into master.</li>
+</ul><p>But you can certainly adopt your own convention: the key thing is to document it; and when ambiguities are discovered, discussed and resolved, to update the documentation accordingly. And so, with all of the above in mind—type prefixes, unique IDs, and Drupal's patch naming scheme—here's a suggested schema for your branch names:</p>
+<blockquote><p>[type prefix]-[unique ID]-[short, human-readable description]</p>
+</blockquote>
+<p>So, for example: "feature-998-upgrading-webform"; "merge-755-767-new-workflow-with-subscriber-users"; "hotfix-54-whoops-barry-broke-single-signon". Actually, I leave it up to you (and the tribunal) as to whether you actually blame members of your dev team within your branch naming scheme.</p>
+<p>Putting the unique ID before the description—a departure from Drupal's convention—aids quick tab completion e.g. with zsh's git module: you can type "git checkout feature-123-" and press tab, and zsh will complete the branch name for you, without you having to remember the textual description.</p>
+<p>The exact schema is of course up to you: as long as you document it!</p>
+<h2>Abstracted workflow adaptable for most projects</h2>
+<p>Now you have something which is standardized for in-house use, what's the next step? Well, most companies can stop there, especially if they hire rarely, or don't use freelancers or other outside talent. However, what if you're wanting to bring outsiders into your project on a fairly regular basis? You certainly have documentation, but is your team's time best spent writing and updating good documentation—a skill in itself—or coding? </p>
+<p>As an alternative to homegrown workflows, <a href="http://nvie.com/posts/a-successful-git-branching-model/">git flow</a> provides an abstraction of very many likely project workflows, into something standardized that most of those existing workflows can be fitted to, with varying amounts of change. But I would argue the amount of change required is frequently very small, especially if you're already taking care to always branch, and you already have naming conventions in place.</p>
+<p>For example, the team I used to led at Torchbox <a href="http://www.jpstacey.info/blog/2012-10-04/were-moving-git-flow">moved to git flow very straightforwardly</a> in part because it was so close to what we were already doing. Afterwards, upskilling incoming talent was much less fraught with ambiguities, because several paragraphs of in-house documentation could be replaced by the three words: "use git flow". If the developer hadn't used git flow before, then the already available documentation for it was excellent; if they had, then there was almost nothing else we needed to tell them about it.</p>
+<p>And if git flow is too heavyweight for you? It's worth remembering that "pure git flow or nothing", like "pure agile or nothing", is a false dichotomy. Git flow isn't an edict handed down from a deity, and if your team wants to, say, drop the use of the <strong>develop</strong> branch, or not bother with separate <strong>release-</strong> branches, then as long as that works for you, nobody is going to take your git flow ISO certification away, because there isn't one.</p>
+<h2>Easing off on the complexity?</h2>
+<p>In this spirit, Github's own development team have adopted a somewhat less complex workflow, which they call "<a href="http://scottchacon.com/2011/08/31/github-flow.html">Github Flow</a>". As the name suggests, though, part of git flow's complexity is pushed into Github: admittedly making use of the existing work that they've put into their own dogfood, but also tying the workflow to use of the site.</p>
+<p>Another big simplicity that Github Flow makes is only possible because the team operates 100% continuous deployment: when something's ready to go live, it "can and should deploy immediately". If your workflow however needs to involve someone that isn't online at that point, or signoff by someone who needs a staging site set up, or even a telephone call to walk them through it: then maybe you need to drop some of that complexity back in.</p>
+<h2>There is no perfect workflow, but there are many good ones</h2>
+<p>Ultimately, whatever workflow you adopt, it needs to be as good as possible for you, your team, your project, your client and indeed a future consisting of changing circumstances: with all those competing factors in play, no one workflow is likely to cover every eventuality:</p>
+<ul><li>Homegrown workflows can be perfect for your existing team, today; but they invariably have a learning curve, as your team must introduce outsiders to it.</li>
+<li>Git flow can be a perfect abstraction, in that you can apply it to almost any project; but the complexity that abstraction entails can slow your team down.</li>
+<li>Github Flow is perfect for the Github team, who use Github for their QA process and deploy continuously; but it can feel too stripped down for some other teams.</li>
+</ul><p>What's important is to find a workflow that works well for you, your team, your project etc; be happy to adapt that workflow, as long as you document departures from any standard; and regularly revisit your workflow, critiquing and proposing modifications, and keeping your processes truly agile.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-195"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Tue, 28/10/2014 - 16:46      </p>
+      <p class="comment-permalink">
+        <a href="195.html#comment-195" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="195.html#comment-195" class="permalink" rel="bookmark">Edit: I should add that</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Edit: I should add that Matthew Owen, Robbie Mackay and Tom Dyson all provided feedback that helped me put this together (<a href="https://twitter.com/tomd/status/526144559064305664">thread here</a>): thanks, all of you!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/565/195.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+<a id="comment-199"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Robbie Mackay (not verified)</span>      </p>
+      <p class="comment-time">
+        Sun, 16/11/2014 - 21:05      </p>
+      <p class="comment-permalink">
+        <a href="199.html#comment-199" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="199.html#comment-199" class="permalink" rel="bookmark">Nice write up.</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Nice write up.</p>
+<p>I think the important bit when figuring out git workflows is to get something that fits. First figure out 1. are you trying to get a git workflow that fits your current process? or does your current development process have issues you need to fix too?</p>
+<p>Git is intentionally flexible. Forcing yourself to follow git-flow when you don't really have 'releases' doesn't make sense. Tweak your branches to match bits of your workflow that already exist:</p>
+<ul><li>We branch for features and bugs .. because we already treat those as separate work (tasks in a tracker)</li>
+<li>Merges really represent code reviews. The important bit is the review, the merge is just an implementation detail.</li>
+</ul><p>If you don't do code review.. maybe adding branches is a chance to add some review process?</p>
+<p>There is no perfect workflow, largely because you have to make it up for each team.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/565/199.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/paradigms.html">paradigms</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/git.html">git</a>, <a href="../category/tags/dvcs.html">dvcs</a>, <a href="../category/wordpress-tag/workflow.html">workflow</a>, <a href="../category/tags/gitflow.html">gitflow</a>, <a href="../category/tags/convention.html">convention</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-b90054451e6a7cbf3de810b3d498bfbc">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

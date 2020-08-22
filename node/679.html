@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2017-01-23/drupal-8-api-cache-api.html" />
+<link rel="shortlink" href="679.html" />
+  <title>Drupal 8 API: cache API | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"07AksKAE2zoRrRSHEZa0GC8Tzi9vw5T5QbKu_E0jhT0","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-679 node-type-blog" >
+  <div id="skip-link">
+    <a href="679.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: cache API        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, January 23, 2017 - 16:15</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+<li><a href="http://www.jpstacey.info/blog/2016-11-18/drupal-8-api-types-information-drupal">Types of information in Drupal</a></li>
+</ul><h2>How caching stores data in backends and bins</h2>
+<p>The terminology relating to caching in Drupal can be confusing, so let's define a few terms first.</p>
+<p>As discussed in the subject of types of information in Drupal, caching is not so much an information type in itself, as a strategy (or a layer) that improves efficiency of access to existing information types. Any information which needs interpretation, in between its raw state and how it's used, can have its non-raw states cached: computed arrays of data; rendered HTML markup; or responses from calls to remote APIs. Cache data can be given a date on which it expires; it can be declared "invalid", which means it's still retrievable in an emergency, but might be out of date; or it can be deleted entirely.</p>
+<p>Information from different sources—for example, from different stages during the processing of a HTTP request—can be stored in different bins. These are a way of dividing up the caching layer, so that a given bin could be emptied (or lost somehow) leaving other bins intact. Rendered HTML could all be stored in one bin, which could be emptied, whereas the details of what Drupal modules provide which functionality could be stored in another bin.</p>
+<p>Cache bins can then each be stored in different, configurable backends. A backend is a storage mechanism: a SQL database, or Memcache, or even files on disk. Some bins might suit storage in the database; others might need quicker access and hence be better suited to storing in memory. Cache backends can even be chained, so that a transient memory cache sits on top of a database cache: the first request from the database cache is slow, but subsequent requests retrieve data from memory.</p>
+<p>Finally, cached data can be tagged, with one or more short strings of text explaining what programmatic or real-world objects the data pertains to. For example, the assembled data for a node with ID=5, plus its rendered HTML, could be cached separately, in separate bins, and tagged with "node:5". When the node is edited, all cache items, across all bins, which pertain to the node will be invalidated together, by "invalidating the tag."</p>
+<h2>Cache and backend services</h2>
+<p>To manipulate cache items in Drupal, you retrieve the service pertaining to a particular bin, usually by dependency injection (DI), and make requests to that service: the service you need for a particular bin should usually be called <span class="geshifilter"><code class="text geshifilter-text">cache.$bin_name</code></span>. Cache items can be invalidated based on tags, using the <span class="geshifilter"><code class="text geshifilter-text">cache_tags.invalidator</code></span> service.</p>
+<p>Confusingly, Drupal services named <span class="geshifilter"><code class="text geshifilter-text">cache.backend.*</code></span> are actually backend <em>factories</em>, for creating backends which are then themselves retrieved using service names <span class="geshifilter"><code class="text geshifilter-text">cache.*</code></span>. Here's an example, from <a href="https://api.drupal.org/api/drupal/core!core.services.yml/8.2.x"><span class="geshifilter"><code class="text geshifilter-text">core.services.yml</code></span></a>:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">  # (...)
+  cache.backend.chainedfast:
+    class: Drupal\Core\Cache\ChainedFastBackendFactory
+    arguments: ['@settings']
+    calls:
+      - [setContainer, ['@service_container']]
+  # (...)
+  cache.config:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin, default_backend: cache.backend.chainedfast }
+    factory: cache_factory:get
+    arguments: [config]</pre></div>
+<p>In this example, <span class="geshifilter"><code class="text geshifilter-text">cache.config</code></span> is a service which returns <span class="geshifilter"><code class="text geshifilter-text">CacheBackendChainedFast</code></span> objects; these objects are created using the factory object service <span class="geshifilter"><code class="text geshifilter-text">cache.backend.chainedfast</code></span><br />
+called with the arguments <span class="geshifilter"><code class="text geshifilter-text">[config]</code></span>; the factory's own constructor takes the site settings (defined in part in <span class="geshifilter"><code class="text geshifilter-text">settings.php</code></span>) and DI container, in order to build backend objects. This sounds complex, and the naming convention is slightly counterintuitive, but the end result is that a service called <span class="geshifilter"><code class="text geshifilter-text">cache.$bin_name</code></span> will be able to set, get, invalidate or delete cached items within the bin of that name.</p>
+<p>In practice, this means that the service providing what we might lazily refer to as "the cache" is effectively a backend, configured to focus on retrieving data from only one bin.</p>
+<p><em>Note that, at the time of writing, a service of the name <span class="geshifilter"><code class="text geshifilter-text">cache.$bin_name</code></span> <em>must</em> also be configured to provide <span class="geshifilter"><code class="text geshifilter-text">arguments: [$bin_name]</code></span>: these strings must be the same. Specifying different strings in the two locations can lead to undefined behaviour e.g. the choice of backend is not respected. See the bug report later on, in "Further reading etc."</em></p>
+<h2>Example custom cache bin</h2>
+<p>For the purposes of later worked examples, let's define a custom cache bin <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span>. As discussed above, this can be done straightforwardly by appending the following to <span class="geshifilter"><code class="text geshifilter-text">d8api.services.yml</code></span> in the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">services:
+  # (...)
+  cache.d8api:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin, default_backend: cache.backend.memory }
+    factory: cache_factory:get
+    arguments: [d8api]</pre></div>
+<p>This cache bin uses almost entirely the default configuration for cache bins, while also declaring it should use the <span class="geshifilter"><code class="text geshifilter-text">memory</code></span> backend. This means that cached items are stored in memory for each PHP process or HTTP request, and discarded when the process is terminated.</p>
+<h2>Example class to perform cache manipulations</h2>
+<p>In the <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> module, save the following class as <span class="geshifilter"><code class="text geshifilter-text">src/ExampleCacheUsage.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api<span class="sy0">;</span>
+ 
+use \Drupal\Core\Cache\CacheBackendInterface<span class="sy0">;</span>
+use \Drupal\Core\Cache\CacheTagsInvalidatorInterface<span class="sy0">;</span>
+ 
+<span class="co4">/**
+ * Run command-line tests of cache behaviour.
+ */</span>
+<span class="kw2">class</span> ExampleCacheUsage <span class="br0">{</span>
+ 
+  <span class="co4">/**
+   * @var CacheBackendInterface
+   *   Cache backend.
+   */</span>
+  protected <span class="re0">$cacheBackend</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * @var CacheTagsInvalidatorInterface
+   *   Cache backend.
+   */</span>
+  protected <span class="re0">$cacheTagsInvalidator</span><span class="sy0">;</span>
+ 
+  <span class="co4">/**
+   * Implements __construct().
+   *
+   * @param CacheBackendInterface
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>
+    CacheBackendInterface <span class="re0">$cacheBackend</span><span class="sy0">,</span>
+    CacheTagsInvalidatorInterface <span class="re0">$cacheTagsInvalidator</span> <span class="sy0">=</span> <span class="kw4">null</span>
+  <span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span> <span class="sy0">=</span> <span class="re0">$cacheBackend</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheTagsInvalidator</span> <span class="sy0">=</span> <span class="re0">$cacheTagsInvalidator</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Cache data to custom cache bin; invalidate it; delete it.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> cacheInvalidateAndDelete<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// Demonstrate cache is empty, then filled.</span>
+    <span class="kw1">print</span> <span class="st0">"Found value:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheAndSay</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="sy0">,</span> <span class="st_h">'temporary value'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Found value:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Invalidate; can still retrieve if we have to.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">invalidate</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Invalidated:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Get invalid?:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">data</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+ 
+    <span class="co1">// Delete; has gone away.</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">delete</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Deleted:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Get invalid?:<span class="es1">\t</span>"</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'temp'</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">data</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Update cache continuously, to show how different backends work.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> updateCacheContinuously<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">print</span> <span class="st0">"Previously:<span class="es1">\t</span>update="</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'update'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheAndSay</span><span class="br0">(</span><span class="st_h">'update'</span><span class="sy0">,</span> <a href="http://www.php.net/date"><span class="kw3">date</span></a><span class="br0">(</span><span class="st_h">'c'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Now set to:<span class="es1">\t</span>update="</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'update'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Use different bins and try to access cache_config:system.site.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> whichBin<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$config</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'system.site'</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">print</span> <span class="st0">"Found config: sitename is '"</span> <span class="sy0">.</span> <span class="re0">$config</span><span class="br0">[</span><span class="st_h">'name'</span><span class="br0">]</span> <span class="sy0">.</span> <span class="st0">"'<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span> <span class="br0">{</span>
+      <span class="kw1">print</span> <span class="st0">"Couldn't find config; right bin?<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Use cache tags.
+   */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> invalidateViaTag<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span>
+      <span class="st_h">'via_tag'</span><span class="sy0">,</span>
+      <span class="st_h">'data cached using a tag'</span><span class="sy0">,</span>
+      CacheBackendInterface<span class="sy0">::</span><span class="me2">CACHE_PERMANENT</span><span class="sy0">,</span>
+      <span class="br0">[</span><span class="st_h">'d8api:test'</span><span class="br0">]</span>
+    <span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">print</span> <span class="st0">"Tagged item:<span class="es1">\t</span>via_tag="</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'via_tag'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheTagsInvalidator</span><span class="sy0">-&gt;</span><span class="me1">invalidateTags</span><span class="br0">(</span><span class="br0">[</span><span class="st_h">'d8api:test'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Invalidated:<span class="es1">\t</span>via_tag="</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">returnValue</span><span class="br0">(</span><span class="st_h">'via_tag'</span><span class="br0">)</span> <span class="sy0">.</span> <span class="st0">"<span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Cache a string value and say we've done it.
+   *
+   * @param string $cid
+   *   Cache ID.
+   * @param string $string
+   *   Value to cache.
+   */</span>
+  <span class="kw2">private</span> <span class="kw2">function</span> cacheAndSay<span class="br0">(</span><span class="re0">$cid</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">(</span><span class="re0">$cid</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"Cached <span class="es4">$cid</span>:<span class="es1">\t</span><span class="es4">$string</span><span class="es1">\n</span>"</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="co4">/**
+   * Return a value from the cache, or null.
+   *
+   * @param string $cid
+   *   Cache ID.
+   * @return mixed
+   *   Data property of cache object.
+   */</span>
+  <span class="kw2">private</span> <span class="kw2">function</span> returnValue<span class="br0">(</span><span class="re0">$cid</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$cacheObject</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">cacheBackend</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="re0">$cid</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw1">return</span> <span class="re0">$cacheObject</span><span class="sy0">-&gt;</span><span class="me1">data</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+ 
+<span class="br0">}</span></pre></div>
+<p>This class contains a number of <span class="geshifilter"><code class="text geshifilter-text">public function</code></span>s that we're going to call at the command line later:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">cacheInvalidateAndDelete()</code></span></dt>
+<dd>Cache an item, then retrieve it; invalidate the item, and show that it can only be retrieved "in desperation" by accepting invalid items; then delete the item, and show that it's no longer retrievable.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">updateCacheContinuously()</code></span></dt>
+<dd>Try to retrieve a cache item; set it; then try to retrieve it again. This demonstrates cache persistence: effectively permanent; only for the duration of a request; or not cached at all.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">retrieveOtherConfigIfExists()</code></span></dt>
+<dd>Try to retrieve a cache item that exists in some other Drupal cache bin: if present, interrogate it; if absent, suggest the wrong bin is being injected.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">invalidateViaTag()</code></span></dt>
+<dd>Cache an item, retrieve it, then invalidate it via a tag.</dd>
+</dl><p>There are also two "helper" <span class="geshifilter"><code class="text geshifilter-text">private function</code></span>s, which are really just used to make the examples more readable.</p>
+<h2>What you should see</h2>
+<p>As explained previously, you should clear all caches, and have Drush installed to run the following examples at the command line.</p>
+<h3>Invalidation and deletion</h3>
+<p>Run the following:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache()))-&gt;cacheInvalidateAndDelete();'</span></pre></div>
+<p>This injects a service for the default cache bin (accessed in this case by <span class="geshifilter"><code class="text geshifilter-text">\Drupal::cache()</code></span> rather than dependency injection, for simplicity's sake) into our new custom object, then calls the method to test invalidation and deletion.</p>
+<p>The output should look something like:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Found value:	
+Cached temp:	temporary value
+Found value:	temporary value
+Invalidated:	
+Get invalid?:	temporary value
+Deleted:	
+Get invalid?:	</pre></div>
+<p>After the item is invalidated, it can't be retrieved, except by trying to get invalid date; after deletion, the item can't be retrieved at all.</p>
+<h3>Cache persistence with different backends</h3>
+<h4>Default database backend</h4>
+<p>Using the same default database backend as above, examine how cache items persist in it:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache()))-&gt;updateCacheContinuously();'</span>
+drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache()))-&gt;updateCacheContinuously();'</span>
+drush cr
+drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache()))-&gt;updateCacheContinuously();'</span></pre></div>
+<p>This produces the following three responses:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Previously:	update=
+Cached update:	2017-01-20T14:02:06+00:00
+Now set to:	update=2017-01-20T14:02:06+00:00
+#
+Previously:	update=2017-01-20T14:02:06+00:00
+Cached update:	2017-01-20T14:02:29+00:00
+Now set to:	update=2017-01-20T14:02:29+00:00
+#
+Previously:	update=
+Cached update:	2017-01-20T14:03:09+00:00
+Now set to:	update=2017-01-20T14:03:09+00:00</pre></div>
+<p>The cached item persists across Drush PHP processes, until the cache is rebuilt with <span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span>: at which point the item must be re-cached to be retrievable.</p>
+<h4>Memory backend</h4>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">d8api</code></span> cache bin we defined above uses the <span class="geshifilter"><code class="text geshifilter-text">memory</code></span> backend; run the following:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("d8api")))-&gt;updateCacheContinuously();'</span>
+drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("d8api")))-&gt;updateCacheContinuously();'</span></pre></div>
+<p>However many times you run it, you should get a response with the same overall structure:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Previously:	update=
+Cached update:	2017-01-20T14:11:26+00:00
+Now set to:	update=2017-01-20T14:11:26+00:00
+#
+Previously:	update=
+Cached update:	2017-01-20T14:11:33+00:00
+Now set to:	update=2017-01-20T14:11:33+00:00</pre></div>
+<p>The cache item is discarded at the end of each PHP process, and must be re-set in the next process.</p>
+<h4>Null, non-persisting backend</h4>
+<p>For development purposes only, Drupal can provide a <span class="geshifilter"><code class="text geshifilter-text">cache.backend.null</code></span> which acts like <a href="https://en.wikipedia.org/wiki/Null_device">a null device</a>: a cache with no lifetime, where items are immediately discarded! This is available in a separate <span class="geshifilter"><code class="text geshifilter-text">services.yml</code></span> that you must explicitly include. Interestingly, this is a recognized method for temporarily disabling any particular cache bin during development; for example, <a href="https://www.drupal.org/docs/8/theming/twig/debugging-compiled-twig-templates">debugging of Twig templates</a> can be made difficult by the Render API's cache, which is therefore best backended by <span class="geshifilter"><code class="text geshifilter-text">null</code></span>.</p>
+<p>To experiment with the <span class="geshifilter"><code class="text geshifilter-text">null</code></span> backend, add the following two lines to the end of your site's <span class="geshifilter"><code class="text geshifilter-text">settings.php</code></span>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="coMULTI">/* (...) */</span>
+<span class="re0">$settings</span><span class="br0">[</span><span class="st_h">'container_yamls'</span><span class="br0">]</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> DRUPAL_ROOT <span class="sy0">.</span> <span class="st_h">'/sites/development.services.yml'</span><span class="sy0">;</span>
+<span class="re0">$settings</span><span class="br0">[</span><span class="st_h">'cache'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'bins'</span><span class="br0">]</span><span class="br0">[</span><span class="st_h">'d8api'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'cache.backend.null'</span><span class="sy0">;</span></pre></div>
+<p>This includes the development services, and modifies the cache bin settings, so that our custom bin uses the <span class="geshifilter"><code class="text geshifilter-text">null</code></span> backend.</p>
+<p>Ironically, you'll need to clear the cache with <span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span> for Drupal to see the new services; but do so, and then run the following:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("d8api")))-&gt;updateCacheContinuously();'</span></pre></div>
+<p>However many times you run it, the cache item will never return:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Previously:	update=
+Cached update:	2017-01-20T14:12:10+00:00
+Now set to:	update=</pre></div>
+<p>Make sure you comment out or remove the lines from your <span class="geshifilter"><code class="text geshifilter-text">settings.php</code></span> before you continue.</p>
+<h3>Retrieving data from some other cache bin</h3>
+<p>If you've cleared any caches recently, you should e.g. visit the site, to warm up Drupal's other cache bins, like <span class="geshifilter"><code class="text geshifilter-text">cache.config</code></span>. Run the following four commands (note the <span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span> before the last <span class="geshifilter"><code class="text geshifilter-text">php-eval</code></span>):</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache()))-&gt;retrieveOtherConfigIfExists();'</span>
+drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("d8api")))-&gt;retrieveOtherConfigIfExists();'</span>
+drush cr
+drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("config")))-&gt;retrieveOtherConfigIfExists();'</span></pre></div>
+<p>All three of the <span class="geshifilter"><code class="text geshifilter-text">php-eval</code></span> commands return the same message:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Couldn't find config; right bin?
+Couldn't find config; right bin?
+Couldn't find config; right bin?</pre></div>
+<p>Even if we inject the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> cache, our custom code can't find the relevant information: how come? Well, immediately prior to accessing it, we ran another <span class="geshifilter"><code class="text geshifilter-text">drush cr</code></span>, which prompts Drupal to rebuild the caches (and leaves the <span class="geshifilter"><code class="text geshifilter-text">config</code></span> bin temporarily empty.) Immediately, visit the website in the browser, and then run the last command again:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("config")))-&gt;retrieveOtherConfigIfExists();'</span></pre></div>
+<p>You should find that the cache bin now includes the relevant item, and the site name can be retrieved:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Found config: sitename is 'Tutorial'</pre></div>
+<p>Your own site name may of course differ.</p>
+<h3>Tag-based invalidation</h3>
+<p>Our last example is the first one where two services must be injected into our custom object's constructor:</p>
+<div class="geshifilter">
+<pre class="bash geshifilter-bash" style="font-family:monospace;">drush php-eval <span class="st_h">'(new Drupal\d8api\ExampleCacheUsage(\Drupal::cache("d8api"), \Drupal::service("cache_tags.invalidator")))-&gt;invalidateViaTag();'</span></pre></div>
+<p>The <span class="geshifilter"><code class="text geshifilter-text">cache_tags.invalidator</code></span> service will straightforwardly invalidate a tag, across all bins:</p>
+<div class="geshifilter">
+<pre class="text geshifilter-text" style="font-family:monospace;">Tagged item:	via_tag=data cached using a tag
+Invalidated:	via_tag=</pre></div>
+<p>If you can see all of these results, then congratulations! you have learnt how to take advantage of caching and cache invalidation methods in Drupal 8.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.2.x">Drupal 8 API: cache API</a></li>
+<li><a href="https://www.drupal.org/node/1903374">Debugging compiled Twig templates</a></li>
+<li><a href="https://www.drupal.org/docs/8/api/cache-api/cache-tags">Cache tags</a></li>
+<li><a href="https://www.drupal.org/node/2845265">Cache::PERMANENT and CacheBackendInterface::CACHE_PERMANENT are arbitrarily swapped</a></li>
+<li><a href="https://www.drupal.org/node/2845358">When cache.X service is configured with arguments: [X_Y] - behaviour is undefined</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/tutorials.html">tutorials</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiother.html">d8api:other</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-14d1f403e5a798fe036f117a922b17ab">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

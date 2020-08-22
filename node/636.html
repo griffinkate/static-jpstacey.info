@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-05-13/testable-dependency-injection-di-lite-framework-silex.html" />
+<link rel="shortlink" href="636.html" />
+  <title>Testable dependency injection in a DI-lite framework like Silex | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"kMA-M5BZUJc-aNO-WP-ij5Qc9rKSireU9-IycCTA81s","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-636 node-type-blog" >
+  <div id="skip-link">
+    <a href="636.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Testable dependency injection in a DI-lite framework like Silex        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Friday, May 13, 2016 - 10:53</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>As I mentioned previously (in the context of Symfony and Drupal 8) <a href="http://www.jpstacey.info/blog/2016-03-16/services-files-are-most-powerful-bits-symfony-and-hence-drupal-8">service-based dependency injection</a> is a gold standard of decoupling all your bits of code from each other.</p>
+<p>It makes testing easier immediately and reduces coupling (which has its own benefits); in the long run, it avoids the temptation within your own code to freely ask the service container for arbitrary services, which can lead to spaghetti code and lots of mocking during testing. It also moves your code away from framework-dependence, because as long as they get services which satisfy particular interfaces, the business logic will work the same regardless.</p>
+<h2>Micro-frameworks give you freedom to shoot yourself in either or even both feet</h2>
+<p>But what if you're using a much lighter framework like <a href="http://silex.sensiolabs.org/">Silex</a>, where you don't have a <span class="geshifilter"><code class="text geshifilter-text">services.yml</code></span> at your disposal to enforce good DI decoupling? Silex lets you build services arbitrarily in PHP, which is very flexible and allows you to build them in a decoupled way; <a href="http://silex.sensiolabs.org/doc/services.html">a good example is given</a>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="re0">$app</span> <span class="sy0">=</span> <span class="kw2">new</span> Silex\Application<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co1">// Decoupled pattern: give Service just the other services it needs and no more.</span>
+<span class="re0">$app</span><span class="br0">[</span><span class="st_h">'some_service'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">(</span><span class="re0">$app</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> Service<span class="br0">(</span><span class="re0">$app</span><span class="br0">[</span><span class="st_h">'some_other_service'</span><span class="br0">]</span><span class="sy0">,</span> <span class="re0">$app</span><span class="br0">[</span><span class="st_h">'some_service.config'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="sy0">;</span></pre></div>
+<p>Here the application (which is also the DI container) returns a <span class="geshifilter"><code class="text geshifilter-text">Service</code></span> object prepared by injecting two other services into its constructor. All code can be tested in isolation.</p>
+<p>However, you need to avoid the temptation to pass the DI container in and let <span class="geshifilter"><code class="text geshifilter-text">Service()__construct()</code></span>'s internal logic retrieve the services it wants: </p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co1">// Coupled pattern: give Service the entire DI container.</span>
+<span class="re0">$app</span><span class="br0">[</span><span class="st_h">'coupled_service'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">(</span><span class="re0">$app</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="kw2">new</span> Service<span class="br0">(</span><span class="re0">$app</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="sy0">;</span></pre></div>
+<p>This is taking the first few steps towards permanently storing the container inside <span class="geshifilter"><code class="text geshifilter-text">Service</code></span> and retrieving arbitrary services at method execution time. Even as a minimum, this pattern will start to complicate testing <span class="geshifilter"><code class="text geshifilter-text">Service</code></span> without mocking up an entire <span class="geshifilter"><code class="text geshifilter-text">Application</code></span>. So use the decoupled pattern mentioned first above, if you can.</p>
+<h2>Controllers like services? Controllers <em>as</em> services!</h2>
+<p>Most of your services, then, can be decoupled, tested separately, but then combined during the setting-up of the Silex application. But what about routing?</p>
+<p>Silex permits very loose routing handler definition e.g. an anonymous function can be registered with a route, which is almost textbook untestable code! You could only ever test that code with a full system test, as you need the application to configure itself, as if it were a production site, to invoke that code.</p>
+<p>Anonymous functions can also give type hints, which means that a function-based controller can quite easily ask for the DI container, which is again a strong-coupling design pattern. Here's an example taken from the Silex documentation:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co1">// Coupled pattern: every service can be summoned in code</span>
+<span class="co1">// that cannot be tested in isolation</span>
+<span class="re0">$app</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'/blog/{id}'</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">(</span>Application <span class="re0">$app</span><span class="sy0">,</span> Request <span class="re0">$request</span><span class="sy0">,</span> <span class="re0">$id</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// ...</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>However, along with these short-cuts Silex also lets us use a gold standard of routing (it just doesn't enforce it): <a href="http://silex.sensiolabs.org/doc/usage.html#controllers-as-classes">controllers as classes</a>. Even then, if your routing is just done by string names of class and method e.g. <span class="geshifilter"><code class="text geshifilter-text">$app-&gt;get('/', 'Controller\\HomeController:get');</code></span> then how do you inject services?</p>
+<p>The temptation is to use the first tool to hand, which is type hinting (again):</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="co1">// Coupled again.</span>
+<span class="kw2">namespace</span> Controller<span class="sy0">;</span>
+<span class="kw2">class</span> HomeController
+<span class="br0">{</span>
+    <span class="kw2">public</span> <span class="kw2">function</span> get<span class="br0">(</span>Request <span class="re0">$request</span><span class="sy0">,</span> Application <span class="re0">$app</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// Can couple to any service here via $app.</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>As you can see, this introduces potential coupling to arbitrary services (also again).</p>
+<p>Instead, <a href="http://silex.sensiolabs.org/doc/providers/service_controller.html">register the confusedly-named Service-Controller Service Provider</a>:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="re0">$app</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">(</span><span class="kw2">new</span> Silex\Provider\ServiceControllerServiceProvider<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>This then allows controllers to be registered like any other service, and then their service name used instead of the class name during routing. Here's an example from an actual running application:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="re0">$app</span><span class="br0">[</span><span class="st_h">'config'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="kw2">new</span> ConfigService<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$this</span><span class="br0">[</span><span class="st_h">'home'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> use <span class="br0">(</span><span class="re0">$app</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="kw2">new</span> Controller\HomeController<span class="br0">(</span><span class="re0">$app</span><span class="br0">[</span><span class="st_h">'config'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="sy0">;</span>
+<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">(</span><span class="st_h">'/'</span><span class="sy0">,</span> <span class="st_h">'home:get'</span><span class="br0">)</span><span class="sy0">;</span></pre></div>
+<p>If you also define your controller constructor using interface argument typing:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Controller<span class="sy0">;</span>
+<span class="kw2">class</span> HomeController
+<span class="br0">{</span>
+    <span class="kw2">private</span> <span class="re0">$config</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">(</span>ConfigServiceInterface <span class="re0">$config</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">config</span> <span class="sy0">=</span> <span class="re0">$config</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw2">public</span> <span class="kw2">function</span> get<span class="br0">(</span>Request <span class="re0">$request</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// Only have access to Request and a ConfigService.</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>then you won't even have to use mocks: instead, you can define and inject <span class="geshifilter"><code class="text geshifilter-text">class DummyConfigService implements ConfigServiceInterface</code></span>, and even write tests for your resulting <span class="geshifilter"><code class="text geshifilter-text">DummyConfig</code></span> class. Even then, the real <span class="geshifilter"><code class="text geshifilter-text">ConfigService</code></span> can be created and passed in, if you want to do integration testing alongside unit testing.</p>
+<p>Everything is now testable, in isolation and together!</p>
+<h2>Summary</h2>
+<p>If you know what you're doing, you can write reasonably coupled code in microframeworks like Silex and still have a perfectly robust application. But as your application grows it always helps to have a decoupling strategy, that you can deploy to separate out complex code into separately testable chunks.</p>
+<p>Enforcing non-container DI into services, and implementing controllers as services, means that "everything is a service", and everything is testable in isolation. This can bring sanity to your code, helping a larger team or merely your future self.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/layers.html">layers</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/architecture.html">architecture</a>, <a href="../category/tags/silex.html">silex</a>, <a href="../category/tags/di.html">di</a>, <a href="../category/wordpress-tag/service.html">service</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-1eb5429b94c65b2964555ec43701b3d3">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

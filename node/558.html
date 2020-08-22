@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2014-10-30/splitting-your-drupal-features-thematically.html" />
+<link rel="shortlink" href="558.html" />
+  <title>Splitting up your Drupal features thematically | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"BPs5gLElGn3a58sPU57Zt-c64GA7RxADN4x6GR3VwWY","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-558 node-type-blog" >
+  <div id="skip-link">
+    <a href="558.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Splitting up your Drupal features thematically        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Thursday, October 30, 2014 - 12:08</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>A Drupal project I worked on involved rolling out potentially many (dozens) of sites containing the same starter configuration, content types etc. Essentially we needed a custom install profile that could do a lot of setup for us.</p>
+<p>We realised quite quickly that our method had to be strongly Feature-driven, in the Drupal sense. That is, the configuration of most of the site should be managed—initially activated during install, and then maintained in an ongoing fashion—using <a href="http://drupal.org/project/features">Features</a>.</p>
+<p>However, there was an initial architectural decision we needed to make: how do we split up our configuration into different features?</p>
+<h2>Features mapping onto, well, features?</h2>
+<p>Drupal Features (big-F) were originally intended to map reasonably closely to your projects functional features (small-f): that is, you would have a feature for your blog (containing the blogpost content type, and archival listings); a feature for search (containing your search engine configuration, and the configuration of facet-navigation location on the search pages); a feature for Google Analytics (maybe literally just the configuration of your UA-* account number). This was roughly the way we originally configured our offerings at Torchbox, and it works OK.</p>
+<p>However, if you have a strong requirement that your features be un-overridden, this presents a difficulty. What if you have a "Document Management" feature, whose requirement is: add "Related Document" media references to certain content types? This feature changes the configuration of every other feature. So where does the Feature for this feature (!) reside?</p>
+<p>In the past couple of years, <a href="https://www.drupal.org/project/features_override">Features Override</a> has been built to solve this specific problem and others like it, but even then it's not guaranteed to cope with every possible circumstance of feature-on-feature (small-f) modifications. Besides, we could choose our starting point completely: why choose one that entailed overriding from the very beginning if we could avoid it? </p>
+<h2>One Big Feature?</h2>
+<p>Much can be said against a <a href="http://colans.net/blog/split-your-features-drupal-7">One Big Feature</a> approach—literally, all configuration in a single feature—but it does have certain advantages:</p>
+<ul><li>All your configuration is in one location—much like having all your content in one database—and it's therefore possible to look after, maintain and audit that one location.</li>
+<li>It's simple, a no-brainer: there's no arguments or ambiguity across a big team as to where a particular piece of configuration should go.</li>
+<li>If you're undecided about using Features, and the details of how to break them down is part of what's putting you off, <em>this method works</em>.</li>
+</ul><p>However, we were in the fortunate position of being able to architect up front (and, as you'll see below, re-architect later), and the dev team was only 2–3 people, so we felt confident we could break features up successfully.</p>
+<h2>Drupal-driven breakdown of Features</h2>
+<p>The method we went for in the end was a Drupal-driven breakdown of Features. What do I mean by that? Well, depending on what functional use the configuration had to Drupal (not to the site visitor, or owner) then it would go into different features. This is in some ways the exact opposite of what Features in Drupal 7 was originally intended for (hence its name) and arguably more developer-friendly than consumer-friendly because of it: nobody's going to buy or otherwise acquire a feature called "access control for this site", because if it's for their site, then it's the one they've already got. However, it's suited our developer-driven construction of a Features-driven installation profile.</p>
+<p>Our ultimate method is similar in some ways to ones documented elsewhere ("<a href="http://drupal.stackexchange.com/questions/23489/when-using-features-to-manage-deployment-should-i-break-my-functionality-into-m">split by conceptual layer</a>", "<a href="http://drupal.stackexchange.com/questions/64661/how-to-split-configurations-in-features-to-minimize-conflicts">build in layers</a>") although our breakdown was <em>slightly</em> more architected, including feature-to-feature dependencies, in order to achieve a clean install without any manual intervention.</p>
+<p>One late requirement, that prompted our rearchitecting, is that a very small amount of configuration was likely to be (indeed, intended to be) overridden on each deployed site. Because this configuration could be parcelled up separately, this was done so and a new feature created. That means that we are still in a position where 95% of the site configuration can still be maintained as not overridden, and the final feature intentionally ignored (or forked for each site.) It also means we can use features to roll out updates to all configuration except where we expect and indeed desire per-site customization.</p>
+<h2>Our breakdown using this method</h2>
+<p>Each feature is named according to this convention:</p>
+<blockquote><p>[client prefix]_[description]</p>
+</blockquote>
+<p>where (a) neither component of the name contains an underscore itself, and (b) "descripttion" is very, very brief: one or two words run together. This both permits us to have a client-specific prefix for all our custom modules, and also to minimize clashes with other prefixes that might contain underscores.</p>
+<h3>Feature: config (clientprefix_config)</h3>
+<p>This contained all the filter formats for rich text, and a huge list of system variables. From a user's perspective this would very much be the "misc" feature; for a developer, it made much more sense. </p>
+<p>The only variable settings we didn't include were ones that were specific to e.g. content type display, or Panels layouts: they went in the relevant features below.</p>
+<h3>Feature: workflow (clientprefix_workflow)</h3>
+<p>This ended up as the smallest feature, and it just contains a number of Drupal rules. In theory, this feature can in future also contain custom form redirects through alter hooks: at the point of writing, this code was still elsewhere, owing to us having inherited a prototype that was not to be rebuilt in the timescale provided (so not really a prototype!) In future, this feature is likely where new workflow code will go.</p>
+<h3>Feature: listings (clientprefix_listings)</h3>
+<p>Almost all Drupal views went here: there are a couple of exceptions that went in "layout structure" as we explain below.</p>
+<h3>Feature: layout structure (clientprefix_structlayout)</h3>
+<p>Panels layouts went here. Note that panes in a panel are ID'ed based on (I think) a hash of their entire configuration. That meant that, if any pane was removed, often several pane IDs change, because weights are re-numbered and the hashes change.</p>
+<p>Two variables were also included here: default_page_manager_pages and page_manager_node_view_disabled. These actually enable the panels displays, and confusingly they have opposite logic: if both variables aren't present, one or other component still works (I forget which) but you'll be left scratching your head about the other!</p>
+<h3>Feature: content structure (clientprefix_structcontent)</h3>
+<p>All the content types, taxonomy vocabularies, field bases and field instances initially went in here. As discussed above, one particular content type was liable to substantial ongoing changes, so we eventually moved that out to the t feature below .</p>
+<p>Any system variables pertaining to content types—comments enabling, <a href="https://www.drupal.org/project/auto_nodetitle">automatic nodetitling</a>, which menus content can be assigned to—also goes into this feature.</p>
+<h3>Feature: content structure, customizable content type (clientprefix_structtypename)</h3>
+<p><strong>Dependencies: </strong>content structure.</p>
+<p>As mentioned above, we had a single content type that we fully expected to be overridden, in at least one or other field, and possible far more extensively. We therefore decided to put this in its own feature.</p>
+<p>We split up the previous feature into two, quite late in the day. Here's roughly how we did it:</p>
+<ol><li>Duplicate the content structure feature &amp; rename everything with <strong>zmv</strong> and <strong>perl -i</strong></li>
+<li>Edit out everything in the .info file so that (a) the original .info has nothing referring to the customizable content type and (b) the new .info file has all of those entries.</li>
+<li>Check in the Features interface that there are no remaining conflicts, and enable the new feature.</li>
+<li>Re-export the new feature using <strong>drush features-update</strong>, and check carefully what has been removed; manually remove the field base for one shared field (see below). This should therefore remove everything not mentioned in the .info file.</li>
+<li>Revert and re-export the old feature as above, and again check carefully what has been removed. If you do this before the previous point, you might find <em>all</em> your field configuration being removed from the old feature! This is because it thinks "the new feature's .info file doesn't say so, but when I ask it through API functions, then it returns all of these fields! So I'll just get rid of them."</li>
+</ol><p>The one remaining dependency between this and content structure arises because this content type is enabled for use within Organic Groups (OG). That means that it shares the og_group_ref field with all the other content types thus enabled. So the field base goes in the old feature; the field instance—the variation for this one content type—goes in the new feature.</p>
+<h3>Feature: access (clientprefix_access)</h3>
+<p><strong>Dependencies</strong>: config, content structure, content structure (customizable type).</p>
+<p>This feature defines all user roles, permissions and OG permissions for the site. Some of those permissions pertain to specific filter formats (config) or content types (the other two dependencies) and so those features need to be enabled first.</p>
+<p>Note that files produced by the OG permissions export tend to fail <a href="https://www.drupal.org/project/coder">code review</a>: there are comments far longer than 80 characters in there. As these hardly changed, we fixed them once and then just git-checkout'ed the files every time they were re-exported to fix the comments.</p>
+<p>Oh, and the last dependency—on the customizable content type—was such that customization shouldn't affect this feature. If that was going to be the case then we'd probably move those specific permissions out into the custom feature, to isolate the chances of overrides.</p>
+<h2>Summary</h2>
+<p>This breakdown is working really well for us. Having to split up the content types at a late stage was a pain: but it was only a couple of hours of pain, followed by an hour or two of testing; we didn't have to trawl every feature, or remove 95% of One Big Feature, to work out what needed to go into the new feature. Now, we install the site, enable all the features, and revert them (that last step seems unavoidable for some reason) and everything else just works from that point on.</p>
+<p>However, a slightly different breakdown might work for your own site: if it's views- or rules-heavy, then the listings and workflow features might need to be split up for you. You should feel comfortable experimenting; but I hope you also feel happy that this blogpost has provided you with a good fallback position, should you need it.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/configuration.html">configuration</a>, <a href="../category/wordpress-category/framework.html">framework</a>, <a href="../category/wordpress-category/import/export.html">import/export</a>, <a href="../category/wordpress-category/layers.html">layers</a>, <a href="../category/wordpress-category/paradigms.html">paradigms</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-tag/drupal.html">drupal</a>, <a href="../category/tags/features.html">features</a>, <a href="../category/wordpress-tag/architecture.html">architecture</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-4cf338419be54e427ef83556c9848f66">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="../blog/2016-10-07/drupal-8-api-ajax.html" />
+<link rel="shortlink" href="../node/651.html" />
+  <title>Drupal 8 API: Ajax | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"1Fe_9NehhQzOm0Mgg3Tn-ZoXwUwXt-6jVyHk3ERSaMU","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-651 node-type-blog" >
+  <div id="skip-link">
+    <a href="277.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Drupal 8 API: Ajax        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Friday, October 7, 2016 - 08:53</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
+<ul><li><a href="http://www.jpstacey.info/blog/2016-10-03/drupal-8-api-forms">Forms</a></li>
+</ul><h2>Interacting with the server, without reloading the entire page</h2>
+<p>Back when it was first proposed that browsers could contact servers to load data, or small fragments of HTML, without reloading the whole page, people referred to it using the name "Ajax". This originally stood for <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">Asynchronous Javascript And XML</a>, but nowadays is a catch-all term for communicating between the browser and server "in the background", while the site visitor is still presented with a page.</p>
+<p>These days, Drupal uses <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> rather than XML to communicate, but otherwise the principle is the same:</p>
+<ol><li>Detect some user input or interaction in the browser.</li>
+<li>Make a background HTTP call to the server, while letting the site visitor know something is happening.</li>
+<li>Act on the result.</li>
+</ol><p>To accomplish this, we need (in theory at least) the following pieces:</p>
+<ul><li>A route—a path with a handler method or class—for Drupal to manage incoming Ajax requests.</li>
+<li>A form (or maybe some links or other buttons) for the site visitor to click on.</li>
+<li>Some Javascript in the browser to make the initial call, and do something with the result.</li>
+</ul><p>We've discussed routing and forms previously, so here we extend those examples to perform an Ajax call. Our example will do the following:</p>
+<ol><li>When a user fills in the existing form at <span class="geshifilter"><code class="text geshifilter-text">/tutorial/form</code></span>, send the data to the server for "validation".</li>
+<li>Show a spinner while waiting for the server to respond.</li>
+<li>When the response returns, alert the user, then submit the form anyway.</li>
+</ol><p>As we'll see, Drupal gives us a comprehensive toolkit with which to accomplish this.</p>
+<h2>Configure an Ajax action to use a class and method</h2>
+<p>An Ajax request, made as part of some existing form, uses the same path as the form but with some query parameters. If you use some kind of browser debugger tool, you might see the example below making requests to a URL like <span class="geshifilter"><code class="text geshifilter-text">/tutorial/form?ajax_form=1&amp;_wrapper_format=drupal_ajax</code></span>. This tells Drupal to invoke the form to handle the request, but then switch to a different configured class and method to specifically handle it as Ajax.</p>
+<p>To configure this, we modify the existing <span class="geshifilter"><code class="text geshifilter-text">buildForm()</code></span> method on our form, to return an extra <span class="geshifilter"><code class="text geshifilter-text">#ajax</code></span> key in its structured data:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+<span class="coMULTI">/* ... (unchanged) ... */</span>
+<span class="kw2">class</span> TutorialForm <span class="kw2">extends</span> FormBase <span class="br0">{</span>
+  <span class="coMULTI">/* ... (unchanged) ... */</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> buildForm<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'phone'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'tel'</span><span class="sy0">,</span>
+      <span class="st_h">'#title'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Your telephone number'</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+    <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'go'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">[</span>
+      <span class="st_h">'#type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'submit'</span><span class="sy0">,</span>
+      <span class="st_h">'#value'</span> <span class="sy0">=&gt;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">t</span><span class="br0">(</span><span class="st_h">'Go'</span><span class="br0">)</span><span class="sy0">,</span>
+ 
+      <span class="co1">// Modifications below.</span>
+      <span class="st_h">'#ajax'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span>
+        <span class="st_h">'callback'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Drupal\d8api\Form\TutorialForm::respondToAjax'</span><span class="sy0">,</span>
+        <span class="st_h">'event'</span> <span class="sy0">=&gt;</span> <span class="st_h">'click'</span><span class="sy0">,</span>
+        <span class="st_h">'progress'</span> <span class="sy0">=&gt;</span> <span class="br0">[</span><span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'throbber'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="kw4">NULL</span><span class="br0">]</span><span class="sy0">,</span>
+      <span class="br0">]</span><span class="sy0">,</span>
+    <span class="br0">]</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$form</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+ 
+  <span class="coMULTI">/* ... (unchanged) ... */</span>
+<span class="br0">}</span></pre></div>
+<p>In the example above, we give the <span class="geshifilter"><code class="text geshifilter-text">#ajax</code></span> configuration sub-array three keys:</p>
+<dl><dt><span class="geshifilter"><code class="text geshifilter-text">callback</code></span></dt>
+<dd>Which class and method (yet to be written) will respond to the Ajax call. This could involve any class, but for simplicity's sake we're going to add a new method to the existing <span class="geshifilter"><code class="text geshifilter-text">TutorialForm</code></span> class.</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">event</code></span></dt>
+<dd>What event in the browser should trigger the Ajax call. This is a click event on the "Go" button. Note that, for accessibility reasons, Drupal's Javascript will also deal with keypress events e.g. submitting the form by tabbing to the button and pressing "enter".</dd>
+<dt><span class="geshifilter"><code class="text geshifilter-text">progress</code></span></dt>
+<dd>What hint should be given to the site visitor that an Ajax call is in progress. Here we specify the throbber (we'll see it in action below) but no other message.</dd>
+</dl><p>This configuration is all that's required for the Javascript behaviours in the browser: Drupal will build the rest.</p>
+<h2>Add a class method to respond to the browser's Ajax call</h2>
+<p>To match our configuration above, we need to add a <span class="geshifilter"><code class="text geshifilter-text">respondToAjax()</code></span> method to the <span class="geshifilter"><code class="text geshifilter-text">TutorialForm</code></span> class.</p>
+<p>Ajax-responding methods need to return a special <span class="geshifilter"><code class="text geshifilter-text">AjaxResponse</code></span> object. This object can chain any arbitrary Ajax commands: Drupal core comes with <a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/ajax/8.2.x">a number of PHP objects</a> that correspond to Javascript and jQuery methods in the browser; you can also create your own classes, and instantiate them as objects to chain them; alternatively, existing objects like <span class="geshifilter"><code class="text geshifilter-text">InvokeCommand</code></span> let you</p>
+<p>Below we implement a method which, when the response reaches the browser, causes the following three Javascript actions to occur in order:</p>
+<ol><li>Pop up a native browser alert box with the submitted user input in it.</li>
+<li>Change the internal build ID of the form. Forms are given a unique build ID by Drupal, but if your Ajax call might be modifying the form, it's good practice to change this build ID.</li>
+<li>Submit the form, referencing the new build ID in order to find the form in the browser.</li>
+</ol><p>Here's the new method:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="kw2">namespace</span> Drupal\d8api\Form<span class="sy0">;</span>
+ 
+use Drupal\Core\Ajax\AjaxResponse<span class="sy0">;</span>
+use Drupal\Core\Ajax\AlertCommand<span class="sy0">;</span>
+use Drupal\Core\Ajax\InvokeCommand<span class="sy0">;</span>
+use Drupal\Core\Ajax\UpdateBuildIdCommand<span class="sy0">;</span>
+<span class="coMULTI">/* ... (unchanged) ... */</span>
+<span class="kw2">class</span> TutorialForm <span class="kw2">extends</span> FormBase <span class="br0">{</span>
+  <span class="coMULTI">/* ... (with previous changes) ... */</span>
+  <span class="co4">/**
+   * AJAX response: alert contents of input field, update form and save it.
+   *
+   * @param array $form
+   *   Form API array structure.
+   * @param array $form_state
+   *   Form state information.
+   *
+   * @return AjaxResponse
+   *   Response object.
+   */</span>
+  <span class="kw2">public</span> static <span class="kw2">function</span> respondToAjax<span class="br0">(</span><a href="http://www.php.net/array"><span class="kw3">array</span></a> <span class="re0">$form</span><span class="sy0">,</span> FormStateInterface <span class="re0">$form_state</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$response</span> <span class="sy0">=</span> <span class="kw2">new</span> AjaxResponse<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$message</span> <span class="sy0">=</span> <span class="st_h">'Your phone number is '</span> <span class="sy0">.</span> <span class="re0">$form_state</span><span class="sy0">-&gt;</span><span class="me1">getValue</span><span class="br0">(</span><span class="st_h">'phone'</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$submit_selector</span> <span class="sy0">=</span> <span class="st_h">'form:has(input[name=form_build_id][value='</span>
+      <span class="sy0">.</span> <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#build_id'</span><span class="br0">]</span> <span class="sy0">.</span> <span class="st_h">'])'</span><span class="sy0">;</span>
+ 
+    <span class="re0">$response</span><span class="sy0">-&gt;</span><span class="me1">addCommand</span><span class="br0">(</span><span class="kw2">new</span> AlertCommand<span class="br0">(</span><span class="re0">$message</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$response</span><span class="sy0">-&gt;</span><span class="me1">addCommand</span><span class="br0">(</span><span class="kw2">new</span> UpdateBuildIdCommand<span class="br0">(</span><span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#build_id_old'</span><span class="br0">]</span><span class="sy0">,</span> <span class="re0">$form</span><span class="br0">[</span><span class="st_h">'#build_id'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="re0">$response</span><span class="sy0">-&gt;</span><span class="me1">addCommand</span><span class="br0">(</span><span class="kw2">new</span> InvokeCommand<span class="br0">(</span><span class="re0">$submit_selector</span><span class="sy0">,</span> <span class="st_h">'submit'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+    <span class="kw1">return</span> <span class="re0">$response</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+<p>Arguably, you might not want to submit forms on the site visitor's behalf—it might not be best practice in some situations—but this is only meant to serve as an example.</p>
+<h2>What you should see</h2>
+<p>If you navigate to /tutorial/form, you should see the form as before:</p>
+<p><div class="media media-element-container media-inline_image"><div id="file-131--2" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/forms-tutorial-formpng.html">Forms - tutorial form.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Forms&#32;-&#32;tutorial&#32;form.png"><img class="media-element file-inline-image" alt="Form ready for submission with an example phone number in it" src="../sites/files/jps/styles/large/public/Forms&#32;-&#32;tutorial&#32;form.png%3Fitok=Dlhcr8FQ" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>However, when you now press the "Go" button, a blue spinner appears beside the button, and shortly afterwards an alert box appears:</p>
+<p><div class="media media-element-container media-inline_image"><div id="file-133" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/drupal-8-ajax-spinner-and-alertpng.html">Drupal 8 Ajax spinner and alert.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Drupal&#32;8&#32;Ajax&#32;spinner&#32;and&#32;alert.png"><img class="media-element file-inline-image" alt="Ajax response has resulted in an alert box, while the spinner is still visible by the Go button" src="../sites/files/jps/styles/large/public/Drupal&#32;8&#32;Ajax&#32;spinner&#32;and&#32;alert.png%3Fitok=E-bsYI5q" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you then dismiss the alert box, the form "submits itself" and you should see the resulting page with a message, in the same way as before we added Ajax to the form:</p>
+<p><div class="media media-element-container media-inline_image"><div id="file-132--2" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../file/forms-tutorial-form-submittedpng.html">Forms - tutorial form submitted.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../sites/files/jps/Forms&#32;-&#32;tutorial&#32;form&#32;submitted.png"><img class="media-element file-inline-image" alt="Form submitted, showing the submitted phone number in a confirmation message" src="../sites/files/jps/styles/large/public/Forms&#32;-&#32;tutorial&#32;form&#32;submitted.png%3Fitok=Xel3b_sr" width="480" height="304" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>If you can see all this, then congratulations! you have successfully added Ajax to a form in Drupal.</p>
+<h2>Further reading etc.</h2>
+<ul><li><a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/ajax/8.2.x">Drupal 8 API: Ajax</a></li>
+<li><a href="https://www.drupal.org/node/2798595">Ajax API has incomplete example; references obsolete module instead</a></li>
+</ul></div></div></div><div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-272"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Hari Venu (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 09/11/2016 - 05:45      </p>
+      <p class="comment-permalink">
+        <a href="272.html#comment-272" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="272.html#comment-272" class="permalink" rel="bookmark">hi,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>hi,</p>
+<p>I need to know how to add a new field in that form via Drupal 8 Ajax submission.</p>
+<p>Please help me.</p>
+<p> </p>
+<p>Thank You,</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/651/272.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-273"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Wed, 09/11/2016 - 10:49      </p>
+      <p class="comment-permalink">
+        <a href="273.html#comment-273" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="273.html#comment-273" class="permalink" rel="bookmark">Hi Hari,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Hi Hari,</p>
+<p>Form API (and by extension Ajax API) is designed explicitly to work first and foremost without Javascript enabled: this is a key principle. For that, and for several other reasons (accessibility, progressive enhancement, robustness) you should also get whatever-you-want-to-do working without Javascript first, and then see how you can use Ajax to enhance it. Work out what you want to do, get the form working, and only then add Javascript to improve the experience.</p>
+<p>Adding the markup for a new input field in Ajax is fairly trivial (as you can see, the callback can make use of arbitrary jQuery methods). But your server-side form API array must also react to the new field, so that when you submit it, Drupal will be able to make sense of the new input field (it will normally just disregard it.) You could also encounter problems with form cache, because sometimes Drupal gets form API arrays from its cache (which won't include your new element) rather than modified for Ajax. How to work around this means adding hack upon hack to get it right!</p>
+<p>Instead of worrying about dynamically adding the field, the simplest thing would be to make the input field already present on the form, but hide it using <a href="https://api.drupal.org/api/drupal/developer%21topics%21forms_api_reference.html/7.x#states">form states</a> until some other input field changes (e.g. a visible checkbox) and then it can appear without an Ajax call. That way people without Javascript will be able to see the field.</p>
+<p>The official documentation for form states is pretty hard to navigate, but there's a lot of other resources for it:</p>
+<ul><li><a href="https://www.lullabot.com/articles/form-api-states">https://www.lullabot.com/articles/form-api-states</a></li>
+<li><a href="https://sf2010.drupal.org/conference/sessions/instant-dynamic-forms-states.html">https://sf2010.drupal.org/conference/sessions/instant-dynamic-forms-stat...</a></li>
+<li><a href="https://randyfay.com/states">https://randyfay.com/states</a></li>
+</ul><p>I don't think it's changed much since Drupal 8 (confusingly, Drupal 8 does have a State API, which is something different!) so you should be OK with those resources.</p>
+<p>Hope this helps, and apologies for not quite answering your original question.</p>
+<p> </p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/651/273.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div><a id="comment-275"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <a href="http://live-fred-mcclurg-showcase.pantheonsite.io/" rel="nofollow" class="username">Fred McClurg (not verified)</a>      </p>
+      <p class="comment-time">
+        Fri, 18/11/2016 - 03:18      </p>
+      <p class="comment-permalink">
+        <a href="275.html#comment-275" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="275.html#comment-275" class="permalink" rel="bookmark">Dear JP:</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Dear JP:</p>
+<p>I believe your example needs to include the following "use" statements:</p>
+<p>use Drupal\Core\Ajax\AjaxResponse;<br />use Drupal\Core\Ajax\AlertCommand;<br />use Drupal\Core\Ajax\UpdateBuildIdCommand;<br />use Drupal\Core\Ajax\InvokeCommand;</p>
+<p>Keep up the great work.  I am learning bunch.  Thanks!</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/651/275.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+<div class="indented"><a id="comment-277"></a>
+<div class="comment comment-by-node-author clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">jp.stacey</span>      </p>
+      <p class="comment-time">
+        Fri, 18/11/2016 - 09:34      </p>
+      <p class="comment-permalink">
+        <a href="277.html#comment-277" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="277.html#comment-277" class="permalink" rel="bookmark">Hey Fred,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Hey Fred,</p>
+<p>thanks for this and <a href="http://www.jpstacey.info/comment/274#comment-274">your other comment</a>. I really appreciate the feedback. You're right that these statements are missing.</p>
+<p>To give you the background, I did a lot of coding work up front, as a kind of expedition, to make sure I really could make enough progress to warrant the blogposts. Because so much was then tied together in the same codebase, it ended up tough to split it up so that: the forms blogpost had what was relevant there; and the Ajax blogpost has what's relevant here. Clearly there's been a slip 'twixt cup and lip! Future posts should be a bit easier to isolate and hence less likely to lose details.</p>
+<p>Thanks for the compliment too. I'm glad you're getting something out of these. I also really appreciate people trying out the worked examples, taking them seriously enough to be able to spot bugs like this. The worked examples have to work or there's no point!</p>
+<p>Cheers,<br />J-P</p>
+<p> </p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/651/277.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+</div><a id="comment-281"></a>
+<div class="comment comment-by-anonymous clearfix">
+
+  <div class="attribution">
+
+    
+    <div class="submitted">
+      <p class="commenter-name">
+        <span class="username">Hitesh (not verified)</span>      </p>
+      <p class="comment-time">
+        Wed, 14/12/2016 - 12:10      </p>
+      <p class="comment-permalink">
+        <a href="281.html#comment-281" class="permalink" rel="bookmark">Permalink</a>      </p>
+    </div>
+  </div>
+
+  <div class="comment-text">
+    <div class="comment-arrow"></div>
+
+    
+    <div style='display: none;'>    <h3><a href="281.html#comment-281" class="permalink" rel="bookmark">Hii,</a></h3>
+    </div>
+    <div class="content">
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Hii,</p>
+<p>i need to know how to do core php jquery ajax in drupal 8 ?</p>
+<p>Thnx.</p>
+</div></div></div>          </div> <!-- /.content -->
+
+    <ul class="links inline"><li class="comment-reply first last"><a href="reply/651/281.html">reply</a></li>
+</ul>  </div> <!-- /.comment-text -->
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/wordpress-category/framework.html">framework</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../category/tags/d8api.html">d8api</a>, <a href="../category/tags/d8apiui.html">d8api:ui</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-e23fbdfe90259bd2cb7b9c2d39e9a72f">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../blog/2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/files/jps/starberry_favicon.png" type="image/png" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="quick-rundown-what-using-drupal-6-8s-migration-ui-feels.html" />
+<link rel="shortlink" href="../../node/667.html" />
+  <title>A quick rundown of what using Drupal 6-to-8's migration UI feels like | J-P Stacey</title>
+  <link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_jdej_Zz2sjg--A2C2aVJ-Qt5W-fI_fkFnsddutilsws.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_A3Qn9PgslsjDpW1HfgFuI26cQlhJ23E7y9wyYqpiJIA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_0Heb-O6YY5Tn5xG4WrHtAAXZCtYk-eKiVo7PlP1bsg4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script type="text/javascript" src="../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-4775024-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"barthes","theme_token":"OeUW0KqWHB__E3JbCjQ7oJEuN945GcztVP_Q_r2ptsk","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"themes\/bartik\/css\/layout.css":1,"themes\/bartik\/css\/style.css":1,"sites\/default\/themes\/custom\/barthes\/css\/colors.css":1,"sites\/default\/themes\/custom\/barthes\/css\/custom.css":1,"themes\/bartik\/css\/print.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie.css":1,"sites\/default\/themes\/custom\/barthes\/css\/ie6.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-667 node-type-blog" >
+  <div id="skip-link">
+    <a href="quick-rundown-what-using-drupal-6-8s-migration-ui-feels.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="with-secondary-menu"><div class="section clearfix">
+
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="../../index.html" title="Home" rel="home"><span>J-P Stacey</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            Drupal, programming culture, gardening, cycling and the environment          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+          <div id="secondary-menu" class="navigation">
+        <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="links inline clearfix"><li class="menu-7322 first"><a href="../../cv.html" title="My curriculum vitae">CV</a></li>
+<li class="menu-7320 last"><a href="../../contact.html" title="">Contact me</a></li>
+</ul>      </div> <!-- /#secondary-menu -->
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          A quick rundown of what using Drupal 6-to-8&#039;s migration UI feels like         </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  class="ds-1col node node-blog node-promoted node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Tuesday, November 15, 2016 - 16:00</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Recently, I was asked to migrate a fairly straightforward website from Drupal 6 to 8: a blog; some feature articles; some static pages; a fair amount of uploaded images. I thought it would be a great candidate for reviewing what the Migrate UI bundled with core looks like, since <a href="https://www.drupal.org/project/drupal/releases/8.1.0">its introduction in Drupal 8.1.0</a>.</p>
+<p>Although the Migrate framework more generally permits arbitrarily complex migrations, many people's first port of call will be the UI, so I thought it would be interesting to chart a user journey through its use: highlighting what went well, what went badly, and (most importantly) what looked problematic but turned out to be straightforward.</p>
+<h2>Kicking off a Drupal 6-to-8 migration with the UI</h2>
+<p>There's an excellent drupal.org guide page on <a href="https://www.drupal.org/docs/8/upgrade/upgrade-using-the-migration-user-interface">running a UI-based migration into Drupal 8</a>, and I'll try not to repeat too much of that here. The steps they describe are completely correct, although I just want to make a few comments on the experience of actually going through them.</p>
+<h3>A cautious beginning, then ploughing on</h3>
+<p>Before getting started, I made quite sure that my Drupal 6 and 8 installations reported healthy statuses, with no problems or warnings:</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-143" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-fresh-install-reportpng.html">migration-fresh-install-report.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-fresh-install-report.png"><img class="media-element file-inline-image" alt="Status report page for the D8 site, with no warnings or errors" src="../../sites/files/jps/styles/large/public/migration-fresh-install-report.png%3Fitok=_B912Qfp" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>This includes trivial things like <a href="https://www.drupal.org/node/2410395">trusted host patterns</a>: even if you don't think it might cause a problem, the fact that we have Drupal sites contacting each other and accessing each others' filesystems meant I wanted to be certain everything was working fine.</p>
+<p>I then installed the three Migrate modules, and Drupal made it clear to me that they were <em>experimental</em>, which made me pause (which I think is good: to make sure you're happy with what you're doing):</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-144" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-enable-modulespng.html">migration-enable-modules.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-enable-modules.png"><img height="115" width="168" class="media-element file-default" alt="Selecting all three Migrate modules in the &quot;Experimental&quot; section" src="../../sites/files/jps/styles/large/public/migration-enable-modules.png%3Fitok=ih0TlqIo" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image"><div id="file-151" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-experimental-warningpng.html">migration-experimental-warning.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-experimental-warning.png"><img class="media-element file-inline-image" alt="After enabling experimental modules, you get an extra warning" src="../../sites/files/jps/styles/large/public/migration-experimental-warning.png%3Fitok=yNEagHxP" width="480" height="323" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>I then navigated to <strong>/upgrade</strong> to run the migration as described on the d.o page. Despite the source D6 website being quite straightforward, the list of modules whose configuration was entirely unknown to the out-of-the-box migration procedure was a little worrying (click for bigger):</p>
+<p style="text-align: center;"><div class="media media-element-container media-inline_image_small"><div id="file-154" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-review-are-you-surepng.html">migration-review-are-you-sure.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-review-are-you-sure.png"><img class="media-element file-inline-image-small" alt="Long list of unmigrateable modules" src="../../sites/files/jps/styles/medium/public/migration-review-are-you-sure.png%3Fitok=o_0ubh62" width="73" height="220" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Some of those omissions made sense (admin_menu, jquery_ui, php, and a few custom modules); some of them were disappointing but expected (views, googleanalytics); some were a bit more worrying and looked like they might lead to content left behind (image*, date*). Still, in the spirit of adventure, I continued regardless.</p>
+<h3>First impressions</h3>
+<p>Well, the site still worked! and although the migration log was very verbose, there were no real surprises in it:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-149" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-log-no-surprisespng.html">migration-log-no-surprises.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-log-no-surprises.png"><img class="media-element file-inline-image" alt="Lots in the migration log, but entirely expected" src="../../sites/files/jps/styles/large/public/migration-log-no-surprises.png%3Fitok=1YYhQVQ4" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>The log is linked directly from the "migration finished" page so it's easy to go and inspect the results: just don't be put off by the number of pages!</p>
+<p>Configuration had been migrated: the site title, slogan and email address were immediately apparent. The files appeared to be in the same folder on the new website, and arbitrary user registration was still locked down.</p>
+<p>One immediate problem I spotted was a warning about a missing block:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-147" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-block-brokenpng.html">migration-block-broken.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-block-broken.png"><img class="media-element file-inline-image" alt="Above the content region, a block was reporting as broken" src="../../sites/files/jps/styles/large/public/migration-block-broken.png%3Fitok=As0mSXXf" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>It turns out that the D6 website was using the Aggregator module: which core D8 has available to it, but isn't enabled by default. Unfortunately, enabling the module at this late stage caused fatal errors, and it was easiest to just roll back and re-run the migration with that module enabled. Ideally the 6-to-8 migration would've spotted that I had aggregator available (but disabled) in Drupal 8 and asked about it, but it was quick to re-run anyway.</p>
+<p>It was made clear there was going to be no color migration; and theming is always radically different between Drupal versions: so as expected the theme and other visuals remained unchanged.</p>
+<h2>How well was content and users migrated?</h2>
+<h3>Users</h3>
+<p>Users were migrated OK and their passwords were preserved. However, the D8 site's admin user (UID=1) had been set up with <a href="https://www.drupal.org/node/947312">a nonstandard username as recommended for security reasons</a>; this was replaced with the (guessable "admin") username during the migration:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-152" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-uid-1-username-changedpng.html">migration-uid-1-username-changed.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-uid-1-username-changed.png"><img height="115" width="168" class="media-element file-default" alt="Admin user can no longer log in, because its username is changed" src="../../sites/files/jps/styles/large/public/migration-uid-1-username-changed.png%3Fitok=1EuTf-1g" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>Where Drupal 8 had its own suitable analogue of an old Drupal 6 permission, configuration for that permission was copied across successfully. However, one slight problem was with the duplication of a particular role: the D8 Administrator role (which had special status in the new website) was joined by a lowercase "administrator" role (which had no particularly special status.) This meant that administrator users were not automatically getting the expected permissions in the new site.</p>
+<h3>Nodes</h3>
+<p>All content types seemed to be migrated fine, along with their created dates and other field information. All node content was migrated into those types. Despite the warnings elsewhere in this blogpost, <strong>content migration alone was a major success!</strong></p>
+<p>One problem that plagued all content was that the text input formats from Drupal 6 had been migrated across into Drupal 8, to sit alongside the out-of-the-box formats. You'd think this was an advantage, but content noted as being in those formats (i.e. all rich-text fields) was not output to the page:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-153" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-missing-contentpng.html">migration-missing-content.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-missing-content.png"><img height="115" width="168" class="media-element file-default" alt="Body text with migrated input format is not displayed, although title and tags present" src="../../sites/files/jps/styles/large/public/migration-missing-content.png%3Fitok=Tksk1t6U" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>In the editing interface, the rich-text editor wasn't associated with the migrated input format, more evidence that the migration of configuration was the problem here:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-155" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-unrecognized-formatpng.html">migration-unrecognized-format.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-unrecognized-format.png"><img class="media-element file-inline-image" alt="In the editing interface, no rich-text editor is associated with the input format, further suggesting that Drupal can&#039;t understand it." src="../../sites/files/jps/styles/large/public/migration-unrecognized-format.png%3Fitok=fVnuaJzE" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>When the input format is switched to one previously available in Drupal 8, unmigrated, then the rich-text editor kicks in:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-146" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-switch-formatpng.html">migration-switch-format.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-switch-format.png"><img height="115" width="168" class="media-element file-default" alt="Switching the format to one bundled with Drupal 8 fixes the rich-text editor" src="../../sites/files/jps/styles/large/public/migration-switch-format.png%3Fitok=Fdz-te46" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>And, after being saved, the content is visible:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-145" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-found-contentpng.html">migration-found-content.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-found-content.png"><img class="media-element file-inline-image" alt="Saving the content with input format switched to a non-migrated option fixes the display." src="../../sites/files/jps/styles/large/public/migration-found-content.png%3Fitok=ZPe7t3wL" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>The simplest resolution to this across all content was a <i>post-hoc</i> sweep of the input fields, changing the format name at the database layer, which I'll discuss below.</p>
+<h3>Images</h3>
+<p>All image files were migrated as file entities, and the files were still present in the same place on the file system. Again, <strong>file migration was a major success</strong> and takes a lot of the usual heavy lifting out of how one would migrate content.</p>
+<p>However, even with the <a href="https://www.drupal.org/project/media_entity">media_entity</a> module suite enabled at the point of migration, no media entities are created, and they're especially not created retroactively. In addition, inline images embedded with <a href="https://www.drupal.org/project/imagebrowser">ImageBrowser</a> were broken, because the filter was no longer functioning on the input format: this led to literal tags being displayed of the form <span class="geshifilter"><code class="text geshifilter-text">[ibimage==...==...]</code></span>. We'll discuss the fix for this below too.</p>
+<h3>Views</h3>
+<p>No views were migrated:</p>
+<p style="text-align: center"><div class="media media-element-container media-inline_image"><div id="file-148" class="file file-image file-image-png">
+
+        <h2 class="element-invisible"><a href="../../file/migration-missing-viewspng.html">migration-missing-views.png</a></h2>
+    
+  
+  <div class="content">
+    <a href="../../sites/files/jps/migration-missing-views.png"><img class="media-element file-inline-image" alt="The only views available in the D8 site were bundled with D8 core." src="../../sites/files/jps/styles/large/public/migration-missing-views.png%3Fitok=bDW6PUP0" width="480" height="328" /></a>  </div>
+
+  
+</div>
+</div></p>
+<p>which the eagle-eyed will have expected, but still seems a shame. I dread to think what might have become of Drupal 7 if there weren't a good upgrade path from CCK available when it came out!</p>
+<p>It seems <a href="https://www.drupal.org/node/2500547#comment-11402389">Views was dropped from core in part because it wasn't (could never be) complete</a>, but this argument alone seems very "perfect the enemy of the good". Moreover, it's not consistent with a lot of core functionality: <a href="http://buytaert.net/a-plan-for-media-management-in-drupal-8">Dries himself admits image management in core is "basic"</a>, and one person's basic is another's partial. I'm not convinced it's compatible with the fundamental concept of contrib being there to extend core, either: if nothing in core is partial, then there's nothing to extend.</p>
+<p>For those with many, many views to migrate, there's now a <a href="https://www.drupal.org/project/migrate_views">contributed project to migrate Views</a>, which gives some hope. In the mean time, for the rest of us, the only way to have Drupal 6 Views in the new Drupal 8 website is to build them again from scratch, although there were some savings to be made, as we'll see below.</p>
+<h2>Quick fixes vs. building from scratch</h2>
+<h3>Users and roles</h3>
+<p><strong>Manual</strong>: the simple fixes here were: rename the administrator account; and reassign the administrator role. The fact that most permissions that made sense in both 6 and 8 were preserved was a boon here, although future work in the website would probably require further manual assignment of permissions new to Drupal 8.</p>
+<h3>Fixing input formats</h3>
+<p><strong>Automatic</strong>: after diagnosing that a simple change of the input format sufficed, and discussing with the client to ensure it was OK to do so, all input formats for both node and comment body contents were changed to a Drupal 8 format.</p>
+<p>This was automated with the following code. A <span class="geshifilter"><code class="text geshifilter-text">postmigrate</code></span> module was created, in line with the <a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and Altering Drupal</a> post in my <a href="http://www.jpstacey.info/d8api">series of articles on Drupal 8 APIs</a>. Put the following code in the file <span class="geshifilter"><code class="text geshifilter-text">postmigrate.install</code></span> in the module's folder:</p>
+<div class="geshifilter">
+<pre class="php geshifilter-php" style="font-family:monospace;"><span class="kw2">&lt;?php</span>
+ 
+<span class="co4">/**
+ * @file
+ * Install/uninstall hooks.
+ */</span>
+ 
+<span class="co4">/**
+ * Implements hook_install().
+ */</span>
+<span class="kw2">function</span> postmigrate_install<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+  <span class="co1">// Change text format on all bodies to be basic HTML.</span>
+  <span class="re0">$table_infixes</span> <span class="sy0">=</span> <span class="br0">[</span><span class="st_h">''</span><span class="sy0">,</span> <span class="st_h">'_revision'</span><span class="br0">]</span><span class="sy0">;</span>
+  <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$table_infixes</span> <span class="kw1">as</span> <span class="re0">$infix</span><span class="br0">)</span> <span class="br0">{</span>
+    db_update<span class="br0">(</span><span class="st0">"node<span class="es4">{$infix}</span>__body"</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">(</span><span class="br0">[</span><span class="st_h">'body_format'</span> <span class="sy0">=&gt;</span> <span class="st_h">'basic_html'</span><span class="br0">]</span><span class="br0">)</span>
+      <span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="br0">}</span>
+  db_update<span class="br0">(</span><span class="st0">"comment__comment_body"</span><span class="br0">)</span>
+    <span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">(</span><span class="br0">[</span><span class="st_h">'comment_body_format'</span> <span class="sy0">=&gt;</span> <span class="st_h">'basic_html'</span><span class="br0">]</span><span class="br0">)</span>
+    <span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+  <span class="co1">// Invalidate any node entity caches through a tag.</span>
+  <span class="re0">$cacheTagService</span> <span class="sy0">=</span> \Drupal<span class="sy0">::</span><span class="me2">service</span><span class="br0">(</span><span class="st_h">'cache_tags.invalidator'</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="re0">$cacheTagService</span><span class="sy0">-&gt;</span><span class="me1">invalidateTags</span><span class="br0">(</span><span class="br0">[</span><span class="st_h">'node_values'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span>
+  <span class="kw1">return</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div>
+<p>This module runs SQL directly against the Drupal 8 database, and so is probably not recommended if you have a complicated data storage setup in D8. However, it should work fine otherwise, and after changing the input formats clears the caches for node pages, so their display will change to show the changed state of the content input format.</p>
+<h3>Rebuilding views</h3>
+<p><strong>Mixed approach</strong>: because there were only a few views in the Drupal 6 site, and these had similar structures (differing only e.g. in content type). This made them ripe for an initial burst of manual</p>
+<p>The process was as follows:</p>
+<ol><li>Use <span class="geshifilter"><code class="text geshifilter-text">drush config-export</code></span> to export the site's entire configuration to a directory.</li>
+<li>Create an exemplum view, to be used as the model for several others.</li>
+<li>Use <span class="geshifilter"><code class="text geshifilter-text">drush config-export</code></span> again, to export configuration for this one view, and note the filename for it.</li>
+<li>Copy this file to the <span class="geshifilter"><code class="text geshifilter-text">postmigrate</code></span>module, in subfolder <span class="geshifilter"><code class="text geshifilter-text">config/install/</code></span>.</li>
+<li>Make copies of the file in the same folder; rename them suitably, and edit them to match the differing requirements for path, filtering etc. (also changing the UUID each time: <a href="http://www.jpstacey.info/blog/2016-11-08/drupal-8-api-fields">see this blogpost on fields</a> for more info.)</li>
+<li>Uninstall and reinstall <span class="geshifilter"><code class="text geshifilter-text">postmigrate</code></span> to enable the views (deleting them first if they were already present).</li>
+</ol><p>Using this method, one initial view configuration was forked into four different files and edited each time, saving a lot of manual point-and-click work.</p>
+<h3>Fixing embedded images</h3>
+<p><strong>Mixed approach</strong>: there were sufficiently few posts with embedded images that it was sufficient to create a view, filtering on any content whose body contains the word "ibimage". This view then served as a tool for administrators, to check any content with broken embed code in it, and rewrite it accordingly. </p>
+<h2>Summary</h2>
+<p>Drupal 6 to 8 migration is arguably ready, even though it might arguably not be complete. Migration of content and files—usually the worst bits of a Drupal upgrade—is implemented. Aside from a couple of bugs in input formats (to which your own situation might not be sensitive), this part of the migration bundled with core works well.</p>
+<p>The experience of running a migration is generally OK, although there are a couple of points where you have to hold your breath and just move onto the next step. The long list of site elements that won't migrate (including date and image support modules), and the long list of log notices afterwards, both give more pause for thought than, it turns out, they needed to.</p>
+<p>The experience of dealing with the aftermath of a migration is also good, although the omission of Views and media_entity entities will be a disappointment to some people all the same. Also, because so much of the Drupal 8 work required will be in the theming, it'll be important to manage expectations of what a newly migrated D6-&gt;D8 site will look like prior to theming work.</p>
+<p>When I presented these findings to the Oxford Drupal User Group, someone who had done more migrations into Drupal 8 suggested that it was possible to use core's migration as a starting point: run a test migration; tweak content types and other structure to your satisfaction; export the migrated site's configuration; set up a brand-new site, using this configuration, using <a href="https://www.drupal.org/project/config_installer">the config_installer install profile</a>; then write a custom migration that would do the right thing, migrating into this new site. However, treating the migration UI as a "first pass" like this is clearly different from some people's expectations of what such a UI is intended to do.</p>
+<p>Overall, though, it's great to have a UI that can handle so much of the major-version migration with only a few clicks, although (as with every major-version migration) it's important to be clear to potential users of the UI that it's never going to be a simple operation, even for simple sites.</p>
+</div></div></div><div id="comments" class="comment-wrapper">
+  
+  
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-block-7" class="block block-block">
+
+    <h2>I&#039;m a Drupal Association member!</h2>
+  
+  <div class="content">
+    <div style="margin: -15px 0"><a href="https://drupal.org/user/130486"><img src="https://association.drupal.org/files/Drupal_Association_ind_member_217_0.png" alt="My individual membership of the Drupal Association" title="You can view my DA membership on drupal.org" width="168" height="168" /></a></div>
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">
+
+    <h2>Drupal 8 API tutorials</h2>
+  
+  <div class="content">
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+  </div>
+</div>
+<div id="block-stateblock-stateblock" class="block block-stateblock">
+
+    <h2>Want to hire me?</h2>
+  
+  <div class="content">
+    <a href="../../contact.html"><section class="state-no">
+  <header>I'm currently</header>
+  <section class="state-description">fully booked</section>
+  <footer>for freelance work. But you can click here to contact me!</footer>
+</section></a>  </div>
+</div>
+<div id="block-ds-extras-blogpost-secondary-nav" class="block block-ds-extras">
+
+    
+  <div class="content">
+    <div class="field field-name-taxonomy-vocabulary-6 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Blog category: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-category/configuration.html">configuration</a>, <a href="../../category/wordpress-category/framework.html">framework</a>, <a href="../../category/wordpress-category/import/export.html">import/export</a></li></ul></div><div class="field field-name-taxonomy-vocabulary-7 field-type-taxonomy-term-reference field-label-above clearfix"><h3 class="field-label">Tags: </h3><ul class="links"><li class="taxonomy-term-reference-0"><a href="../../category/wordpress-tag/drupal.html">drupal</a>, <a href="../../category/tags/migrate.html">migrate</a>, <a href="../../category/tags/planetdrupal.html">planetdrupal</a></li></ul></div>  </div>
+</div>
+<div id="block-views-recent-blog-block-1" class="block block-views">
+
+    <h2>Recent blogposts</h2>
+  
+  <div class="content">
+    <div class="view view-recent-blog view-id-recent_blog view-display-id-block_1 view-dom-id-e45dde63ebc578bd43aee94ee9a90dd3">
+        
+  
+  
+      <div class="view-content">
+        <ul>
+    <li class="first odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-07-21/altering-length-drupal-8-text-field-contains-data.html">Altering the length of a Drupal 8 text field that contains data</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, July 21, 2017 - 11:31
+      </div>
+  
+    </li>
+      <li class="even">
+      
+      <h3>
+  
+    
+      <a href="../2017-06-02/menagerie-testing-behavioural-unit-system-smoke-regression-oh-my.html">A menagerie of testing: behavioural, unit, system, smoke, regression, oh my!</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Friday, June 2, 2017 - 10:11
+      </div>
+  
+    </li>
+      <li class="last odd">
+      
+      <h3>
+  
+    
+      <a href="../2017-05-30/including-javascript-behat-tests-all-inside-headless-virtual-machine.html">Including Javascript in Behat tests, all inside a headless, virtual machine</a>
+      </h3>
+  
+
+      <div>
+  
+    
+      Tuesday, May 30, 2017 - 16:51
+      </div>
+  
+    </li>
+    </ul>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="../../blog_view.html">
+    All blogposts  </a>
+</div>
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-5" class="block block-block">
+
+    <h2>About me</h2>
+  
+  <div class="content">
+    <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+  </div>
+</div>
+<div id="block-menu-secondary-menu" class="block block-menu">
+
+    <h2>Find me elsewhere</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf"><a href="http://twitter.com/mphield" title="My commercial account on Twitter">Company @ Twitter</a></li>
+<li class="leaf"><a href="http://drupal.org/user/130486" title="Drupal user #130486: woohoo!">Drupal @ d.o</a></li>
+<li class="leaf"><a href="http://github.com/jpstacey" title="My code repositories on Github">Code @ Github</a></li>
+<li class="leaf"><a href="http://flickr.com/photos/eustatius" title="My photos on Flickr">Photos @ Flickr</a></li>
+<li class="last leaf"><a href="http://pinboard.in/u:jpstacey" title="My links on the Pinboard bookmarking site">Links @ Pinboard</a></li>
+</ul>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

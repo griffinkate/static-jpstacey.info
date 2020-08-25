@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -85,13 +85,13 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
   
   <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, June 9, 2008 - 15:48</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Recently at <a href="http://torchbox.com/">Torchbox</a> we’ve been looking into how to build extra functionality on top of Drupal users. The standard Drupal user object is a combination of the contents from the users table, plus any properties provided by the core <code>profile</code> module. This means that the Drupal user is a combination of rows (and admittedly deserialized, structured data) from a couple of tables in a relational database. </p>
-<div style="float: right;"><a title="flowcharts of user_load and user_save" href="index.html#user-flowcharts"><img src="http://jpstacey.lndo.site/blog/files/drupal/core/drupal_user_teaser.gif" alt="flowcharts of user_load and user_save" width="145" height="184" /></a></div>
+<div style="float: right;"><a title="flowcharts of user_load and user_save" href="index.html#user-flowcharts"><img src="/blog/files/drupal/core/drupal_user_teaser.gif" alt="flowcharts of user_load and user_save" width="145" height="184" /></a></div>
 <p>That works just fine for most purposes, but we may have to bring in content from not just outside the core Drupal tables but outside the core database, and even on a remote server through webservices. To this end we’ve decomposed the core <code>user</code> module’s <code>user_load()</code> and <code>user_save()</code> functions. This helps us understand better both the workflow and at what points in it our own code can motor into life, query all those extra resources (or set those queries in motion), assemble the rest of the user++ object, and then hand control back over to Drupal.</p>
 <p>For those who don’t know much about Drupal, its core has a <em>hook-based</em> API structure. At certain points in its workflow, it checks all the modules for functions following certain naming conventions (typically the module name followed by the hook name e.g. <code>mymodule_init</code> on response startup, or <code>mymodule_block</code> to return details about the module’s support for Drupal page furniture). Any matching hook functions are called in the order defined by module weightings, and then page processing will generally continue: you can crowbar a grind-to-a-halt <code>exit()</code> in your hook, but it’d be unwise, as you can never be sure what tidying up Drupal might need to do after your hook. Outside these hooks, your code has little control over Drupal’s core functioning, unless you stub out entirely the bits of core you need yourself, and get your request to use those bits instead.</p>
 <p>Because of the way they let your code tag along with Drupal’s powerful core, hooks are essential to developing modules in the most <em>Drupalish</em> way. With that in mind, <a name="user-flowcharts" id="user-flowcharts"></a>here are flow diagrams of the three basic aspects of user functionality—create new, load, save existing—lifted straight from examination of the code:</p>
-<ul><li><a href="http://jpstacey.lndo.site/blog/files/drupal/core/drupal_user_load.gif">Loading an existing user with user_load</a></li>
-<li><a href="http://jpstacey.lndo.site/blog/files/drupal/core/drupal_user_create.gif">Creating a user: saving a new user with user_save</a></li>
-<li><a href="http://jpstacey.lndo.site/blog/files/drupal/core/drupal_user_update.gif">Updating a user: saving an existing user with user_save</a></li>
+<ul><li><a href="/blog/files/drupal/core/drupal_user_load.gif">Loading an existing user with user_load</a></li>
+<li><a href="/blog/files/drupal/core/drupal_user_create.gif">Creating a user: saving a new user with user_save</a></li>
+<li><a href="/blog/files/drupal/core/drupal_user_update.gif">Updating a user: saving an existing user with user_save</a></li>
 </ul><p>Although you have to save a user before you can load them, I’ve put this functionality first in the above (admittedly unordered) list. There are two main reasons for this:</p>
 <ol><li><code>user_save</code> actually calls <code>user_load</code> a number of times, once or twice, to “refresh” the user object</li>
 <li><code>user_load</code> is a more primitive function and so bears examination first</li>

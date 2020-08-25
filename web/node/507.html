@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -109,7 +109,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li>remove --idle=1 from encfs_default unless you want detaching on idle - not sure what the criteria for "idle" are, so if you can't see a reason to detach, I'd keep it connected.</li>
 <li>Give fuse allow_other privileges, not allow_root, as that conflicts with giving encfs the --public permissions</li>
 <li>Add the mount point to the list at the end of the file.</li>
-</ul><p>At this point you can probably reboot to test whether or not this works. Rather than logging into graphical Unity, GNOME or similar, you should press CTRL-ALT-F1 and log in at the terminal; that'll give you more feedback in case any of the configuration is wrong. Incidentally, the <a style="line-height: 1.538em;" href="http://jpstacey.lndo.site/node/The&#32;documentation&#32;for&#32;pam-encfs&#32;http://pam-encfs.googlecode.com/svn/trunk/README)">documentation for pam-encfs</a> is idiosyncratic to say the least, and I feel your pain, but: it's actually a lot more straightforward than it seems.</p>
+</ul><p>At this point you can probably reboot to test whether or not this works. Rather than logging into graphical Unity, GNOME or similar, you should press CTRL-ALT-F1 and log in at the terminal; that'll give you more feedback in case any of the configuration is wrong. Incidentally, the <a style="line-height: 1.538em;" href="/node/The&#32;documentation&#32;for&#32;pam-encfs&#32;http://pam-encfs.googlecode.com/svn/trunk/README)">documentation for pam-encfs</a> is idiosyncratic to say the least, and I feel your pain, but: it's actually a lot more straightforward than it seems.</p>
 <h2>Databases: don't encrypt; cleanse instead</h2>
 <p>In theory you could also encrypt your database storage folders too: for example, MySQL stores all of its files in /var/lib/mysql. However, a much safer practice is to not rely on encryption at all, and instead cleanse the database as you import it; better, ask the client for cleansed copies, so you never have sensitive data on your machine. Obviously if you're doing e.g. a data migration then cleansing the database is often not feasible.</p>
 <p>However, once the data is clean of anything sensitive or personal, the only remaining issue is if your client considers the database schema to be their intellectual property. This isn't likely to arise if the schema is created e.g. by third-party software like Drupal, but you should probably confirm it with the client if you're worried.</p>

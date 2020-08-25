@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -92,11 +92,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li>Multiple hierarchical categories are not supported (a known problem).</li>
 <li>Although categories are created and posts are linked to them, the number of posts that a category is used in is not incremented and hence the list of categories on the front-end has zero posts for each category(possibly owing to a change between WordPress versions of how this has been handled).</li>
 </ol><p>I’ve come up with a number of fixes that I’ve mentioned both to Davis and <a href="http://wordpress.org/support/topic/32515" title="Migrating from Blosxom">on the WordPress support forums</a>. As they’ve been greeted with an eerie silence that I’ve found typical of such forums, I’ll put them up here instead.</p>
-<p>To fix the first three problems I created <a title="a Blosxom plugin to fix a number of RSS2.0-to-WordPress issues" href="http://jpstacey.lndo.site/blog/files/code/blosxom/rss_to_wp">rss_to_wp</a>, a Blosxom plugin that, along with the standard <code>interpolate_fancy</code> package, you can use to wrap your title and category processing bits in the RSS2.0 flavour templates. Respectively, this plugin tackles the above problems by:</p>
+<p>To fix the first three problems I created <a title="a Blosxom plugin to fix a number of RSS2.0-to-WordPress issues" href="/blog/files/code/blosxom/rss_to_wp">rss_to_wp</a>, a Blosxom plugin that, along with the standard <code>interpolate_fancy</code> package, you can use to wrap your title and category processing bits in the RSS2.0 flavour templates. Respectively, this plugin tackles the above problems by:</p>
 <ol><li>Providing an <code>interpolate_fancy</code> method to unescape entities</li>
 <li>Normalizing any whitespace in the body of your Blosxom posts to single spaces</li>
 <li>Providing an <code>interpolate_fancy</code> method to convert a Blosxom-style category path into a set of category tags</li>
-</ol><p>You’ll need to change the Davis-recommended <code>story.rss20</code> template to implement the two interpolation methods. I’ve made a <a title="Blosxom story flavour for RSS 2.0" href="http://jpstacey.lndo.site/blog/files/code/blosxom/story.rss20">sample</a> available.</p>
+</ol><p>You’ll need to change the Davis-recommended <code>story.rss20</code> template to implement the two interpolation methods. I’ve made a <a title="Blosxom story flavour for RSS 2.0" href="/blog/files/code/blosxom/story.rss20">sample</a> available.</p>
 <p>The final issue was a more knotty problem, as it was a bug in the script (possibly caused by WordPress’ handling of categories changing over time). It’s easily fixed by adding a few lines to the category-handling part of <code>import-blosxom.php</code> as follows:</p>
 <blockquote class="code"><pre>
 294    if (!$exists)

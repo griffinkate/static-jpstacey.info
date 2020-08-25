@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -97,7 +97,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <p style="text-align: center;"><em>Elements decide where they are with margins. The top element 1 has { margin-bottom: M }, whereas the lower element 2 has { margin-top: N }. The actual space between the elements (assuming no padding or borders) is M or N, whichever is greater: max(M,N).</em></p>
 <p>Margins are intended to improve legibility and overall presentation when the designer cannot predict in advance the order of every single element. Content flow on the page can be improved by margins in a way that padding can't achieve: they attempt to lay out the content using whitespace that's as aesthetically and readably pleasing as possible, given many combinations of elements. This can be more important than you think in pages with a lot of (potentially user-generated) content: when you have lists, headings, paragraphs and blockquotes all jumbled together in any old order, how can you dictate the padding between any given two elements?</p>
 <h2>No rules only heuristics</h2>
-<p>Margins sound like they provide a lot of flexibility, but how should they be used in practice? If margin-top and margin-bottom are likely to collapse into those of other elements, is there a straight choice to be made between them; or, as a (probably too discursive) Stack Overflow question has it, <a href="http://jpstacey.lndo.site/blog/2011/04/03/stackoverflow.com/questions/284837/css-margin-top-vs-margin-bottom">which do you prefer and why?</a></p>
+<p>Margins sound like they provide a lot of flexibility, but how should they be used in practice? If margin-top and margin-bottom are likely to collapse into those of other elements, is there a straight choice to be made between them; or, as a (probably too discursive) Stack Overflow question has it, <a href="/blog/2011/04/03/stackoverflow.com/questions/284837/css-margin-top-vs-margin-bottom">which do you prefer and why?</a></p>
 <p>The simple answer is that there is no simple answer. This is a conversation you <em>must</em> have with the original designer, if you're not sure what to implement. But generally unless the design has some odd layout that screams "ask the designer what they meant by this", here is a rough guide - a set of heuristics rather than rules - to establishing good margin and padding usage in your CSS. You don't need to follow these to the letter; but they're a good starting point.</p>
 <ul><li><strong>Paragraphs</strong> and ordered/unordered/definition <strong>lists</strong> should have symmetrical top and bottom margins. This is because they're "symmetrical" elements: a paragraph typically doesn't care about the content before or after it, but is just part of the page flow. It also means that the paragraph--list gap is the same as the list--paragraph gap, which makes a kind of semantic sense. Depending on the "tightness" of the design whitespace, paragraphs will typically have 0.5-1.5 em vertical margins; lists could have as much as 2em.</li>
 <li><strong>Headings</strong> need bigger margins above than below. This is because while a heading's text marks the beginning of one section, the whitespace above it implies the *end* of the previous section. Headings should therefore bind more tightly to what's below them.</li>

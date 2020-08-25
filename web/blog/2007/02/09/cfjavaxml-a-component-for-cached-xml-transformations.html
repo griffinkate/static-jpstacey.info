@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -85,7 +85,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
   
   <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Friday, February 9, 2007 - 16:34</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Mark Mandel wrote his own <a href="http://www.compoundtheory.com/?action=displayCategory&amp;ID=4" title="Reasons I hate XMLTransform()">version of Coldfusion’s XmlTransform() function</a>, using the underlying Java transform classes. Although one of his annoyances—that XmlTransform() won’t take any parameters—has been solved in CFMX7, XmlTransform() is nonetheless a slow operation, as the transform engine has to be cranked up, the XSL compiled, the transform effected and then everything garbage-collected, each call to the function, each request.</p>
-<p>To improve Coldfusion for dedicated XSL programmers, I’ve turned Mark’s one-off function into a more granular <a href="http://jpstacey.lndo.site/blog/files/code/cfjavaxml.tgz" title="Download CFJavaXML as a .tgz file">component for cacheable, Java-based XSL transformations, called CFJavaXML</a>. You can cache this component from request to request in a persisting scope. You can also compile an XSL transformation once, then store that in a persisting scope too and re-use it without having to keep accessing the XSL file (and compiling it, which can take time). It’ll bring in all its xsl:import references at compilation too, so you needn’t worry about having to keep track of your XSL directory from transformation to transformation.</p>
+<p>To improve Coldfusion for dedicated XSL programmers, I’ve turned Mark’s one-off function into a more granular <a href="/blog/files/code/cfjavaxml.tgz" title="Download CFJavaXML as a .tgz file">component for cacheable, Java-based XSL transformations, called CFJavaXML</a>. You can cache this component from request to request in a persisting scope. You can also compile an XSL transformation once, then store that in a persisting scope too and re-use it without having to keep accessing the XSL file (and compiling it, which can take time). It’ll bring in all its xsl:import references at compilation too, so you needn’t worry about having to keep track of your XSL directory from transformation to transformation.</p>
 <p>The component needs no initialization, so create it as follows:</p>
 <blockquote class="code"><p>
 &lt;cfset comp_cfjx = createObject(”component”, “#PATH_TO_COMPONENTS#.cfjavaxml”)&gt;

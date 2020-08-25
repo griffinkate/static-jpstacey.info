@@ -14,11 +14,11 @@
 <link type="text/css" rel="stylesheet" href="../../../../sites/files/jps/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
 
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie.css?qfgo2z" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://jpstacey.lndo.site/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/themes/custom/barthes/css/ie6.css?qfgo2z" media="all" />
 <![endif]-->
   <script type="text/javascript" src="../../../../sites/files/jps/js/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
 <script type="text/javascript" src="../../../../sites/files/jps/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
@@ -85,7 +85,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
   
   <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, June 1, 2009 - 20:46</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Nearly a year ago I broke down <a href="../../../2008/06/09/user-loading-and-saving-in-drupal-5x/index.html">user_load() and user_save() in Drupal 5</a>. I had to put together workflows for a number of jobs, specifically integrating the creation, instantiation and updating of users with an external system. Fast forward nearly twelve months, and we have to do it all over again for D6, for different work. So here's a PDF of <a href="/blog/files/drupal/core/drupal_user_load_and_save.pdf.html"> user_load() and user_save() in Drupal 5 and 6</a>.</p>
-<div style="float: right;"><a title="flowcharts of user_load and user_save" href="user-loading-and-saving-in-drupal-6x.html#user-flowcharts"><img src="http://jpstacey.lndo.site/blog/files/drupal/core/drupal_user_teaser.gif" alt="flowcharts of user_load and user_save" width="145" height="184" /></a></div>
+<div style="float: right;"><a title="flowcharts of user_load and user_save" href="user-loading-and-saving-in-drupal-6x.html#user-flowcharts"><img src="/blog/files/drupal/core/drupal_user_teaser.gif" alt="flowcharts of user_load and user_save" width="145" height="184" /></a></div>
 <p> The flowcharts have been especially useful in coding in the most <i>Drupalish</i> way possible. Drupal core (and well-behaved modules) is built with a hook-based architecture. That means that before and/or after important events, Drupal calls all the functions which follow a particular naming convention: any module which, in effect, implements a hook. That means your code can tag along with Drupal’s powerful core, making hook essential to developing modules efficiently.</p>
 <p>What's changed between Drupals 5 and 6? Not much, to be honest:</p>
 <ul><li>Loading now tries to grab an object, rather than checking if an ID has been returned by the database first</li>

@@ -7,3 +7,11 @@ You may find the occasional broken link. If that is the case, please open a GitH
 ## Hosting notes
 
 Any web server docroot should serve content from the `web` directory, rather than the repository root.
+
+## Comments
+
+Please use the repository Issues to raise any questions or comments.
+
+# License
+
+Unless stated otherwise, the codebase is released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).

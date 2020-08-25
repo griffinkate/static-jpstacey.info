@@ -103,7 +103,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <p>To a computer, these are fundamentally two different data formats: the URLs are stored in different attributes, and there are attributes on each that either have different values or are not present on the other. Someone did a <a href="http://static.userland.com/gems/radiodiscuss/opmlDtd.txt">DTD for OPML</a>: looking at those two apparently analogous fragments above you have to ask yourself why they bothered.</p>
 <p>Help is at hand, though. This sort of problem is bread and butter to XSLT, and <a href="http://jpstacey.lndo.site/applications/google/ff2gr_opml.xsl">here's an XSL transform for converting Firefox OPML to Google Reader OPML</a>. If you have <code>xsltproc</code> installed on your system, you would type:</p>
 <blockquote class="code"><p>
-xsltproc <a href="http://www.jpstacey.info/applications/google/ff2gr_opml.xsl">http://www.jpstacey.info/applications/google/ff2gr_opml.xsl</a> bookmarks.opml &gt; fixed_bookmarks.opml
+xsltproc <a href="/applications/google/ff2gr_opml.xsl.html">http://www.jpstacey.info/applications/google/ff2gr_opml.xsl</a> bookmarks.opml &gt; fixed_bookmarks.opml
 </p></blockquote>
 <p>Or download the XSLT---it's released under GPL2---and run it locally, changing that URL there to a local file location.</p>
 <p>One thing to note: the XSLT will remove an outline wrapped around your bookmarks with title "Sage Feeds" (case-sensitive). So you can export that branch of your bookmarks, and the XSLT will strip the wrapper off and you <em>won't</em> import a load of bookmarks tagged "Sage Feeds". If you don't like this behaviour then either rename your Sage bookmark container, or learn XSLT: it won't kill you.</p>
@@ -130,7 +130,7 @@ xsltproc <a href="http://www.jpstacey.info/applications/google/ff2gr_opml.xsl">h
     <h2>Drupal 8 API tutorials</h2>
   
   <div class="content">
-    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="/d8api.html">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
   </div>
 </div>
 <div id="block-stateblock-stateblock" class="block block-stateblock">
@@ -230,7 +230,7 @@ xsltproc <a href="http://www.jpstacey.info/applications/google/ff2gr_opml.xsl">h
   
   <div class="content">
     <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
-<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="/blog/2013-08-20/what-jurisdiction-am-i-in.html">What is this?</a>)</small></p>
   </div>
 </div>
 <div id="block-menu-secondary-menu" class="block block-menu">

@@ -85,8 +85,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
   
   <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Monday, September 19, 2016 - 09:39</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
-<ul><li><a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">Extending and altering Drupal</a></li>
-<li><a href="http://www.jpstacey.info/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions">Object-oriented programming conventions</a></li>
+<ul><li><a href="/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal.html">Extending and altering Drupal</a></li>
+<li><a href="/blog/2016-10-11/drupal-8-api-objected-oriented-programming-conventions.html">Object-oriented programming conventions</a></li>
 </ul><h2>How Drupal works out what content to serve on what URL</h2>
 <p>When Drupal is asked to return the content for a given URL, it is the job of <a href="https://www.drupal.org/developing/api/8/routing">routing</a> to work out which code should be asked to handle the URL; does the URL correspond to:</p>
 <ul><li>a path alias, for a known node? If so, route to the entity module, via node module.</li>
@@ -152,7 +152,7 @@ use Drupal\Core\Controller\ControllerBase<span class="sy0">;</span>
 <h2>Wiring up paths to routes</h2>
 <p>Now we've got class methods ready and waiting to handle our routes. We have all the elements in place to link path patterns with custom code.</p>
 <p>As discussed, each route needs to specify the path pattern and the location of the class method that will handle it. In addition, the route specification should provide both the page title (what will go in the &lt;h1&gt; and &lt;title&gt; tags in the HTML) and a description of permissions. In Drupal 8, permissions are a subset of "requirements": so you could demand not just "the site visitor must have this permission to see this route", but also "the site visitor must have this role", or merely "the site itself must have certain other modules enabled".</p>
-<p>Finally, the specification has a "machine name", which is the first line of each specification (the "top-level key" in YAML.) <a href="http://www.jpstacey.info/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal">We discussed these</a> when we were first creating a module, so let's try to standardize on route names of the form:</p>
+<p>Finally, the specification has a "machine name", which is the first line of each specification (the "top-level key" in YAML.) <a href="/blog/2016-09-13/drupal-8-api-extending-and-altering-drupal.html">We discussed these</a> when we were first creating a module, so let's try to standardize on route names of the form:</p>
 <div class="geshifilter">
 <pre class="text geshifilter-text" style="font-family:monospace;">[MODULE MACHINE NAME].[ROUTE NAME]</pre></div>
 <p>We can then say that all the route names within one module are "namespaced" by that module i.e. their machine names begin with the module's machine name. You might also want to try to make route name match the class and method names for the controller code, so that you can tell at a glance how they relate to each other.</p>
@@ -296,7 +296,7 @@ d8api.sub_page_with_parameter:
     <div style='display: none;'>    <h3><a href="../../comment/278.html#comment-278" class="permalink" rel="bookmark">Thanks again, Fred. As per</a></h3>
     </div>
     <div class="content">
-      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks again, Fred. As per <a href="http://www.jpstacey.info/comment/275#comment-275">your other comment</a>, some edits have been lost in translation to these blogposts. That should be fixed now.</p>
+      <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Thanks again, Fred. As per <a href="/comment/275#comment-275.html">your other comment</a>, some edits have been lost in translation to these blogposts. That should be fixed now.</p>
 <p>I'm not sure about a book—there's not much money in publishing these days, at least not for the authors!—although you'd be welcome to a feedback freebie! Regardless, at some point I might make the full (working) codebase for the d8api module available, so people can work around these small typos.</p>
 <p>What I don't want, though, is to have just basically re-created <a href="https://www.drupal.org/project/examples">the Examples module</a>. The focus does need to be on people writing this stuff for themselves, not looking up the answers in the back.</p>
 <p>Anyway, thanks again,<br />J-P</p>
@@ -330,7 +330,7 @@ d8api.sub_page_with_parameter:
     <h2>Drupal 8 API tutorials</h2>
   
   <div class="content">
-    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="/d8api.html">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
   </div>
 </div>
 <div id="block-stateblock-stateblock" class="block block-stateblock">
@@ -430,7 +430,7 @@ d8api.sub_page_with_parameter:
   
   <div class="content">
     <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
-<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="/blog/2013-08-20/what-jurisdiction-am-i-in.html">What is this?</a>)</small></p>
   </div>
 </div>
 <div id="block-menu-secondary-menu" class="block block-menu">

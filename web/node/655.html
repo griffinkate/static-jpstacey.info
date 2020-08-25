@@ -85,9 +85,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
   
   <div class="field field-name-post-date field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">Wednesday, October 26, 2016 - 09:37</div></div></div><div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Pre-requisites</h2>
-<ul><li><a href="http://www.jpstacey.info/category/tags/d8apiui">User interface</a></li>
-<li><a href="http://www.jpstacey.info/blog/2016-10-17/drupal-8-api-annotations">Annotations</a></li>
-<li><a href="http://www.jpstacey.info/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container">Services and the Dependency Injection Container</a></li>
+<ul><li><a href="/category/tags/d8apiui.html">User interface</a></li>
+<li><a href="/blog/2016-10-17/drupal-8-api-annotations.html">Annotations</a></li>
+<li><a href="/blog/2016-10-13/drupal-8-api-services-and-dependency-injection-container.html">Services and the Dependency Injection Container</a></li>
 </ul><h2>An entity is an object with an arbitrary list of properties, called fields</h2>
 <p>Entities have been in Drupal since 7, but in Drupal 8 they've become the <i>de facto</i> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>, for storing and manipulating data "lumps", where each lump is identifiable and separate from the others (although it might reference them), and can have some complexity of internal structure. A particular blogpost, or news item, is an entity; each user is an entity; each file uploaded to Drupal becomes both the raw uploaded file (e.g. a PDF) and also an entity in the database. Entities allow metadata to be recorded about non-entity resources external to the database, like files, and also give a lifecycle to both the data and any external resources: the data can be retrieved later, updated and ultimately deleted.</p>
 <p>Why did Drupal invent its own ORM, rather than using something like <a href="http://www.doctrine-project.org/">Doctrine</a>? After all, Drupal already uses Doctrine's annotations, as we've seen previously, and Doctrine invented these specifically to provide metadata to (m)ap between PHP (o)bjects and a (r)elational database (hence ORM.) Well, this highlights the key difference between Drupal entities and objects: in traditional ORMs, an object declared in code has a hardwired set of properties, which map to columns in the database; in Drupal, entities of a given <em>type</em> can have both a shared, hardwired set of fields, but also a configurable set of fields, and even subsets of fields configured through <em>bundles</em>. In addition, entities can have a kind of <em>fundamental type</em>, meaning they can either be storing configuration data, or content data.</p>
@@ -682,7 +682,7 @@ use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
     <h2>Drupal 8 API tutorials</h2>
   
   <div class="content">
-    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="http://www.jpstacey.info/d8api">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
+    <p>Want to learn about the Drupal 8 APIs, with worked examples? <a href="/d8api.html">Follow my series of tutorials</a>, covering routing, caching, entities, config and much more!</p>
   </div>
 </div>
 <div id="block-stateblock-stateblock" class="block block-stateblock">
@@ -782,7 +782,7 @@ use Drupal\Core\Form\FormStateInterface<span class="sy0">;</span>
   
   <div class="content">
     <p>I'm J-P Stacey, and I'm a freelance technical developer and software architect, working with <a href="http://drupal.org/">Drupal</a>, Javascript, Symfony, PHP and devops, with experience in project and process management and an emphasis on usability.</p>
-<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="http://www.jpstacey.info/blog/2013-08-20/what-jurisdiction-am-i-in">What is this?</a>)</small></p>
+<p>I live in the <a href="http://gov.uk">UK</a>; my website is self-hosted on <a href="http://bigv.io">bigv.io</a>; my email is hosted by <a href="http://mail.google.com">Google</a>, and that's also what I use to share files. <small>(<a href="https://data-jurisdiction.org/country/GB">More info</a>|<a href="/blog/2013-08-20/what-jurisdiction-am-i-in.html">What is this?</a>)</small></p>
   </div>
 </div>
 <div id="block-menu-secondary-menu" class="block block-menu">
